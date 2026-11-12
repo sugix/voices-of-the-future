@@ -24,7 +24,7 @@ Here is where I ended up:
 | Text written for a screen trips up every model | read as written, the models got between 11 and 15 of the 22 facts right (ticket, prices, times, phone number, spellings) |
 | A page of rules fixes nearly all of it | after rewriting each line the way a receptionist would say it, Pocket TTS and Kyutai TTS got 65 of 66 facts right over three reads each |
 | Speech needs surprisingly few bits | 8 of Mimi's 32 codebooks (1.1 kbit/s) kept word error rate at 3.8%, against 2.3% for the original recordings; a phone line spends 64 kbit/s |
-| How soon a model starts talking varies a hundredfold | Kokoro on a GPU 0.09 s, Pocket TTS on two CPU threads 0.19 s, Kyutai TTS 1.6B on an L4 0.96 s, CSM-1B 11 s |
+| How soon a model starts talking varies a hundredfold | Kokoro on a GPU 0.09 s, Pocket TTS on two CPU threads 0.19 s, Kyutai TTS 1.6B on an L4 0.96 s, CSM-1B on an L4 11 s |
 | Sampled models need guard rails | CSM-1B ran on past 20 s on 4 of its 48 clips and got 54 of 66 facts right |
 | The phone line costs synthetic speech almost nothing | over the simulated phone line, Pocket TTS and Kyutai TTS got all 66 facts right |
 
@@ -117,7 +117,7 @@ You don't need to read IPA to see the problems. In the ticket, `ˌAʧdˈʌbᵊlj
 
 Both token models split that work the same way. A large backbone transformer looks at the text and all the audio so far, once per frame; a small depth transformer then predicts that frame's 32 codes one after another. CSM-1B uses a 1B Llama backbone and a 100M depth decoder. Kyutai TTS 1.6B uses a 1B backbone and adds the idea from its paper, *delayed streams modelling* {cite}`zeghidour2025dsm`: text and audio are two time-aligned streams, and the audio runs 16 frames (1.28 s) behind the text, so the model always knows the next few words before it has to say them. Both models sample, so they read the same sentence a little differently every time, and both copy a voice from a few seconds of reference audio.
 
-**Continuous latents (Pocket TTS).** Pocket TTS keeps the backbone but drops the tokens {cite}`rouard2025calm`. Instead of choosing codes from a codebook, a small head generates the next frame of a continuous audio latent directly. There is no quantiser throwing information away and no 32-step depth loop per frame, which goes a long way to explaining how 100M parameters can sound this good on two CPU cores.
+**Continuous latents (Pocket TTS).** Pocket TTS keeps the backbone but drops the tokens {cite}`rouard2025calm`. Instead of choosing codes from a codebook, a small head generates the next frame of a continuous audio latent directly. There is no quantiser throwing information away and no 32-step depth loop per frame, which goes a long way to explaining how 100M parameters can sound this good on two CPU threads.
 
 ### How many bits does a voice need?
 
@@ -323,7 +323,7 @@ A receptionist's voice has to do three things: say the right thing, start quickl
 
 ### How soon does it start talking?
 
-Chapter 5 spent a whole chapter shaving tenths of a second off listening. Speaking has its own delay: the *time to first audio*, from handing over the text to the first sound coming out. A model that streams can start playing after its first chunk; one that doesn't makes the caller wait for the whole sentence. The other number is speed: how many seconds of audio it makes per second of work. Below 1, it can't keep up with itself.
+Chapter 5 spent a whole chapter on when to stop listening. Speaking has its own delay: the *time to first audio*, from handing over the text to the first sound coming out. A model that streams can start playing after its first chunk; one that doesn't makes the caller wait for the whole sentence. The other number is speed: how many seconds of audio it makes per second of work. Below 1, it can't keep up with itself.
 
 ```{code-cell} ipython3
 speed = []
@@ -351,7 +351,7 @@ plt.show()
 
 Four very different deals:
 
-- **Kokoro on a GPU** is effectively instant: 0.09 s to the first audio, 60 times faster than real time. On a CPU it is still 2.6 times real time, but it renders a whole sentence before you hear any of it, so the caller waits 1.7 s.
+- **Kokoro on a GPU** is effectively instant: 0.09 s to the first audio, 60 times faster than real time. On four CPU threads it is still 2.6 times real time, but it renders a whole sentence before you hear any of it, so the caller waits 1.7 s.
 - **Pocket TTS** streams, so on two CPU threads it started talking in 0.19 s, which matches Kyutai's own figure. For a receptionist without a GPU, that is the number to beat.
 - **Kyutai TTS 1.6B** took 0.96 s on the L4 through Kyutai's PyTorch script. Part of that is the 16-frame head start the text stream gets; the rest is a Python loop running one frame at a time. Kyutai reports 150 ms from its own optimised server {cite}`zeghidour2025dsm`. Measure the serving stack you will actually run, not the paper.
 - **CSM-1B through Hugging Face transformers** doesn't stream: `generate()` returns the whole clip, which took 11 s for a median line and ran at half real time. It can't hold a phone conversation run this way.

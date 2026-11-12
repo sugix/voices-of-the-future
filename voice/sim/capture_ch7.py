@@ -2,14 +2,14 @@
 
   python sim/capture_ch7.py --part fish1    # Fish Audio S1-mini: fixed emotion tags; voice cloned from p228
   python sim/capture_ch7.py --part fish2    # Fish Audio S2-Pro: free-form tags; voice cloned from p228
-  python sim/capture_ch7.py --part refs     # speaker ex04 in three moods, transcribed (NeMo venv)
+  python sim/capture_ch7.py --part refs     # speaker ex04 in three moods, transcribed (nemo stack)
   python sim/capture_ch7.py --part fish2ref # S2-Pro again, with those three references
   python sim/capture_ch7.py --part kyutai   # Kyutai TTS 1.6B: style comes from the reference voice (Expresso ex04)
   python sim/capture_ch7.py --part kokoro   # Kokoro-82M: speed, and phoneme overrides for names
   python sim/capture_ch7.py --part asr      # Parakeet-TDT transcribes every clip (are the tags read out loud?)
   python sim/capture_ch7.py --part judge    # pitch, speaking rate, an emotion classifier, speaker similarity
 
-Each part runs in its own venv. Run from voice_applications/ on a GPU pod.
+Each part runs in its own stack (tools/stack.sh). Run from the book's folder on a GPU.
 Writes data/ch7/synth_<part>.json, asr.json, judge.json and data/ch7/listen/.
 Generated audio goes to data/ch7/wav/ (gitignored, reproducible from this script).
 """
@@ -64,8 +64,11 @@ def write(part, name, audio, sr):
 
 
 def save(part, rows, meta):
+    """Write this model's clips over the saved ones, keeping any saved clip that wasn't rerun."""
     OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / f"synth_{part}.json").write_text(json.dumps({"meta": meta, "clips": rows}, indent=0))
+    path = OUT / f"synth_{part}.json"
+    old = json.loads(path.read_text())["clips"] if path.exists() else {}
+    path.write_text(json.dumps({"meta": meta, "clips": old | rows}, indent=0))
 
 
 def phone_ref():
@@ -143,7 +146,7 @@ def fish(part, code_dir, ckpt):
                                  "text": text, "sr": sr, "seconds": len(audio) / sr, "wall": wall,
                                  "wav": write(part, key, audio, sr)}
         print(key, round(len(audio) / sr, 2), "s in", round(wall, 2), flush=True)
-    save(part, rows, {"checkpoint": ckpt, "gpu_name": torch.cuda.get_device_name(0)})
+    save(part, rows, {"checkpoint": "fishaudio/s1-mini" if part == "fish1" else "fishaudio/s2-pro", "gpu_name": torch.cuda.get_device_name(0)})
 
 
 def kyutai():
@@ -335,8 +338,8 @@ def export_listen():
             x, sr = sf.read(ROOT / rows[key]["wav"], dtype="float32")
             sf.write(d / f"{key.replace('/', '_')}.wav", signal.resample_poly(x, 16000, sr).astype(np.float32), 16000,
                      subtype="PCM_16")
-    x, sr = sf.read(phone_ref() if not SCRATCH / "p228_phone_44k.wav".exists() else str(SCRATCH / "p228_phone_44k.wav"),
-                    dtype="float32")
+    p = SCRATCH / "p228_phone_44k.wav"
+    x, sr = sf.read(p if p.exists() else phone_ref(), dtype="float32")
     sf.write(d / "ref_p228_phone.wav", signal.resample_poly(x, 16000, sr).astype(np.float32), 16000, subtype="PCM_16")
 
 

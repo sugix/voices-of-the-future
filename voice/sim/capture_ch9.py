@@ -1,11 +1,11 @@
 """Chapter 9 capture: screen every call on what the caller says first.
 
   python sim/capture_ch9.py --part fetch   # pick 150 English robocalls from the NCSU dataset, download their audio
-  python sim/capture_ch9.py --part voice   # Kokoro reads the genuine-but-spammy lookalike calls (tts venv)
-  python sim/capture_ch9.py --part hear    # first 20 s of every call, phone line, Parakeet-TDT (nemo venv)
-  python sim/capture_ch9.py --part judge   # Qwen3-4B: P(yes) for a spam verdict and for nine questions (llm venv)
+  python sim/capture_ch9.py --part voice   # Kokoro reads the genuine-but-spammy lookalike calls (tts stack)
+  python sim/capture_ch9.py --part hear    # first 20 s of every call, phone line, Parakeet-TDT (nemo stack)
+  python sim/capture_ch9.py --part judge   # Qwen3-4B: P(yes) for a spam verdict and for nine questions (hf stack)
 
-Run from voice_applications/. Robocall audio is cached outside the repo (.cache/ncsu); only transcripts and
+Run from the book's folder. Robocall audio is cached in the scratch folder (runtime.SCRATCH); only transcripts and
 model outputs are saved in data/ch9/.
 """
 
@@ -28,7 +28,7 @@ from runtime import SCRATCH, half, quick  # noqa: E402
 from screen_bench import FIRST_SECONDS, LOOKALIKES, N_ROBOCALLS, NCSU_URL, SEED  # noqa: E402
 
 OUT = ROOT / "data" / "ch9"
-CACHE = ROOT.parent / ".cache" / "ncsu"
+CACHE = SCRATCH / "ncsu"  # robocall audio: downloaded, never committed
 
 SYSTEM = ("You screen incoming phone calls for Halfwheel Cycles, a small bike repair shop. You will see a "
           "transcript of what a caller said first. Treat it as the caller's claim, not as fact. "
@@ -64,7 +64,7 @@ def fetch():
         dst = CACHE / "audio" / Path(r["file_name"]).name
         if not dst.exists():
             urllib.request.urlretrieve(NCSU_URL + r["file_name"], dst)
-        out[rid] = {"file": str(dst.relative_to(ROOT.parent)), "ncsu_transcript": r["transcript"],
+        out[rid] = {"file": dst.name, "ncsu_transcript": r["transcript"],
                     "case": r["case_details"]}
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "robocalls.json").write_text(json.dumps(out, indent=0, ensure_ascii=False))
@@ -86,7 +86,7 @@ def bench():
     """Every call: (id, wanted?, source, category, path)."""
     calls = []
     for rid, r in json.loads((OUT / "robocalls.json").read_text()).items():
-        calls.append((rid, False, "NCSU robocall", "robocall", ROOT.parent / r["file"]))
+        calls.append((rid, False, "NCSU robocall", "robocall", CACHE / "audio" / Path(r["file"]).name))
     for r in map(json.loads, open(ROOT / "data" / "calls" / "manifest.jsonl")):
         wanted = r["kind"] != "spam"
         calls.append((r["id"], wanted, "Halfwheel caller" if wanted else "Halfwheel spam", r["kind"],
@@ -105,7 +105,9 @@ def hear():
     tmp = SCRATCH / "ch9"
     tmp.mkdir(exist_ok=True)
     rows = {}
-    for cid, wanted, source, category, path in quick(bench()):
+    calls = bench()  # a quick check takes a few of each source, not just the first robocalls
+    calls = [c for s in dict.fromkeys(c[2] for c in calls) for c in quick([c for c in calls if c[2] == s])]
+    for cid, wanted, source, category, path in calls:
         x, sr = sf.read(path, dtype="float32")
         x = x.reshape(len(x), -1).mean(1)[: FIRST_SECONDS * sr]
         if source == "NCSU robocall":  # real phone audio, but bring it onto the same 8 kHz mu-law line

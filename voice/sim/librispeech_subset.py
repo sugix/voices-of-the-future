@@ -10,7 +10,7 @@ Picks 40 utterances of 3 to 15 seconds from test-clean and 40 from test-other
   data/librispeech/phone/<id>.wav   8 kHz mu-law phone version   (gitignored)
   data/librispeech/manifest.jsonl   ids, splits, transcripts     (committed)
 
-Run on the pod. The two parquet files (about 680 MB, from the Hugging Face copy
+Run in the nemo stack. The two parquet files (about 680 MB, from the Hugging Face copy
 of LibriSpeech, which downloads far faster than openslr.org) go to a temporary folder.
 Needs pyarrow.
 """

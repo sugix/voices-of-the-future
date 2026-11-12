@@ -22,24 +22,24 @@ Here is where I ended up:
 | Phone audio is a stream of tiny packets | 8 kHz μ-law, base64 in JSON, typically 160 bytes every 20 ms each way |
 | Barge-in is one message | sending `clear` drops every buffered packet of the receptionist's reply |
 | A serving engine changes the economics | Qwen3-4B on vLLM wrote its first sentence in {glue:text}`fs1:.2f` s alone and {glue:text}`fs32:.2f` s with 32 requests at once, on one 20 GB GPU |
-| A call needs the model only a fraction of the time | about {glue:text}`duty:.0f`% of a call's turns are spent waiting on the language model |
+| A call needs the model only a fraction of the time | the language model is busy for about {glue:text}`duty:.0f`% of a call |
 | Speech recognition is nearly free | {glue:text}`asr_ms:.0f` ms of GPU per caller turn, in small batches |
-| Speaking is the first bottleneck | Pocket TTS held its 0.18 s start for 4 calls at once on this pod's CPU share, and halved its speed at 8 |
+| Speaking is the first bottleneck | Pocket TTS held its 0.18 s start for 4 calls at once on this pod's CPU share, and dropped to real time at 8 |
 | Telephony, not compute, sets the price | Call Gate pays about 2 cents a call, nearly all of it telephony; the GPU share per call-minute is a fraction of a cent |
 
 ```{note}
-The load tests come from `sim/capture_ch12.py`. They replay the real model requests from Chapter 8 against Qwen3-4B on vLLM, and time Parakeet, Kokoro and Pocket TTS under load, on one rented RTX 4000 Ada GPU (20 GB). They also ran on a 16 GB GPU in float16, but I haven't run vLLM on a T4 itself, which is an older generation that recent vLLM releases may not support. I haven't connected the receptionist to a live phone number in this chapter, because that needs your own telephony account; the protocol code below is the part that changes.
+The load tests come from `sim/capture_ch12.py`. They replay the real model requests from Chapter 8 against Qwen3-4B on vLLM, and time Parakeet, Kokoro and Pocket TTS under load, on one rented RTX 4000 Ada GPU (20 GB). Parakeet, Kokoro, Pocket TTS and Qwen3-4B also ran on a 16 GB GPU in float16; I haven't run vLLM on a T4, an older generation that recent vLLM releases may not support. I haven't connected the receptionist to a live phone number in this chapter, because that needs your own telephony account; the protocol code below is the part that changes.
 ```
 
 ## How a phone call reaches your code
 
 There are three common ways in:
 
-- **A programmable phone number with media streams.** Twilio and similar providers answer the call and open a WebSocket to your server, then send the caller's audio and play back whatever you send. This is the quickest start, and it's how Call Gate works.
+- **A programmable phone number with media streams.** Twilio and similar providers answer the call and open a WebSocket to your server, then send the caller's audio and play back whatever you send. This is the quickest start; Call Gate uses a programmable number too, though it screens recorded messages rather than streaming.
 - **A SIP trunk into your own media server.** The phone carrier hands the call to a SIP endpoint, such as LiveKit's SIP service, Asterisk or FreeSWITCH, that you run. More work, more control, and usually cheaper at volume.
 - **A meeting bot.** For calls that happen in Zoom or Google Meet, a bot service joins the meeting and streams each participant's audio. Kadence (Chapter 10) worked this way, which is how it got one audio track per person.
 
-The first is the easiest to show. Twilio's bidirectional media streams send JSON messages over the WebSocket: `connected`, then `start` with the call's details, then a steady flow of `media` messages, each carrying a few milliseconds of the caller's audio, then `stop` when the caller hangs up. The audio is exactly what Chapter 2 took apart: 8 kHz, μ-law, mono, one byte per sample, base64-encoded with no WAV header.
+The first is the easiest to show. Twilio's bidirectional media streams send JSON messages over the WebSocket: `connected`, then `start` with the call's details, then a steady flow of `media` messages, each carrying about 20 ms of the caller's audio, then `stop` when the caller hangs up. The audio is exactly what Chapter 2 took apart: 8 kHz, μ-law, mono, one byte per sample, base64-encoded with no WAV header.
 
 ```{code-cell} ipython3
 import base64
@@ -90,8 +90,9 @@ Here is that skeleton as a WebSocket handler. It's the part of the receptionist 
 
 ```python
 # A sketch of the Twilio side: one coroutine per call. Run it behind a public wss:// URL and point a
-# Twilio number's <Connect><Stream> at it. `Turn`, `respond` and `speak` wrap Chapters 5, 8 and 6.
-import base64, json
+# Twilio number's <Connect><Stream> at it. `Turn`, `respond` and `speak` wrap Chapters 5, 8 and 6;
+# `mulaw_decode` is Chapter 2's.
+import asyncio, base64, json
 from fastapi import FastAPI, WebSocket
 
 app = FastAPI()
@@ -99,28 +100,36 @@ app = FastAPI()
 @app.websocket("/media")
 async def media(ws: WebSocket):
     await ws.accept()
-    sid, turn, playing = None, Turn(), []          # Turn: Chapter 5's VAD, end of turn and barge-in
+    sid, turn = None, Turn()   # Turn: Chapter 5's VAD, end of turn and barge-in, with Parakeet (Chapter 4)
+    sent = heard = 0           # sentences sent to Twilio, and sentences the caller has heard (from marks)
+    reply = None               # the task writing the current reply
+
+    async def say(text):       # runs alongside the loop below, so the caller can interrupt it
+        nonlocal sent
+        async for sentence in respond(text):            # Chapter 8, streamed by sentence
+            for chunk in speak(sentence):                # Chapter 6: speakable() + TTS, 8 kHz mu-law
+                await ws.send_text(json.dumps({"event": "media", "streamSid": sid,
+                                               "media": {"payload": base64.b64encode(chunk).decode()}}))
+            sent += 1
+            await ws.send_text(json.dumps({"event": "mark", "streamSid": sid, "mark": {"name": str(sent)}}))
+
     async for raw in ws.iter_text():
         msg = json.loads(raw)
         if msg["event"] == "start":
             sid = msg["start"]["streamSid"]
         elif msg["event"] == "media":
             audio = mulaw_decode(base64.b64decode(msg["media"]["payload"]))
-            event = turn.feed(audio, receptionist_speaking=bool(playing))
+            speaking = (reply is not None and not reply.done()) or heard < sent
+            event = turn.feed(audio, receptionist_speaking=speaking)
             if event == "barge_in":
+                if reply:
+                    reply.cancel()                       # stop writing the rest of the reply
                 await ws.send_text(json.dumps({"event": "clear", "streamSid": sid}))
-                playing.clear()                     # the caller didn't hear the rest
+                heard = sent                             # what was queued will never be heard
             elif event == "end_of_turn":
-                async for sentence in respond(turn.text()):        # Chapter 8, streamed by sentence
-                    for chunk in speak(sentence):                   # Chapter 6: speakable() + TTS, 8 kHz mu-law
-                        payload = base64.b64encode(chunk).decode()
-                        await ws.send_text(json.dumps({"event": "media", "streamSid": sid,
-                                                       "media": {"payload": payload}}))
-                    playing.append(sentence)
-                    await ws.send_text(json.dumps({"event": "mark", "streamSid": sid,
-                                                   "mark": {"name": str(len(playing))}}))
+                reply = asyncio.create_task(say(turn.text()))
         elif msg["event"] == "mark":
-            heard_up_to = int(msg["mark"]["name"])    # the caller has now heard this many sentences
+            heard = max(heard, int(msg["mark"]["name"]))  # Twilio also returns pending marks after a clear
         elif msg["event"] == "stop":
             break
 ```
@@ -191,7 +200,7 @@ glue("fs32", float([r for r in rows if r[0] == 32][0][2]), display=False)
 glue("duty", float(100 * duty), display=False)
 ```
 
-The language model works for only a small fraction of each call. Even after allowing for bursts, with several callers finishing their turns at the same moment, one 20 GB GPU running vLLM has room for well over a hundred simultaneous calls on the language model alone. That's an estimate from replayed requests, not a test with real calls, so treat it as an upper bound to test against, not a promise.
+The language model works for only a small fraction of each call. Before allowing for bursts, the arithmetic gives one 20 GB GPU running vLLM room for well over a hundred simultaneous calls on the language model alone; leave headroom for several callers finishing their turns at the same moment. That's an estimate from replayed requests, not a test with real calls, so treat it as an upper bound to test against, not a promise.
 
 The other two models on the GPU need far less:
 
@@ -264,7 +273,7 @@ The companion notebook, `chapters/12-real-phone-line`, has the load-test results
 
 1. **Your own number.** With a Twilio trial account, point a number's `<Connect><Stream>` at the sketch above, behind a tunnel, and call it. Start with an echo: send each `media` payload straight back.
 2. **Measure barge-in.** Time from the caller starting to speak to your `clear` message, and from `clear` to silence on your phone.
-3. **Load test your own model.** Rerun `sim/capture_ch12.py --part llm` with Qwen3-8B. How many requests in flight before the first sentence passes one second?
+3. **Load test your own model.** Rerun `sim/capture_ch12.py --part llm` with Qwen3-8B (it needs more than 16 GB, and on a 20 GB card little is left for the KV cache). How many requests in flight before the first sentence passes one second?
 
 ## Next
 

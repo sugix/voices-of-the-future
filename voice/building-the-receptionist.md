@@ -24,9 +24,9 @@ Here is where I ended up:
 | A 4B model is the smallest that works | Qwen3 1.7B handled {glue}`small_ok` of 16 calls; 4B handled {glue}`main_ok`; 8B handled {glue}`big_ok`, no better than 4B |
 | Mishearing costs calls, mostly through names | with perfect transcripts the 4B model handled {glue}`text_ok` calls; through the phone and Parakeet, {glue}`main_ok` |
 | A rule in the prompt is a request | told to read back details and wait for a yes, the 4B model waited before {glue}`main_conf` of its {glue}`main_acts` bookings and messages |
-| A rule in code is a rule | when the tools hold every booking until the caller says yes, every action waited, and wrong bookings fell from {glue}`main_wrong` to {glue}`code_wrong` |
+| A rule in code is a rule | when the tools hold every booking until the caller says yes, every action waited, and wrong bookings and messages fell from {glue}`main_wrong` to {glue}`code_wrong` |
 | Names the recogniser can't hear still fail | Aoife and Siobhan were misheard even when spelled out; no setting fixed them |
-| The caller waits about two seconds | median {glue:text}`lat_stream:.1f` s from the end of their turn to the receptionist's first word, {glue:text}`lat_endpoint:.1f` s of it waiting to be sure they'd finished |
+| The caller waits about two and a half seconds | median {glue:text}`lat_stream:.1f` s from the end of their turn to the receptionist's first word, {glue:text}`lat_endpoint:.1f` s of it waiting to be sure they'd finished |
 
 ```{note}
 Every number here comes from saved logs, so the chapter runs on a CPU in seconds. The capture script, `sim/capture_ch8.py`, ran the callers, the recogniser and the language models on one rented L4 GPU. The receptionist itself is `sim/receptionist.py` and the bench is `sim/bench_calls.py`; this chapter shows their key parts. The companion notebook reruns everything on a free Colab T4 except the 8B model, which doesn't fit a T4's 16 GB in float16 and needs a larger GPU.
@@ -45,7 +45,7 @@ Each caller turn goes through the same steps, and each step is something an earl
 | Say it right | `speakable()` turns tickets, prices and times into words | Chapter 6 |
 | Speak | Pocket TTS on the CPU (Kokoro on a GPU) | Chapters 6 and 7 |
 
-The new part is the thinking. The model is Qwen3, which runs on a free T4 and was trained to call tools. It gets a short set of instructions, the conversation so far, and four tools that wrap the shop's records:
+The new part is the thinking. The model is Qwen3, whose 1.7B and 4B sizes run on a free T4, and which was trained to call tools. It gets a short set of instructions, the conversation so far, and four tools that wrap the shop's records:
 
 ```{literalinclude} sim/receptionist.py
 :pyobject: book_service
@@ -63,7 +63,7 @@ Two lines in that loop come from failures, not from planning. Small models somet
 
 ## A bench of callers who talk back
 
-A receptionist is only as good as the calls it's tested on, so I wrote sixteen of them. They cover status checks, bookings (including one for a Sunday, when the shop is shut), messages with phone numbers, prices, opening hours, a ticket that doesn't exist, a caller who changes their mind, a question the shop can't answer, and a request for a good pizza place. Kokoro reads every caller line in one of eight voices, and Chapter 2's phone line carries it.
+A receptionist is only as good as the calls it's tested on, so I wrote sixteen of them. They cover status checks, bookings (including one for a Sunday, when the shop is shut), messages with phone numbers, prices, opening hours, a ticket that doesn't exist, a caller who changes their mind, a question the shop can't answer, and a request for a good pizza place. Kokoro reads every caller line in one of nine voices, and Chapter 2's phone line carries it.
 
 Each call states what a good receptionist must do. Here is the booking from the opening:
 
@@ -230,7 +230,7 @@ The rule against making things up held better, but not perfectly. Asked where th
 show("4b-snap-guarded", "c15")
 ```
 
-There is no 123 Main Street. The shop is at 14 Mill Lane, and the tool would have said so. It's the same lesson. The prompt says only state what a tool gave you; the model, asked a question it can plausibly answer, answered.
+There is no 123 Main Street. The shop is at 14 Mill Lane, and the tool would have said so. My judge caught this only as a missing fact, because this call lists nothing as never-to-say; a `never` pattern like `Main Street` would flag it. It's the same lesson. The prompt says only state what a tool gave you; the model, asked a question it can plausibly answer, answered.
 
 ## A rule in code is a rule
 
@@ -261,7 +261,7 @@ show("4b-snap-code", "c04")
 
 Nothing wrong was saved, but nothing at all was saved either, and that's the other half of the story. The model did its own read-backs in words, got its "yes", and only then called `book_service`, which made a proposal and asked for a yes again. By then Aoife had said goodbye. With `twophase`, the models often failed the same way from the other side: they proposed, heard "yes", and proposed again instead of calling `confirm_action`. The more of the procedure the code owns, the less the model can get wrong. The best setting here, 8B with two-phase tools, handled {glue}`best_ok` of 16 calls.
 
-What no setting fixed is the names. Here is Siobhan Murphy with the best configuration:
+What no setting fixed is the names. Here is Siobhan Murphy with the 8B model and the guard in code:
 
 ```{code-cell} ipython3
 show("8b-snap-code", "c16")
@@ -338,7 +338,7 @@ Putting the chapter together, the receptionist that answers Halfwheel's phone is
 
 1. Chapter 5's listening: echo cancellation, Silero, a 1.2 s end of turn, barge-in.
 2. Chapter 4's hearing: Parakeet-TDT with light boosting, then snapping to the catalogue.
-3. Qwen3 4B, with the guarded instructions and the four tools, on any GPU with 10 GB or more. The 8B model handled a call or two more with the guard in code; it's worth it if the GPU has room and the extra half-second per turn is acceptable.
+3. Qwen3 4B, with the guarded instructions and the four tools, on any GPU with 10 GB or more. The 8B model handled one more call with the guard in code, and two more with two-phase tools; it's worth it if the GPU has room and the extra half-second per turn is acceptable.
 4. Bookings and messages are proposals. The loop saves them only when the caller says yes, and the tools check every detail.
 5. Chapter 6's `speakable()` and Pocket TTS, speaking each sentence as soon as it's written, with "One moment, let me check" while tools run.
 6. When a name won't come through after two corrections, take a message instead.

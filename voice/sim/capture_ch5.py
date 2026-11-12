@@ -1,9 +1,9 @@
 """Chapter 5 capture: streaming recognition, end-of-turn detection and barge-in.
 
-Run on a GPU pod from voice_applications/. Two parts, because the two toolkits want different venvs:
-  python sim/capture_ch5.py --part nemo     # NeMo venv (with silero-vad): Parakeet-TDT chunked streaming,
+Run on a GPU from the book's folder. Two parts, because the two toolkits want different stacks (tools/stack.sh):
+  python sim/capture_ch5.py --part nemo     # nemo stack (with silero-vad): Parakeet-TDT chunked streaming,
                                             # Parakeet realtime EOU 120M, Silero VAD
-  python sim/capture_ch5.py --part kyutai   # moshi venv: Kyutai STT 1B, with its end-of-turn heads
+  python sim/capture_ch5.py --part kyutai   # moshi stack: Kyutai STT 1B, with its end-of-turn heads
 Each part writes data/ch5/capture_<part>.json, saving after every model.
 
 Audio: Halfwheel's 30 phone calls and 80 LibriSpeech phone recordings (accuracy), plus
@@ -42,8 +42,10 @@ def files():
     for name, root in [("halfwheel", Path("data/calls")), ("librispeech", Path("data/librispeech"))]:
         for row in quick(map(json.loads, open(root / "manifest.jsonl"))):
             out.append((f"{name}/{row['id']}", root / "phone" / f"{row['id']}.wav"))
-    for row in quick(map(json.loads, open("data/ch5/manifest.jsonl"))):
-        out.append((f"{row['set']}/{row['id']}", Path("data/ch5") / row["set"] / f"{row['id']}.wav"))
+    rows = [json.loads(line) for line in open("data/ch5/manifest.jsonl")]
+    for s in dict.fromkeys(r["set"] for r in rows):  # a quick check takes a few of each set
+        for row in quick([r for r in rows if r["set"] == s]):
+            out.append((f"{row['set']}/{row['id']}", Path("data/ch5") / row["set"] / f"{row['id']}.wav"))
     return out
 
 
@@ -58,10 +60,11 @@ def save(path, data):
 
 # ---------------- NeMo part ----------------
 
-def nemo_part(out_path):
+def nemo_part(out_path, resume=False):
+    """Every NeMo measurement. With --resume, steps already in the saved file are skipped (for a run that stopped)."""
     import torch
     import nemo.collections.asr as nemo_asr
-    out = json.loads(out_path.read_text()) if out_path.exists() else {}
+    out = json.loads(out_path.read_text()) if resume and out_path.exists() else {}
     out["env"] = {"gpu": torch.cuda.get_device_name(0), "torch": torch.__version__, "python": platform.python_version()}
     TMP.mkdir(exist_ok=True)
     all_files = files()
@@ -250,6 +253,7 @@ def kyutai_part(out_path):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--part", choices=["nemo", "kyutai"], required=True)
+    ap.add_argument("--resume", action="store_true", help="nemo: keep steps already saved")
     a = ap.parse_args()
     p = Path(f"data/ch5/capture_{a.part}.json")
-    (nemo_part if a.part == "nemo" else kyutai_part)(p)
+    nemo_part(p, a.resume) if a.part == "nemo" else kyutai_part(p)

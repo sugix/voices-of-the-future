@@ -16,17 +16,17 @@ A phone call passes through the same layers in every voice agent, whatever the v
 | Layer | What it does | Halfwheel's choice | What I measured | Chapter |
 |---|---|---|---|---|
 | **Audio** | Carries the caller's voice as numbers | 8 kHz μ-law, read and resampled correctly | the wrong sample rate took WER from 5% to 46% | {doc}`audio-for-ml` |
-| **Hearing** | Turns sound into text | Parakeet-TDT, an open 0.6B transducer | decoders fail differently: CTC misspells, LLM decoders invent text over silence | {doc}`asr-decoders` |
+| **Hearing** | Turns sound into text | Parakeet-TDT, an open 0.6B transducer | decoders fail differently: every one misspelled rare names; LLM decoders can also write words nobody said | {doc}`asr-decoders` |
 | **Getting names right** | Fixes the words a business depends on | light boosting and snapping to the shop's records | 96% of names, bikes, tickets and phone numbers, 90x faster than real time | {doc}`choosing-asr` |
 | **Turn-taking** | Decides when the caller has finished, and handles interruptions | Silero VAD, a 1.2 s end-of-turn rule, echo cancellation | 3 of 16 hesitant callers cut off; interruptions caught in 0.06 s | {doc}`listening-live` |
 | **Speaking** | Turns the reply into a voice | `speakable()` text rules, then Pocket TTS on a CPU | 65 of 66 facts heard correctly; first audio in 0.19 s | {doc}`how-tts-works` |
 | **Delivery** | Makes it sound right for the moment | reference clips cast by kind of reply; phoneme fixes for names | the reference clip moved the voice; written tags barely did | {doc}`directing-a-voice` |
-| **Thinking and acting** | Understands the caller and does things | Qwen3-4B with four tools, bookings confirmed in code | 11 of 16 test calls handled; prompt rules ignored, code rules held | {doc}`building-the-receptionist` |
-| **Screening** | Keeps robocalls from wasting time, never blocks a customer | typed questions, a learned score, rules for what never to block | 1 genuine caller of 53 blocked, 100 of 155 real robocalls | {doc}`screening-calls` |
+| **Thinking and acting** | Understands the caller and does things | Qwen3-4B with four tools, bookings confirmed in code | 11 of 16 test calls handled; prompt rules mostly ignored, code rules held | {doc}`building-the-receptionist` |
+| **Screening** | Keeps robocalls from wasting time, never blocks a customer | nine yes/no questions, a learned score, rules for what never to block | 1 genuine caller of 53 blocked, 100 of 155 robocalls | {doc}`screening-calls` |
 | **Evaluation** | Says whether any of it works | per-layer benches, varied callers, rules and a model judge | 11 of 16 is anywhere from 44% to 86%; a vague model judge did worse than chance | {doc}`evaluating-voice-agents` |
-| **The phone line** | Connects it to real callers, at scale | media streams over WebSocket; vLLM for the model | one 20 GB GPU had room for well over a hundred simultaneous calls on the model | {doc}`real-phone-line` |
+| **The phone line** | Connects it to real callers, at scale | media streams over WebSocket; vLLM for the model | by estimate, one 20 GB GPU had room for well over a hundred simultaneous calls on the model | {doc}`real-phone-line` |
 
-Two things stand out from that table. First, most of the failures that matter are about **names and numbers**: a misheard ticket, a mispronounced surname, a booking under "Epha Bion" instead of Aoife Byrne. Second, the rules that held were **the ones in code**, not the ones in a prompt. Both themes come back in almost every chapter.
+Two things stand out from that table. First, most of the failures that matter are about **names and numbers**: a misheard bike model, a mispronounced surname, a booking under "Epha Bion" instead of Aoife Byrne. Second, the rules that held were **the ones in code**, not the ones in a prompt. Both themes come back in almost every chapter.
 
 ## Two ways to build it
 
@@ -49,11 +49,11 @@ Here is where a caller's wait goes after they stop talking, from {doc}`building-
 | The voice starts speaking | 0.5 s |
 | **First word to the caller** | **about 2.4 s**, or 2.1 s with "one moment" played during tool calls |
 
-People leave about 200 ms between turns. The biggest single cost is the receptionist making sure the caller has finished, and that's a trade against cutting them off ({doc}`listening-live`). Serving the model with a batching engine brings its part down to about a quarter of a second ({doc}`real-phone-line`).
+People leave about 200 ms between turns {cite}`stivers2009turntaking`. The biggest single cost is the receptionist making sure the caller has finished, and that's a trade against cutting them off ({doc}`listening-live`). Serving the model with a batching engine brings its part down to about a quarter of a second ({doc}`real-phone-line`).
 
 ## What it costs
 
-Compute is the cheap part. One GPU at well under a dollar an hour can serve many simultaneous calls, because each call needs the language model only about a seventh of the time. The bills that matter are telephony, which is most of the 2 cents per call my own robocall screen pays, and hardware left running when nobody calls. {doc}`real-phone-line` has the numbers.
+Compute is the cheap part. One GPU at well under a dollar an hour can serve many simultaneous calls, because each call needs the language model only about a seventh of the time. The bills that matter are telephony, which is most of the 2 cents per call my own robocall screen, Call Gate, pays, and hardware left running when nobody calls. {doc}`real-phone-line` has the numbers.
 
 ## What runs where
 
@@ -61,7 +61,7 @@ Every chapter runs on a laptop CPU from saved results in seconds, and its compan
 
 - **Speech recognition:** Parakeet-TDT 0.6B, with Whisper, Qwen3-ASR and Kyutai STT for comparison.
 - **Voices:** Kokoro-82M and Kyutai's Pocket TTS on a CPU; Kyutai TTS, Sesame's CSM and Fish Audio's models on a GPU.
-- **Language models:** Qwen3 4B, with 1.7B and 8B for comparison.
+- **Language models:** Qwen3-4B, with Qwen3-1.7B and Qwen3-8B for comparison.
 - **Speech-to-speech:** Moshi, which needs a 24 GB GPU such as an L4.
 
 The callers are a mix. Halfwheel's customers are synthetic voices put through a simulated phone line, so every word and every pause is known exactly. The real-speech checks use LibriSpeech recordings, and the robocalls are real ones the US Federal Trade Commission published. Where synthetic and real speech behave differently, and they do, the chapters say so.
@@ -74,13 +74,13 @@ The chapters build on each other, but you don't have to read them in order:
 - **An ML engineer choosing models?** {doc}`asr-decoders`, {doc}`choosing-asr`, {doc}`how-tts-works` and {doc}`speech-to-speech` compare the options on the same calls.
 - **Shipping a voice product?** {doc}`listening-live`, {doc}`building-the-receptionist`, {doc}`screening-calls`, {doc}`evaluating-voice-agents` and {doc}`real-phone-line` cover what goes wrong in production and how to catch it.
 
-Every chapter opens with a Halfwheel call, puts its findings up front, ends with a table of symptoms and fixes, takeaways and exercises, and hands on to the next. The appendix collects every symptom-and-fix table in one place.
+Every chapter opens with a Halfwheel call, puts its findings up front, ends with a table of symptoms and fixes, takeaways and exercises, and hands on to the next. The {doc}`field-guide` collects every symptom-and-fix table in one place.
 
 ```{tip}
 **Takeaways**
-- A voice agent is a stack: audio, hearing, turn-taking, thinking, speaking, screening, evaluation and the phone line. Each layer fails in its own way, and needs its own measurement.
+- A voice agent is a stack: audio, hearing, turn-taking, speaking, thinking, screening, evaluation and the phone line. Each layer fails in its own way, and needs its own measurement.
 - The failures that matter most are names, numbers and actions. Fix them with the business's own records and with rules in code.
-- A chain of models with text in the middle is still the right shape when the job is taking actions; speech-to-speech models are catching up on timing and tone.
+- A chain of models with text in the middle is still the right shape when the job is taking actions; speech-to-speech models are already strong on turn-taking and tone.
 - The caller's wait is mostly the end-of-turn decision. Compute is cheap; telephony and idle hardware are not.
 ```
 

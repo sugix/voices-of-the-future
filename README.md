@@ -10,7 +10,7 @@ book about building with modern voice AI models. Across the book you build one p
    bottom: it reproduces every table and figure in the chapter from the saved model outputs, in seconds.
 2. **Rerun the models (a GPU).** The cells at the end of each notebook rerun the models that produced those results.
    Each step builds its own Python environment with `uv` the first time, so libraries with conflicting versions
-   never meet. Set `VOTF_QUICK=2` for a quick check first.
+   never meet. Run the quick check first: it works on a scratch copy and leaves the saved results alone.
 
 In Google Colab, open a notebook from this repository and choose Runtime, then Change runtime type, then T4 GPU
 for the rerun cells.

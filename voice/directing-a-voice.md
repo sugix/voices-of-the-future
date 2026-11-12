@@ -29,11 +29,11 @@ Here is where I ended up:
 
 | Finding | Number |
 |---|---|
-| Speed controls work exactly | Kokoro's `speed` took the same read-back from 2.5 to 4.1 words a second, in step with the setting |
+| Speed controls work | Kokoro's `speed` took the same read-back from 2.5 to 4.1 words a second, in step with the setting |
 | Written stage directions mostly don't | Fish S2-Pro's `[slowly and clearly]` came out *faster* than no tag; S1-mini's `(in a hurry tone)` came out slower |
-| The reference clip sets the delivery | cloned from a sad recording, Fish S2-Pro's apology sat at 205 Hz with a 3.1-semitone range; from a neutral one, 238 Hz and 7.7 semitones. The tag moved it far less |
+| The reference clip sets the delivery | cloned from a sad recording, Fish S2-Pro's apology sat at 205 Hz with a 3.1-semitone range; from a neutral one, 238 Hz and 7.7 semitones. The tag moved it less |
 | Kyutai's "styles" are reference voices too | its sad-sympathetic voice read the apology 54 Hz lower than the default; its enunciated voice read the ticket 31% slower |
-| Names need spelling help | "Domane" came out as "domain" from every model; respelling it or giving Kokoro phonemes fixed it |
+| Names need spelling help | "Domane" came out as "domain" from every model; respelling it or giving Kokoro phonemes fixed it for every model except Fish S1-mini |
 | A clone copies the recording, not just the voice | cloned from a phone-line recording, Fish's output kept 0.02% of its energy above 4 kHz, against 0.75% from a clean one |
 
 ```{note}
@@ -120,7 +120,7 @@ for k in ["kokoro_readback_plain_clean_0", "kokoro_readback_directed_clean_0"]:
     play(k)
 ```
 
-Speaking rate tracked the setting almost exactly: 2.5 words a second at 0.7, 4.1 at 1.3. Kokoro predicts a duration for every phoneme, and `speed` simply scales those durations, so this is as precise as a control gets. At 0.8 the read-back takes 6.8 s instead of 5.5 s, and every digit has room. I also tried the trick people reach for first, adding commas ("one, oh, four, two"): Kokoro paused no longer than before.
+Speaking rate tracked the setting closely: 2.5 words a second at 0.7, 4.1 at 1.3. Kokoro predicts a duration for every phoneme, and `speed` simply scales those durations, so this is as precise as a control gets. At 0.8 the read-back takes 6.8 s instead of 5.5 s, and every digit has room. I also tried the trick people reach for first, adding commas ("one, oh, four, two"): Kokoro paused no longer than before.
 
 Now the same request in words, to the models that take written direction:
 
@@ -192,12 +192,12 @@ for name in ["fish2ref_sorry_plain_ex04_happy_0", "fish2ref_sorry_plain_ex04_sad
     play(name)
 ```
 
-The reference decided the delivery. From the sad recording, S2-Pro's apology dropped to about 205 Hz and nearly flat (about 3 semitones of movement), which is how people sound when they are sorry. From the neutral and happy recordings, it stayed at 240 to 260 Hz with twice the movement. Adding `[sincerely apologetic, quietly]` moved each of these by less than the gap between references, and with the neutral reference it moved the pitch *up*. Kyutai showed the same thing: swapping ex04's default voice for her sad-sympathetic one lowered the apology by 54 Hz.
+The reference decided the delivery. From the sad recording, S2-Pro's apology dropped to about 205 Hz and nearly flat (about 3 semitones of movement), which is how people sound when they are sorry. From the neutral and happy recordings, it stayed at 240 to 260 Hz with twice the movement. Adding `[sincerely apologetic, quietly]` moved each of these by less than the gap between references, and with the neutral and happy references it moved the pitch *up* (by 25 Hz with the neutral one). Kyutai showed the same thing: swapping ex04's default voice for her sad-sympathetic one lowered the apology by 54 Hz.
 
 This changes how you direct a voice. With a cloning model, **you don't direct the reading, you cast it**. Record, or choose, a reference clip for each delivery you need, in the voice you want: a warm one for good news, a quiet, slow one for apologies, a clear, measured one for read-backs. Then pick the clip per reply. The tags are worth a try on top, but the clip does the work.
 
 ```{warning}
-I also ran an off-the-shelf emotion classifier (wav2vec2 trained on IEMOCAP's four acted emotions) over every clip. It was no help: it almost never said "sad", even for the sad-reference apologies, and it heard "happy" most strongly in good news cloned from the *sad* recording. Classifiers trained on acted speech don't transfer to synthetic voices. Pitch, range and pace, plus your own ears, were more trustworthy judges.
+I also ran an off-the-shelf emotion classifier (wav2vec2 trained on IEMOCAP's four acted emotions) over every clip. It was no help: it almost never said "sad", even for the sad-reference apologies, and it heard "happy" most strongly in S2-Pro's good news cloned from the *sad* recording. Classifiers trained on acted speech don't transfer to synthetic voices. Pitch, range and pace, plus your own ears, were more trustworthy judges.
 ```
 
 ## Saying names right
@@ -222,7 +222,7 @@ for v in ["spelled", "phonemes"]:
 
 These are Parakeet's transcripts, so read them as "what a listener heard" rather than as scores; no recogniser spells Aoife the way the sound goes. Even so, the pattern is clear:
 
-- **"Domane" came out as "domain" from every model.** With help it became "Domani", "Demani" or "dominie": the stress moved to where it belongs.
+- **"Domane" came out as "domain" from every model.** With help it became "Domani", "Demani" or "dominie" (S1-mini's "d'Au Mani" was worse): the stress moved to where it belongs.
 - **Kokoro's phonemes are exact.** The phonemes it spoke are the ones I gave it, character for character, so a lexicon of overrides is fully predictable.
 - **Respelling works, but it is a guess.** Fish S1-mini turned "Shiv-awn" into "Chivon", which is right, but S2-Pro split it into "Shiva On". Hyphens and capitals are hints, not rules. Listen to every respelling once before it goes into the lexicon.
 - **Some names were already fine.** Kokoro, Kyutai and S2-Pro all said Siobhan correctly as written, and Kokoro knew Aoife. Check before you fix.
@@ -246,7 +246,7 @@ print("S2-Pro cloned from it:")
 play("fish2_good_plain_phone_0")
 ```
 
-Both Fish models reproduced the phone line along with the voice. Cloned from the clean clip, about 0.75% of the energy of their speech was above 4 kHz, the range that carries "s", "f" and "th". Cloned from the phone recording, it was 0.01 to 0.02%: effectively none. The model can't know which parts of the reference were the speaker and which were the line, so it copies both. The speaker-similarity score (cosine similarity of WavLM speaker embeddings, where Kokoro's unrelated voice still scores about 0.88) barely moved, which is a reminder that "sounds like the same person" and "sounds good" are different measurements. If you clone, record the reference properly: quiet room, decent microphone, a sentence or two in each delivery you need.
+Both Fish models reproduced the phone line along with the voice. Cloned from the clean clip, about 0.75% of the energy of their speech was above 4 kHz, the range that carries "s", "f" and "th". Cloned from the phone recording, it was 0.01 to 0.02%: effectively none. The model can't know which parts of the reference were the speaker and which were the line, so it copies both. The speaker-similarity score (cosine similarity of WavLM speaker embeddings, where Kokoro's unrelated voice still scores about 0.9) barely moved, which is a reminder that "sounds like the same person" and "sounds good" are different measurements. If you clone, record the reference properly: quiet room, decent microphone, a sentence or two in each delivery you need.
 
 How fast are they? Run through Fish's reference engine without compilation, S1-mini made audio at half real time on the 4090 and S2-Pro at a fifth. Fish reports S2-Pro at about five times faster than real time on an H200 with its SGLang-based streaming engine. For a live phone call, serve it the way Fish does, or use it to pre-render the receptionist's stock phrases.
 

@@ -1,10 +1,10 @@
 """Chapter 10 capture: models that take speech in and give speech out.
 
-  python sim/capture_ch10.py --part moshi   # Moshi answers Halfwheel's callers, full duplex (kyutai venv)
-  python sim/capture_ch10.py --part refs    # Expresso speaker ex01 calm and angry, transcribed (nemo venv)
-  python sim/capture_ch10.py --part csm     # CSM reads one reply after a calm and after an angry caller (csm venv)
+  python sim/capture_ch10.py --part moshi   # Moshi answers Halfwheel's callers, full duplex (moshi stack)
+  python sim/capture_ch10.py --part refs    # Expresso speaker ex01 calm and angry, transcribed (nemo stack)
+  python sim/capture_ch10.py --part csm     # CSM reads one reply after a calm and after an angry caller (hf stack)
 
-Run from voice_applications/ on a GPU pod. Writes data/ch10/moshi.json, csm.json and data/ch10/listen/.
+Run from the book's folder on a GPU. Writes data/ch10/moshi.json and csm.json.
 """
 
 import argparse
@@ -83,7 +83,7 @@ def moshi():
         y = np.concatenate(audio[0])
         sf.write(OUT / "wav" / f"moshi_{cid}.wav", np.stack([x[:len(y)], y], 1), 24000, subtype="PCM_16")
         print(cid, round(wall, 1), "s |", rows[cid]["samples"][0]["text"][:100], flush=True)
-    (OUT / "moshi.json").write_text(json.dumps({"model": "kyutai/moshiko-pytorch-bf16", "lead": LEAD,
+    (OUT / "moshi.json").write_text(json.dumps({"model": os.environ.get("MOSHI_REPO", "kyutai/moshiko-pytorch-bf16"), "lead": LEAD,
                                                 "frame_s": frame / 24000, "calls": rows}, indent=0,
                                                ensure_ascii=False))
 

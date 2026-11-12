@@ -21,7 +21,7 @@ Here is where I ended up:
 
 | Finding | Number |
 |---|---|
-| A word list catches most robocalls, and blocks the wrong customers | {glue}`kw_hits` of {glue}`n_unwanted` robocalls caught, and {glue}`kw_false` of {glue}`n_wanted` genuine callers blocked: the supplier, the bank and the angry customer |
+| A word list catches most robocalls, and blocks genuine callers | {glue}`kw_hits` of {glue}`n_unwanted` robocalls caught, and {glue}`kw_false` of {glue}`n_wanted` genuine callers blocked: the supplier, the bank and the angry customer |
 | Asking a model "is this spam?" is good but brittle | Qwen3-4B separates the two with AUC {glue:text}`v_auc:.3f`, but waved through {glue}`v_miss` robocalls with near-total confidence |
 | Specific questions are as good, and show their working | nine yes/no questions and a small learned score: AUC {glue:text}`q_auc:.3f` on calls it hadn't seen, with weights you can read |
 | The policy matters more than the score | a real bank fraud alert looks exactly like a scam; with rules for what never to block, {glue}`pol_false` genuine caller was blocked (a sales rep) and {glue}`pol_block` of {glue}`n_unwanted` robocalls were |
@@ -101,7 +101,7 @@ for t in [0.5, 0.9]:
     print(f"block when P(yes) >= {t}: robocalls caught {np.sum((verdict >= t) & unwanted)} of {unwanted.sum()}, "
           f"genuine callers blocked {np.sum((verdict >= t) & ~unwanted)} of {(~unwanted).sum()}")
 print("\nrobocalls the model was surest were fine:")
-for i in sorted([i for i in ids if not heard[i]["wanted"]], key=lambda i: judged["calls"][i]["verdict"])[:4]:
+for i in sorted([i for i in ids if not heard[i]["wanted"]], key=lambda i: judged["calls"][i]["verdict"])[:6]:
     print(f"   P(yes)={judged['calls'][i]['verdict']:.3f}  {heard[i]['heard'][:110]}")
 print("\ngenuine callers it was surest were spam:")
 for i in sorted([i for i in ids if heard[i]["wanted"]], key=lambda i: -judged["calls"][i]["verdict"])[:2]:
@@ -152,7 +152,7 @@ for t in [0.5, 0.9]:
           f"genuine callers blocked {np.sum((score >= t) & ~unwanted)} of {(~unwanted).sum()}", end="")
 ```
 
-The weights are readable, which a single verdict never is: the score leans on "asks you to press a key", "sounds recorded" and "claims to be an institution", and against "about bikes". On raw separation, the questions with a learned score did about as well as the single verdict, not better. At the same threshold they caught more robocalls but blocked one more genuine caller. What the questions buy is not a better number. It's evidence you can read, and handles for the rules that come next.
+The weights are readable, which a single verdict never is: the score leans on "asks you to press a key", "sounds recorded" and "claims to be an institution", and against "about bikes". On raw separation, the questions with a learned score did about as well as the single verdict, not better. At a threshold of 0.9 they caught more robocalls but blocked one more genuine caller; at 0.5, four more. What the questions buy is not a better number. It's evidence you can read, and handles for the rules that come next.
 
 ## Robocalls repeat themselves
 
@@ -192,9 +192,9 @@ print(heard["l03"]["heard"], "\n")
 print({q: round(float(X[k, j]), 2) for j, q in enumerate(QUESTIONS)})
 ```
 
-On the evidence, it's a robocall. It's an automated message, it names an institution, and it asks the listener to call a number. Real banks really do call like this. No question about the words can tell this call from the "pre-authorized order" scam, so no score built on them can either. The answer is a rule: a call that claims to be a bank, a government or a large company is never blocked. It goes to a person as a message, flagged as a possible impersonation, and the person checks it by calling the institution back on a number they already know.
+On the evidence, it's a robocall. It's an automated message, it names an institution, and it asks the listener to call a number. Real banks really do call like this. No question about the words can tell this call from the "pre-authorized order" scam, so no score built on them can either. The answer is a rule: a call that claims to be a bank, a government or a large company is never blocked on its score. It goes to a person as a message, flagged as a possible impersonation, and the person checks it by calling the institution back on a number they already know.
 
-So the rules about what *never* to block come first, the memory of known scams next, and the score decides only what's left:
+So the shop's own business comes first, the memory of known scams next, then claims to be an institution, and the score decides only what's left:
 
 ```{code-cell} ipython3
 A = {q: X[:, j] for j, q in enumerate(QUESTIONS)}
@@ -241,7 +241,7 @@ glue("camp_rep", int(sum(repeats[i] for i in robo)), display=False)
 glue("q_ms", 1000 * float(np.median([judged["calls"][i]["questions_s"] for i in ids])), display=False)
 ```
 
-Three outcomes, not two. Calls about the shop's business are always answered. Known scam scripts are always blocked. Calls naming an institution, and calls the score isn't sure about, become messages for a person, who can delete a junk message in two seconds. A blocked customer never calls back. The cost of this caution is the {glue}`pol_msg` robocalls that end up as messages rather than being blocked outright. That's a price a small shop can pay, and it falls as campaign memory learns. A handful of robocalls get a normal answer, because the questions took them for genuine callers; Chapter 8's receptionist then spends a minute on them and hangs up when they don't answer its questions. The one genuine call still blocked is the saddle rep's sales visit. My bench counts it as wanted, the score doesn't, and a shop could reasonably side with either.
+Three outcomes, not two. Calls about the shop's business are always answered. Known scam scripts are always blocked. Calls naming an institution, and calls the score isn't sure about, become messages for a person, who can delete a junk message in two seconds. A blocked customer never calls back. The cost of this caution is the {glue}`pol_msg` robocalls that end up as messages rather than being blocked outright. Four genuine callers become messages too: the bank, the council, the landlord and, less happily, a customer asking where the shop is and where to park, whom the questions didn't recognise as being about the shop. That's a price a small shop can pay, and it falls as campaign memory learns. A handful of robocalls get a normal answer, because the questions took them for genuine callers; Chapter 8's receptionist then spends a minute on them and hangs up when they don't answer its questions. The one genuine call still blocked is the saddle rep's sales visit. My bench counts it as wanted, the score doesn't, and a shop could reasonably side with either.
 
 ## Case study: Call Gate
 
@@ -266,12 +266,12 @@ Over its first four weeks live, from October 16 to November 11, 2026, Call Gate 
 | Dead air, ignored | 2 |
 | Decided by campaign memory: a script I'd already labelled as a scam | 44 |
 | Matched a junk campaign | 1 |
-| Delivered under the protected-sector rule (bank, lender, healthcare) | 5 |
+| Delivered under the protected-sector rule (bank, lender, healthcare, education) | 5 |
 | Score unsure, delivered for review | 4 |
 | Would have been held back, if enforcement had been on | 45 |
 | Actually held back | 0 (shadow mode the whole time) |
 
-The digit challenge did exactly what it was built for. From Twilio's own call logs: after go-live, 55 calls from toll-free numbers reached the challenge, and not one pressed a key, right or wrong. Fifty-four stayed silent through it (52 of them leaving a recorded message, which is what the table above counts) and one hung up. Over the same weeks, 97 calls from ordinary numbers rang straight through to my phone without meeting the gate at all, so the screen only ever touched about a third of my calls. A recording can't press a digit it wasn't told in advance, and a person who rings from an ordinary number never has to.
+The digit challenge did exactly what it was built for. From Twilio's own call logs: after go-live, 55 calls from toll-free numbers reached the challenge, and not one pressed a key, right or wrong. Fifty-four stayed silent through it (52 of them leaving a recorded message; the table above also counts 4 messages from the days just before go-live) and one hung up. Over the same weeks, 97 calls from ordinary numbers rang straight through to my phone without meeting the gate at all, so the screen only ever touched about a third of my calls. A recording can't press a digit it wasn't told in advance, and a person who rings from an ordinary number never has to.
 
 Three more things stand out, and all three echo this chapter's bench.
 
@@ -290,9 +290,9 @@ Putting the chapter together, the receptionist screens like this:
 1. Answer as normal. Screening runs on the caller's first turn, the same transcript the receptionist already has.
 2. Ask the nine questions in one batch, about half a second on a GPU, while the language model writes its reply.
 3. About the shop or its business: answer, however it sounds.
-4. Claims to be a bank, a government or a big company: "I'll take a message and someone will call you back," flagged for a person.
-5. A high score: a polite "Sorry, we don't take these calls" and hang up. In between: take a message.
-6. Known scam scripts, matched by campaign memory: hang up straight away.
+4. Known scam scripts, matched by campaign memory: hang up straight away.
+5. Claims to be a bank, a government or a big company: "I'll take a message and someone will call you back," flagged for a person.
+6. A high score: a polite "Sorry, we don't take these calls" and hang up. In between: take a message.
 7. Run all of it in shadow mode first, logging what it would have done, and switch it on only when the log looks right.
 
 ## When it breaks

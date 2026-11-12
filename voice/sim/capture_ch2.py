@@ -1,7 +1,7 @@
 """Chapter 2 capture: what common audio-handling mistakes cost a real model, plus a VAD bench.
 
-Run on the pod from voice_applications/, in the models venv (CPU is fine):
-  HF_HOME=/workspace/authorship-voice/.hf python sim/capture_ch2.py [--skip-asr]
+Run from the book's folder, in the nemo stack (tools/stack.sh; a CPU is fine):
+  python sim/capture_ch2.py [--skip-asr]
 Writes:
   data/ch2/c01_status_24k.wav  one clean call, so the chapter can show the full-band original
   data/ch2/vad_stream.wav      eight calls separated by non-speech gaps, as a phone line delivers them

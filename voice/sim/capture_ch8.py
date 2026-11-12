@@ -1,9 +1,9 @@
 """Chapter 8 capture: the whole receptionist, run over sixteen calls.
 
-  python sim/capture_ch8.py --part voice   # Kokoro reads every caller line; Chapter 2's phone line (tts venv)
-  python sim/capture_ch8.py --part hear    # Silero end of turn (Ch 5) + Parakeet-TDT, boosted (Ch 4) (nemo venv)
-  python sim/capture_ch8.py --part talk    # Qwen3 receptionists answer every call, with tools (llm venv)
-  python sim/capture_ch8.py --part speak   # Pocket TTS and Kokoro: time to the first audio of each reply (tts venv)
+  python sim/capture_ch8.py --part voice   # Kokoro reads every caller line; Chapter 2's phone line (tts stack)
+  python sim/capture_ch8.py --part hear    # Silero end of turn (Ch 5) + Parakeet-TDT, boosted (Ch 4) (nemo stack)
+  python sim/capture_ch8.py --part talk    # Qwen3 receptionists answer every call, with tools (hf stack)
+  python sim/capture_ch8.py --part speak   # Pocket TTS and Kokoro: time to the first audio of each reply (tts stack)
 
 Run from voice_applications/. Writes data/ch8/calls/*.wav (8 kHz mu-law), hear.json, talk_<config>.json, speak.json.
 """

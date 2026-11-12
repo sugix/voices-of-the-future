@@ -4,7 +4,7 @@
   python sim/aec_ch5.py --apply   # cancel echo in every barge-in clip, then run Silero VAD on the result
 
 --apply uses the chapter's own cancel_echo(), read from barge-in cell in listening-live.md,
-so the book and this script cannot drift apart. Run in the models venv from voice_applications/.
+so the book and this script cannot drift apart. Run from the book's folder: --synth in the tts stack, --apply in the nemo stack (tools/stack.sh).
 Writes data/ch5/prompts/p<n>.wav (8 kHz) and data/ch5/capture_aec.json.
 """
 
@@ -43,9 +43,7 @@ def apply():
     exec(cell.split("# --- demo")[0], ns)
     vad = load_silero_vad()
     res = {}
-    for row in quick(map(json.loads, open(OUT / "manifest.jsonl"))):
-        if row["set"] != "bargein":
-            continue
+    for row in quick([r for r in map(json.loads, open(OUT / "manifest.jsonl")) if r["set"] == "bargein"]):
         mic, sr = sf.read(OUT / "bargein" / f"{row['id']}.wav", dtype="float32")
         ref = ns["reference_for"](row, len(mic))
         clean = ns["cancel_echo"](mic, ref).astype(np.float32)

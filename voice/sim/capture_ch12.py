@@ -1,11 +1,11 @@
 """Chapter 12 capture: how many calls one GPU can carry.
 
-  python sim/capture_ch12.py --part replay  # rebuild every model request Chapter 8's receptionist made (any venv)
-  python sim/capture_ch12.py --part llm     # Qwen3-4B on vLLM: those requests at 1 to 64 in flight (vllm venv)
-  python sim/capture_ch12.py --part asr     # Parakeet-TDT throughput by batch size (nemo venv)
-  python sim/capture_ch12.py --part tts     # Kokoro on the GPU and Pocket TTS on CPU processes, under load (tts venv)
+  python sim/capture_ch12.py --part replay  # rebuild every model request Chapter 8's receptionist made (any stack)
+  python sim/capture_ch12.py --part llm     # Qwen3-4B on vLLM: those requests at 1 to 64 in flight (vllm stack)
+  python sim/capture_ch12.py --part asr     # Parakeet-TDT throughput by batch size (nemo stack)
+  python sim/capture_ch12.py --part tts     # Kokoro on the GPU and Pocket TTS on CPU processes, under load (tts stack)
 
-Run from voice_applications/ on a GPU pod. Writes data/ch12/*.json.
+Run from the book's folder on a GPU. Writes data/ch12/*.json.
 """
 
 import argparse
@@ -120,8 +120,10 @@ def llm():
             out.append(r)
         return out
 
-    results = asyncio.run(main())
-    server.terminate()
+    try:
+        results = asyncio.run(main())
+    finally:
+        server.terminate()  # never leave a server holding the GPU and port 8000
     (OUT / "llm_load.json").write_text(json.dumps({"model": MODEL, "server": "vLLM", "levels": results}, indent=0))
 
 

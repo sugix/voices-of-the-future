@@ -7,7 +7,7 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-date: "2026-11-30"  # quoted: myst-nb stores front matter as JSON
+date: "2026-11-16"  # quoted: myst-nb stores front matter as JSON
 description: What a phone call looks like to a speech model, built from scratch on one Halfwheel call, and what common audio mistakes really cost.
 ---
 
@@ -21,16 +21,16 @@ Here is what I found:
 
 | Finding | Number |
 |---|---|
-| A phone call is small | 64 kbit/s, six times less data than the clean recording |
+| A phone call is small | 64 kbit/s, a sixth of the data in the clean recording |
 | The phone line drops everything above 3.4 kHz | only 7% of the energy, but most of it in 25 of 173 frames: the *s*, *f* and *ch* sounds |
 | Downsampling by keeping every third sample invents sounds | a 5 kHz tone reappears at 3 kHz at full strength; a proper resampler leaves it at -57 dB |
 | μ-law is why 8 bits are enough | quiet speech keeps 34 dB of signal-to-noise, against 9 dB for plain 8-bit audio |
 | Feeding 8 kHz audio to a 16 kHz model without resampling | word error rate from 5% to 46%, and only 10 of 48 tickets, names and bikes heard, down from 30 |
 | Two mistakes the model shrugged off, and one it did not | aliasing and unscaled samples cost almost nothing; clipping nearly doubled errors on real speech |
-| A loudness threshold cannot find speech | any setting that hears 94% of speech also answers the hold music; Silero VAD hears 97% and ignores it |
+| A loudness threshold cannot find speech | any setting that hears 94% of speech also answers the hold music; Silero VAD hears 97% and ignores almost all of it |
 
 ```{note}
-Everything in this chapter runs on a CPU in seconds. The companion notebook is `chapters/02-audio-for-ml` in [github.com/sugix/voices-of-the-future](https://github.com/sugix/voices-of-the-future). The one model experiment uses saved transcripts, and the notebook shows how to rerun it on a free Colab GPU or, more slowly, on your laptop.
+Everything in this chapter runs on a CPU in seconds. The companion notebook is `chapters/02-audio-for-ml` in [github.com/sugix/voices-of-the-future](https://github.com/sugix/voices-of-the-future). The model experiments, Parakeet and Silero, use saved results, and the notebook shows how to rerun it on a free Colab GPU or, more slowly, on your laptop.
 ```
 
 ## Sound is a list of numbers
@@ -179,7 +179,7 @@ ax[0].set_ylabel("frequency (Hz)")
 fig.tight_layout()
 display(Audio(sliced, rate=8000), Audio(proper, rate=8000))
 ```
-Keeping every third sample **folds** every frequency above 4 kHz back down into the band: the sweep hits 4 kHz, then turns around and comes back down as a sound that was never there. A 5 kHz tone reappears at 3 kHz (8,000 minus 5,000) at full strength. `resample_poly` low-pass filters before it drops samples, so the same tone ends up 57 dB quieter, which is effectively gone. This folding is called **aliasing**, and in speech it smears the high hiss of an *s* down into the middle of the band, where you can hear it as a harsh, lispy edge. (Later in this chapter you will see that a speech model minds this much less than your ear does. Use a real resampler anyway.) Use a real resampler (`scipy.signal.resample_poly`, `torchaudio.functional.resample`, `librosa.resample`) every time, and be suspicious of any code that indexes with a step.
+Keeping every third sample **folds** every frequency above 4 kHz back down into the band: the sweep hits 4 kHz, then turns around and comes back down as a sound that was never there. A 5 kHz tone reappears at 3 kHz (8,000 minus 5,000) at full strength. `resample_poly` low-pass filters before it drops samples, so the same tone ends up 57 dB quieter, which is effectively gone. This folding is called **aliasing**, and in speech it smears the high hiss of an *s* down into the middle of the band, where you can hear it as a harsh, lispy edge. (Later in this chapter you will see that a speech model minds this much less than your ear does. Use a real resampler anyway.) Use one (`scipy.signal.resample_poly`, `torchaudio.functional.resample`, `librosa.resample`) every time, and be suspicious of any code that indexes with a step.
 
 ### μ-law: 8 bits that behave like 14
 
@@ -277,11 +277,11 @@ for a, M, name in [(ax[0], M_clean, "clean"), (ax[1], M_phone, "phone")]:
 ax[0].set_ylabel("mel band")
 fig.tight_layout()
 ```
-That is 100 frames a second, each a column of 80 numbers; Parakeet uses 128 bands, Whisper large-v3 also 128, and the idea is identical. On the clean call, the top quarter of the picture is full of consonants. On the phone call, the 19 bands above 4 kHz are empty, because an 8 kHz signal cannot contain anything there however carefully it is upsampled, and the bands between 3.4 and 4 kHz are dimmed. A model trained on full-band speech sees a quarter of its input go dark on every phone call. It copes, mostly, but this is the gap that phone-specific training data, and Chapter 4's tricks, are there to close.
+That is 100 frames a second, each a column of 80 numbers. Parakeet and Whisper large-v3 use 128 bands, but the idea is identical. On the clean call, the top quarter of the picture is full of consonants. On the phone call, the 19 bands above 4 kHz are empty, because an 8 kHz signal cannot contain anything there however carefully it is upsampled, and the bands between 3.4 and 4 kHz are dimmed. A model trained on full-band speech sees a quarter of its input go dark on every phone call. It copes, mostly, but this is the gap that phone-specific training data, and Chapter 4's tricks, are there to close.
 
 These frames are the starting point for Chapter 3. Parakeet's encoder compresses every eight of them into one 80 ms frame for its decoder to read. Some newer models, such as Kyutai's and the Moshi family in Chapter 10, skip the spectrogram and learn their own audio codec from raw samples, but they still care just as much about sample rate.
 
-## Six ways to hand audio to a model, measured
+## Seven ways to hand audio to a model, measured
 
 Every mistake in this chapter is easy to make in real code, so I measured what each one costs. The capture script (`sim/capture_ch2.py`) fed Halfwheel's 30 calls and the 80 LibriSpeech recordings to Parakeet-TDT, the model Halfwheel ends up choosing in Chapter 4, seven different ways. The scoring functions are the ones Chapter 4 builds and explains; here I just import them.
 
@@ -309,7 +309,7 @@ for cond, res in cap["asr"].items():
 ```
 The rows are worth reading one at a time.
 
-- **The right way.** Clean audio resampled to 16 kHz, and phone audio resampled to 16 kHz. The phone line costs nothing on the synthesised calls and about half as many errors again on real speech (2.3% to 3.6%).
+- **The right way.** Clean audio resampled to 16 kHz, and phone audio resampled to 16 kHz. The phone line costs almost nothing on the synthesised calls and about half as many errors again on real speech (2.3% to 3.6%). Chapter 4's GPU run of the same model measures 3.8% on the phone recordings; runs on a CPU and a GPU differ slightly.
 - **Not resampling.** Hand an 8 kHz signal to a model that assumes 16 kHz and every sound plays at double speed and an octave up. "Is my bike ready? The ticket number is" became "is my mouth card, the titanium". Errors rose eight to fifteen times, and the entities heard fell from 30 to 10. No exception is raised; the model happily transcribes chipmunk speech. This is the most common audio bug I see, and the most expensive.
 - **Downsampling by slicing.** Audible, as you heard, but the model barely noticed: 2.6% against 2.8% on LibriSpeech. Speech has little energy above 4 kHz to fold back, so there is little to corrupt. Still use a real resampler. It costs nothing, and your next model or your next caller may mind more.
 - **Clipping.** Turning the phone audio up eight times and clipping it at full scale left the synthesised calls alone, but nearly doubled the errors on real speech, from 3.6% to 6.6%. Real voices have loud peaks that clip; synthesised ones, normalised to a safe level, mostly did not. It is the same lesson as before: synthesised test audio hides problems.

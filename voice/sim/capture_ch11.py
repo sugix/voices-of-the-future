@@ -1,9 +1,9 @@
 """Chapter 11 capture: evaluating the receptionist, not just running it.
 
-  python sim/capture_ch11.py --part voice   # Chapter 8's callers with other voices and a noisier line (tts venv)
-  python sim/capture_ch11.py --part hear    # end of turn and Parakeet for every new caller clip (nemo venv)
-  python sim/capture_ch11.py --part talk    # Chapter 8's receptionist on every condition, and five sampled reruns (llm venv)
-  python sim/capture_ch11.py --part judge   # Qwen3-8B grades every conversation from Chapters 8 and 11 (llm venv)
+  python sim/capture_ch11.py --part voice   # Chapter 8's callers with other voices and a noisier line (tts stack)
+  python sim/capture_ch11.py --part hear    # end of turn and Parakeet for every new caller clip (nemo stack)
+  python sim/capture_ch11.py --part talk    # Chapter 8's receptionist on every condition, and five sampled reruns (hf stack)
+  python sim/capture_ch11.py --part judge   # Qwen3-8B grades every conversation from Chapters 8 and 11 (hf stack)
   python sim/capture_ch11.py --part judge2  # the same judge, told the expected behaviour and exact details
 
 Run from voice_applications/. Writes data/ch11/{clips,hear}_<condition>.json, talk_<run>.json, llm_judge.json.

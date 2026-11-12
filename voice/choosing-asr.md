@@ -7,7 +7,7 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-date: "2026-11-23"  # quoted: myst-nb stores front matter as JSON
+date: "2026-11-30"  # quoted: myst-nb stores front matter as JSON
 description: Six speech recognition models, 30 bike-shop calls and 80 real recordings, scored on the words a business actually depends on.
 ---
 
@@ -82,7 +82,7 @@ print(wer(ref, hyp))
 
 Two wrong words became three errors: "adeyemi" turned into two words, which counts as one substitution plus one insertion. WER can exceed 100%, and it treats every word as equally important. Both facts matter later.
 
-## Normalize before you score
+## Normalise before you score
 
 Here is one real transcript from Chapter 3, written three ways by three models. All three heard the ticket correctly:
 
@@ -141,10 +141,10 @@ for model, res in cap["results"].items():
     print(f"{model:30} WER {wer(normalize(truth), normalize(hyp))[0]:5.0%}   {normalize(hyp)}")
 ```
 
-All three now score 0% on this call, which is the truth. Normalization is not cosmetic: on Halfwheel's calls it changes which model looks best. Production toolkits ship far more complete normalizers, such as the one in OpenAI's Whisper repository and NVIDIA's NeMo text processing, and the converse step, turning "one oh four two" into "1042" for the database, is called **inverse text normalization**. The receptionist needs that too, and it gets it in Chapter 8.
+All three now score 0% on this call, which is the truth. Normalisation is not cosmetic: on Halfwheel's calls it changes which model looks best. Production toolkits ship far more complete normalisers, such as the one in OpenAI's Whisper repository and NVIDIA's NeMo text processing, and the converse step, turning "one oh four two" into "1042" for the database, is called **inverse text normalisation**. The receptionist needs that too: in Chapter 8 its tools accept a ticket in any of these forms.
 
 ```{warning}
-Normalize references and transcripts with the *same* function, and never tune the normalizer on the model you are evaluating. It is easy to write rules that quietly forgive one model's habits and not another's.
+Normalise references and transcripts with the *same* function, and never tune the normaliser on the model you are evaluating. It is easy to write rules that quietly forgive one model's habits and not another's.
 ```
 
 ## Score the words the business depends on
@@ -173,11 +173,11 @@ On Chapter 3's six calls, every model gets the ticket and the phone number and m
 
 Six calls are an anecdote. For a decision I want enough audio to see patterns, and audio that is not all synthetic:
 
-- **30 Halfwheel calls** (229 seconds), the six from Chapter 3 plus 24 generated from templates with a fixed seed. Nine Kokoro voices, American and British. Between them they contain **48 entities**: 17 bike models, 17 customer names, 9 ticket numbers and 5 phone numbers.
+- **30 Halfwheel calls** (229 seconds), the six from Chapter 3 plus 24 generated from templates with a fixed seed. Ten Kokoro voices, five American and five British. Between them they contain **48 entities**: 17 bike models, 17 customer names, 9 ticket numbers and 5 phone numbers.
 - **80 real recordings** from LibriSpeech {cite}`panayotov2015librispeech`, read English audiobook speech with human transcripts: 40 from the clean test set and 40 from the harder "other" set.
-- **Every file twice**: as recorded, and through the same simulated phone line as Chapter 3 (8 kHz, band-limited, mu-law, background noise).
+- **Every file twice**: as recorded, and through the same simulated phone line as Chapter 2 (8 kHz, band-limited, mu-law, background noise).
 
-That is 220 files per model. I ran six models on one NVIDIA L4 and saved every transcript. Qwen3-ASR, Whisper and Kyutai ran in fp16, since a free T4 has no bfloat16; the NeMo models ran in their default fp32. Every model fits in a T4's 16 GB. The scoring below runs on those saved transcripts, every time this page is built.
+That is 220 files per model. I ran six models on one NVIDIA L4 and saved every transcript. Qwen3-ASR, Whisper and Kyutai ran in float16, since a free T4 has no bfloat16; the NeMo models ran in their default float32. Every model fits in a T4's 16 GB. The scoring below runs on those saved transcripts, every time this page is built.
 
 ```{code-cell} ipython3
 import pandas as pd
@@ -269,7 +269,7 @@ hints[cols].style.format("{:.1%}")
 
 Hints work, and they have a dial you can turn too far.
 
-- **Whisper's prompt is the biggest single win.** Entities go from 65% to 77% and Halfwheel's WER from 4.5% to 3.0%, with no change at all on LibriSpeech.
+- **Whisper's prompt is the biggest single win.** Entities go from 65% to 77% and Halfwheel's WER from 4.5% to 3.0%, with no change on LibriSpeech over the phone.
 - **Light boosting on Parakeet-TDT is free.** At 0.5, entities rise from 62% to 71% and real-speech WER does not move.
 - **Strong boosting costs accuracy elsewhere.** At 2.0, Parakeet-TDT gets 79% of entities, but its LibriSpeech WER rises from 3.8% to 4.3%. The bonus pushes ordinary speech toward shop words.
 - **On CTC, strong boosting backfires.** CTC has no text history to keep the bonus in check. Here is the Daniel Okafor call from Chapter 3 again:
@@ -280,6 +280,8 @@ print("said:     ", refs[("halfwheel", "c04_message")]["written"])
 for m in ["parakeet-ctc-0.6b", "parakeet-ctc-0.6b + shop words (2.0)"]:
     print(f"{m:38}", res4[m]["files"][key]["text"])
 ```
+
+The boosted model did not just misspell Daniel Okafor. It replaced him with **Liam O'Sullivan, another customer on the list**, and it started writing the digit "oh" as the letter "o", because one of the boosted phrases begins with "O'". A misspelling is obviously wrong. A different real customer's name looks right, and nobody checks it. That is the worst kind of error for a receptionist.
 
 ## Heard right, spelled wrong: snap to the catalogue
 
@@ -357,8 +359,6 @@ snapped = pd.DataFrame(rows).T
 snapped.style.format({c: "{:.1%}" for c in ["entities", "entities, snapped", "WER", "WER, snapped"]} | {"false snaps": "{:.0f}"})
 ```
 
-The boosted model did not just misspell Daniel Okafor. It replaced him with **Liam O'Sullivan, another customer on the list**, and it started writing the digit "oh" as the letter "o", because one of the boosted phrases begins with "O'". A misspelling is obviously wrong. A different real customer's name looks right, and nobody checks it. That is the worst kind of error for a receptionist.
-
 Snapping is the bigger win. Every base model gains at least 25 points of entity accuracy, and Whisper with its prompt reaches 98%. Word error rate falls too, because the snapped words are real errors fixed, not formatting. And on this set nothing was snapped that the caller did not say.
 
 That last number is flattering, because every caller here is already in the shop's records. A new customer is not:
@@ -372,7 +372,7 @@ Three new customers, three existing customers' names. When I tried ten plausible
 
 ## Halfwheel's choice
 
-For live calls I choose **Parakeet-TDT with light boosting (0.5) and catalogue snapping**: 96% of entities, 4.2% WER on phone calls before snapping, no cost on general speech, and 90 times faster than real time. It also transcribes a finished call in about a tenth of a second, which Chapter 5 turns out to need more than streaming.
+For live calls I choose **Parakeet-TDT with light boosting (0.5) and catalogue snapping**: 96% of entities, 4.2% WER on phone calls before snapping, no cost on general speech, and 90 times faster than real time. It also transcribes a finished call in about a tenth of a second, and Chapter 5 shows that this matters more than streaming.
 
 Whisper large-v3-turbo with a prompt, plus snapping, scored slightly higher at 98%. It is the better choice when nobody is waiting for an answer, such as transcribing voicemail overnight, where its slower, whole-utterance decoding costs nothing.
 
@@ -390,7 +390,7 @@ Two lessons carried over directly:
 | Symptom | Likely cause | Fix |
 |---|---|---|
 | Two models' WERs disagree with your users' complaints | WER weighs every word the same | Score the entities your business depends on |
-| One model looks far worse than the others | Formatting, not recognition ("1042" vs "one oh four two") | Normalize references and transcripts with the same function |
+| One model looks far worse than the others | Formatting, not recognition ("1042" vs "one oh four two") | Normalise references and transcripts with the same function |
 | Brand names become common words | Rare words lose to frequent ones | Hints (prompt or boosting), then catalogue snapping |
 | A boosted model writes a *different* customer's name | Boosting strength too high, especially on CTC | Lower the strength, and measure on general speech too |
 | A new customer is matched to an existing one | Snapping assumes everyone is in the records | Read entities back to the caller before acting |
@@ -399,7 +399,7 @@ Two lessons carried over directly:
 ```{tip}
 **Takeaways**
 - Choose a speech model on your own audio and on the words your business depends on, not on leaderboard WER.
-- Normalize before you score, or you will be measuring formatting.
+- Normalise before you score, or you will be measuring formatting.
 - Hints are cheap and effective, but they have a dial. Turn it too far and the model invents plausible words, including real customer names.
 - The shop's own records fix more errors than any model swap. Snap to the catalogue, then confirm with the caller.
 ```
@@ -408,7 +408,7 @@ Two lessons carried over directly:
 
 The companion notebook, `chapters/04-choosing-asr`, has the full bench, the saved transcripts and the scoring code.
 
-1. **Your own words.** Replace `CATALOGUE` with the product names and customer names of a business you know, generate ten calls with the Chapter 3 generator, and score a model on them.
+1. **Your own words.** Replace `CATALOGUE` with the product names and customer names of a business you know, generate ten calls with `sim/halfwheel_calls.py`, the generator behind Chapter 3's calls, and score a model on them.
 2. **Tune the cutoff.** Lower `snap`'s cutoff from 0.8 to 0.7. How many more entities does it recover, and how many false snaps appear?
 3. **Find the breaking point.** Re-run the Whisper prompt with twice as many shop words. Does it keep helping, or does it start to hurt LibriSpeech?
 

@@ -232,7 +232,7 @@ class Receptionist:
         ids = self.tok.apply_chat_template(messages, tools=self.schemas, add_generation_prompt=True,
                                            enable_thinking=False, return_tensors="pt")
         ids = (ids["input_ids"] if hasattr(ids, "keys") else ids).to(self.model.device)
-        streamer = TextIteratorStreamer(self.tok, skip_prompt=True, skip_special_tokens=False)
+        streamer = TextIteratorStreamer(self.tok, skip_prompt=True, skip_special_tokens=False, timeout=120)
         kwargs = dict(input_ids=ids, max_new_tokens=200, do_sample=False, streamer=streamer)
         if getattr(self, "temperature", None):  # Chapter 11: sampled decoding, to measure run-to-run variation
             kwargs.update(do_sample=True, temperature=self.temperature, top_p=0.9)

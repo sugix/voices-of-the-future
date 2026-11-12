@@ -20,7 +20,7 @@ def quick(items):
 def half():
     """bfloat16 where the GPU supports it, otherwise float16."""
     import torch
-    if os.environ.get("VOTF_FP16") or not torch.cuda.is_bf16_supported():
+    if os.environ.get("VOTF_FP16") or torch.cuda.get_device_capability()[0] < 8:  # T4 (sm_75) only emulates bf16
         return torch.float16
     return torch.bfloat16
 
@@ -28,7 +28,6 @@ def half():
 def existing(clips, root="."):
     """(key, row) for clips whose audio is on disk. A model you didn't rerun (say, one that needs a bigger GPU)
     keeps its saved results, but its audio isn't there to score again, so it's skipped with a note."""
-    from pathlib import Path
     missing = [k for k, r in clips.items() if not (Path(root) / r["wav"]).exists()]
     if missing:
         print(f"skipping {len(missing)} clips with no audio on disk (e.g. {missing[0]}); rerun that model to include them")
@@ -38,7 +37,6 @@ def existing(clips, root="."):
 def merge_json(path, new):
     """Write new results over the saved ones, keeping saved entries for anything not rerun."""
     import json
-    from pathlib import Path
     path = Path(path)
     old = json.loads(path.read_text()) if path.exists() else {}
     old.update(new)

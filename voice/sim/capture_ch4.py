@@ -1,6 +1,6 @@
 """Chapter 4 capture: every ASR model on every test file, with and without vocabulary hints.
 
-Run on a GPU pod from voice_applications/ (it reads data/calls and data/librispeech):
+Run on a GPU from the book's folder (it reads data/calls and data/librispeech):
   python sim/capture_ch4.py [--only name ...]
 Writes data/ch4/capture_ch4.json: transcripts and per-file timings for each
 model, plus peak GPU memory and the environment. Results are saved after every

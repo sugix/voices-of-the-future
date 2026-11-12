@@ -1,11 +1,12 @@
 """Build the companion repo's notebooks from the book's chapters.
 
-  python3 voice_applications/tools/make_companion.py ~/vscode_home/voices-of-the-future
+  python3 voice_applications/tools/make_companion.py <path to a clone of the companion repo>
 
 Copies the git-tracked chapter sources, sim/ and data/ into <repo>/voice/, and writes one notebook per
 chapter to <repo>/chapters/: section headings and every code cell from the chapter, in order, after a setup
 cell that works both in Google Colab and in a local clone. The prose stays in the book; each notebook links
-to its chapter. Plain Python only (no Jupyter needed to build).
+to its chapter. Plain Python only (no Jupyter needed to build). It refuses to run with uncommitted changes in the
+files it copies, so the companion always matches a commit of the book.
 """
 
 import json
@@ -28,7 +29,7 @@ RESULTS_REQUIREMENTS = "numpy\nscipy\npandas\nmatplotlib\nipython\nsoundfile\n"
 CALLS = [("tts", "sim/halfwheel_calls.py", "Halfwheel's calls: Kokoro reads them, Chapter 2's phone line carries them.")]
 LIBRI = [("nemo", "sim/librispeech_subset.py", "80 LibriSpeech recordings (downloads about 700 MB).")]
 RERUN = {
-    "audio-for-ml": CALLS + [("nemo", "sim/capture_ch2.py", "")],
+    "audio-for-ml": CALLS + LIBRI + [("nemo", "sim/capture_ch2.py", "")],
     "asr-decoders": CALLS + [("nemo", "sim/capture_ch3.py", "")],
     "choosing-asr": CALLS + LIBRI + [("nemo", "sim/capture_ch4.py", "Six recognisers on 110 files; about 15 minutes on a T4.")],
     "listening-live": CALLS + LIBRI + [("tts", "sim/turn_calls.py", ""), ("nemo", "sim/capture_ch5.py --part nemo", ""),
@@ -43,15 +44,18 @@ RERUN = {
                            "Fish S1-mini: accept its licence at huggingface.co/fishaudio/s1-mini and log in first."),
                           ("fish2", "sim/capture_ch7.py --part fish2",
                            "Fish S2-Pro needs about 24 GB of GPU memory; it doesn't fit a 16 GB T4. Skip it there."),
-                          ("nemo", "sim/capture_ch7.py --part refs", ""), ("nemo", "sim/capture_ch7.py --part asr", ""),
-                          ("hf", "sim/capture_ch7.py --part judge", "")],
+                          ("nemo", "sim/capture_ch7.py --part refs", "Speaker ex04 in three moods: the references for cloning S2-Pro."),
+                          ("fish2", "sim/capture_ch7.py --part fish2ref", "S2-Pro cloned from each mood: 24 GB again."),
+                          ("nemo", "sim/capture_ch7.py --part asr", ""),
+                          ("hf", "sim/capture_ch7.py --part judge", ""), ("nemo", "sim/capture_ch7.py --part listen", "")],
     "building-the-receptionist": [("tts", "sim/capture_ch8.py --part voice", ""), ("nemo", "sim/capture_ch8.py --part hear", ""),
                                   ("hf", "sim/capture_ch8.py --part talk", "Qwen3-8B doesn't fit a 16 GB T4 in fp16; its runs fail there."),
                                   ("tts", "sim/capture_ch8.py --part speak", "")],
     "screening-calls": [("nemo", "sim/capture_ch9.py --part fetch", "Downloads 150 robocalls (public domain) from the NCSU dataset."),
                         ("tts", "sim/capture_ch9.py --part voice", ""), ("nemo", "sim/capture_ch9.py --part hear", ""),
                         ("hf", "sim/capture_ch9.py --part judge", "")],
-    "speech-to-speech": [("moshi", "sim/capture_ch10.py --part moshi", "Moshi needs a 24 GB GPU: it does not fit a 16 GB T4, in float16 or with its 8-bit build."),
+    "speech-to-speech": [("nemo", "sim/capture_ch6.py --part voice", "The reference voice from Chapter 6, which CSM continues."),
+                         ("moshi", "sim/capture_ch10.py --part moshi", "Moshi needs a 24 GB GPU: it does not fit a 16 GB T4, in float16 or with its 8-bit build."),
                          ("nemo", "sim/capture_ch10.py --part refs", ""), ("hf", "sim/capture_ch10.py --part csm", "")],
     "evaluating-voice-agents": [("tts", "sim/capture_ch11.py --part voice", ""), ("nemo", "sim/capture_ch11.py --part hear", ""),
                                 ("hf", "sim/capture_ch11.py --part talk", ""),
@@ -64,9 +68,18 @@ RERUN_INTRO = """## Rerun the models
 
 Everything above used the saved results. The cells below rerun the models that produced them, on a GPU (in Colab:
 Runtime, then Change runtime type, then T4 GPU). Each step builds the software it needs in its own environment the
-first time, which takes a few minutes, then runs. Set `VOTF_QUICK=2` first for a two-item check that everything
-works; leave it unset for a full rerun, which overwrites the saved results. On GPUs without bfloat16, such as the
-T4, the scripts use float16 automatically."""
+first time, which takes a few minutes, then runs. The first cell below sets up a two-item check that everything
+works, on a scratch copy of the folder, so the saved results stay as they are. Delete its lines for a full rerun,
+which overwrites the saved results with yours. On GPUs without bfloat16, such as the T4, the scripts use float16
+automatically."""
+
+QUICK = """# A two-item check that every step runs, on a scratch copy so the saved results stay untouched.
+# Delete these lines for a full rerun, which overwrites the saved results with your own.
+import os, shutil, tempfile
+os.environ["VOTF_QUICK"] = "2"
+scratch = os.path.join(tempfile.gettempdir(), "votf-quick")
+shutil.copytree(".", scratch, dirs_exist_ok=True)
+os.chdir(scratch)"""
 
 SETUP = f'''# Run this cell first. In Google Colab it fetches the companion repo; anywhere else, run the notebook
 # from a clone of it. Either way it moves into the book's folder and installs what the chapter needs.
@@ -94,7 +107,7 @@ book about building with modern voice AI models. Across the book you build one p
    bottom: it reproduces every table and figure in the chapter from the saved model outputs, in seconds.
 2. **Rerun the models (a GPU).** The cells at the end of each notebook rerun the models that produced those results.
    Each step builds its own Python environment with `uv` the first time, so libraries with conflicting versions
-   never meet. Set `VOTF_QUICK=2` for a quick check first.
+   never meet. Run the quick check first: it works on a scratch copy and leaves the saved results alone.
 
 In Google Colab, open a notebook from this repository and choose Runtime, then Change runtime type, then T4 GPU
 for the rerun cells.
@@ -157,7 +170,7 @@ def notebook(number, slug):
     if steps:
         tag = ["rerun"]  # model steps: needs a GPU; skipped by the saved-results check
         cells.append(cell("markdown", RERUN_INTRO, tag))
-        cells.append(cell("code", "import os\nos.environ[\"VOTF_QUICK\"] = \"2\"  # remove this line for a full rerun", tag))
+        cells.append(cell("code", QUICK, tag))
         for stack, command, note in steps:
             if note:
                 cells.append(cell("markdown", note, tag))
@@ -173,7 +186,12 @@ def main(dest):
     voice = dest / "voice"
     if voice.exists():
         shutil.rmtree(voice)
-    tracked = subprocess.run(["git", "ls-files", "data", "sim", "tools", ":(glob)*.md", "references.bib"], cwd=BOOK,
+    paths = ["data", "sim", "tools", ":(glob)*.md", "references.bib"]
+    dirty = subprocess.run(["git", "status", "--porcelain", "--", *paths], cwd=BOOK, capture_output=True, text=True,
+                           check=True).stdout
+    if dirty:
+        raise SystemExit("Commit these first, so the companion matches a commit of the book:\n" + dirty)
+    tracked = subprocess.run(["git", "ls-files", *paths], cwd=BOOK,
                              capture_output=True, text=True, check=True).stdout.split()
     for rel in tracked:
         (voice / rel).parent.mkdir(parents=True, exist_ok=True)
@@ -193,4 +211,6 @@ def main(dest):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1] if len(sys.argv) > 1 else "~/vscode_home/voices-of-the-future")
+    if len(sys.argv) != 2:
+        raise SystemExit(__doc__)
+    main(sys.argv[1])

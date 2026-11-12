@@ -22,7 +22,7 @@ Here is where I ended up:
 | Finding | Number |
 |---|---|
 | A model trained on whole recordings needs to hear ahead | Parakeet-TDT with 0.16 s of look-ahead wrote about 6% of the words; it needed about 2 s to get within a few points of its offline accuracy |
-| Models built for streaming answer much sooner | Kyutai STT 1B commits to words 0.5 s behind the speaker at 7.5% WER on Halfwheel's calls |
+| Models built for streaming answer much sooner | Kyutai STT 1B commits to words at least 0.5 s behind the speaker at 7.5% WER on Halfwheel's calls |
 | Short silence timeouts cut callers off | with 0.5 s of silence, 14 of 16 hesitating callers were interrupted; with 1.2 s, 3 of 16 |
 | The "smart" end-of-turn signals I tried did no better | Kyutai's built-in rule cut off 13 of 16; NVIDIA's end-of-utterance model never fired on phone audio |
 | Barge-in is an echo problem first | without echo cancellation, the receptionist stopped for its own voice every time; with it, never, and it caught every real interruption in 0.06 s |
@@ -106,11 +106,11 @@ fig.tight_layout()
 ```
 Three things stand out.
 
-**Look-ahead matters more than chunk size.** With 0.16 s chunks and 0.16 s of look-ahead, Parakeet-TDT wrote about one word in seventeen; for Daniel Okafor's message it produced only "Mm-hmm." With 0.48 s of each, it usually wrote every word but more of them wrong, and on 19 of the 110 recordings it stopped partway, at "Could you ask Priya to call me back?" in Daniel's case. Give the same model 0.16 s chunks but 1.84 s of look-ahead and it is back to 9.3%. A model trained on whole recordings has never had to decide about a word without hearing what comes after it, and it falls apart when forced to. Even at 4 s it is not quite back to its whole-call accuracy.
+**Look-ahead matters more than chunk size.** With 0.16 s chunks and 0.16 s of look-ahead, Parakeet-TDT wrote about one word in seventeen; for Daniel Okafor's message it produced only "Mm-hmm." With 0.48 s of each, it usually wrote every word but more of them wrong, and on 19 of the 110 recordings it stopped partway (writing under 60% of the words the offline model wrote), at "Could you ask Priya to call me back?" in Daniel's case. Give the same model 0.16 s chunks but 1.84 s of look-ahead and it is back to 9.3%. A model trained on whole recordings has never had to decide about a word without hearing what comes after it, and it falls apart when forced to. Even at 4 s it is not quite back to its whole-call accuracy.
 
 **Models trained to stream are far better at low delay.** Kyutai's 1B model is the best of the low-delay options on Halfwheel's calls (7.5%), though it struggles more with LibriSpeech's older, more literary English (15.7%). NVIDIA's 120M model answers fastest but is the least accurate, and it writes numbers the way they sound to it ("four hundred and fifteen"), so the receptionist would need to turn those back into digits.
 
-**Nothing streaming beats waiting for the whole turn.** Which suggests a different design. Watch when each word appears for the first caller:
+**Nothing streaming beats waiting for the whole turn.** That suggests a different design. Watch when each word appears for the first caller:
 
 ```{code-cell} ipython3
 r = turns[0]
@@ -136,7 +136,7 @@ for t, piece in kyutai[key]["pieces"]:
 for name, growing in [("Kyutai 1B", kyutai_growing), ("EOU 120M", [(t, x.replace("<EOU>", "")) for t, x in nemo["eou120m"]["files"][key]["events"]])]:
     print(f"  {name:10}" + "  ".join(f"{w} {t:.2f}" for t, w in arrivals(growing)))
 ```
-Kyutai writes "is" at 2.96 s, a second after the caller said it, while NVIDIA's model writes it almost immediately but later turns "one oh four two" into "one hundred and four two". The receptionist does not need the words while the caller is still talking; it needs them, correct, the moment the caller *stops*. On a GPU, Parakeet-TDT transcribes a whole Halfwheel call in about a tenth of a second (Chapter 3). So my design for Halfwheel is: listen continuously to decide *when* the caller has finished, then transcribe the finished turn in one go with the accurate model. That makes the next question, when has the caller finished, the one that decides how responsive the receptionist feels.
+Kyutai writes "is" at 2.96 s, a second after the caller said it, while NVIDIA's model writes it almost immediately but later turns "one oh four two" into "one hundred and four two". The receptionist does not need the words while the caller is still talking; it needs them, correct, the moment the caller *stops*. On a GPU, Parakeet-TDT transcribes a whole Halfwheel call in about a tenth of a second (Chapter 4). So my design for Halfwheel is: listen continuously to decide *when* the caller has finished, then transcribe the finished turn in one go with the accurate model. That makes the next question, when has the caller finished, the one that decides how responsive the receptionist feels.
 
 ## Has the caller finished?
 
@@ -260,11 +260,11 @@ fig.tight_layout()
 ```
 Kyutai's head (orange) rises almost as soon as the caller stops for breath, and Silero with 0.5 s of patience ends the turn before "H W one oh four two" begins. Only the 1.2 s timeout waits for the number.
 
-For Halfwheel I take **Silero with a 1.2 s timeout**, and accept that it will sometimes still jump in, as it did for 3 of the 16 callers. That only works if jumping in is cheap to recover from: when the caller carries on talking, the receptionist must notice and stop. Which is the last problem in this chapter.
+For Halfwheel I take **Silero with a 1.2 s timeout**, and accept that it will sometimes still jump in, as it did for 3 of the 16 callers. That only works if jumping in is cheap to recover from: when the caller carries on talking, the receptionist must notice and stop. That is the last problem in this chapter.
 
 ## When the caller talks over the receptionist
 
-Callers interrupt. "Sorry, it's actually Friday." "Wait, wrong bike." A good receptionist stops talking at once. Callers also say "mm-hm" and "okay" while listening, and a good receptionist carries on. The script also builds 12 clips of the receptionist reading a reply, a different Kokoro voice from any caller, while the caller interrupts (4 clips), murmurs a backchannel (4) or stays silent (4).
+Callers interrupt. "Sorry, it's actually Friday." "Wait, wrong bike." A good receptionist stops talking at once. Callers also say "mm-hm" and "okay" while listening, and a good receptionist carries on. The script also builds 12 clips of the receptionist reading a reply, in a Kokoro voice no caller uses (`bf_lily`), while the caller interrupts (4 clips), murmurs a backchannel (4) or stays silent (4).
 
 There is a catch. On a real phone call, some of the receptionist's own voice comes back down the line as **echo**. Phone networks and handsets cancel most of it, but not all, especially on speakerphone. My clips leave the echo 18 dB below the receptionist's voice, about what a weak echo canceller on a speakerphone might leave behind. Here is what happens if the receptionist stops whenever Silero hears a voice:
 
@@ -361,7 +361,7 @@ for r in clips:
 ```
 Now "any voice" catches all four interruptions within 0.06 s and never stops for its own echo. It still stops for every "mm-hm", and it should hear them: they are a real voice. The difference between a backchannel and an interruption is not *whether* the caller spoke but how much they said, and the last table shows the split clearly in this data: backchannels lasted 0.70 s or less, interruptions 1.18 s or more.
 
-So the receptionist's barge-in rule is two steps. On any voice, **pause** immediately (within 0.06 s). If the voice is still going after about 0.9 s, **stop** and listen; if it has already ended, **resume** where it paused. A short, urgent "Stop!" would slip under that threshold, so Chapter 8 adds a check of the transcript for words like "stop", "wait" and "no" once it arrives.
+So the receptionist's barge-in rule is two steps. On any voice, **pause** immediately (within 0.06 s). If the voice is still going after about 0.9 s, **stop** and listen; if it has already ended, **resume** where it paused. A short, urgent "Stop!" would slip under that threshold; checking the transcript for words like "stop", "wait" and "no" once it arrives would catch it (exercise 4).
 
 ## Halfwheel's live listening
 
@@ -373,7 +373,7 @@ Putting the chapter together, the receptionist listens like this:
 4. Transcribe the finished turn with Parakeet-TDT, boosting and snapping as in Chapter 4: about 0.1 s.
 5. While the receptionist replies, pause on any voice, and stop if it lasts more than about 0.9 s.
 
-That is 1.3 s from the caller finishing to the receptionist knowing what they said, before it has thought of an answer or spoken a word. Chapter 11 measures the whole budget end to end, and Chapter 10 looks at models that skip the transcript entirely.
+That is 1.3 s from the caller finishing to the receptionist knowing what they said, before it has thought of an answer or spoken a word. Chapter 8 measures the whole wait end to end, and Chapter 10 looks at models that skip the transcript entirely.
 
 ## When it breaks
 

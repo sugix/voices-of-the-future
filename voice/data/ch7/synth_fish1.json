@@ -1,6 +1,6 @@
 {
 "meta": {
-"checkpoint": "/workspace/authorship-voice/.hf/fish/s1-mini",
+"checkpoint": "fishaudio/s1-mini",
 "gpu_name": "NVIDIA GeForce RTX 4090"
 },
 "clips": {

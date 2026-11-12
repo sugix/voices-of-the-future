@@ -43,8 +43,8 @@ Every chapter in this book built a bench for one layer of the receptionist. Put 
 | Turn-taking | cutting callers off, or making them wait | cut-offs and wait after the turn ends | 5 | 3 of 16 cut off at 1.2 s, 1.2 s wait |
 | Speaking | the wrong words, or the right words unclear | facts heard back through ASR | 6 | 65 of 66 facts after normalisation |
 | Delivery | the wrong tone | pitch, range, pace; listening | 7 | the reference clip moved pitch by 33 Hz, the tag by less |
-| The task | wrong actions, invented facts | handled calls, wrong actions | 8 | 11 of 16 handled, 1 wrong booking |
-| Screening | blocking a customer | false blocks and missed robocalls | 9 | 1 genuine caller blocked, 100 of 155 robocalls |
+| The task | wrong actions, invented facts | handled calls, wrong actions | 8 | 11 of 16 handled, 1 wrong action (with the guard in code) |
+| Screening | blocking a customer | false blocks and missed robocalls | 9 | 1 genuine caller blocked, 100 of 155 robocalls blocked |
 | Timing | the caller waits | seconds from their last word to the reply | 8 | 2.4 s median |
 
 Each row has its own bench because each layer fails differently, and a single end-to-end score can't say which layer broke. But the end-to-end score is still the one that matters to the caller, so the rest of this chapter takes Chapter 8's "11 of 16" and tests how much it can be trusted.
@@ -89,7 +89,7 @@ Eleven of sixteen is 69%, but the data are just as consistent with a receptionis
 
 ## The same calls, different callers
 
-To grow the bench cheaply, I kept Chapter 8's sixteen scripts and changed who says them and how they sound. Kokoro read every caller line again with a different voice (a different speaker of the same accent), and Chapter 2's phone line added noise at 10 dB below the speech instead of 20. That gives three new conditions, plus the original:
+To grow the bench cheaply, I kept Chapter 8's sixteen scripts and changed who says them and how they sound. Kokoro read every caller line again with a different voice (another speaker with the same accent), and Chapter 2's phone line added noise at 10 dB below the speech instead of 20. That gives three new conditions, plus the original:
 
 ```{code-cell} ipython3
 def calls(path):
@@ -218,7 +218,7 @@ Three rules for model judges follow:
 
 Benches find the failures you thought to test. The two systems in this book that met real callers both failed in ways their benches didn't include.
 
-**Call Gate**, in testing, held back none of 130 genuine-style alerts and separated scams from genuine calls almost perfectly. In its first four weeks live (Chapter 9), its real misses were four reworded loan scams that the model judged to come from a lender. They were let through by the rule that keeps real banks from being blocked. No test call was a scam pretending to be a lender in words the campaign memory hadn't seen. Shadow mode found it, because every live decision was logged and I labelled the calls as they arrived.
+**Call Gate**, in testing, held back none of 130 genuine-style alerts and separated scams from genuine calls almost perfectly. In its first four weeks live (Chapter 9), the misses that mattered were four reworded loan scams that the model judged to come from a lender. They were let through by the rule that keeps real banks from being blocked. No test call was a scam pretending to be a lender in words the campaign memory hadn't seen. Shadow mode found it, because every live decision was logged and I labelled the calls as they arrived.
 
 **Kadence**, my stand-up meeting agent (Chapter 10), scored 91.6% on 155 generated scenarios after prompt hardening. In real meetings, background chatter in a café triggered unintended comments on a real ticket, noise turned "COG-13" into "COG 31", and a missing workflow state produced an error instead of a reply. None of those were in the generated scenarios, because the generator had never been in a café.
 

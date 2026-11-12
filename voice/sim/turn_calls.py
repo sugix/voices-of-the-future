@@ -9,7 +9,7 @@ we know where every phrase starts and ends, which pauses are mid-turn, and when 
   data/ch5/manifest.jsonl    timings and labels for both sets
 
 All files are 8 kHz mu-law, through the same phone line as Chapter 2's calls.
-Run on the pod in the models venv, from voice_applications/:
+Run in the tts stack, from the book's folder:
   python sim/turn_calls.py
 """
 

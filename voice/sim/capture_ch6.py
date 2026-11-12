@@ -1,13 +1,13 @@
 """Chapter 6 capture: the receptionist's script through four open TTS models, then back through ASR.
 
-  python sim/capture_ch6.py --part voice    # fetch and transcribe the p228 reference clip (NeMo venv)
+  python sim/capture_ch6.py --part voice    # fetch and transcribe the p228 reference clip (nemo stack)
   python sim/capture_ch6.py --part kokoro   # Kokoro-82M, voice bf_lily (GPU, then CPU for timing)
   python sim/capture_ch6.py --part pocket   # Kyutai Pocket TTS 100M, voice "anna" (CPU)
   python sim/capture_ch6.py --part kyutai   # Kyutai TTS 1.6B, voice vctk/p228 (GPU), plus the Mimi round trip
   python sim/capture_ch6.py --part csm      # Sesame CSM-1B, cloned from vctk/p228 (GPU)
   python sim/capture_ch6.py --part asr      # Parakeet-TDT transcribes everything, wideband and over the phone line
 
-Each model runs in its own venv (see the chapter's note). The script and the text normaliser are read
+Each model runs in its own stack (see the chapter's note). The script and the text normaliser are read
 from how-tts-works.md, so the book and this capture cannot drift apart.
 Run from voice_applications/. Writes data/ch6/synth_<part>.json, capture_asr.json and data/ch6/listen/.
 Generated audio goes to data/ch6/wav/ (gitignored: about 100 MB, reproducible from this script).
@@ -54,7 +54,10 @@ def jobs(sampled):
 
 
 def save(part, rows, meta):
-    (OUT / f"synth_{part}.json").write_text(json.dumps({"meta": meta, "clips": rows}, indent=0))
+    """Write this model's clips over the saved ones, keeping any saved clip that wasn't rerun."""
+    path = OUT / f"synth_{part}.json"
+    old = json.loads(path.read_text())["clips"] if path.exists() else {}
+    path.write_text(json.dumps({"meta": meta, "clips": old | rows}, indent=0))
 
 
 def write(part, lid, variant, seed, audio, sr):
@@ -273,9 +276,7 @@ def asr():
 
 def export_listen():
     """The few clips the chapter plays, at 16 kHz to keep the repo small."""
-    import shutil
-    shutil.rmtree(OUT / "listen", ignore_errors=True)
-    d = OUT / "listen"
+    d = OUT / "listen"  # overwrite clip by clip, so clips from models you didn't rerun stay
     d.mkdir(exist_ok=True)
     for f in sorted(OUT.glob("synth_*.json")):
         for key, row in existing(json.load(open(f))["clips"], "."):

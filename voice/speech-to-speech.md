@@ -22,23 +22,23 @@ Here is where I ended up:
 | Finding | Number |
 |---|---|
 | Moshi greets and chats in full duplex | it greeted the caller first in all {glue}`m_runs` runs, and talked over the caller in {glue}`m_over` of them |
-| It isn't faster on the phone, because it chooses when to speak | it started a reply within 2 s of the caller finishing in {glue}`m_quick` of {glue}`m_runs` runs, and never replied in {glue}`m_none` |
+| It isn't reliably faster on the phone, because it chooses when to speak | it started a reply within 2 s of the caller finishing in {glue}`m_quick` of {glue}`m_runs` runs, and never replied in {glue}`m_none` |
 | It respects pauses | it started speaking in a caller's mid-sentence pause in {glue}`m_pause` of {glue}`m_hes` runs; Chapter 5's 0.5 s silence rule cut off 14 of 16 callers |
 | It can't do the job | with no instructions and no tools, it turned a repair ticket into an airline ticket and a tune-up into "the tuner" |
-| Conversation context changes the voice | after an angry caller, CSM read the same reply {glue:text}`csm_db:.0f` dB louder, faster, and with a narrower pitch range than after a calm one |
+| Conversation context changes the voice | after an angry caller, CSM read the same replies {glue:text}`csm_db:.0f` dB louder, faster, and with a narrower pitch range than after a calm one |
 | For actions, a chain of models still wins | in Kadence, my stand-up meeting agent, a text pipeline called the right tool on 10 of 10 tests where an audio-in model managed 7 |
 
 ```{note}
 Every number here comes from saved outputs, so the chapter runs on a CPU in seconds. The capture script, `sim/capture_ch10.py`, ran Moshi (7B) and CSM on one rented L4 GPU in about 30 minutes. The companion notebook reruns CSM on a free Colab T4. Moshi didn't fit a 16 GB GPU with Kyutai's PyTorch package, in float16 or with its 8-bit build, so it needs a 24 GB GPU such as an L4; on a Mac, Kyutai's MLX build is the alternative.
 ```
 
-## Three steps toward one model
+## Three steps towards one model
 
 **Spirit LM** (Meta, 2024) {cite}`nguyen2024spiritlm` showed that a text language model can learn speech. It starts from a 7B text model and keeps training it on sequences that switch between text tokens and speech tokens (HuBERT units, plus pitch and style tokens in its Expressive version), sometimes mid-sentence. The result can continue a sentence in either form, and carries some of the meaning across. But it takes turns: it hears a whole input, then produces a whole output. And it was released for non-commercial research only, so it isn't run here.
 
 **Moshi** (Kyutai, 2024) {cite}`defossez2024moshi` removes the turns. It models two audio streams at once, the user's and its own, as Mimi codes at 12.5 frames a second, the same codec Chapter 6 measured. Every 80 ms it reads the latest frame of the caller's audio and writes the next frame of its own. Alongside its audio it writes text, an "inner monologue" that keeps its speech coherent. Because it never stops listening, it can talk over you, say "mm-hm", or stop when you interrupt, and its designers put its theoretical latency at 160 ms, about 200 ms in practice. Its 7B backbone, Helium, is a text model trained by Kyutai, and the weights are CC BY 4.0.
 
-**CSM** (Sesame, 2025) takes a different route. It isn't a whole conversational model, it's a voice, the one Chapter 6 tested. What makes it conversational is its input: it reads the previous turns of the conversation, both text and audio, before speaking the next one. So it can slot into Chapter 8's chain and still hear how the caller sounded.
+**CSM** (Sesame, 2025) takes a different route. It isn't a whole conversational model; it's a voice, the one Chapter 6 tested. What makes it conversational is its input: it reads the previous turns of the conversation, both text and audio, before speaking the next one. So it can slot into Chapter 8's chain and still hear how the caller sounded.
 
 ## Moshi takes Halfwheel's calls
 
@@ -137,7 +137,7 @@ That's the gap between this family of models and Chapter 8. A receptionist's val
 
 ## Conversation as context: CSM
 
-CSM sits at the other end of the trade. It can't take a call, but it can make Chapter 8's chain sound like it heard the caller. I gave it a short conversation: an earlier receptionist turn in the voice Chapter 6 cloned, then a caller turn, then a reply to speak. The caller turn was the same Expresso speaker, once calm and once angry. Those recordings are about other things entirely, not bikes. What matters is how they sound. The reply was the same words both times, read three times each.
+CSM sits at the other end of the trade. It can't take a call, but it can make Chapter 8's chain sound like it heard the caller. I gave it a short conversation: an earlier receptionist turn in the voice Chapter 6 cloned, then a caller turn, then one of two replies to speak. The caller turn was the same Expresso speaker, once calm and once angry. Those recordings are about other things entirely, not bikes. What matters is how they sound. Each reply was the same words after both callers, read three times each.
 
 ```{code-cell} ipython3
 csm = json.load(open("data/ch10/csm.json"))
@@ -165,14 +165,14 @@ The same words came out differently. After the angry caller, CSM's receptionist 
 
 Kadence was a voice agent I built to sit in remote stand-up meetings and update the team's Linear board while people talked: "move ENG-142 to done", "who's blocking the API ticket?". I stopped before it became a product, but it ran in real meetings, and it's the clearest comparison I have between a chain of models and an audio-native one.
 
-Its final design was a chain, all self-hosted on one GPU: Silero for voice activity, faster-whisper large-v3-turbo, Qwen 2.5-7B-Instruct on vLLM, and Kokoro, the same shape as Halfwheel's receptionist. A turn took 1.5 to 2.2 seconds warm, about the same as Chapter 8.
+Its final design was a chain, all self-hosted on one GPU: Silero for voice activity, faster-whisper large-v3-turbo, Qwen2.5-7B-Instruct on vLLM, and Kokoro, the same shape as Halfwheel's receptionist. A turn took 1.5 to 2.2 seconds warm, about the same as Chapter 8.
 
-Early on I tried the other route: Qwen 2.5-Omni-7B, which takes audio in directly, so there's no recogniser in the chain. On a small harness of 10 tool-calling tests, the audio-in model topped out at 7 of 10, even with fuzzy matching of ticket IDs. Its errors were the kind that matter: "ENG-142" heard as "ENG-112", "alex-001" as "alex-000". The text chain got all 10 right straight away, at the cost of one more step and about 150 ms. Ten tests is a small number, and an earlier run of the same Omni model on 50 utterances did much better, so this is a pointer rather than a verdict. But it's the pointer I followed: for actions, text in the middle is a feature. A transcript can be checked, normalised and snapped to known IDs, as in Chapter 4, before anything acts on it.
+Early on I tried the other route: Qwen2.5-Omni-7B, which takes audio in directly, so there's no recogniser in the chain. On a small harness of 10 tool-calling tests, the audio-in model topped out at 7 of 10, even with fuzzy matching of ticket IDs. Its errors were the kind that matter: "ENG-142" heard as "ENG-112", "alex-001" as "alex-000". The text chain got all 10 right straight away, at the cost of one more step and about 150 ms. Ten tests is a small number, and an earlier run of the same Omni model on 50 utterances did much better, so this is a pointer rather than a verdict. But it's the pointer I followed: for actions, text in the middle is a feature. A transcript can be checked, normalised and snapped to known IDs, as in Chapter 4, before anything acts on it.
 
 Two more Kadence lessons carry straight over to Halfwheel:
 
 - **Never let the model say it acted.** Every Kadence turn had to be a tool call, including "speak" and "stay silent", and spoken confirmations came from the tool's return value, not the model's words. That's the fix for Chapter 8's receptionist that said "booked" with nothing saved.
-- **Real rooms are not test benches.** Kadence's scripted evaluation of 155 scenarios reached 91.6% overall after prompt hardening, with tool calls at 82% against my 90% target. In real meetings, background chatter in a café triggered unwanted comments on a real ticket, and noise turned "COG-13" into "COG 31". Chapter 11 is about measuring that gap.
+- **Real rooms are not test benches.** Kadence's evaluation of 155 generated scenarios reached 91.6% overall after prompt hardening, with tool calls at 82% against my 90% target. In real meetings, background chatter in a café triggered unintended comments on a real ticket, and noise turned "COG-13" into "COG 31". Chapter 11 is about measuring that gap.
 
 ## Where this leaves Halfwheel
 
@@ -194,8 +194,8 @@ Halfwheel's receptionist stays a chain of models, because its job is actions, an
 
 ```{tip}
 **Takeaways**
-- Speech-to-speech models remove the pipeline's waiting, not the decision about when to speak. On phone audio, Moshi often waited longer than Chapter 8's chain.
-- Full duplex brings human habits: picking up first, overlapping, respecting pauses. Some suit a receptionist; overlapping callers usually doesn't.
+- Speech-to-speech models remove the pipeline's waiting, not the decision about when to speak. On phone audio, Moshi often waited several seconds, or never replied at all (25 of 96 runs).
+- Full duplex brings human habits: picking up first, overlapping, respecting pauses. Some suit a receptionist; talking over callers usually doesn't.
 - A general conversational model without instructions or tools can't run a business's phone. Its fluency makes its mistakes sound convincing.
 - Conversation context changes delivery: the same words, after an angry caller, came out louder and faster.
 - When the job is actions, keep text in the middle, where it can be checked. That's what Kadence found, too.

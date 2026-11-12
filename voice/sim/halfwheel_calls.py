@@ -17,7 +17,7 @@ The first six calls are hand-written and used in Chapter 3. The rest are drawn
 from templates with a fixed seed. Existing clean files are reused, so adding
 calls never changes the earlier ones.
 
-Run on the pod (CPU is fine):
+Run in the tts stack (a CPU is fine):
   python voice_applications/sim/halfwheel_calls.py
 Needs: kokoro>=0.9.2, soundfile, scipy, numpy, and the espeak-ng system package.
 """

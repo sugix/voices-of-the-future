@@ -7,7 +7,7 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
-date: "2026-11-16"  # quoted: myst-nb stores front matter as JSON
+date: "2026-11-23"  # quoted: myst-nb stores front matter as JSON
 description: CTC, transducers and LLM decoders, built from scratch in numpy, and what each one means for speed, streaming and getting ticket numbers right.
 ---
 
@@ -33,7 +33,7 @@ Code for this chapter runs on any laptop. The real-model section at the end need
 
 ## The problem: long audio, short text, no alignment
 
-A 10 second call gives the encoder 125 frames. The transcript is about 25 words, or roughly 30 tokens for a subword tokenizer. Nobody labels which frames belong to which character, and nobody wants to. Training data is just audio and its transcript.
+A 10-second call gives the encoder 125 frames. The transcript is about 25 words, or roughly 30 tokens for a subword tokeniser. Nobody labels which frames belong to which character, and nobody wants to. Training data is just audio and its transcript.
 
 So the decoder has to learn a mapping between a long sequence and a short one without being told where anything lines up. Each of the three decoders solves that differently.
 
@@ -172,7 +172,7 @@ for t, s in sorted(scores.items(), key=lambda kv: -kv[1]):
 print("best open ticket:", max(scores, key=scores.get))
 ```
 
-This is the first real piece of the receptionist: **when the caller says something from a known list, check the audio against the list instead of trusting the transcript.** Production toolkits do a fuller version of the same idea with beam search, an n-gram language model or word boosting, which adds bias toward phrases you supply. In Kadence, my voice agent for Linear, café noise turned "COG-13" into "COG 31" in the transcript. A check against the open issues, like this one, would have flagged it before the agent acted.
+This is the first real piece of the receptionist: **when the caller says something from a known list, check the audio against the list instead of trusting the transcript.** Production toolkits do a fuller version of the same idea with beam search, an n-gram language model or word boosting, which biases it towards phrases you supply. In Kadence, my stand-up meeting agent, café noise turned "COG-13" into "COG 31" in the transcript. A check against the open issues, like this one, would have flagged it before the agent acted.
 
 ```{warning}
 Rescoring always returns *some* ticket. If the caller reads out a ticket that is not open, you still get the closest one. Compare the best score with the greedy path's score, and ask the caller to confirm when they are far apart.
@@ -303,11 +303,11 @@ for w, a, b in words:
     print(f"{w:>5}: {a:.2f} s to {b:.2f} s")
 ```
 
-I use this in Reprise, a voice-direction studio I'm building on Fish Audio's Drama 3. Word timings from forced alignment let you re-record a single word of a line instead of the whole take. Chapter 7 comes back to it.
+Word timings from forced alignment are also what let an editor re-record or replace a single word of a recording instead of the whole take.
 
 ## On real models
 
-Toy probabilities only go so far. I ran all six Halfwheel calls through one model of each kind, both as clean audio and as the 8 kHz phone version. The calls are generated with Kokoro, so you can reproduce them exactly. The code is below, and the companion notebook runs it on a free Colab T4.
+Toy probabilities only go so far. I ran six of Halfwheel's calls through one model of each kind, both as clean audio and as the 8 kHz phone version. The calls are generated with Kokoro, so you can reproduce them exactly. The code is below, and the companion notebook runs it on a free Colab T4.
 
 ```python
 # pip install "nemo_toolkit[asr]" qwen-asr soundfile
@@ -339,7 +339,7 @@ Here are the three calls with the most to teach, over the phone line:
 
 The other three calls, about a price, a booking change and a spam offer, came out right from all three models, apart from formatting such as "ten" versus "10" and punctuation. Here is what I take from the hard ones:
 
-- **All three got the ticket, but each wrote it differently.** CTC writes the spoken form, TDT writes `HW1042`, and Qwen3-ASR writes `H W 1042`. Before you compare a transcript with your list of open tickets, convert both to one written form. Chapter 4 covers that conversion, called inverse text normalization.
+- **All three got the ticket, but each wrote it differently.** CTC writes the spoken form, TDT writes `HW1042`, and Qwen3-ASR writes `H W 1042`. Before you compare a transcript with your list of open tickets, convert both to one written form. Chapter 4 names that conversion, inverse text normalisation, and Chapter 8 sidesteps it by matching tickets in either form.
 - **No model knew the Trek Domane.** All three wrote "Domain", the common English word. Even Qwen3-ASR's language model did not help here: a rare brand name loses to a common word. This is exactly what rescoring against the shop's own catalogue, or word boosting, is for.
 - **Nobody spelled Okafor correctly, and every model spelled it differently.** For names, the fix is a conversation, not a better model: the receptionist should ask the caller to spell it, or check it against caller ID.
 - **CTC was the only one to lose a word on the phone line.** It heard "SL five" as "sl f". The two decoders that read their own output kept it.
@@ -354,7 +354,7 @@ Speed, on an RTX 4000 Ada with one call at a time:
 | Parakeet-TDT 0.6B v2 | TDT | 0.10 | 66x | small |
 | Qwen3-ASR 1.7B (fp16) | LLM | 0.86 | 8x | 7.5 GB |
 
-On calls this short, fixed overhead hides the difference between CTC and TDT. The LLM decoder is about eight times slower, which is what the step counts earlier predicted. All three fit in a free T4's 16 GB.
+On calls this short, fixed overhead hides the difference between CTC and TDT. The LLM decoder is about eight times slower. That comes from the cost of each step, not their number: it took fewer steps than TDT, but each one runs a 1.7B-parameter model. All three fit in a free T4's 16 GB.
 
 Finally, here are the real CTC probabilities from Parakeet-CTC for the ticket call, saved from that run. Its vocabulary has 1,024 subword tokens plus the blank, and the decoding rule is the same one you wrote at the start of the chapter:
 
