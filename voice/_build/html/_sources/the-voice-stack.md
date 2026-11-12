@@ -57,12 +57,12 @@ Compute is the cheap part. One GPU at well under a dollar an hour can serve many
 
 ## What runs where
 
-Every chapter runs on a laptop CPU from saved results in seconds, and its companion notebook reruns the models on a free Google Colab T4 GPU. The models were chosen to fit that:
+Every chapter runs on a laptop CPU from saved results in seconds, and its companion notebook reruns the models, most of them on a free Google Colab T4 GPU. The models were chosen to fit that where possible:
 
 - **Speech recognition:** Parakeet-TDT 0.6B, with Whisper, Qwen3-ASR and Kyutai STT for comparison.
 - **Voices:** Kokoro-82M and Kyutai's Pocket TTS on a CPU; Kyutai TTS, Sesame's CSM and Fish Audio's models on a GPU.
 - **Language models:** Qwen3 4B, with 1.7B and 8B for comparison.
-- **Speech-to-speech:** Moshi, which needs a larger GPU or its 8-bit build.
+- **Speech-to-speech:** Moshi, which needs a 24 GB GPU such as an L4.
 
 The callers are a mix. Halfwheel's customers are synthetic voices put through a simulated phone line, so every word and every pause is known exactly. The real-speech checks use LibriSpeech recordings, and the robocalls are real ones the US Federal Trade Commission published. Where synthetic and real speech behave differently, and they do, the chapters say so.
 

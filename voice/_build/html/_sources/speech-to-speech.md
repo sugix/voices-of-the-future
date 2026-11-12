@@ -29,7 +29,7 @@ Here is where I ended up:
 | For actions, a chain of models still wins | in Kadence, my stand-up meeting agent, a text pipeline called the right tool on 10 of 10 tests where an audio-in model managed 7 |
 
 ```{note}
-Every number here comes from saved outputs, so the chapter runs on a CPU in seconds. The capture script, `sim/capture_ch10.py`, ran Moshi (7B) and CSM on one rented L4 GPU in about 30 minutes. The companion notebook reruns CSM on a free Colab T4. Moshi needs about 16 GB of GPU memory in bf16, so on a T4 it needs Kyutai's 8-bit build.
+Every number here comes from saved outputs, so the chapter runs on a CPU in seconds. The capture script, `sim/capture_ch10.py`, ran Moshi (7B) and CSM on one rented L4 GPU in about 30 minutes. The companion notebook reruns CSM on a free Colab T4. Moshi didn't fit a 16 GB GPU with Kyutai's PyTorch package, in float16 or with its 8-bit build, so it needs a 24 GB GPU such as an L4; on a Mac, Kyutai's MLX build is the alternative.
 ```
 
 ## Three steps toward one model

@@ -3,8 +3,8 @@
 *Building with modern voice AI models.*
 
 <div class="sv-status">
-<p><strong>This book is in the works.</strong></p>
-<p>Chapters will appear in the sidebar as they are drafted. Subscribe to the <a class="reference external" href="https://books.sugiv.fyi/feed.xml">books RSS feed</a> to get new chapters as they are published.</p>
+<p><strong>Draft, under review.</strong></p>
+<p>All twelve chapters are drafted and under review, so expect changes. Subscribe to the <a class="reference external" href="https://books.sugiv.fyi/feed.xml">books RSS feed</a> to hear when chapters are revised.</p>
 </div>
 
 ## What you will build
@@ -27,4 +27,4 @@ Engineers and builders at every level who want to put voice AI models to work in
 
 ## Running the code
 
-Every example runs on a free Google Colab T4 GPU or on your own laptop. The notebooks live in the [companion repo](https://github.com/sugix/voices-of-the-future).
+Every chapter runs on your own laptop from saved results in seconds. Most of the models also run on a free Google Colab T4 GPU; a few of the larger ones (Fish Audio's S2-Pro, Moshi, and the 8B language model) need a GPU with more memory, and their chapters say so. I checked every notebook's model steps on a 16 GB GPU with the T4's float16 limits. A notebook for each chapter will be published in the [companion repo](https://github.com/sugix/voices-of-the-future) once the review is done.

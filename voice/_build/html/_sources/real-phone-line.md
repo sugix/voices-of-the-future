@@ -28,7 +28,7 @@ Here is where I ended up:
 | Telephony, not compute, sets the price | Call Gate pays about 2 cents a call, nearly all of it telephony; the GPU share per call-minute is a fraction of a cent |
 
 ```{note}
-The load tests come from `sim/capture_ch12.py`. They replay the real model requests from Chapter 8 against Qwen3-4B on vLLM, and time Parakeet, Kokoro and Pocket TTS under load, on one rented RTX 4000 Ada GPU (20 GB). I haven't connected the receptionist to a live phone number in this chapter, because that needs your own telephony account; the protocol code below is the part that changes.
+The load tests come from `sim/capture_ch12.py`. They replay the real model requests from Chapter 8 against Qwen3-4B on vLLM, and time Parakeet, Kokoro and Pocket TTS under load, on one rented RTX 4000 Ada GPU (20 GB). They also ran on a 16 GB GPU in float16, but I haven't run vLLM on a T4 itself, which is an older generation that recent vLLM releases may not support. I haven't connected the receptionist to a live phone number in this chapter, because that needs your own telephony account; the protocol code below is the part that changes.
 ```
 
 ## How a phone call reaches your code

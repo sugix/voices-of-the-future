@@ -29,7 +29,7 @@ Here is where I ended up:
 | The field finds what the bench can't | Call Gate's real misses and Kadence's café failures were all outside their test sets |
 
 ```{note}
-The new runs come from `sim/capture_ch11.py`, which ran Kokoro, Parakeet and two Qwen3 models on one rented L4 in about an hour. Everything else is saved data from earlier chapters, so this chapter runs on a CPU in seconds.
+The new runs come from `sim/capture_ch11.py`, which ran Kokoro, Parakeet and two Qwen3 models on one rented L4 in about an hour. On a free Colab T4 the receptionist reruns, but the judge, Qwen3-8B, needs a larger GPU. Everything else is saved data from earlier chapters, so this chapter runs on a CPU in seconds.
 ```
 
 ## What to measure

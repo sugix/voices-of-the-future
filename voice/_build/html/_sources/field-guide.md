@@ -72,8 +72,8 @@ display(HTML(f'<table class="table"><thead><tr>{head}</tr></thead><tbody>{body}<
 | CSM-1B | conversational text to speech | 1B | Apache 2.0 | GPU | 6, 10 |
 | Fish Audio S1-mini | text to speech with emotion tags | 0.5B | CC BY-NC-SA 4.0 | GPU | 7 |
 | Fish Audio S2-Pro | text to speech with free-form direction | 5B | Fish Audio Research Licence | GPU (24 GB) | 7 |
-| Moshi | full-duplex speech to speech | 7B | CC BY 4.0 | GPU (16 GB, or 8-bit) | 10 |
-| Qwen3 1.7B, 4B, 8B | the receptionist's language model, and judges | 1.7B to 8B | Apache 2.0 | GPU | 8, 9, 11, 12 |
+| Moshi | full-duplex speech to speech | 7B | CC BY 4.0 | GPU (24 GB) | 10 |
+| Qwen3 1.7B, 4B, 8B | the receptionist's language model, and judges | 1.7B to 8B | Apache 2.0 | GPU (8B: more than 16 GB) | 8, 9, 11, 12 |
 | wav2vec2 (SUPERB emotion) | speech emotion classification | 95M | Apache 2.0 | GPU or CPU | 7 |
 | WavLM (speaker verification) | voice similarity | 95M | not stated; see the model card | GPU or CPU | 7 |
 
