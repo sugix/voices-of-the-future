@@ -26,6 +26,7 @@ import soundfile as sf
 from scipy import signal
 
 sys.path.insert(0, str(Path(__file__).parent))
+from runtime import SCRATCH, existing, half, merge_json, quick  # noqa: E402
 OUT = Path("data/ch6")
 WAV = OUT / "wav"
 SEEDS = [0, 1, 2]  # sampled models read the normalised script three times
@@ -45,6 +46,7 @@ def chapter():
 def jobs(sampled):
     """(line id, variant, seed, text): every line as written, then as speakable(), several times if sampled."""
     lines, speakable = chapter()
+    lines = quick(lines)
     out = [(lid, "raw", 0, text) for lid, text in lines]
     for seed in SEEDS if sampled else [0]:
         out += [(lid, "spoken", seed, speakable(text)) for lid, text in lines]
@@ -127,7 +129,7 @@ def kyutai():
     from moshi.models.loaders import CheckpointInfo
     from moshi.models.tts import DEFAULT_DSM_TTS_REPO, TTSModel
     info = CheckpointInfo.from_hf_repo(DEFAULT_DSM_TTS_REPO)
-    tts = TTSModel.from_checkpoint_info(info, n_q=32, temp=0.6, device="cuda")
+    tts = TTSModel.from_checkpoint_info(info, n_q=32, temp=0.6, device="cuda", dtype=half())
     voice = tts.get_voice_path("vctk/p228_023.wav")
     cond = tts.make_condition_attributes([voice], cfg_coef=2.0)
 
@@ -169,7 +171,8 @@ def mimi_round_trip(mimi):
     import torch
     rows = {}
     ids = [json.loads(l)["id"] for l in open("data/librispeech/manifest.jsonl")]
-    for n in [1, 2, 4, 8, 16, 32]:
+    ids = quick(ids)
+    for n in quick([1, 2, 4, 8, 16, 32]):
         mimi.set_num_codebooks(n)
         for i in ids:
             x, sr = sf.read(f"data/librispeech/clean/{i}.wav", dtype="float32")
@@ -227,9 +230,9 @@ def voice():
     VOICE_WAV.unlink(missing_ok=True)
     shutil.copyfile(hf_hub_download("kyutai/tts-voices", "vctk/p228_023_enhanced.wav"), VOICE_WAV)
     x, sr = sf.read(VOICE_WAV, dtype="float32")
-    sf.write("/root/p228_16k.wav", signal.resample_poly(x.reshape(len(x), -1).mean(1), 16000, sr), 16000)
+    sf.write(str(SCRATCH / "p228_16k.wav"), signal.resample_poly(x.reshape(len(x), -1).mean(1), 16000, sr), 16000)
     model = nemo_asr.models.ASRModel.from_pretrained("nvidia/parakeet-tdt-0.6b-v2")
-    text = model.transcribe(["/root/p228_16k.wav"])[0]
+    text = model.transcribe([str(SCRATCH / "p228_16k.wav")])[0]
     (OUT / "voice" / "p228_023.txt").write_text(getattr(text, "text", text))
     print("reference:", getattr(text, "text", text), round(len(x) / sr, 2), "s", flush=True)
 
@@ -238,11 +241,11 @@ def asr():
     import nemo.collections.asr as nemo_asr
     from halfwheel_calls import to_phone
     model = nemo_asr.models.ASRModel.from_pretrained("nvidia/parakeet-tdt-0.6b-v2")
-    tmp = Path("/root/ch6_asr")
+    tmp = SCRATCH / "ch6_asr"
     tmp.mkdir(exist_ok=True)
     jobs16, keys = [], []
     for f in sorted(OUT.glob("synth_*.json")):
-        for key, row in json.load(open(f))["clips"].items():
+        for key, row in existing(json.load(open(f))["clips"], "."):
             x, sr = sf.read(row["wav"], dtype="float32")
             for band in ["wide"] if key.startswith("mimi/") else ["wide", "phone"]:
                 if band == "phone":  # Chapter 2's phone line at 25 dB, then G.711 mu-law
@@ -264,7 +267,7 @@ def asr():
     res = {}
     for (key, band), h in zip(keys, hyps):
         res.setdefault(key, {})[band] = getattr(h, "text", h)
-    (OUT / "capture_asr.json").write_text(json.dumps(res, indent=0))
+    merge_json(OUT / "capture_asr.json", res)
     export_listen()
 
 
@@ -275,15 +278,17 @@ def export_listen():
     d = OUT / "listen"
     d.mkdir(exist_ok=True)
     for f in sorted(OUT.glob("synth_*.json")):
-        for key, row in json.load(open(f))["clips"].items():
+        for key, row in existing(json.load(open(f))["clips"], "."):
             m = re.fullmatch(r"(\w+)/(r\d\d)_(raw|spoken)_0", key)
             short = "mimi/" in key and row["id"] == "1320-122612-0016" and row["codebooks"] in (1, 2, 8, 32)
             if (m and m[2] in LISTEN) or short:
                 x, sr = sf.read(row["wav"], dtype="float32")
                 name = f"mimi_{row['codebooks']}.wav" if short else f"{m[1]}_{m[2]}_{m[3]}.wav"
                 sf.write(d / name, signal.resample_poly(x, 16000, sr).astype(np.float32), 16000, subtype="PCM_16")
-    x, sr = sf.read(WAV / "csm" / "r12_spoken_0.wav", dtype="float32")  # a runaway: 20 s for a 5 s line
-    sf.write(d / "csm_r12_runaway.wav", signal.resample_poly(x, 8000, sr).astype(np.float32), 8000, subtype="ULAW")
+    runaway = WAV / "csm" / "r12_spoken_0.wav"  # a runaway: 20 s for a 5 s line
+    if runaway.exists():
+        x, sr = sf.read(runaway, dtype="float32")
+        sf.write(d / "csm_r12_runaway.wav", signal.resample_poly(x, 8000, sr).astype(np.float32), 8000, subtype="ULAW")
 
 
 if __name__ == "__main__":

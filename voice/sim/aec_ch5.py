@@ -19,13 +19,14 @@ import soundfile as sf
 from scipy import signal
 
 sys.path.insert(0, str(Path(__file__).parent))
+from runtime import half, quick  # noqa: E402
 OUT = Path("data/ch5")
 
 
 def synth():
     import turn_calls as tc
     (OUT / "prompts").mkdir(exist_ok=True)
-    for i, text in enumerate(tc.PROMPTS):
+    for i, text in enumerate(quick(tc.PROMPTS)):
         a = tc.tts(text, tc.RECEPTIONIST[0])  # same trimming as the barge-in clips
         sf.write(OUT / "prompts" / f"p{i + 1}.wav", signal.resample_poly(a, 1, 3).astype(np.float32), 8000,
                  subtype="PCM_16")
@@ -42,7 +43,7 @@ def apply():
     exec(cell.split("# --- demo")[0], ns)
     vad = load_silero_vad()
     res = {}
-    for row in map(json.loads, open(OUT / "manifest.jsonl")):
+    for row in quick(map(json.loads, open(OUT / "manifest.jsonl"))):
         if row["set"] != "bargein":
             continue
         mic, sr = sf.read(OUT / "bargein" / f"{row['id']}.wav", dtype="float32")

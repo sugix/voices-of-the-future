@@ -28,6 +28,7 @@ from scipy import signal
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "sim"))
+from runtime import SCRATCH, existing, fish_paths, half, merge_json, quick  # noqa: E402
 OUT = ROOT / "data" / "ch7"
 WAV = OUT / "wav"
 REF = ROOT / "data" / "ch6" / "voice"  # VCTK p228, the voice Chapter 6 cloned
@@ -72,10 +73,10 @@ def phone_ref():
     from halfwheel_calls import to_phone
     x, sr = sf.read(REF / "p228_023_enhanced.wav", dtype="float32")
     y = to_phone(x, sr, 25, np.random.default_rng(7))
-    sf.write("/root/p228_phone.wav", y, 8000, subtype="ULAW")
-    y = sf.read("/root/p228_phone.wav", dtype="float32")[0]
-    sf.write("/root/p228_phone_44k.wav", signal.resample_poly(y, 441, 80).astype(np.float32), 44100)
-    return Path("/root/p228_phone_44k.wav")
+    sf.write(str(SCRATCH / "p228_phone.wav"), y, 8000, subtype="ULAW")
+    y = sf.read(str(SCRATCH / "p228_phone.wav"), dtype="float32")[0]
+    sf.write(str(SCRATCH / "p228_phone_44k.wav"), signal.resample_poly(y, 441, 80).astype(np.float32), 44100)
+    return SCRATCH / "p228_phone_44k.wav"
 
 
 def fish(part, code_dir, ckpt):
@@ -87,7 +88,7 @@ def fish(part, code_dir, ckpt):
     from fish_speech.models.dac.inference import load_model as load_decoder
     from fish_speech.models.text2semantic.inference import launch_thread_safe_queue
     from fish_speech.utils.schema import ServeReferenceAudio, ServeTTSRequest
-    precision = torch.bfloat16
+    precision = half()
     queue = launch_thread_safe_queue(checkpoint_path=ckpt, device="cuda", precision=precision, compile=False)
     decoder = load_decoder(config_name="modded_dac_vq", checkpoint_path=f"{ckpt}/codec.pth", device="cuda")
     engine = TTSInferenceEngine(llama_queue=queue, decoder_model=decoder, precision=precision, compile=False)
@@ -133,7 +134,7 @@ def fish(part, code_dir, ckpt):
     for name, written, _, respelled in ([] if part == "fish2ref" else NAMES):
         jobs.append((f"name_{name}_spelled_0", f"name_{name}", "spelled", "clean", written, 0))
         jobs.append((f"name_{name}_respelled_0", f"name_{name}", "respelled", "clean", respelled, 0))
-    for key, scene, variant, ref, text, seed in jobs:
+    for key, scene, variant, ref, text, seed in quick(jobs):
         audio, sr, wall = run(text, ref, seed)
         if audio is None:
             print(key, "NO AUDIO", flush=True)
@@ -175,7 +176,7 @@ def kyutai():
 
     run("Warming up.", voice("default"))
     rows = {}
-    for scene, text, *_ in SCENES:
+    for scene, text, *_ in quick(SCENES):
         for variant, style in [("plain", "default"), ("directed", KYUTAI_STYLE[scene])]:
             for seed in SEEDS:
                 torch.manual_seed(seed)
@@ -187,7 +188,7 @@ def kyutai():
                                          "sr": 24000, "seconds": len(a) / 24000, "wall": time.perf_counter() - t0,
                                          "wav": write("kyutai", key, a, 24000)}
                 print(key, style, round(len(a) / 24000, 2), flush=True)
-    for name, written, _, respelled in NAMES:
+    for name, written, _, respelled in quick(NAMES):
         for variant, text in [("spelled", written), ("respelled", respelled)]:
             torch.manual_seed(0)
             key = f"name_{name}_{variant}_0"
@@ -213,7 +214,7 @@ def kokoro():
                                  "speed": speed, "phonemes": " ".join(phonemes), "sr": 24000,
                                  "seconds": len(a) / 24000, "wav": write("kokoro", key, a, 24000)}
 
-    for scene, text, *_ in SCENES:
+    for scene, text, *_ in quick(SCENES):
         run(f"{scene}_plain_clean_0", scene, "plain", text)
         if scene in KOKORO_SPEED:
             run(f"{scene}_directed_clean_0", scene, "directed", text, KOKORO_SPEED[scene])
@@ -221,7 +222,7 @@ def kokoro():
             for speed in [0.7, 0.9, 1.1, 1.3]:
                 run(f"{scene}_speed{speed}_clean_0", scene, f"speed {speed}", text, speed)
             run(f"{scene}_commas_clean_0", scene, "commas", text.replace("one oh four two", "one, oh, four, two"))
-    for name, written, phonemes, _ in NAMES:
+    for name, written, phonemes, _ in quick(NAMES):
         run(f"name_{name}_spelled_0", f"name_{name}", "spelled", written)
         run(f"name_{name}_phonemes_0", f"name_{name}", "phonemes", phonemes)
     save("kokoro", rows, {"voice": "bf_lily"})
@@ -243,8 +244,8 @@ def refs():
     for mood, f in EXPRESSO.items():
         shutil.copyfile(hf_hub_download("kyutai/tts-voices", f), d / f"ex04_{mood}.wav")
         x, sr = sf.read(d / f"ex04_{mood}.wav", dtype="float32")
-        sf.write("/root/ref16.wav", signal.resample_poly(x.reshape(len(x), -1).mean(1), 16000, sr), 16000)
-        text = model.transcribe(["/root/ref16.wav"])[0]
+        sf.write(str(SCRATCH / "ref16.wav"), signal.resample_poly(x.reshape(len(x), -1).mean(1), 16000, sr), 16000)
+        text = model.transcribe([str(SCRATCH / "ref16.wav")])[0]
         (d / f"ex04_{mood}.txt").write_text(getattr(text, "text", text))
         print(mood, getattr(text, "text", text), flush=True)
 
@@ -252,18 +253,18 @@ def refs():
 def asr():
     import nemo.collections.asr as nemo_asr
     model = nemo_asr.models.ASRModel.from_pretrained("nvidia/parakeet-tdt-0.6b-v2")
-    tmp = Path("/root/ch7_asr")
+    tmp = SCRATCH / "ch7_asr"
     tmp.mkdir(exist_ok=True)
     keys, paths = [], []
     for f in sorted(OUT.glob("synth_*.json")):
-        for key, row in json.load(open(f))["clips"].items():
+        for key, row in existing(json.load(open(f))["clips"], ROOT):
             x, sr = sf.read(ROOT / row["wav"], dtype="float32")
             p = tmp / f"{len(keys)}.wav"
             sf.write(p, signal.resample_poly(x, 16000, sr).astype(np.float32), 16000)
             keys.append(key)
             paths.append(str(p))
     hyps = model.transcribe(paths, batch_size=16)
-    (OUT / "asr.json").write_text(json.dumps({k: getattr(h, "text", h) for k, h in zip(keys, hyps)}, indent=0))
+    merge_json(OUT / "asr.json", {k: getattr(h, "text", h) for k, h in zip(keys, hyps)})
 
 
 def judge():
@@ -291,7 +292,7 @@ def judge():
     labels = ser.config.id2label
     res = {}
     for f in sorted(OUT.glob("synth_*.json")):
-        for key, row in json.load(open(f))["clips"].items():
+        for key, row in existing(json.load(open(f))["clips"], ROOT):
             x = load16(ROOT / row["wav"])
             hop = 160
             rms = librosa.feature.rms(y=x, frame_length=400, hop_length=hop)[0]
@@ -314,7 +315,7 @@ def judge():
                         "above_4k": float(band[freqs > 4000].sum() / band.sum()),
                         "sim_p228": float(embed(x) @ refs["p228"])}
             print(key, "judged", flush=True)
-    (OUT / "judge.json").write_text(json.dumps(res, indent=0))
+    merge_json(OUT / "judge.json", res)
 
 
 def export_listen():
@@ -330,11 +331,11 @@ def export_listen():
     for f in OUT.glob("synth_*.json"):
         rows |= json.load(open(f))["clips"]
     for key in picks:
-        if key in rows:
+        if key in rows and (ROOT / rows[key]["wav"]).exists():
             x, sr = sf.read(ROOT / rows[key]["wav"], dtype="float32")
             sf.write(d / f"{key.replace('/', '_')}.wav", signal.resample_poly(x, 16000, sr).astype(np.float32), 16000,
                      subtype="PCM_16")
-    x, sr = sf.read(phone_ref() if not Path("/root/p228_phone_44k.wav").exists() else "/root/p228_phone_44k.wav",
+    x, sr = sf.read(phone_ref() if not SCRATCH / "p228_phone_44k.wav".exists() else str(SCRATCH / "p228_phone_44k.wav"),
                     dtype="float32")
     sf.write(d / "ref_p228_phone.wav", signal.resample_poly(x, 16000, sr).astype(np.float32), 16000, subtype="PCM_16")
 
@@ -345,8 +346,8 @@ if __name__ == "__main__":
                     choices=["fish1", "fish2", "fish2ref", "refs", "kyutai", "kokoro", "asr", "judge", "listen"])
     p = ap.parse_args().part
     if p == "fish1":
-        fish("fish1", "/root/fish1", "/workspace/authorship-voice/.hf/fish/s1-mini")
+        fish("fish1", *fish_paths(1))
     elif p in ("fish2", "fish2ref"):
-        fish(p, "/root/fish2", "/workspace/authorship-voice/.hf/fish/s2-pro")
+        fish(p, *fish_paths(2))
     else:
         {"refs": refs, "kyutai": kyutai, "kokoro": kokoro, "asr": asr, "judge": judge, "listen": export_listen}[p]()

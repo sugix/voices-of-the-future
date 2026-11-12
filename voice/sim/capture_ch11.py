@@ -22,6 +22,7 @@ from scipy import signal
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "sim"))
+from runtime import SCRATCH, half, quick  # noqa: E402
 from bench_calls import CALLS, Caller  # noqa: E402
 
 OUT = ROOT / "data" / "ch11"
@@ -39,7 +40,7 @@ SEEDS = [0, 1, 2, 3, 4]
 
 
 def clips():
-    for call in CALLS:
+    for call in quick(CALLS):
         for i, line in enumerate(call["lines"]):
             yield f"{call['id']}_{i}", call["voice"], line
         for kind, (_, correction) in call["knows"].items():
@@ -73,7 +74,7 @@ def hear():
     from wav import load
     vad = load_silero_vad()
     asr = nemo_runner("nvidia/parakeet-tdt-0.6b-v2", boost=0.5)  # Chapter 4's choice
-    Path("/root/ch11").mkdir(exist_ok=True)
+    (SCRATCH / "ch11").mkdir(exist_ok=True)
     for cond in CONDITIONS:
         if cond == "base":
             continue
@@ -92,7 +93,7 @@ def hear():
                     if quiet >= 1.2:
                         end = (k + 1) * frame
                         break
-            p16 = f"/root/ch11/{cond}_{cid}.wav"
+            p16 = str(SCRATCH / f"ch11/{cond}_{cid}.wav")
             sf.write(p16, signal.resample_poly(x, 2, 1).astype(np.float32), 16000)
             t0 = time.perf_counter()
             text = asr(p16)
@@ -112,13 +113,13 @@ def talk():
     catalogue = ns["CATALOGUE"]
     bot = Receptionist("Qwen/Qwen3-4B-Instruct-2507", PROMPT_GUARDED)
     bot.generate([{"role": "user", "content": "Hello?"}])
-    runs = [(cond, None, None) for cond in CONDITIONS] + [("base", 0.7, s) for s in SEEDS]
+    runs = quick([(cond, None, None) for cond in CONDITIONS] + [("base", 0.7, s) for s in SEEDS])
     for cond, temperature, seed in runs:
         import torch
         heard_rows = json.loads(((CH8 / "hear.json") if cond == "base" else (OUT / f"hear_{cond}.json")).read_text())
         bot.temperature = temperature
         log = {}
-        for call in CALLS:
+        for call in quick(CALLS):
             if seed is not None:
                 torch.manual_seed(1000 * seed + int(call["id"][1:]))
             bot.guard_actions("code")  # Chapter 8's final receptionist: the loop saves on "yes"
@@ -209,7 +210,7 @@ def judge(model_id="Qwen/Qwen3-8B", second=False):
     import torch
     from transformers import AutoModelForCausalLM, AutoTokenizer
     tok = AutoTokenizer.from_pretrained(model_id)
-    model = AutoModelForCausalLM.from_pretrained(model_id, dtype=torch.bfloat16, device_map="cuda")
+    model = AutoModelForCausalLM.from_pretrained(model_id, dtype=half(), device_map="cuda")
     yes = [tok.encode(w, add_special_tokens=False)[0] for w in ["Yes", "yes"]]
     no = [tok.encode(w, add_special_tokens=False)[0] for w in ["No", "no"]]
 
@@ -223,7 +224,7 @@ def judge(model_id="Qwen/Qwen3-8B", second=False):
 
     out = {}
     logs = sorted(CH8.glob("talk_*.json")) + sorted(OUT.glob("talk_*.json"))
-    for f in logs:
+    for f in quick(logs):
         run = ("ch8/" if f.parent == CH8 else "ch11/") + f.stem.removeprefix("talk_")
         for cid, turns in json.loads(f.read_text())["calls"].items():
             convo = transcript(turns)

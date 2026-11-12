@@ -29,7 +29,7 @@ Here is where I ended up:
 | The caller waits about two seconds | median {glue:text}`lat_stream:.1f` s from the end of their turn to the receptionist's first word, {glue:text}`lat_endpoint:.1f` s of it waiting to be sure they'd finished |
 
 ```{note}
-Every number here comes from saved logs, so the chapter runs on a CPU in seconds. The capture script, `sim/capture_ch8.py`, ran the callers, the recogniser and the language models on one rented L4 GPU. The receptionist itself is `sim/receptionist.py` and the bench is `sim/bench_calls.py`; this chapter shows their key parts. The companion notebook reruns everything on a free Colab T4; the 8B model needs 4-bit loading there.
+Every number here comes from saved logs, so the chapter runs on a CPU in seconds. The capture script, `sim/capture_ch8.py`, ran the callers, the recogniser and the language models on one rented L4 GPU. The receptionist itself is `sim/receptionist.py` and the bench is `sim/bench_calls.py`; this chapter shows their key parts. The companion notebook reruns everything on a free Colab T4 except the 8B model, which doesn't fit a T4's 16 GB in float16 and needs a larger GPU.
 ```
 
 ## The receptionist in one loop

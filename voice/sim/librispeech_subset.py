@@ -11,7 +11,7 @@ Picks 40 utterances of 3 to 15 seconds from test-clean and 40 from test-other
   data/librispeech/manifest.jsonl   ids, splits, transcripts     (committed)
 
 Run on the pod. The two parquet files (about 680 MB, from the Hugging Face copy
-of LibriSpeech, which downloads far faster than openslr.org) go to /root, not the volume.
+of LibriSpeech, which downloads far faster than openslr.org) go to a temporary folder.
 Needs pyarrow.
 """
 
@@ -19,6 +19,9 @@ from __future__ import annotations
 
 import io
 import json
+import sys
+sys.path.insert(0, str(__import__('pathlib').Path(__file__).parent))
+from runtime import SCRATCH, half, quick  # noqa: E402
 import urllib.request
 from pathlib import Path
 
@@ -31,7 +34,7 @@ from halfwheel_calls import PHONE_SR, to_phone
 SEED = 2015
 PER_SPLIT = 40
 HF = "https://huggingface.co/datasets/openslr/librispeech_asr/resolve/main/all"
-CACHE = Path("/root/librispeech")
+CACHE = SCRATCH / "librispeech"
 OUT = Path(__file__).resolve().parents[1] / "data" / "librispeech"
 
 

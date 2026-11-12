@@ -10,6 +10,7 @@ Run from voice_applications/. Writes data/ch8/calls/*.wav (8 kHz mu-law), hear.j
 
 import argparse
 import json
+import os
 import re
 import sys
 import time
@@ -22,6 +23,7 @@ from scipy import signal
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "sim"))
+from runtime import SCRATCH, half, quick  # noqa: E402
 from bench_calls import CALLS, Caller  # noqa: E402
 
 OUT = ROOT / "data" / "ch8"
@@ -44,7 +46,7 @@ CONFIGS = {  # name: (model, how the receptionist hears the caller, instructions
 
 def clips():
     """Every caller line and correction line: (clip id, voice, text)."""
-    for call in CALLS:
+    for call in quick(CALLS):
         for i, line in enumerate(call["lines"]):
             yield f"{call['id']}_{i}", call["voice"], line
         for kind, (_, correction) in call["knows"].items():
@@ -79,7 +81,7 @@ def hear():
     vad = load_silero_vad()
     asr = nemo_runner("nvidia/parakeet-tdt-0.6b-v2", boost=0.5)  # Chapter 4's choice for live calls
     rows = json.loads((OUT / "clips.json").read_text())
-    Path("/root/ch8").mkdir(exist_ok=True)
+    (SCRATCH / "ch8").mkdir(exist_ok=True)
     asr(str(OUT / "calls" / f"{next(iter(rows))}.wav"))  # warm up
     for cid, row in rows.items():
         x, sr = load(OUT / "calls" / f"{cid}.wav")
@@ -96,7 +98,7 @@ def hear():
                 if quiet >= 1.2:
                     end = (k + 1) * frame
                     break
-        p16 = f"/root/ch8/{cid}.wav"
+        p16 = str(SCRATCH / f"ch8/{cid}.wav")
         sf.write(p16, signal.resample_poly(x, 2, 1).astype(np.float32), 16000)
         t0 = time.perf_counter()
         text = asr(p16)
@@ -129,7 +131,7 @@ def talk(only=None):
         bot.prompt = PROMPT_PLAIN if prompt == "plain" else PROMPT_GUARDED
         guard = {"twophase": "tool", "code": "code"}.get(prompt)  # the read-back rule enforced in code
         log = {}
-        for call in CALLS:
+        for call in quick(CALLS):
             bot.guard_actions(guard)  # fresh pending state for every call
             asr_heard = {i: hear_rows[f"{call['id']}_{i}"]["heard"] for i in range(len(call["lines"]))}
             caller, history, turns = Caller(call, asr_heard), [], []
@@ -171,7 +173,7 @@ def speak():
     pocket.generate_audio(state, "Warming up.")
     list(kokoro("Warming up.", voice="bf_lily"))
     rows = {}
-    for s in firsts:
+    for s in quick(firsts):
         text = speakable(s)
         t0 = time.perf_counter()
         next(iter(pocket.generate_audio_stream(state, text)))
@@ -183,6 +185,8 @@ def speak():
     filler = "One moment, let me check."
     rows["_filler"] = {"text": filler, "note": "pre-rendered once, so it plays immediately"}
     (OUT / "speak.json").write_text(json.dumps(rows, indent=0, ensure_ascii=False))
+    sys.stdout.flush()
+    os._exit(0)  # the TTS libraries' background threads can crash at shutdown, after the work is saved
 
 
 if __name__ == "__main__":

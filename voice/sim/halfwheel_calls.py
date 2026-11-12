@@ -25,6 +25,9 @@ Needs: kokoro>=0.9.2, soundfile, scipy, numpy, and the espeak-ng system package.
 from __future__ import annotations
 
 import json
+import sys
+sys.path.insert(0, str(__import__('pathlib').Path(__file__).parent))
+from runtime import half, quick  # noqa: E402
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
@@ -175,7 +178,7 @@ def main() -> None:
     (OUT / "phone").mkdir(parents=True, exist_ok=True)
     pipelines = {}
     rows = []
-    for call in CALLS + generated_calls(N_GENERATED, SEED + 1):
+    for call in quick(CALLS + generated_calls(N_GENERATED, SEED + 1)):
         clean_path = OUT / "clean" / f"{call.id}.wav"
         if clean_path.exists():
             audio, _ = sf.read(clean_path, dtype="float32")

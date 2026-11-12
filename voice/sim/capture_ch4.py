@@ -12,6 +12,9 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
+sys.path.insert(0, str(__import__('pathlib').Path(__file__).parent))
+from runtime import half, quick  # noqa: E402
 import platform
 import time
 import traceback
@@ -28,7 +31,7 @@ OUT = Path("data/ch4/capture_ch4.json")
 def load_sets():
     files = []
     for name, root in [("halfwheel", Path("data/calls")), ("librispeech", Path("data/librispeech"))]:
-        for line in open(root / "manifest.jsonl"):
+        for line in quick(open(root / "manifest.jsonl")):
             row = json.loads(line)
             for cond in ["clean", "phone"]:
                 files.append({"set": name, "cond": cond, "id": row["id"],

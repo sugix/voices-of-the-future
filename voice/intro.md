@@ -27,4 +27,4 @@ Engineers and builders at every level who want to put voice AI models to work in
 
 ## Running the code
 
-Every chapter runs on your own laptop from saved results in seconds. Most of the models also run on a free Google Colab T4 GPU; a few of the larger ones (Fish Audio's S2-Pro, and Moshi without its 8-bit build) need a GPU with more memory, and their chapters say so. A notebook for each chapter will be published in the [companion repo](https://github.com/sugix/voices-of-the-future) once the review is done.
+Every chapter runs on your own laptop from saved results in seconds. Most of the models also run on a free Google Colab T4 GPU; a few of the larger ones (Fish Audio's S2-Pro, Moshi, and the 8B language model) need a GPU with more memory, and their chapters say so. I checked every notebook's model steps on a 16 GB GPU with the T4's float16 limits. A notebook for each chapter will be published in the [companion repo](https://github.com/sugix/voices-of-the-future) once the review is done.

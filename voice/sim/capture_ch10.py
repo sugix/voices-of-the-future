@@ -9,6 +9,7 @@ Run from voice_applications/ on a GPU pod. Writes data/ch10/moshi.json, csm.json
 
 import argparse
 import json
+import os
 import sys
 import time
 from pathlib import Path
@@ -19,6 +20,7 @@ from scipy import signal
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "sim"))
+from runtime import SCRATCH, half, quick  # noqa: E402
 OUT = ROOT / "data" / "ch10"
 LEAD, TAIL, BATCH = 2.0, 8.0, 3  # silence before the caller (Moshi may greet), after, and samples per input
 
@@ -28,6 +30,8 @@ def inputs():
     clips = json.loads((ROOT / "data" / "ch8" / "clips.json").read_text())
     for i in range(1, 17):
         cid = f"c{i:02d}_0"
+        if cid not in clips:
+            continue  # Chapter 8's callers weren't all generated (a quick run)
         yield cid, "opener", ROOT / "data" / "ch8" / "calls" / f"{cid}.wav", [(0.3, clips[cid]["speech_end"])]
     for row in map(json.loads, open(ROOT / "data" / "ch5" / "manifest.jsonl")):
         if row["set"] == "turns":
@@ -39,15 +43,15 @@ def moshi():
     import torch
     from moshi.models import LMGen, loaders
     from wav import load
-    info = loaders.CheckpointInfo.from_hf_repo("kyutai/moshiko-pytorch-bf16")
+    info = loaders.CheckpointInfo.from_hf_repo(os.environ.get("MOSHI_REPO", "kyutai/moshiko-pytorch-bf16"))
     mimi = info.get_mimi(device="cuda")
     tok = info.get_text_tokenizer()
-    lm = info.get_moshi(device="cuda", dtype=torch.bfloat16)
+    lm = info.get_moshi(device="cuda", dtype=half())
     gen = LMGen(lm, **info.lm_gen_config)
     frame = int(mimi.sample_rate / mimi.frame_rate)  # 1920 samples, 80 ms
     (OUT / "wav").mkdir(parents=True, exist_ok=True)
     rows = {}
-    for cid, kind, path, segments in inputs():
+    for cid, kind, path, segments in quick(inputs()):
         x, sr = load(path)
         x = signal.resample_poly(x, 24000, sr).astype(np.float32)
         x = np.concatenate([np.zeros(int(LEAD * 24000)), x, np.zeros(int(TAIL * 24000))]).astype(np.float32)
@@ -111,8 +115,8 @@ def refs():
     for mood, style in EXPRESSO.items():
         shutil.copyfile(hf_hub_download("kyutai/tts-voices", expresso_file(style)), d / f"caller_{mood}.wav")
         x, sr = sf.read(d / f"caller_{mood}.wav", dtype="float32")
-        sf.write("/root/ref16.wav", signal.resample_poly(x.reshape(len(x), -1).mean(1), 16000, sr), 16000)
-        text = model.transcribe(["/root/ref16.wav"])[0]
+        sf.write(str(SCRATCH / "ref16.wav"), signal.resample_poly(x.reshape(len(x), -1).mean(1), 16000, sr), 16000)
+        text = model.transcribe([str(SCRATCH / "ref16.wav")])[0]
         (d / f"caller_{mood}.txt").write_text(getattr(text, "text", text))
         print(mood, getattr(text, "text", text), flush=True)
 
@@ -125,6 +129,7 @@ def csm():
     import librosa
     import torch
     from transformers import AutoProcessor, CsmForConditionalGeneration
+    (OUT / "wav").mkdir(parents=True, exist_ok=True)
     repo = "unsloth/csm-1b"
     processor = AutoProcessor.from_pretrained(repo)
     model = CsmForConditionalGeneration.from_pretrained(repo, device_map="cuda", dtype=torch.float32)
@@ -139,8 +144,8 @@ def csm():
     for mood in EXPRESSO:
         caller = (audio24(OUT / "voice" / f"caller_{mood}.wav")[: 24000 * 10],
                   (OUT / "voice" / f"caller_{mood}.txt").read_text().strip())
-        for r, reply in enumerate(REPLIES):
-            for seed in range(3):
+        for r, reply in enumerate(quick(REPLIES)):
+            for seed in quick(range(3)):
                 torch.manual_seed(seed)
                 conv = [{"role": "1", "content": [{"type": "text", "text": receptionist[1]},
                                                   {"type": "audio", "path": receptionist[0]}]},

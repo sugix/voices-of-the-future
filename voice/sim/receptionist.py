@@ -211,7 +211,8 @@ class Receptionist:
         import torch
         from transformers import AutoModelForCausalLM, AutoTokenizer
         self.tok = AutoTokenizer.from_pretrained(model_id)
-        self.model = AutoModelForCausalLM.from_pretrained(model_id, dtype=torch.bfloat16, device_map=device)
+        from runtime import half
+        self.model = AutoModelForCausalLM.from_pretrained(model_id, dtype=half(), device_map=device)
         self.prompt = prompt
         self.tools, self.schemas, self.last_heard = TOOLS, TOOL_SCHEMAS, ""
         self.pending, self.auto = {}, False

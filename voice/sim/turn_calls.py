@@ -24,6 +24,7 @@ import soundfile as sf
 from scipy import signal
 
 sys.path.insert(0, str(Path(__file__).parent))
+from runtime import half, quick  # noqa: E402
 from halfwheel_calls import PHONE_SR, TTS_SR  # noqa: E402
 
 OUT = Path(__file__).resolve().parents[1] / "data" / "ch5"
@@ -121,7 +122,7 @@ def main():
     (OUT / "turns").mkdir(parents=True, exist_ok=True)
     (OUT / "bargein").mkdir(parents=True, exist_ok=True)
     rows = []
-    for tid, voice, phrases, pauses, kinds in TURNS:
+    for tid, voice, phrases, pauses, kinds in quick(TURNS):
         pieces, segs, t = [np.zeros(int(0.5 * TTS_SR), np.float32)], [], 0.5
         for k, text in enumerate(phrases):
             a = tts(text, voice)
@@ -142,7 +143,7 @@ def main():
         print(tid, "done", flush=True)
 
     prompts = [tts(p, RECEPTIONIST[0]) for p in PROMPTS]
-    for i, (kind, text, voice) in enumerate(EVENTS):
+    for i, (kind, text, voice) in enumerate(quick(EVENTS)):
         prompt = prompts[i % len(prompts)]
         x = np.zeros(len(prompt) + 4 * TTS_SR, np.float32)
         # Residual echo: what is left of the receptionist's own voice after the line's echo canceller.

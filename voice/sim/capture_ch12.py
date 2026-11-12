@@ -10,6 +10,7 @@ Run from voice_applications/ on a GPU pod. Writes data/ch12/*.json.
 
 import argparse
 import json
+import os
 import re
 import sys
 import time
@@ -17,6 +18,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "sim"))
+from runtime import SCRATCH, half, quick  # noqa: E402
 OUT = ROOT / "data" / "ch12"
 MODEL = "Qwen/Qwen3-4B-Instruct-2507"
 LEVELS = [1, 2, 4, 8, 16, 32, 64]
@@ -59,8 +61,8 @@ def llm():
     server = subprocess.Popen(
         [sys.executable, "-m", "vllm.entrypoints.openai.api_server", "--model", MODEL, "--port", "8000",
          "--max-model-len", "8192", "--gpu-memory-utilization", "0.85", "--enable-auto-tool-choice",
-         "--tool-call-parser", "hermes"],
-        stdout=open("/root/vllm_server.log", "w"), stderr=subprocess.STDOUT)
+         "--tool-call-parser", "hermes", "--dtype", "float16" if os.environ.get("VOTF_FP16") else "auto"],
+        stdout=open(str(SCRATCH / "vllm_server.log"), "w"), stderr=subprocess.STDOUT)
     for _ in range(180):
         try:
             urllib.request.urlopen("http://localhost:8000/health", timeout=2)
@@ -69,8 +71,8 @@ def llm():
             time.sleep(5)
     else:
         server.kill()
-        raise SystemExit("vLLM did not start; see /root/vllm_server.log")
-    requests = json.loads((OUT / "replay.json").read_text())
+        raise SystemExit(f"vLLM did not start; see {SCRATCH / 'vllm_server.log'}")
+    requests = quick(json.loads((OUT / "replay.json").read_text()))
     client = AsyncOpenAI(base_url="http://localhost:8000/v1", api_key="local")
 
     async def one(req):
@@ -110,7 +112,7 @@ def llm():
     async def main():
         await level(2, 4)  # warm up
         out = []
-        for n in LEVELS:
+        for n in quick(LEVELS):
             r = await level(n)
             ft = sorted(x["first_token"] for x in r["requests"] if x["first_token"])
             print(n, "in flight: median first token", round(ft[len(ft) // 2], 3), "s,",
@@ -129,7 +131,7 @@ def asr():
     import soundfile as sf
     from scipy import signal
     model = nemo_asr.models.ASRModel.from_pretrained("nvidia/parakeet-tdt-0.6b-v2").cuda().eval()
-    tmp = Path("/root/ch12")
+    tmp = SCRATCH / "ch12"
     tmp.mkdir(exist_ok=True)
     paths = []
     for p in sorted((ROOT / "data" / "ch8" / "calls").glob("*.wav")):

@@ -24,6 +24,7 @@ from scipy import signal
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "sim"))
+from runtime import SCRATCH, half, quick  # noqa: E402
 from screen_bench import FIRST_SECONDS, LOOKALIKES, N_ROBOCALLS, NCSU_URL, SEED  # noqa: E402
 
 OUT = ROOT / "data" / "ch9"
@@ -55,7 +56,7 @@ def fetch():
         urllib.request.urlretrieve(NCSU_URL + "metadata.csv", meta)
     rows = [r for r in csv.DictReader(open(meta)) if r["language"] == "en" and len(r["transcript"].split()) >= 5
             and r["file_name"].endswith(".wav") and not r["file_name"].endswith("_right.wav")]
-    pick = random.Random(SEED).sample(rows, N_ROBOCALLS)
+    pick = quick(random.Random(SEED).sample(rows, N_ROBOCALLS))
     (CACHE / "audio").mkdir(exist_ok=True)
     out = {}
     for r in pick:
@@ -74,7 +75,7 @@ def voice():
     from halfwheel_calls import to_phone
     from turn_calls import tts
     (OUT / "calls").mkdir(parents=True, exist_ok=True)
-    for cid, _, v, text in LOOKALIKES:
+    for cid, _, v, text in quick(LOOKALIKES):
         x = np.concatenate([np.zeros(7200), tts(text, v), np.zeros(12000)]).astype(np.float32)
         y = to_phone(x, 24000, 20, np.random.default_rng(zlib.crc32(cid.encode())))
         sf.write(OUT / "calls" / f"{cid}.wav", y, 8000, subtype="ULAW")
@@ -101,10 +102,10 @@ def hear():
     from capture_ch4 import nemo_runner
     from halfwheel_calls import to_phone
     asr = nemo_runner("nvidia/parakeet-tdt-0.6b-v2", boost=0.5)
-    tmp = Path("/root/ch9")
+    tmp = SCRATCH / "ch9"
     tmp.mkdir(exist_ok=True)
     rows = {}
-    for cid, wanted, source, category, path in bench():
+    for cid, wanted, source, category, path in quick(bench()):
         x, sr = sf.read(path, dtype="float32")
         x = x.reshape(len(x), -1).mean(1)[: FIRST_SECONDS * sr]
         if source == "NCSU robocall":  # real phone audio, but bring it onto the same 8 kHz mu-law line
@@ -122,7 +123,7 @@ def judge(model_id="Qwen/Qwen3-4B-Instruct-2507"):
     import torch
     from transformers import AutoModelForCausalLM, AutoTokenizer
     tok = AutoTokenizer.from_pretrained(model_id)
-    model = AutoModelForCausalLM.from_pretrained(model_id, dtype=torch.bfloat16, device_map="cuda")
+    model = AutoModelForCausalLM.from_pretrained(model_id, dtype=half(), device_map="cuda")
     yes = [tok.encode(w, add_special_tokens=False)[0] for w in ["Yes", "yes", " Yes"]]
     no = [tok.encode(w, add_special_tokens=False)[0] for w in ["No", "no", " No"]]
 
@@ -139,7 +140,7 @@ def judge(model_id="Qwen/Qwen3-4B-Instruct-2507"):
     p_yes("Hello?", VERDICT)  # warm up
     heard = json.loads((OUT / "heard.json").read_text())
     rows = {}
-    for cid, h in heard.items():
+    for cid, h in quick(heard.items()):
         t0 = time.perf_counter()
         verdict = p_yes(h["heard"], VERDICT)
         t_verdict = time.perf_counter() - t0

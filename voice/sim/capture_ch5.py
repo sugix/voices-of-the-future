@@ -14,6 +14,9 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
+sys.path.insert(0, str(__import__('pathlib').Path(__file__).parent))
+from runtime import SCRATCH, half, quick  # noqa: E402
 import platform
 import subprocess
 import sys
@@ -25,7 +28,7 @@ import numpy as np
 import soundfile as sf
 from scipy import signal
 
-TMP = Path("/root/ch5_16k")
+TMP = SCRATCH / "ch5_16k"
 NEMO_STREAMING = ("https://raw.githubusercontent.com/NVIDIA/NeMo/v3.0.0/examples/asr/asr_chunked_inference/"
                   "rnnt/speech_to_text_streaming_infer_rnnt.py")
 # (chunk, right context) in seconds; theoretical latency is their sum. Multiples of the 80 ms encoder frame.
@@ -37,9 +40,9 @@ def files():
     """[(key, path)] for every file this chapter uses."""
     out = []
     for name, root in [("halfwheel", Path("data/calls")), ("librispeech", Path("data/librispeech"))]:
-        for row in map(json.loads, open(root / "manifest.jsonl")):
+        for row in quick(map(json.loads, open(root / "manifest.jsonl"))):
             out.append((f"{name}/{row['id']}", root / "phone" / f"{row['id']}.wav"))
-    for row in map(json.loads, open("data/ch5/manifest.jsonl")):
+    for row in quick(map(json.loads, open("data/ch5/manifest.jsonl"))):
         out.append((f"{row['set']}/{row['id']}", Path("data/ch5") / row["set"] / f"{row['id']}.wav"))
     return out
 
@@ -78,7 +81,7 @@ def nemo_part(out_path):
         torch.cuda.empty_cache()
 
     # 2. Parakeet-TDT chunked streaming, with NVIDIA's own script.
-    script = Path("/root/nemo_streaming_rnnt.py")
+    script = SCRATCH / "nemo_streaming_rnnt.py"
     if not script.exists():
         subprocess.run(["curl", "-sL", "-o", str(script), NEMO_STREAMING], check=True)
     manifest = TMP / "acc_manifest.json"
@@ -86,7 +89,7 @@ def nemo_part(out_path):
         for k, p in acc:
             f.write(json.dumps({"audio_filepath": str(p), "duration": len(sf.read(p)[0]) / 16000, "text": "x", "key": k}) + "\n")
     by_path = {str(p): k for k, p in acc}
-    for chunk, right in CHUNKS:
+    for chunk, right in quick(CHUNKS):
         name = f"tdt chunk {chunk}s + right {right}s"
         if name in out:
             continue
@@ -186,7 +189,7 @@ def kyutai_part(out_path):
     info = loaders.CheckpointInfo.from_hf_repo("kyutai/stt-1b-en_fr")
     mimi = info.get_mimi(device="cuda")
     tok = info.get_text_tokenizer()
-    lm = info.get_moshi(device="cuda")
+    lm = info.get_moshi(device="cuda", dtype=half())
     cfg = info.stt_config
     out["stt_config"] = cfg
     if len(getattr(lm, "extra_heads", [])) == 0:
@@ -194,7 +197,7 @@ def kyutai_part(out_path):
         # The two checkpoints are otherwise identical, tensor for tensor, so attach the four heads.
         from huggingface_hub import hf_hub_download
         from safetensors.torch import load_file
-        w = load_file(hf_hub_download("kyutai/stt-1b-en_fr-candle", "model.safetensors", cache_dir="/root/hf"))
+        w = load_file(hf_hub_download("kyutai/stt-1b-en_fr-candle", "model.safetensors", cache_dir=str(SCRATCH / "hf")))
         dtype = next(lm.parameters()).dtype
         heads = []
         for i in range(4):

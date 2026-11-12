@@ -13,6 +13,9 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
+sys.path.insert(0, str(__import__('pathlib').Path(__file__).parent))
+from runtime import half, quick  # noqa: E402
 import platform
 import shutil
 import time
@@ -69,7 +72,7 @@ def run_asr(sets):
     res = {"_preprocessor": {k: pre.get(k) for k in ["sample_rate", "features", "window_size", "window_stride",
                                                      "n_fft", "normalize", "dither"]}}
     for set_name, root in sets:
-        for row in map(json.loads, open(root / "manifest.jsonl")):
+        for row in quick(map(json.loads, open(root / "manifest.jsonl"))):
             for name, x in conditions(root, row["id"]).items():
                 t0 = time.perf_counter()
                 with torch.no_grad():
