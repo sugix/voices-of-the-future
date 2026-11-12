@@ -64,6 +64,14 @@ RERUN = {
     "real-phone-line": [("vllm", "sim/capture_ch12.py --part replay", ""), ("vllm", "sim/capture_ch12.py --part llm", "Tested on 16 GB in float16, but not on a T4 itself: recent vLLM releases may not support its older chip."),
                         ("nemo", "sim/capture_ch12.py --part asr", ""), ("tts", "sim/capture_ch12.py --part tts", "")],
 }
+RERUN_ON = {  # what each chapter's model steps need, from the 16 GB float16 runs; the saved-results half runs anywhere
+    "audio-for-ml": "a CPU",
+    "directing-a-voice": "a T4; Fish S2-Pro needs 24 GB",
+    "building-the-receptionist": "a T4; the Qwen3-8B runs need more than 16 GB",
+    "speech-to-speech": "24 GB for Moshi; CSM fits a T4",
+    "evaluating-voice-agents": "a T4; the Qwen3-8B judge needs more than 16 GB",
+    "real-phone-line": "a 16 GB GPU; vLLM not tested on a T4",
+}
 RERUN_INTRO = """## Rerun the models
 
 Everything above used the saved results. The cells below rerun the models that produced them, on a GPU (in Colab:
@@ -101,6 +109,23 @@ Runnable notebooks for [*Voices of the Future*](https://books.sugiv.fyi/voice_ap
 book about building with modern voice AI models. Across the book you build one project: a voice receptionist for
 **Halfwheel Cycles**, a fictional bike repair shop.
 
+## Chapters
+
+{CHAPTER_TABLE}
+
+## Running them
+
+```bash
+git clone https://github.com/sugix/voices-of-the-future && cd voices-of-the-future
+python -m venv .venv && . .venv/bin/activate     # Python 3.12
+pip install -r requirements/results.txt jupyterlab
+jupyter lab chapters/
+```
+
+Open a chapter and run it top to bottom; the first cell finds the book's folder, so it works from anywhere in the
+clone. In Google Colab, use the Colab link in the table: the first cell clones this repository for you. From the
+saved results every notebook runs in seconds and needs no GPU or downloads.
+
 ## Two ways to run each chapter
 
 1. **From the saved results (any laptop, or Colab without a GPU).** Open a chapter's notebook and run it top to
@@ -134,6 +159,27 @@ Chapter 7's Fish S1-mini weights are gated: accept the licence at huggingface.co
 
 Code is MIT-licensed. Models, voices and datasets keep their own licences, listed in the book's field guide.
 """
+
+
+def chapter_table():
+    """The README's index: one row per chapter, with the notebook, a Colab link and the chapter online."""
+    colab = "https://colab.research.google.com/github/sugix/voices-of-the-future/blob/main/chapters"
+    rows = ["| | Chapter | What you build and measure | Run it | Rerun the models on |", "|---|---|---|---|---|"]
+    for number, slug in enumerate(["the-voice-stack"] + CHAPTERS, start=1):
+        src = (BOOK / f"{slug}.md").read_text()
+        title = re.search(r"^# (.+)$", src, re.M)[1]
+        about = re.search(r"^description: (.+)$", src, re.M)[1].strip().strip('"')
+        about = re.split(r"(?<=[.!?]) ", about)[0]  # the first sentence is enough for an index
+        read = f"[{title}]({SITE}/{slug}.html)"
+        if number == 1:
+            run, gpu = "no code: the map of the book", ""
+        else:
+            nb = f"{number:02d}-{slug}.ipynb"
+            run = f"[notebook](chapters/{nb}) · [Colab]({colab}/{nb})"
+            gpu = RERUN_ON.get(slug, "a free Colab T4")
+        rows.append(f"| {number} | {read} | {about} | {run} | {gpu} |")
+    rows.append(f"| | [Field guide]({SITE}/field-guide.html) | Every model, its licence and what it needs; every chapter's \"When it breaks\" table | | |")
+    return "\n".join(rows)
 
 
 def cell(kind, text, tags=None):
@@ -207,7 +253,7 @@ def main(dest):
         (out / f"{number:02d}-{slug}.ipynb").write_text(json.dumps(nb, indent=1, ensure_ascii=False) + "\n")
         print(f"{number:02d}-{slug}.ipynb", sum(c["cell_type"] == "code" for c in nb["cells"]) - 1, "code cells")
     print(len(tracked), "files copied into", voice)
-    (dest / "README.md").write_text(README)
+    (dest / "README.md").write_text(README.replace("{CHAPTER_TABLE}", chapter_table()))
 
 
 if __name__ == "__main__":
