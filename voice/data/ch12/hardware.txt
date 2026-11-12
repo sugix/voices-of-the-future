@@ -1,0 +1,2 @@
+128
+NVIDIA RTX 4000 Ada Generation, 20475 MiB

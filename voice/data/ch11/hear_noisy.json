@@ -1,0 +1,522 @@
+{
+"c01_0": {
+"voice": "af_heart",
+"snr": 10,
+"speech_end": 5.16,
+"endpoint_wait": 1.2720000000000002,
+"asr_s": 2.163986197207123,
+"heard": "Hi, is my bike ready to collect? The ticket number is HW1042."
+},
+"c01_1": {
+"voice": "af_heart",
+"snr": 10,
+"speech_end": 1.54,
+"endpoint_wait": 1.2440000000000002,
+"asr_s": 0.08113073487766087,
+"heard": "Great thanks. Bye."
+},
+"c01_fix_ticket": {
+"voice": "af_heart",
+"snr": 10,
+"speech_end": 2.92,
+"endpoint_wait": 1.2720000000000002,
+"asr_s": 0.073809958063066,
+"heard": "No, the ticket is HW1042."
+},
+"c02_0": {
+"voice": "am_michael",
+"snr": 10,
+"speech_end": 3.51,
+"endpoint_wait": 1.194,
+"asr_s": 0.07561133708804846,
+"heard": "Hi, I'm calling about my Cannondale. Is it done yet?"
+},
+"c02_1": {
+"voice": "am_michael",
+"snr": 10,
+"speech_end": 4.09,
+"endpoint_wait": 1.2860000000000005,
+"asr_s": 0.07554863905534148,
+"heard": "Oh, sorry. The ticket is HW1173."
+},
+"c02_2": {
+"voice": "am_michael",
+"snr": 10,
+"speech_end": 2.13,
+"endpoint_wait": 1.1980000000000004,
+"asr_s": 0.07532470393925905,
+"heard": "Okay, Friday, it is. Thanks."
+},
+"c02_fix_ticket": {
+"voice": "am_michael",
+"snr": 10,
+"speech_end": 2.98,
+"endpoint_wait": 1.3080000000000003,
+"asr_s": 0.07502843113616109,
+"heard": "No, it's HW1173."
+},
+"c03_0": {
+"voice": "bf_emma",
+"snr": 10,
+"speech_end": 3.3099999999999996,
+"endpoint_wait": 1.33,
+"asr_s": 0.07785090780816972,
+"heard": "Hello, is ticket HW1994 ready?"
+},
+"c03_1": {
+"voice": "bf_emma",
+"snr": 10,
+"speech_end": 3.6799999999999997,
+"endpoint_wait": 1.1520000000000001,
+"asr_s": 0.07771913800388575,
+"heard": "Hmm, that's what it says on my receipt. Can someone call me back?"
+},
+"c03_2": {
+"voice": "bf_emma",
+"snr": 10,
+"speech_end": 4.25,
+"endpoint_wait": 1.3819999999999997,
+"asr_s": 0.08653512294404209,
+"heard": "It's Hannah Schmidt on 646-555-0137."
+},
+"c03_3": {
+"voice": "bf_emma",
+"snr": 10,
+"speech_end": 1.47,
+"endpoint_wait": 1.2820000000000003,
+"asr_s": 0.07240469008684158,
+"heard": "Yes, that's right."
+},
+"c03_4": {
+"voice": "bf_emma",
+"snr": 10,
+"speech_end": 1.18,
+"endpoint_wait": 1.0600000000000003,
+"asr_s": 0.07243070006370544,
+"heard": "Thanks."
+},
+"c03_fix_phone": {
+"voice": "bf_emma",
+"snr": 10,
+"speech_end": 3.63,
+"endpoint_wait": 1.362,
+"asr_s": 0.076762021984905,
+"heard": "No, it's 646-555-0137."
+},
+"c03_fix_name": {
+"voice": "bf_emma",
+"snr": 10,
+"speech_end": 3.1199999999999997,
+"endpoint_wait": 1.2960000000000007,
+"asr_s": 0.07771095307543874,
+"heard": "No, it's Hannah Schmidt, S-C-H-M-I-D-T."
+},
+"c04_0": {
+"voice": "af_bella",
+"snr": 10,
+"speech_end": 2.92,
+"endpoint_wait": 1.3360000000000003,
+"asr_s": 0.0712326760403812,
+"heard": "Hi, could I book a tune-up for my trek on Thursday?"
+},
+"c04_1": {
+"voice": "af_bella",
+"snr": 10,
+"speech_end": 1.29,
+"endpoint_wait": 1.27,
+"asr_s": 0.07262621098197997,
+"heard": "It's Epha Bion."
+},
+"c04_2": {
+"voice": "af_bella",
+"snr": 10,
+"speech_end": 1.32,
+"endpoint_wait": 1.24,
+"asr_s": 0.069887381978333,
+"heard": "Yes, that's right."
+},
+"c04_3": {
+"voice": "af_bella",
+"snr": 10,
+"speech_end": 1.5,
+"endpoint_wait": 1.3159999999999998,
+"asr_s": 0.0689566251821816,
+"heard": "Thanks for your day."
+},
+"c04_fix_name": {
+"voice": "af_bella",
+"snr": 10,
+"speech_end": 2.73,
+"endpoint_wait": 1.302,
+"asr_s": 0.0757202550303191,
+"heard": "No, it's E-Fa Buying. A-O-I-F-E."
+},
+"c05_0": {
+"voice": "bm_george",
+"snr": 10,
+"speech_end": 3.4,
+"endpoint_wait": 1.2399999999999998,
+"asr_s": 0.07515320810489357,
+"heard": "Can I bring my bike in for a brake bleed on Sunday?"
+},
+"c05_1": {
+"voice": "bm_george",
+"snr": 10,
+"speech_end": 4.81,
+"endpoint_wait": 1.2380000000000004,
+"asr_s": 0.0790800319518894,
+"heard": "Oh Monday then. It's a giant defy and my name's Daniel Okafor."
+},
+"c05_2": {
+"voice": "bm_george",
+"snr": 10,
+"speech_end": 1.6300000000000001,
+"endpoint_wait": 1.1540000000000001,
+"asr_s": 0.07133814599364996,
+"heard": "Yes, that's right."
+},
+"c05_3": {
+"voice": "bm_george",
+"snr": 10,
+"speech_end": 1.11,
+"endpoint_wait": 1.1940000000000002,
+"asr_s": 0.0715045421384275,
+"heard": ""
+},
+"c05_fix_name": {
+"voice": "bm_george",
+"snr": 10,
+"speech_end": 3.57,
+"endpoint_wait": 1.23,
+"asr_s": 0.07730629504658282,
+"heard": "No, it's Daniel Okafor, Okaida F-O-R."
+},
+"c06_0": {
+"voice": "af_nicole",
+"snr": 10,
+"speech_end": 4.7,
+"endpoint_wait": 1.1879999999999997,
+"asr_s": 0.07604764495044947,
+"heard": "Can you ask Priya to call me back? It's about my wheel."
+},
+"c06_1": {
+"voice": "af_nicole",
+"snr": 10,
+"speech_end": 8.13,
+"endpoint_wait": 1.1499999999999986,
+"asr_s": 0.079338792944327,
+"heard": "I'm Raj Patel, and my number is 415-555-0192."
+},
+"c06_2": {
+"voice": "af_nicole",
+"snr": 10,
+"speech_end": 1.53,
+"endpoint_wait": 1.2220000000000002,
+"asr_s": 0.06821673107333481,
+"heard": "Yes, that's right."
+},
+"c06_3": {
+"voice": "af_nicole",
+"snr": 10,
+"speech_end": 1.02,
+"endpoint_wait": 0.996,
+"asr_s": 0.07062178617343307,
+"heard": "Thanks."
+},
+"c06_fix_phone": {
+"voice": "af_nicole",
+"snr": 10,
+"speech_end": 5.71,
+"endpoint_wait": 1.138,
+"asr_s": 0.07620007498189807,
+"heard": "No, it's 415-555-0192."
+},
+"c06_fix_name": {
+"voice": "af_nicole",
+"snr": 10,
+"speech_end": 1.84,
+"endpoint_wait": 1.232,
+"asr_s": 0.073263832135126,
+"heard": "No, it's Raj Patel."
+},
+"c07_0": {
+"voice": "am_fenrir",
+"snr": 10,
+"speech_end": 1.94,
+"endpoint_wait": 1.2280000000000002,
+"asr_s": 0.07415737700648606,
+"heard": "How much do you charge to true a wheel?"
+},
+"c07_1": {
+"voice": "am_fenrir",
+"snr": 10,
+"speech_end": 1.6300000000000001,
+"endpoint_wait": 1.122,
+"asr_s": 0.06569782993756235,
+"heard": "And how long does that take?"
+},
+"c07_2": {
+"voice": "am_fenrir",
+"snr": 10,
+"speech_end": 1.15,
+"endpoint_wait": 1.1540000000000004,
+"asr_s": 0.06888494896702468,
+"heard": "Okay, thanks."
+},
+"c08_0": {
+"voice": "bf_isabella",
+"snr": 10,
+"speech_end": 1.93,
+"endpoint_wait": 1.3340000000000003,
+"asr_s": 0.07161419000476599,
+"heard": "Are you open on Saturday?"
+},
+"c08_1": {
+"voice": "bf_isabella",
+"snr": 10,
+"speech_end": 1.51,
+"endpoint_wait": 1.082,
+"asr_s": 0.06825096602551639,
+"heard": "And on Sunday."
+},
+"c08_2": {
+"voice": "bf_isabella",
+"snr": 10,
+"speech_end": 1.29,
+"endpoint_wait": 0.9180000000000001,
+"asr_s": 0.06592767499387264,
+"heard": "Thank you."
+},
+"c09_0": {
+"voice": "bm_fable",
+"snr": 10,
+"speech_end": 4.1,
+"endpoint_wait": 0.6360000000000001,
+"asr_s": 0.07388768601231277,
+"heard": "I'd like to book a full service for my Brompton on Friday."
+},
+"c09_1": {
+"voice": "bm_fable",
+"snr": 10,
+"speech_end": 3.92,
+"endpoint_wait": 0.5920000000000005,
+"asr_s": 0.07692056288942695,
+"heard": "Actually, could we make that Saturday? The name's May New Year."
+},
+"c09_2": {
+"voice": "bm_fable",
+"snr": 10,
+"speech_end": 1.83,
+"endpoint_wait": 0.8580000000000001,
+"asr_s": 0.07175977597944438,
+"heard": "Yes, that's right."
+},
+"c09_3": {
+"voice": "bm_fable",
+"snr": 10,
+"speech_end": 2.01,
+"endpoint_wait": 0.6780000000000004,
+"asr_s": 0.07237879210151732,
+"heard": "Perfect, thanks."
+},
+"c09_fix_name": {
+"voice": "bm_fable",
+"snr": 10,
+"speech_end": 2.6799999999999997,
+"endpoint_wait": 0.9360000000000004,
+"asr_s": 0.07608869415707886,
+"heard": "No, it's Main Udem, M-E-I."
+},
+"c10_0": {
+"voice": "af_heart",
+"snr": 10,
+"speech_end": 2.6199999999999997,
+"endpoint_wait": 1.2840000000000003,
+"asr_s": 0.0748433789703995,
+"heard": "Can you recommend a good pizza place near you?"
+},
+"c10_1": {
+"voice": "af_heart",
+"snr": 10,
+"speech_end": 2.0,
+"endpoint_wait": 1.2640000000000002,
+"asr_s": 0.07163860579021275,
+"heard": "Okay, never mind. Bye."
+},
+"c11_0": {
+"voice": "am_michael",
+"snr": 10,
+"speech_end": 3.1199999999999997,
+"endpoint_wait": 1.2000000000000006,
+"asr_s": 0.06935676489956677,
+"heard": "How much would it cost to fix the motor on my E-bike?"
+},
+"c11_1": {
+"voice": "am_michael",
+"snr": 10,
+"speech_end": 1.22,
+"endpoint_wait": 1.18,
+"asr_s": 0.0721694640815258,
+"heard": "Okay, bye."
+},
+"c12_0": {
+"voice": "bf_emma",
+"snr": 10,
+"speech_end": 4.64,
+"endpoint_wait": 1.3440000000000003,
+"asr_s": 0.07541792001575232,
+"heard": "Hi, it's Raj is My Canyon Ready. The ticket's HW1121."
+},
+"c12_1": {
+"voice": "bf_emma",
+"snr": 10,
+"speech_end": 1.73,
+"endpoint_wait": 1.214,
+"asr_s": 0.0719881400000304,
+"heard": "How much do I owe you?"
+},
+"c12_2": {
+"voice": "bf_emma",
+"snr": 10,
+"speech_end": 1.6400000000000001,
+"endpoint_wait": 1.2719999999999998,
+"asr_s": 0.06981382216326892,
+"heard": "Great. See you later."
+},
+"c12_fix_ticket": {
+"voice": "bf_emma",
+"snr": 10,
+"speech_end": 2.51,
+"endpoint_wait": 1.2980000000000005,
+"asr_s": 0.07431684015318751,
+"heard": "No, it's HW1121."
+},
+"c13_0": {
+"voice": "am_fenrir",
+"snr": 10,
+"speech_end": 5.71,
+"endpoint_wait": 1.138,
+"asr_s": 0.07262687315233052,
+"heard": "Hi, I left my Brompton with you yesterday. The ticket is HW1088."
+},
+"c13_1": {
+"voice": "am_fenrir",
+"snr": 10,
+"speech_end": 2.21,
+"endpoint_wait": 1.15,
+"asr_s": 0.07438638294115663,
+"heard": "Tomorrow afternoon is fine. Thanks."
+},
+"c13_fix_ticket": {
+"voice": "am_fenrir",
+"snr": 10,
+"speech_end": 2.15,
+"endpoint_wait": 1.1460000000000004,
+"asr_s": 0.06889479793608189,
+"heard": "No, it's HW1088."
+},
+"c14_0": {
+"voice": "bf_isabella",
+"snr": 10,
+"speech_end": 2.09,
+"endpoint_wait": 1.1740000000000004,
+"asr_s": 0.07293284311890602,
+"heard": "Could I leave a message for Sarah?"
+},
+"c14_1": {
+"voice": "bf_isabella",
+"snr": 10,
+"speech_end": 5.56,
+"endpoint_wait": 1.2880000000000003,
+"asr_s": 0.08048158301971853,
+"heard": "Oh, Marco then. It's Grace or Damie on 312-555-0144."
+},
+"c14_2": {
+"voice": "bf_isabella",
+"snr": 10,
+"speech_end": 1.48,
+"endpoint_wait": 1.2080000000000002,
+"asr_s": 0.06771060009486973,
+"heard": "Yes, that's right."
+},
+"c14_3": {
+"voice": "bf_isabella",
+"snr": 10,
+"speech_end": 1.29,
+"endpoint_wait": 0.9180000000000001,
+"asr_s": 0.06523424899205565,
+"heard": "Thank you."
+},
+"c14_fix_phone": {
+"voice": "bf_isabella",
+"snr": 10,
+"speech_end": 3.76,
+"endpoint_wait": 1.2960000000000003,
+"asr_s": 0.07694815495051444,
+"heard": "No, it's 312-555-0144."
+},
+"c14_fix_name": {
+"voice": "bf_isabella",
+"snr": 10,
+"speech_end": 3.53,
+"endpoint_wait": 1.302,
+"asr_s": 0.07428090204484761,
+"heard": "No, it's Grace Adamy. A D-E-Y-E-M-I."
+},
+"c15_0": {
+"voice": "bm_george",
+"snr": 10,
+"speech_end": 2.9099999999999997,
+"endpoint_wait": 1.1860000000000004,
+"asr_s": 0.07133923890069127,
+"heard": "Where are you and is there anywhere to park?"
+},
+"c15_1": {
+"voice": "bm_george",
+"snr": 10,
+"speech_end": 1.4200000000000002,
+"endpoint_wait": 1.268,
+"asr_s": 0.07399929803796113,
+"heard": "Great thanks."
+},
+"c16_0": {
+"voice": "af_bella",
+"snr": 10,
+"speech_end": 4.04,
+"endpoint_wait": 1.1760000000000002,
+"asr_s": 0.07817127602174878,
+"heard": "Can I book a wheel true for Tuesday? It's for my specialized time app."
+},
+"c16_1": {
+"voice": "af_bella",
+"snr": 10,
+"speech_end": 1.53,
+"endpoint_wait": 1.2859999999999998,
+"asr_s": 0.07032840885221958,
+"heard": "My name's Siobhan Murphy."
+},
+"c16_2": {
+"voice": "af_bella",
+"snr": 10,
+"speech_end": 1.32,
+"endpoint_wait": 1.24,
+"asr_s": 0.06747250794433057,
+"heard": "Yes, that's right."
+},
+"c16_3": {
+"voice": "af_bella",
+"snr": 10,
+"speech_end": 0.8300000000000001,
+"endpoint_wait": 1.1219999999999999,
+"asr_s": 0.07149599492549896,
+"heard": "Bang."
+},
+"c16_fix_name": {
+"voice": "af_bella",
+"snr": 10,
+"speech_end": 3.19,
+"endpoint_wait": 1.3220000000000005,
+"asr_s": 0.07688080705702305,
+"heard": "No, it's Devon Murphy. S-A-O-B-H-A-N."
+}
+}

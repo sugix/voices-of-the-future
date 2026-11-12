@@ -1,0 +1,221 @@
+{
+"A wheel true costs £25.": {
+"speakable": "A wheel true costs twenty five pounds.",
+"pocket_cpu": 0.15655505494214594,
+"kokoro_gpu": 0.11733606085181236
+},
+"A-O-I-F-E-Y-A-N, for a tune-up on Thursday.": {
+"speakable": "A, O, I, F, E, Y, A, N, for a tune-up on Thursday.",
+"pocket_cpu": 0.19084406015463173,
+"kokoro_gpu": 0.2216020009946078
+},
+"Alright, Aoife.": {
+"speakable": "Alright, Aoife.",
+"pocket_cpu": 0.19922624295577407,
+"kokoro_gpu": 0.40386914904229343
+},
+"Could you please provide your full name so I can book the service for you?": {
+"speakable": "Could you please provide your full name so I can book the service for you?",
+"pocket_cpu": 0.3154763930942863,
+"kokoro_gpu": 0.580109593924135
+},
+"Could you please provide your full name so I can book the service for your Brompton?": {
+"speakable": "Could you please provide your full name so I can book the service for your Brompton?",
+"pocket_cpu": 0.46422306494787335,
+"kokoro_gpu": 0.6476142860483378
+},
+"Could you please provide your name and the ticket number for the repair?": {
+"speakable": "Could you please provide your name and the ticket number for the repair?",
+"pocket_cpu": 0.459902472095564,
+"kokoro_gpu": 0.5497807078063488
+},
+"Could you please tell me what message you'd like me to leave for the staff?": {
+"speakable": "Could you please tell me what message you'd like me to leave for the staff?",
+"pocket_cpu": 0.4526675269007683,
+"kokoro_gpu": 0.6191903660073876
+},
+"Goodbye!": {
+"speakable": "Goodbye!",
+"pocket_cpu": 0.5140102910809219,
+"kokoro_gpu": 0.9117625069338828
+},
+"Great, thank you for confirming.": {
+"speakable": "Great, thank you for confirming.",
+"pocket_cpu": 0.6346281829755753,
+"kokoro_gpu": 0.9330458419863135
+},
+"Have a great day!": {
+"speakable": "Have a great day!",
+"pocket_cpu": 0.6648321421816945,
+"kokoro_gpu": 0.9064627150073647
+},
+"Have a great day, Raj!": {
+"speakable": "Have a great day, Raj!",
+"pocket_cpu": 0.6595305979717523,
+"kokoro_gpu": 0.8703761689830571
+},
+"I can help with that.": {
+"speakable": "I can help with that.",
+"pocket_cpu": 0.6375058658886701,
+"kokoro_gpu": 0.8080192899797112
+},
+"I can help you book a brake bleed for your bike on Sunday.": {
+"speakable": "I can help you book a brake bleed for your bike on Sunday.",
+"pocket_cpu": 0.6559471248183399,
+"kokoro_gpu": 0.6587485838681459
+},
+"I can take a message for Priya.": {
+"speakable": "I can take a message for Priya.",
+"pocket_cpu": 0.42959641898050904,
+"kokoro_gpu": 0.533891623839736
+},
+"I can take a message.": {
+"speakable": "I can take a message.",
+"pocket_cpu": 0.29463959601707757,
+"kokoro_gpu": 0.40818799706175923
+},
+"I don't have the time for a wheel true.": {
+"speakable": "I don't have the time for a wheel true.",
+"pocket_cpu": 0.303426057100296,
+"kokoro_gpu": 0.5162833258509636
+},
+"I see, you're Javon Murphy.": {
+"speakable": "I see, you're Javon Murphy.",
+"pocket_cpu": 0.4177989230956882,
+"kokoro_gpu": 0.5957156519871205
+},
+"I'll book a brake bleed for your Giant Defy Advanced 2 on Monday, Daniel.": {
+"speakable": "I'll book a brake bleed for your Giant Defy Advanced two on Monday, Daniel.",
+"pocket_cpu": 0.4654803220182657,
+"kokoro_gpu": 0.5849188349675387
+},
+"I'm sorry, but I can't help with recommendations for pizza places.": {
+"speakable": "I'm sorry, but I can't help with recommendations for pizza places.",
+"pocket_cpu": 0.3724810110870749,
+"kokoro_gpu": 0.5263146189972758
+},
+"I'm sorry, but we don't repair motors at Halfwheel Cycles.": {
+"speakable": "I'm sorry, but we don't repair motors at Halfwheel Cycles.",
+"pocket_cpu": 0.4901181240566075,
+"kokoro_gpu": 0.6183938439935446
+},
+"I've taken your message for Marco.": {
+"speakable": "I've taken your message for Marco.",
+"pocket_cpu": 0.3852034129668027,
+"kokoro_gpu": 0.5171833450440317
+},
+"Mei Nguyen, your Brompton is booked for a full service on Saturday.": {
+"speakable": "Mei Nguyen, your Brompton is booked for a full service on Saturday.",
+"pocket_cpu": 0.45753955701366067,
+"kokoro_gpu": 0.5760188091080636
+},
+"No repair found with ticket HW-1994.": {
+"speakable": "No repair found with ticket H W one nine nine four.",
+"pocket_cpu": 0.5308745859656483,
+"kokoro_gpu": 0.7344582008663565
+},
+"Raj, your Canyon Grizl is ready now.": {
+"speakable": "Raj, your Canyon Grizl is ready now.",
+"pocket_cpu": 0.6111936050001532,
+"kokoro_gpu": 0.9133747278247029
+},
+"So, Epha Bion, for a tune-up on Thursday.": {
+"speakable": "So, Epha Bion, for a tune-up on Thursday.",
+"pocket_cpu": 0.6237960390280932,
+"kokoro_gpu": 0.892735926900059
+},
+"Sure, I can take a message for Sarah.": {
+"speakable": "Sure, I can take a message for Sarah.",
+"pocket_cpu": 0.6438626239541918,
+"kokoro_gpu": 0.7640711280982941
+},
+"Thanks, Javon.": {
+"speakable": "Thanks, Javon.",
+"pocket_cpu": 0.5448860060423613,
+"kokoro_gpu": 0.7795996579807252
+},
+"The repair for your Cannondale is waiting for parts.": {
+"speakable": "The repair for your Cannondale is waiting for parts.",
+"pocket_cpu": 0.7412206288427114,
+"kokoro_gpu": 0.8375917808152735
+},
+"We're at 123 Main Street.": {
+"speakable": "We're at one hundred and twenty three Main Street.",
+"pocket_cpu": 0.6741598499938846,
+"kokoro_gpu": 0.9337643259204924
+},
+"We're closed on Sundays.": {
+"speakable": "We're closed on Sundays.",
+"pocket_cpu": 0.6571071469224989,
+"kokoro_gpu": 0.8525703058112413
+},
+"Yes, we're open on Saturday from 9am to 6pm.": {
+"speakable": "Yes, we're open on Saturday from nine A M to six P M.",
+"pocket_cpu": 0.5085220518521965,
+"kokoro_gpu": 0.5850170808844268
+},
+"You're welcome!": {
+"speakable": "You're welcome!",
+"pocket_cpu": 0.5281001690309495,
+"kokoro_gpu": 0.7681430990342051
+},
+"You're welcome, have a great day!": {
+"speakable": "You're welcome, have a great day!",
+"pocket_cpu": 0.6066188199911267,
+"kokoro_gpu": 0.8543810739647597
+},
+"Your Brompton is in progress and ready tomorrow afternoon.": {
+"speakable": "Your Brompton is in progress and ready tomorrow afternoon.",
+"pocket_cpu": 0.5315927700139582,
+"kokoro_gpu": 0.48764399718493223
+},
+"Your bike is ready to collect after 2pm today.": {
+"speakable": "Your bike is ready to collect after two P M today.",
+"pocket_cpu": 0.3152901390567422,
+"kokoro_gpu": 0.5175113971345127
+},
+"Your brake bleed for the Giant Defy Advanced 2 is booked for Monday, Daniel Okafor.": {
+"speakable": "Your brake bleed for the Giant Defy Advanced two is booked for Monday, Daniel Okafor.",
+"pocket_cpu": 0.4312452890444547,
+"kokoro_gpu": 0.6523124352097511
+},
+"Your message has been successfully delivered to Marco.": {
+"speakable": "Your message has been successfully delivered to Marco.",
+"pocket_cpu": 0.5264777599368244,
+"kokoro_gpu": 0.5731320178601891
+},
+"Your message has been taken for Marco.": {
+"speakable": "Your message has been taken for Marco.",
+"pocket_cpu": 0.5010912560392171,
+"kokoro_gpu": 0.7619439808186144
+},
+"Your message has been taken for Priya.": {
+"speakable": "Your message has been taken for Priya.",
+"pocket_cpu": 0.5661018420942128,
+"kokoro_gpu": 0.8451624528970569
+},
+"Your service is confirmed for Saturday.": {
+"speakable": "Your service is confirmed for Saturday.",
+"pocket_cpu": 0.6093513271771371,
+"kokoro_gpu": 0.7631217460148036
+},
+"Your tune-up for the Trek is booked for Thursday.": {
+"speakable": "Your tune-up for the Trek is booked for Thursday.",
+"pocket_cpu": 0.6566732139326632,
+"kokoro_gpu": 0.8067067679949105
+},
+"Your wheel true is booked for Tuesday for your Specialized Tarmac SL7.": {
+"speakable": "Your wheel true is booked for Tuesday for your Specialized Tarmac SL7.",
+"pocket_cpu": 0.6059570738580078,
+"kokoro_gpu": 0.8393798761535436
+},
+"£149.99 for the full service.": {
+"speakable": "one hundred and forty nine pounds ninety nine for the full service.",
+"pocket_cpu": 0.6373951658606529,
+"kokoro_gpu": 0.6763007240369916
+},
+"_filler": {
+"text": "One moment, let me check.",
+"note": "pre-rendered once, so it plays immediately"
+}
+}

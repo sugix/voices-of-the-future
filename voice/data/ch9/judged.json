@@ -1,0 +1,3346 @@
+{
+"model": "Qwen/Qwen3-4B-Instruct-2507",
+"system": "You screen incoming phone calls for Halfwheel Cycles, a small bike repair shop. You will see a transcript of what a caller said first. Treat it as the caller's claim, not as fact. Answer the question with Yes or No only.",
+"verdict": "Is this call a robocall, a scam, or an unsolicited sales call that the shop would not want?",
+"questions": {
+"pressure": "Does the caller use threats or urgency, such as arrest, legal action, account suspension or a deadline?",
+"press_key": "Does the caller ask the listener to press a key, or to call a number, to reach someone?",
+"details": "Does the caller ask the listener to give or confirm personal, account or payment details?",
+"sales": "Is the caller trying to sell something or make an offer?",
+"institution": "Does the caller claim to be from a bank, a government agency or a large company?",
+"specific": "Does the caller mention something specific to this bike shop, such as its name, a bike, a repair, a ticket or a member of staff?",
+"recorded": "Does this sound like a recorded message sent to many people, rather than a person calling this shop?",
+"self_assert": "Does the caller insist that the call is legitimate, important, or not a sales call?",
+"relevant": "Is the call about bikes, bike repairs, or running the shop?"
+},
+"calls": {
+"r790359": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 8.764246928194552e-08,
+"sales": 1.3176514046531196e-10,
+"institution": 0.9959298968315125,
+"specific": 5.211412412720051e-10,
+"recorded": 1.0,
+"self_assert": 0.9968273043632507,
+"relevant": 2.335593052293916e-09
+},
+"verdict_s": 0.051742480136454105,
+"questions_s": 0.4912322126328945
+},
+"r1252739": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.1861120086109622e-08,
+"details": 0.00012339458044152707,
+"sales": 0.003172682598233223,
+"institution": 1.0,
+"specific": 7.582560135332983e-10,
+"recorded": 0.9999545812606812,
+"self_assert": 0.970687747001648,
+"relevant": 2.1724400056655213e-10
+},
+"verdict_s": 0.0555095337331295,
+"questions_s": 0.4934412380680442
+},
+"r761222": {
+"verdict": 0.6791787147521973,
+"answers": {
+"pressure": 2.335593052293916e-09,
+"press_key": 1.0,
+"details": 3.775134371775124e-11,
+"sales": 1.1628233098637253e-10,
+"institution": 0.00043055712012574077,
+"specific": 2.7894683785056884e-10,
+"recorded": 0.014063628390431404,
+"self_assert": 0.9999724626541138,
+"relevant": 2.335593052293916e-09
+},
+"verdict_s": 0.05429392494261265,
+"questions_s": 0.47836561873555183
+},
+"r638878": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 3.3982678893096363e-09,
+"sales": 1.6052279505629485e-09,
+"institution": 0.9992903470993042,
+"specific": 6.691585618945339e-10,
+"recorded": 1.0,
+"self_assert": 1.0129991096619051e-05,
+"relevant": 1.1032560420787263e-09
+},
+"verdict_s": 0.05260310508310795,
+"questions_s": 0.4599833209067583
+},
+"rs6diZGlyXzh3N2Rpcjp0b21jYXQzNTgxOjE2NDMzMDU0Mzk1ODdIrGQLoa.gen_Great_Choice_Robocall__StudentLoan-ForgivenessCenter": {
+"verdict": 0.2689414322376251,
+"answers": {
+"pressure": 1.0,
+"press_key": 3.224186428951725e-08,
+"details": 4.139937814784389e-08,
+"sales": 5.04347383412096e-07,
+"institution": 0.998498797416687,
+"specific": 1.1032560420787263e-09,
+"recorded": 0.008577484637498856,
+"self_assert": 1.0,
+"relevant": 4.599055858367507e-10
+},
+"verdict_s": 0.05297771655023098,
+"questions_s": 0.4949414059519768
+},
+"r565712": {
+"verdict": 1.0,
+"answers": {
+"pressure": 5.315785145398877e-08,
+"press_key": 1.0,
+"details": 7.194132845000922e-09,
+"sales": 0.003172682598233223,
+"institution": 0.003172682598233223,
+"specific": 6.691585618945339e-10,
+"recorded": 1.0,
+"self_assert": 0.037326887249946594,
+"relevant": 2.4616969573898473e-10
+},
+"verdict_s": 0.054445513524115086,
+"questions_s": 0.4787590056657791
+},
+"r1205446": {
+"verdict": 3.0590220490012143e-07,
+"answers": {
+"pressure": 1.3176514046531196e-10,
+"press_key": 1.0,
+"details": 7.99195917777773e-11,
+"sales": 3.581747953784742e-10,
+"institution": 3.0590220490012143e-07,
+"specific": 5.602796449011294e-09,
+"recorded": 1.0,
+"self_assert": 4.785094461112749e-06,
+"relevant": 1.67014204635052e-05
+},
+"verdict_s": 0.0506909042596817,
+"questions_s": 0.45483356062322855
+},
+"r1656277418.151007_in_OneEye_Robocall__Authorized-Order": {
+"verdict": 7.889262633398175e-06,
+"answers": {
+"pressure": 4.599055858367507e-10,
+"press_key": 1.0,
+"details": 7.582560135332983e-10,
+"sales": 1.3007129382458515e-05,
+"institution": 2.7535690605873242e-05,
+"specific": 7.194132845000922e-09,
+"recorded": 1.0,
+"self_assert": 0.9525741338729858,
+"relevant": 0.00033535013790242374
+},
+"verdict_s": 0.05202942527830601,
+"questions_s": 0.48217506241053343
+},
+"r567528": {
+"verdict": 0.8807970285415649,
+"answers": {
+"pressure": 0.9999982118606567,
+"press_key": 1.0,
+"details": 5.905303468445311e-10,
+"sales": 9.056076721858375e-11,
+"institution": 0.9995694756507874,
+"specific": 9.736200734522527e-10,
+"recorded": 1.0,
+"self_assert": 1.0,
+"relevant": 4.599055858367507e-10
+},
+"verdict_s": 0.05337600316852331,
+"questions_s": 0.48833146318793297
+},
+"r453396": {
+"verdict": 1.0,
+"answers": {
+"pressure": 0.9999996423721313,
+"press_key": 1.0,
+"details": 3.224186428951725e-08,
+"sales": 4.599055858367507e-10,
+"institution": 0.9999995231628418,
+"specific": 5.211412412720051e-10,
+"recorded": 1.0,
+"self_assert": 0.9959298968315125,
+"relevant": 1.4166088302403068e-09
+},
+"verdict_s": 0.05470090825110674,
+"questions_s": 0.49190214462578297
+},
+"r1361753": {
+"verdict": 0.9999898672103882,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 1.1628233098637253e-10,
+"sales": 2.4616969573898473e-10,
+"institution": 1.67014204635052e-05,
+"specific": 5.905303468445311e-10,
+"recorded": 1.0,
+"self_assert": 1.0,
+"relevant": 8.592165867682411e-10
+},
+"verdict_s": 0.05407832656055689,
+"questions_s": 0.4926862549036741
+},
+"r211193": {
+"verdict": 1.0,
+"answers": {
+"pressure": 3.9278620533877984e-07,
+"press_key": 2.335593052293916e-09,
+"details": 4.599055858367507e-10,
+"sales": 1.9555681518568235e-08,
+"institution": 0.0007096704212017357,
+"specific": 9.736200734522527e-10,
+"recorded": 1.0,
+"self_assert": 4.785094461112749e-06,
+"relevant": 3.581747953784742e-10
+},
+"verdict_s": 0.05496449861675501,
+"questions_s": 0.4924503155052662
+},
+"r1194051": {
+"verdict": 0.9999998807907104,
+"answers": {
+"pressure": 0.9999998807907104,
+"press_key": 1.0,
+"details": 1.4166088302403068e-09,
+"sales": 1.0,
+"institution": 1.0,
+"specific": 6.691585618945339e-10,
+"recorded": 1.0,
+"self_assert": 0.9999996423721313,
+"relevant": 4.2777878461741636e-11
+},
+"verdict_s": 0.05567164160311222,
+"questions_s": 0.49321491830050945
+},
+"r1348038": {
+"verdict": 3.9278620533877984e-07,
+"answers": {
+"pressure": 2.51099923076481e-08,
+"press_key": 0.9999898672103882,
+"details": 1.4166088302403068e-09,
+"sales": 2.1724400056655213e-10,
+"institution": 6.475947884609923e-07,
+"specific": 0.999841570854187,
+"recorded": 7.484622619813308e-05,
+"self_assert": 1.0,
+"relevant": 8.315279842463497e-07
+},
+"verdict_s": 0.054862385615706444,
+"questions_s": 0.49227188620716333
+},
+"rs6diZGlyX2h2N2Rpcjp0b21jYXQzNzU2OjE2NzI3NzQ1NTIyMzhImmeKjr.gen_iDentidad_Robollcall-_FedEx": {
+"verdict": 5.315785145398877e-08,
+"answers": {
+"pressure": 2.2897348947448215e-11,
+"press_key": 1.0,
+"details": 9.545034901359273e-12,
+"sales": 2.7894683785056884e-10,
+"institution": 4.139937814784389e-08,
+"specific": 2.061153470123145e-09,
+"recorded": 1.0,
+"self_assert": 1.3440409674103648e-08,
+"relevant": 3.850741947530878e-09
+},
+"verdict_s": 0.05115324165672064,
+"questions_s": 0.44339571986347437
+},
+"r525153": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 1.1253515452835927e-07,
+"sales": 2.940077348245751e-11,
+"institution": 0.9046505093574524,
+"specific": 4.05865202557365e-10,
+"recorded": 1.0,
+"self_assert": 0.9992903470993042,
+"relevant": 1.1032560420787263e-09
+},
+"verdict_s": 0.0526005607098341,
+"questions_s": 0.48763690516352654
+},
+"r761227": {
+"verdict": 1.0,
+"answers": {
+"pressure": 9.23744991609965e-09,
+"press_key": 1.0,
+"details": 6.825602838489431e-08,
+"sales": 4.2777878461741636e-11,
+"institution": 0.01798621006309986,
+"specific": 1.917171560394948e-10,
+"recorded": 0.9994471669197083,
+"self_assert": 0.977022647857666,
+"relevant": 1.6052279505629485e-09
+},
+"verdict_s": 0.05523501243442297,
+"questions_s": 0.49101686384528875
+},
+"r63408": {
+"verdict": 0.9999997615814209,
+"answers": {
+"pressure": 1.0261880234452292e-10,
+"press_key": 1.0,
+"details": 6.475947884609923e-07,
+"sales": 0.970687747001648,
+"institution": 0.9990890026092529,
+"specific": 4.05865202557365e-10,
+"recorded": 1.0,
+"self_assert": 0.9525741338729858,
+"relevant": 2.061153470123145e-09
+},
+"verdict_s": 0.05184889119118452,
+"questions_s": 0.4489108547568321
+},
+"r55642": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.8189617589925433e-09,
+"press_key": 1.0,
+"details": 2.061153470123145e-09,
+"sales": 1.0,
+"institution": 6.144174221844878e-06,
+"specific": 8.592165867682411e-10,
+"recorded": 1.0,
+"self_assert": 0.9820137619972229,
+"relevant": 5.602796449011294e-09
+},
+"verdict_s": 0.05206303857266903,
+"questions_s": 0.4727621180936694
+},
+"r55573": {
+"verdict": 1.0,
+"answers": {
+"pressure": 7.582560135332983e-10,
+"press_key": 1.0,
+"details": 5.602796449011294e-09,
+"sales": 1.0,
+"institution": 4.539786823443137e-05,
+"specific": 3.581747953784742e-10,
+"recorded": 1.0,
+"self_assert": 0.970687747001648,
+"relevant": 4.05865202557365e-10
+},
+"verdict_s": 0.050483609549701214,
+"questions_s": 0.454123112373054
+},
+"r1222036": {
+"verdict": 1.0,
+"answers": {
+"pressure": 0.2689414322376251,
+"press_key": 3.0590220490012143e-07,
+"details": 5.04347383412096e-07,
+"sales": 3.224186428951725e-08,
+"institution": 1.0,
+"specific": 6.691585618945339e-10,
+"recorded": 1.0,
+"self_assert": 0.9626730680465698,
+"relevant": 4.599055858367507e-10
+},
+"verdict_s": 0.05244896188378334,
+"questions_s": 0.49735046178102493
+},
+"r1226308": {
+"verdict": 1.0,
+"answers": {
+"pressure": 0.00012339458044152707,
+"press_key": 4.363462480228009e-09,
+"details": 3.3982678893096363e-09,
+"sales": 1.0,
+"institution": 1.0677027830752195e-06,
+"specific": 6.691585618945339e-10,
+"recorded": 1.0,
+"self_assert": 4.539786823443137e-05,
+"relevant": 5.211412412720051e-10
+},
+"verdict_s": 0.05456440895795822,
+"questions_s": 0.4916751040145755
+},
+"r688077": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 3.3982678893096363e-09,
+"sales": 1.6052279505629485e-09,
+"institution": 0.9992903470993042,
+"specific": 6.691585618945339e-10,
+"recorded": 1.0,
+"self_assert": 1.0129991096619051e-05,
+"relevant": 1.1032560420787263e-09
+},
+"verdict_s": 0.05379788391292095,
+"questions_s": 0.4636509856209159
+},
+"r1054686": {
+"verdict": 1.0,
+"answers": {
+"pressure": 0.00043055712012574077,
+"press_key": 1.0,
+"details": 0.0002611903182696551,
+"sales": 0.851952850818634,
+"institution": 0.9995694756507874,
+"specific": 4.599055858367507e-10,
+"recorded": 1.0,
+"self_assert": 0.0019267346942797303,
+"relevant": 1.493094675675266e-10
+},
+"verdict_s": 0.050390041433274746,
+"questions_s": 0.4559461046010256
+},
+"r1194050": {
+"verdict": 0.9999998807907104,
+"answers": {
+"pressure": 0.9999998807907104,
+"press_key": 1.0,
+"details": 1.4166088302403068e-09,
+"sales": 1.0,
+"institution": 1.0,
+"specific": 6.691585618945339e-10,
+"recorded": 1.0,
+"self_assert": 0.9999996423721313,
+"relevant": 4.2777878461741636e-11
+},
+"verdict_s": 0.054006610065698624,
+"questions_s": 0.4983013477176428
+},
+"r1167382": {
+"verdict": 1.0,
+"answers": {
+"pressure": 7.889262633398175e-06,
+"press_key": 1.0,
+"details": 5.04347383412096e-07,
+"sales": 0.5,
+"institution": 1.0,
+"specific": 2.64657362691878e-09,
+"recorded": 1.0,
+"self_assert": 0.9820137619972229,
+"relevant": 4.05865202557365e-10
+},
+"verdict_s": 0.054166313260793686,
+"questions_s": 0.49739487562328577
+},
+"r649854": {
+"verdict": 0.9820137619972229,
+"answers": {
+"pressure": 7.582560135332983e-10,
+"press_key": 1.0,
+"details": 5.211412412720051e-10,
+"sales": 0.11920291930437088,
+"institution": 5.315785145398877e-08,
+"specific": 9.736200734522527e-10,
+"recorded": 1.0,
+"self_assert": 0.999998927116394,
+"relevant": 1.2501528701136522e-09
+},
+"verdict_s": 0.0546373575925827,
+"questions_s": 0.4917868562042713
+},
+"r1019377": {
+"verdict": 0.0024726230185478926,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 1.3887942879042825e-11,
+"sales": 0.8175744414329529,
+"institution": 0.00015843621804378927,
+"specific": 9.736200734522527e-10,
+"recorded": 1.0,
+"self_assert": 0.5,
+"relevant": 1.4449801710725296e-07
+},
+"verdict_s": 0.05200204346328974,
+"questions_s": 0.44851457234472036
+},
+"r576022": {
+"verdict": 1.0,
+"answers": {
+"pressure": 0.01798621006309986,
+"press_key": 0.9975274205207825,
+"details": 0.000552778656128794,
+"sales": 6.22414481066258e-11,
+"institution": 1.0,
+"specific": 4.599055858367507e-10,
+"recorded": 0.9999921321868896,
+"self_assert": 0.9999998807907104,
+"relevant": 1.2501528701136522e-09
+},
+"verdict_s": 0.05396281648427248,
+"questions_s": 0.49787124153226614
+},
+"r520027": {
+"verdict": 0.9999898672103882,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 1.8189617589925433e-09,
+"sales": 3.1608812789407637e-10,
+"institution": 0.622459352016449,
+"specific": 9.736200734522527e-10,
+"recorded": 1.0,
+"self_assert": 1.0,
+"relevant": 3.1608812789407637e-10
+},
+"verdict_s": 0.05524884909391403,
+"questions_s": 0.48924220353364944
+},
+"r497278": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 8.764246928194552e-08,
+"sales": 1.0,
+"institution": 0.9999985694885254,
+"specific": 8.592165867682411e-10,
+"recorded": 1.0,
+"self_assert": 1.0,
+"relevant": 7.582560135332983e-10
+},
+"verdict_s": 0.054218633100390434,
+"questions_s": 0.49433181900531054
+},
+"r933376": {
+"verdict": 1.0,
+"answers": {
+"pressure": 2.335593052293916e-09,
+"press_key": 1.0,
+"details": 5.315785145398877e-08,
+"sales": 0.00407013762742281,
+"institution": 0.9999994039535522,
+"specific": 7.582560135332983e-10,
+"recorded": 1.0,
+"self_assert": 0.9890130758285522,
+"relevant": 4.05865202557365e-10
+},
+"verdict_s": 0.05182580929249525,
+"questions_s": 0.4570539863780141
+},
+"r582920": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.760343138812459e-06,
+"press_key": 1.0,
+"details": 1.760343138812459e-06,
+"sales": 0.9999998807907104,
+"institution": 1.0,
+"specific": 6.691585618945339e-10,
+"recorded": 1.0,
+"self_assert": 0.0007096704212017357,
+"relevant": 1.1032560420787263e-09
+},
+"verdict_s": 0.04984541796147823,
+"questions_s": 0.45129493065178394
+},
+"r707388": {
+"verdict": 1.0,
+"answers": {
+"pressure": 2.51099923076481e-08,
+"press_key": 1.0,
+"details": 2.998960857425459e-09,
+"sales": 1.0,
+"institution": 4.785094461112749e-06,
+"specific": 7.582560135332983e-10,
+"recorded": 1.0,
+"self_assert": 2.3823690753488336e-07,
+"relevant": 9.736200734522527e-10
+},
+"verdict_s": 0.05057429242879152,
+"questions_s": 0.45574739668518305
+},
+"r162223": {
+"verdict": 0.9046505093574524,
+"answers": {
+"pressure": 2.64657362691878e-09,
+"press_key": 1.0,
+"details": 4.05865202557365e-10,
+"sales": 0.010986941866576672,
+"institution": 0.970687747001648,
+"specific": 1.1032560420787263e-09,
+"recorded": 1.0,
+"self_assert": 0.11920291930437088,
+"relevant": 1.6918978718027944e-10
+},
+"verdict_s": 0.05301936622709036,
+"questions_s": 0.4932808429002762
+},
+"r560646": {
+"verdict": 1.0,
+"answers": {
+"pressure": 0.9999833106994629,
+"press_key": 1.0,
+"details": 0.9999645948410034,
+"sales": 5.905303468445311e-10,
+"institution": 0.9992903470993042,
+"specific": 7.582560135332983e-10,
+"recorded": 1.0,
+"self_assert": 0.0007096704212017357,
+"relevant": 2.7894683785056884e-10
+},
+"verdict_s": 0.054966031573712826,
+"questions_s": 0.49243561923503876
+},
+"r487132": {
+"verdict": 1.0,
+"answers": {
+"pressure": 3.9278620533877984e-07,
+"press_key": 1.0,
+"details": 5.315785145398877e-08,
+"sales": 0.11920291930437088,
+"institution": 0.7310585379600525,
+"specific": 7.582560135332983e-10,
+"recorded": 1.0,
+"self_assert": 0.02931223064661026,
+"relevant": 2.4616969573898473e-10
+},
+"verdict_s": 0.05402910336852074,
+"questions_s": 0.4857247732579708
+},
+"r535204": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 1.5229979055675358e-08,
+"sales": 1.0,
+"institution": 0.9525741338729858,
+"specific": 5.211412412720051e-10,
+"recorded": 1.0,
+"self_assert": 0.9999998807907104,
+"relevant": 1.1032560420787263e-09
+},
+"verdict_s": 0.05802863650023937,
+"questions_s": 0.4946722565218806
+},
+"r875544": {
+"verdict": 0.9999996423721313,
+"answers": {
+"pressure": 3.3982678893096363e-09,
+"press_key": 1.0,
+"details": 5.211412412720051e-10,
+"sales": 5.492788168748319e-11,
+"institution": 0.32082128524780273,
+"specific": 2.7894683785056884e-10,
+"recorded": 0.008577484637498856,
+"self_assert": 0.9999724626541138,
+"relevant": 4.363462480228009e-09
+},
+"verdict_s": 0.05458824522793293,
+"questions_s": 0.4914707662537694
+},
+"r383719": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 6.475947884609923e-07,
+"sales": 1.3176514046531196e-10,
+"institution": 0.18242552876472473,
+"specific": 4.05865202557365e-10,
+"recorded": 1.0,
+"self_assert": 0.9241418242454529,
+"relevant": 7.582560135332983e-10
+},
+"verdict_s": 0.05397873744368553,
+"questions_s": 0.47749998420476913
+},
+"r576039": {
+"verdict": 1.0,
+"answers": {
+"pressure": 0.000552778656128794,
+"press_key": 7.194132845000922e-09,
+"details": 3.9278620533877984e-07,
+"sales": 4.2777878461741636e-11,
+"institution": 1.0,
+"specific": 4.05865202557365e-10,
+"recorded": 0.037326887249946594,
+"self_assert": 1.0,
+"relevant": 4.599055858367507e-10
+},
+"verdict_s": 0.0535314567387104,
+"questions_s": 0.49190536234527826
+},
+"r360172": {
+"verdict": 1.0,
+"answers": {
+"pressure": 4.363462480228009e-09,
+"press_key": 1.1032560420787263e-09,
+"details": 7.052879807956103e-11,
+"sales": 1.0677027830752195e-06,
+"institution": 0.22270013391971588,
+"specific": 9.736200734522527e-10,
+"recorded": 1.0,
+"self_assert": 0.9959298968315125,
+"relevant": 2.4616969573898473e-10
+},
+"verdict_s": 0.05474235676229,
+"questions_s": 0.4920059721916914
+},
+"r179182": {
+"verdict": 7.889262633398175e-06,
+"answers": {
+"pressure": 0.9998766183853149,
+"press_key": 1.0,
+"details": 1.1628233098637253e-10,
+"sales": 1.0,
+"institution": 0.00015843621804378927,
+"specific": 1.5229979055675358e-08,
+"recorded": 1.0,
+"self_assert": 0.9999995231628418,
+"relevant": 2.51099923076481e-08
+},
+"verdict_s": 0.054873136803507805,
+"questions_s": 0.494679999537766
+},
+"r568965": {
+"verdict": 0.14804719388484955,
+"answers": {
+"pressure": 0.9999982118606567,
+"press_key": 1.9555681518568235e-08,
+"details": 4.05865202557365e-10,
+"sales": 1.0,
+"institution": 2.1444948288262822e-05,
+"specific": 7.582560135332983e-10,
+"recorded": 0.9999833106994629,
+"self_assert": 0.9999963045120239,
+"relevant": 4.363462480228009e-09
+},
+"verdict_s": 0.054301610216498375,
+"questions_s": 0.4966569449752569
+},
+"r291148": {
+"verdict": 1.0,
+"answers": {
+"pressure": 0.07585817575454712,
+"press_key": 1.0,
+"details": 4.363462480228009e-09,
+"sales": 1.67014204635052e-05,
+"institution": 5.04347383412096e-07,
+"specific": 6.348800152267131e-09,
+"recorded": 1.0,
+"self_assert": 0.9999985694885254,
+"relevant": 1.6052279505629485e-09
+},
+"verdict_s": 0.05514632444828749,
+"questions_s": 0.5005989205092192
+},
+"r303960": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.1032560420787263e-09,
+"press_key": 9.23744991609965e-09,
+"details": 7.582560135332983e-10,
+"sales": 1.0,
+"institution": 0.9859364032745361,
+"specific": 7.582560135332983e-10,
+"recorded": 1.0,
+"self_assert": 0.00012339458044152707,
+"relevant": 1.4166088302403068e-09
+},
+"verdict_s": 0.05571306124329567,
+"questions_s": 0.4966485882177949
+},
+"r525141": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 2.3823690753488336e-07,
+"sales": 2.940077348245751e-11,
+"institution": 0.9995694756507874,
+"specific": 4.05865202557365e-10,
+"recorded": 1.0,
+"self_assert": 0.9980732202529907,
+"relevant": 9.736200734522527e-10
+},
+"verdict_s": 0.05441993474960327,
+"questions_s": 0.4854531083256006
+},
+"r694459": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 1.1628233098637253e-10,
+"sales": 1.1628233098637253e-10,
+"institution": 0.2689414322376251,
+"specific": 3.581747953784742e-10,
+"recorded": 1.0,
+"self_assert": 0.9996646642684937,
+"relevant": 1.1032560420787263e-09
+},
+"verdict_s": 0.05440265219658613,
+"questions_s": 0.49916294403374195
+},
+"r431139": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.1861120086109622e-08,
+"details": 2.998960857425459e-09,
+"sales": 7.99195917777773e-11,
+"institution": 0.000552778656128794,
+"specific": 3.1608812789407637e-10,
+"recorded": 1.0,
+"self_assert": 0.07585817575454712,
+"relevant": 9.736200734522527e-10
+},
+"verdict_s": 0.05493484251201153,
+"questions_s": 0.4963978622108698
+},
+"r1098320": {
+"verdict": 1.760343138812459e-06,
+"answers": {
+"pressure": 4.599055858367507e-10,
+"press_key": 1.0,
+"details": 5.905303468445311e-10,
+"sales": 1.3007129382458515e-05,
+"institution": 1.67014204635052e-05,
+"specific": 2.51099923076481e-08,
+"recorded": 1.0,
+"self_assert": 0.9859364032745361,
+"relevant": 0.00043055712012574077
+},
+"verdict_s": 0.053883565589785576,
+"questions_s": 0.4882424660027027
+},
+"r88357": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 2.998960857425459e-09,
+"details": 1.1861120086109622e-08,
+"sales": 3.3315444153414475e-11,
+"institution": 0.9999996423721313,
+"specific": 9.736200734522527e-10,
+"recorded": 0.970687747001648,
+"self_assert": 0.9999996423721313,
+"relevant": 6.691585618945339e-10
+},
+"verdict_s": 0.05524515174329281,
+"questions_s": 0.47244913410395384
+},
+"r547582": {
+"verdict": 0.9990890026092529,
+"answers": {
+"pressure": 7.582560135332983e-10,
+"press_key": 1.2501528701136522e-09,
+"details": 1.0677027830752195e-06,
+"sales": 1.0,
+"institution": 0.7310585379600525,
+"specific": 1.917171560394948e-10,
+"recorded": 1.0,
+"self_assert": 7.484622619813308e-05,
+"relevant": 8.592165867682411e-10
+},
+"verdict_s": 0.05299660190939903,
+"questions_s": 0.4904709067195654
+},
+"r520013": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 4.2777878461741636e-11,
+"sales": 1.493094675675266e-10,
+"institution": 0.6791787147521973,
+"specific": 6.691585618945339e-10,
+"recorded": 1.0,
+"self_assert": 0.9999971389770508,
+"relevant": 3.581747953784742e-10
+},
+"verdict_s": 0.055104345083236694,
+"questions_s": 0.4889251021668315
+},
+"r1283147": {
+"verdict": 1.0,
+"answers": {
+"pressure": 0.9914224743843079,
+"press_key": 4.363462480228009e-09,
+"details": 1.1253515452835927e-07,
+"sales": 0.04742587357759476,
+"institution": 0.2689414322376251,
+"specific": 1.1032560420787263e-09,
+"recorded": 0.9997387528419495,
+"self_assert": 0.037326887249946594,
+"relevant": 2.335593052293916e-09
+},
+"verdict_s": 0.05541232880204916,
+"questions_s": 0.4932718565687537
+},
+"r598182": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 3.3982678893096363e-09,
+"sales": 1.6052279505629485e-09,
+"institution": 0.9992903470993042,
+"specific": 6.691585618945339e-10,
+"recorded": 1.0,
+"self_assert": 1.0129991096619051e-05,
+"relevant": 1.1032560420787263e-09
+},
+"verdict_s": 0.05383467394858599,
+"questions_s": 0.4614044390618801
+},
+"r544712": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 9.056076721858375e-11,
+"sales": 3.775134371775124e-11,
+"institution": 0.9999998807907104,
+"specific": 3.581747953784742e-10,
+"recorded": 1.0,
+"self_assert": 1.0,
+"relevant": 5.905303468445311e-10
+},
+"verdict_s": 0.05347316712141037,
+"questions_s": 0.4996449491009116
+},
+"r875555": {
+"verdict": 1.0,
+"answers": {
+"pressure": 0.0015011823270469904,
+"press_key": 1.0,
+"details": 0.0015011823270469904,
+"sales": 1.1628233098637253e-10,
+"institution": 0.9859364032745361,
+"specific": 9.736200734522527e-10,
+"recorded": 0.9999938011169434,
+"self_assert": 0.8807970285415649,
+"relevant": 2.64657362691878e-09
+},
+"verdict_s": 0.05537376552820206,
+"questions_s": 0.49330983869731426
+},
+"r557775": {
+"verdict": 0.9999785423278809,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 2.64657362691878e-09,
+"sales": 2.7894683785056884e-10,
+"institution": 0.18242552876472473,
+"specific": 7.582560135332983e-10,
+"recorded": 1.0,
+"self_assert": 1.0,
+"relevant": 4.05865202557365e-10
+},
+"verdict_s": 0.05596683267503977,
+"questions_s": 0.49389211367815733
+},
+"r525243": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 2.5946094231454886e-11,
+"sales": 1.1628233098637253e-10,
+"institution": 0.00033535013790242374,
+"specific": 4.139937814784389e-08,
+"recorded": 1.0,
+"self_assert": 1.0,
+"relevant": 3.0590220490012143e-07
+},
+"verdict_s": 0.054912129417061806,
+"questions_s": 0.4921999713405967
+},
+"r723508": {
+"verdict": 1.0,
+"answers": {
+"pressure": 0.014063628390431404,
+"press_key": 1.0,
+"details": 0.0015011823270469904,
+"sales": 5.492788168748319e-11,
+"institution": 1.0,
+"specific": 5.211412412720051e-10,
+"recorded": 0.9999833106994629,
+"self_assert": 1.0,
+"relevant": 1.6052279505629485e-09
+},
+"verdict_s": 0.055549138225615025,
+"questions_s": 0.49531577806919813
+},
+"r274452": {
+"verdict": 0.977022647857666,
+"answers": {
+"pressure": 1.9555681518568235e-08,
+"press_key": 0.9999645948410034,
+"details": 9.23744991609965e-09,
+"sales": 7.889262633398175e-06,
+"institution": 0.9990890026092529,
+"specific": 5.211412412720051e-10,
+"recorded": 0.9999994039535522,
+"self_assert": 1.0,
+"relevant": 7.194132845000922e-09
+},
+"verdict_s": 0.054266794584691525,
+"questions_s": 0.4948708228766918
+},
+"r598198": {
+"verdict": 1.0,
+"answers": {
+"pressure": 0.9999785423278809,
+"press_key": 1.0,
+"details": 9.23744991609965e-09,
+"sales": 5.492788168748319e-11,
+"institution": 0.9999921321868896,
+"specific": 5.905303468445311e-10,
+"recorded": 1.0,
+"self_assert": 0.005220125429332256,
+"relevant": 5.211412412720051e-10
+},
+"verdict_s": 0.05598801374435425,
+"questions_s": 0.49318830762058496
+},
+"r823641": {
+"verdict": 0.9999996423721313,
+"answers": {
+"pressure": 1.4449801710725296e-07,
+"press_key": 1.0,
+"details": 5.04347383412096e-07,
+"sales": 0.0015011823270469904,
+"institution": 0.9999963045120239,
+"specific": 1.2501528701136522e-09,
+"recorded": 1.0,
+"self_assert": 0.9975274205207825,
+"relevant": 8.592165867682411e-10
+},
+"verdict_s": 0.05424364097416401,
+"questions_s": 0.4934449549764395
+},
+"r280180": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 1.0677027830752195e-06,
+"sales": 8.592165867682411e-10,
+"institution": 0.999995231628418,
+"specific": 1.1032560420787263e-09,
+"recorded": 1.0,
+"self_assert": 0.00407013762742281,
+"relevant": 9.736200734522527e-10
+},
+"verdict_s": 0.05496632121503353,
+"questions_s": 0.4904074175283313
+},
+"r535208": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 2.3823690753488336e-07,
+"sales": 1.0,
+"institution": 1.0129991096619051e-05,
+"specific": 4.05865202557365e-10,
+"recorded": 1.0,
+"self_assert": 0.9947799444198608,
+"relevant": 7.582560135332983e-10
+},
+"verdict_s": 0.05367069225758314,
+"questions_s": 0.4802057137712836
+},
+"r509603": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 9.736200734522527e-10,
+"sales": 3.3315444153414475e-11,
+"institution": 0.9999251365661621,
+"specific": 7.582560135332983e-10,
+"recorded": 1.0,
+"self_assert": 0.9999985694885254,
+"relevant": 5.211412412720051e-10
+},
+"verdict_s": 0.053074258379638195,
+"questions_s": 0.491664364002645
+},
+"r917074": {
+"verdict": 1.0,
+"answers": {
+"pressure": 2.7894683785056884e-10,
+"press_key": 1.0,
+"details": 6.825602838489431e-08,
+"sales": 0.9999982118606567,
+"institution": 0.008577484637498856,
+"specific": 2.998960857425459e-09,
+"recorded": 1.0,
+"self_assert": 0.3775406777858734,
+"relevant": 8.764246928194552e-08
+},
+"verdict_s": 0.05128439050167799,
+"questions_s": 0.44566062185913324
+},
+"r833936": {
+"verdict": 0.9995694756507874,
+"answers": {
+"pressure": 9.23744991609965e-09,
+"press_key": 1.0,
+"details": 3.3315444153414475e-11,
+"sales": 1.917171560394948e-10,
+"institution": 0.003172682598233223,
+"specific": 4.05865202557365e-10,
+"recorded": 0.8175744414329529,
+"self_assert": 0.9996646642684937,
+"relevant": 7.194132845000922e-09
+},
+"verdict_s": 0.05258705373853445,
+"questions_s": 0.4873643284663558
+},
+"r373780": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 1.4449801710725296e-07,
+"sales": 6.22414481066258e-11,
+"institution": 0.6791787147521973,
+"specific": 3.581747953784742e-10,
+"recorded": 1.0,
+"self_assert": 0.2689414322376251,
+"relevant": 5.211412412720051e-10
+},
+"verdict_s": 0.05663531180471182,
+"questions_s": 0.4886220060288906
+},
+"r638980": {
+"verdict": 1.0,
+"answers": {
+"pressure": 5.315785145398877e-08,
+"press_key": 1.0,
+"details": 7.194132845000922e-09,
+"sales": 0.003172682598233223,
+"institution": 0.003172682598233223,
+"specific": 6.691585618945339e-10,
+"recorded": 1.0,
+"self_assert": 0.037326887249946594,
+"relevant": 2.4616969573898473e-10
+},
+"verdict_s": 0.05443413183093071,
+"questions_s": 0.4840486003085971
+},
+"r387225": {
+"verdict": 1.0,
+"answers": {
+"pressure": 6.825602838489431e-08,
+"press_key": 1.0,
+"details": 8.764246928194552e-08,
+"sales": 3.775134371775124e-11,
+"institution": 4.539786823443137e-05,
+"specific": 2.1724400056655213e-10,
+"recorded": 1.0,
+"self_assert": 0.4378235340118408,
+"relevant": 8.592165867682411e-10
+},
+"verdict_s": 0.05328697245568037,
+"questions_s": 0.482289370149374
+},
+"r170111": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.4166088302403068e-09,
+"press_key": 1.0,
+"details": 9.736200734522527e-10,
+"sales": 0.9046505093574524,
+"institution": 3.9278620533877984e-07,
+"specific": 1.8189617589925433e-09,
+"recorded": 1.0,
+"self_assert": 0.00043055712012574077,
+"relevant": 2.998960857425459e-09
+},
+"verdict_s": 0.052844141609966755,
+"questions_s": 0.45728406496345997
+},
+"r500579": {
+"verdict": 0.9999996423721313,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 5.492788168748319e-11,
+"sales": 7.99195917777773e-11,
+"institution": 0.037326887249946594,
+"specific": 6.691585618945339e-10,
+"recorded": 1.0,
+"self_assert": 0.999998927116394,
+"relevant": 3.1608812789407637e-10
+},
+"verdict_s": 0.05286321882158518,
+"questions_s": 0.49337824806571007
+},
+"r260545": {
+"verdict": 6.144174221844878e-06,
+"answers": {
+"pressure": 0.006692850962281227,
+"press_key": 1.0,
+"details": 3.3315444153414475e-11,
+"sales": 0.0019267346942797303,
+"institution": 2.2603242086915998e-06,
+"specific": 0.003172682598233223,
+"recorded": 1.0,
+"self_assert": 0.9999545812606812,
+"relevant": 1.0
+},
+"verdict_s": 0.055899434722959995,
+"questions_s": 0.49775204434990883
+},
+"r431193": {
+"verdict": 9.610241977497935e-05,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 4.2777878461741636e-11,
+"sales": 1.3709573067899328e-06,
+"institution": 4.785094461112749e-06,
+"specific": 1.4449801710725296e-07,
+"recorded": 1.0,
+"self_assert": 0.9999921321868896,
+"relevant": 5.602796449011294e-09
+},
+"verdict_s": 0.05475164484232664,
+"questions_s": 0.4893156746402383
+},
+"r1134649": {
+"verdict": 0.000552778656128794,
+"answers": {
+"pressure": 3.3982678893096363e-09,
+"press_key": 9.610241977497935e-05,
+"details": 1.0261880234452292e-10,
+"sales": 1.3007129382458515e-05,
+"institution": 0.9914224743843079,
+"specific": 5.905303468445311e-10,
+"recorded": 9.610241977497935e-05,
+"self_assert": 0.9999921321868896,
+"relevant": 2.64657362691878e-09
+},
+"verdict_s": 0.05450841132551432,
+"questions_s": 0.492971446365118
+},
+"rs6diZGlyXzliamRpcjp0b21jYXQ2MjUyOjE2MzkwNjkyNDY5ODY4g99snZ.gen_OneEye_Robocall__Amazon-SuspiciousCharge-P1": {
+"verdict": 1.0,
+"answers": {
+"pressure": 0.008577484637498856,
+"press_key": 1.0,
+"details": 4.363462480228009e-09,
+"sales": 5.315785145398877e-08,
+"institution": 1.0,
+"specific": 2.7894683785056884e-10,
+"recorded": 1.0,
+"self_assert": 2.7535690605873242e-05,
+"relevant": 2.1724400056655213e-10
+},
+"verdict_s": 0.054336998611688614,
+"questions_s": 0.46303886268287897
+},
+"r698011": {
+"verdict": 1.0,
+"answers": {
+"pressure": 0.4378235340118408,
+"press_key": 1.0,
+"details": 0.0007096704212017357,
+"sales": 4.139937814784389e-08,
+"institution": 0.9626730680465698,
+"specific": 7.582560135332983e-10,
+"recorded": 1.0,
+"self_assert": 0.008577484637498856,
+"relevant": 9.736200734522527e-10
+},
+"verdict_s": 0.05358571093529463,
+"questions_s": 0.4991135699674487
+},
+"rs6diZGlyXzRiOWRpcjp0b21jYXQyOTk4OjE2MjA5MzgxNTUzMzJJ3bTfQC.gen_RSCom_Robocall__SSA-P1-BenefitsCanceled__GovtImpers_": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 7.484622619813308e-05,
+"details": 1.0677027830752195e-06,
+"sales": 9.056076721858375e-11,
+"institution": 0.9999979734420776,
+"specific": 4.599055858367507e-10,
+"recorded": 1.0,
+"self_assert": 0.02931223064661026,
+"relevant": 1.917171560394948e-10
+},
+"verdict_s": 0.05471971444785595,
+"questions_s": 0.4826777074486017
+},
+"r660778": {
+"verdict": 0.2689414322376251,
+"answers": {
+"pressure": 1.0,
+"press_key": 3.224186428951725e-08,
+"details": 4.139937814784389e-08,
+"sales": 5.04347383412096e-07,
+"institution": 0.998498797416687,
+"specific": 1.1032560420787263e-09,
+"recorded": 0.008577484637498856,
+"self_assert": 1.0,
+"relevant": 4.599055858367507e-10
+},
+"verdict_s": 0.0545956389978528,
+"questions_s": 0.5002620108425617
+},
+"r1252749": {
+"verdict": 1.0,
+"answers": {
+"pressure": 2.061153470123145e-09,
+"press_key": 6.144174221844878e-06,
+"details": 2.3823690753488336e-07,
+"sales": 5.315785145398877e-08,
+"institution": 1.0,
+"specific": 1.6052279505629485e-09,
+"recorded": 0.9999997615814209,
+"self_assert": 0.9626730680465698,
+"relevant": 5.905303468445311e-10
+},
+"verdict_s": 0.05608564801514149,
+"questions_s": 0.4899434866383672
+},
+"r509708": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 2.0206837939018563e-11,
+"sales": 1.493094675675266e-10,
+"institution": 0.0024726230185478926,
+"specific": 3.0590220490012143e-07,
+"recorded": 1.0,
+"self_assert": 1.0,
+"relevant": 3.9278620533877984e-07
+},
+"verdict_s": 0.054734242148697376,
+"questions_s": 0.49992151465266943
+},
+"r790358": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 1.4449801710725296e-07,
+"sales": 3.1608812789407637e-10,
+"institution": 0.9990890026092529,
+"specific": 3.1608812789407637e-10,
+"recorded": 1.0,
+"self_assert": 0.9999971389770508,
+"relevant": 5.905303468445311e-10
+},
+"verdict_s": 0.05480095837265253,
+"questions_s": 0.493966406211257
+},
+"r841754": {
+"verdict": 1.0,
+"answers": {
+"pressure": 2.64657362691878e-09,
+"press_key": 0.9999996423721313,
+"details": 2.1724400056655213e-10,
+"sales": 1.0,
+"institution": 0.00012339458044152707,
+"specific": 2.7894683785056884e-10,
+"recorded": 1.0,
+"self_assert": 1.0677027830752195e-06,
+"relevant": 1.917171560394948e-10
+},
+"verdict_s": 0.055308192037045956,
+"questions_s": 0.5000901632010937
+},
+"r1348036": {
+"verdict": 1.4449801710725296e-07,
+"answers": {
+"pressure": 7.194132845000922e-09,
+"press_key": 0.9997965693473816,
+"details": 5.602796449011294e-09,
+"sales": 1.493094675675266e-10,
+"institution": 3.0590220490012143e-07,
+"specific": 0.9998766183853149,
+"recorded": 3.0590220490012143e-07,
+"self_assert": 1.0,
+"relevant": 2.2603242086915998e-06
+},
+"verdict_s": 0.055296008475124836,
+"questions_s": 0.49582526460289955
+},
+"r1357916": {
+"verdict": 1.0,
+"answers": {
+"pressure": 7.194132845000922e-09,
+"press_key": 6.825602838489431e-08,
+"details": 8.764246928194552e-08,
+"sales": 1.9555681518568235e-08,
+"institution": 0.9999982118606567,
+"specific": 3.850741947530878e-09,
+"recorded": 0.999995231628418,
+"self_assert": 6.475947884609923e-07,
+"relevant": 4.05865202557365e-10
+},
+"verdict_s": 0.05516576115041971,
+"questions_s": 0.48683495353907347
+},
+"r694463": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 1.1628233098637253e-10,
+"sales": 1.1628233098637253e-10,
+"institution": 0.2689414322376251,
+"specific": 3.581747953784742e-10,
+"recorded": 1.0,
+"self_assert": 0.9996646642684937,
+"relevant": 1.1032560420787263e-09
+},
+"verdict_s": 0.05502270068973303,
+"questions_s": 0.5010134670883417
+},
+"r668383": {
+"verdict": 1.0,
+"answers": {
+"pressure": 0.6791787147521973,
+"press_key": 1.0,
+"details": 0.00043055712012574077,
+"sales": 1.1861120086109622e-08,
+"institution": 1.0,
+"specific": 5.211412412720051e-10,
+"recorded": 1.0,
+"self_assert": 0.9999039173126221,
+"relevant": 1.0261880234452292e-10
+},
+"verdict_s": 0.05522872135043144,
+"questions_s": 0.49173054937273264
+},
+"r936569": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 5.905303468445311e-10,
+"sales": 2.7894683785056884e-10,
+"institution": 0.060086652636528015,
+"specific": 2.4616969573898473e-10,
+"recorded": 1.0,
+"self_assert": 0.9995694756507874,
+"relevant": 5.211412412720051e-10
+},
+"verdict_s": 0.05439557787030935,
+"questions_s": 0.49642395228147507
+},
+"r582998": {
+"verdict": 1.0,
+"answers": {
+"pressure": 0.9399133324623108,
+"press_key": 9.23744991609965e-09,
+"details": 7.889262633398175e-06,
+"sales": 1.9555681518568235e-08,
+"institution": 0.9999994039535522,
+"specific": 9.736200734522527e-10,
+"recorded": 0.999841570854187,
+"self_assert": 0.9999251365661621,
+"relevant": 4.05865202557365e-10
+},
+"verdict_s": 0.05562322027981281,
+"questions_s": 0.49011551309376955
+},
+"r490977": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 1.760343138812459e-06,
+"sales": 1.3176514046531196e-10,
+"institution": 0.02931223064661026,
+"specific": 3.581747953784742e-10,
+"recorded": 1.0,
+"self_assert": 0.977022647857666,
+"relevant": 5.905303468445311e-10
+},
+"verdict_s": 0.05412447452545166,
+"questions_s": 0.4823765754699707
+},
+"r660784": {
+"verdict": 0.2689414322376251,
+"answers": {
+"pressure": 1.0,
+"press_key": 3.224186428951725e-08,
+"details": 4.139937814784389e-08,
+"sales": 5.04347383412096e-07,
+"institution": 0.998498797416687,
+"specific": 1.1032560420787263e-09,
+"recorded": 0.008577484637498856,
+"self_assert": 1.0,
+"relevant": 4.599055858367507e-10
+},
+"verdict_s": 0.05387628171592951,
+"questions_s": 0.4957075519487262
+},
+"r1251109": {
+"verdict": 0.9999998807907104,
+"answers": {
+"pressure": 0.977022647857666,
+"press_key": 3.3982678893096363e-09,
+"details": 2.3823690753488336e-07,
+"sales": 0.014063628390431404,
+"institution": 0.9820137619972229,
+"specific": 1.1032560420787263e-09,
+"recorded": 0.562176525592804,
+"self_assert": 0.014063628390431404,
+"relevant": 3.3982678893096363e-09
+},
+"verdict_s": 0.05519183073192835,
+"questions_s": 0.49182773381471634
+},
+"r795462": {
+"verdict": 0.9999985694885254,
+"answers": {
+"pressure": 1.760343138812459e-06,
+"press_key": 1.0,
+"details": 3.0590220490012143e-07,
+"sales": 0.9241418242454529,
+"institution": 1.0,
+"specific": 2.061153470123145e-09,
+"recorded": 1.0,
+"self_assert": 0.9947799444198608,
+"relevant": 2.7894683785056884e-10
+},
+"verdict_s": 0.056082623079419136,
+"questions_s": 0.49756735283881426
+},
+"r58893": {
+"verdict": 1.0,
+"answers": {
+"pressure": 0.00033535013790242374,
+"press_key": 1.0,
+"details": 1.8189617589925433e-09,
+"sales": 5.602796449011294e-09,
+"institution": 0.9999251365661621,
+"specific": 6.691585618945339e-10,
+"recorded": 1.0,
+"self_assert": 0.0009110511746257544,
+"relevant": 1.6918978718027944e-10
+},
+"verdict_s": 0.054999345913529396,
+"questions_s": 0.49326978251338005
+},
+"r520112": {
+"verdict": 1.0,
+"answers": {
+"pressure": 0.9999997615814209,
+"press_key": 1.0,
+"details": 5.315785145398877e-08,
+"sales": 1.0,
+"institution": 0.0015011823270469904,
+"specific": 5.211412412720051e-10,
+"recorded": 1.0,
+"self_assert": 0.9996646642684937,
+"relevant": 9.736200734522527e-10
+},
+"verdict_s": 0.055222789756953716,
+"questions_s": 0.4964398527517915
+},
+"r1331478": {
+"verdict": 1.0,
+"answers": {
+"pressure": 0.9947799444198608,
+"press_key": 5.602796449011294e-09,
+"details": 2.64657362691878e-09,
+"sales": 1.9555681518568235e-08,
+"institution": 0.4378235340118408,
+"specific": 2.335593052293916e-09,
+"recorded": 1.0,
+"self_assert": 0.9999985694885254,
+"relevant": 7.582560135332983e-10
+},
+"verdict_s": 0.05465652421116829,
+"questions_s": 0.49104202166199684
+},
+"r936591": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 4.8473686869998645e-11,
+"sales": 3.581747953784742e-10,
+"institution": 0.9046505093574524,
+"specific": 3.1608812789407637e-10,
+"recorded": 1.0,
+"self_assert": 0.8807970285415649,
+"relevant": 4.363462480228009e-09
+},
+"verdict_s": 0.05534039344638586,
+"questions_s": 0.4956074822694063
+},
+"r60681": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 4.139937814784389e-08,
+"sales": 2.4616969573898473e-10,
+"institution": 0.9999910593032837,
+"specific": 1.2501528701136522e-09,
+"recorded": 1.0,
+"self_assert": 0.9999039173126221,
+"relevant": 4.599055858367507e-10
+},
+"verdict_s": 0.054979086853563786,
+"questions_s": 0.49211966805160046
+},
+"r535287": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 9.23744991609965e-09,
+"sales": 1.0,
+"institution": 0.0024726230185478926,
+"specific": 3.1608812789407637e-10,
+"recorded": 1.0,
+"self_assert": 0.9996646642684937,
+"relevant": 5.905303468445311e-10
+},
+"verdict_s": 0.054637287743389606,
+"questions_s": 0.4894500793889165
+},
+"r648026": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 2.51099923076481e-08,
+"sales": 1.0261880234452292e-10,
+"institution": 0.9998766183853149,
+"specific": 2.7894683785056884e-10,
+"recorded": 1.0,
+"self_assert": 5.829126530443318e-05,
+"relevant": 7.582560135332983e-10
+},
+"verdict_s": 0.054885818623006344,
+"questions_s": 0.4908883608877659
+},
+"r915213": {
+"verdict": 1.0,
+"answers": {
+"pressure": 2.64657362691878e-09,
+"press_key": 0.9999996423721313,
+"details": 2.1724400056655213e-10,
+"sales": 1.0,
+"institution": 0.00020342698553577065,
+"specific": 3.1608812789407637e-10,
+"recorded": 1.0,
+"self_assert": 3.7266393064783188e-06,
+"relevant": 2.4616969573898473e-10
+},
+"verdict_s": 0.05525487009435892,
+"questions_s": 0.49971024319529533
+},
+"r468416": {
+"verdict": 0.9999998807907104,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 4.599055858367507e-10,
+"sales": 1.493094675675266e-10,
+"institution": 6.144174221844878e-06,
+"specific": 2.061153470123145e-09,
+"recorded": 1.0,
+"self_assert": 1.0,
+"relevant": 3.3982678893096363e-09
+},
+"verdict_s": 0.05467321630567312,
+"questions_s": 0.4935259986668825
+},
+"r630200": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 1.5229979055675358e-08,
+"sales": 3.3315444153414475e-11,
+"institution": 0.9990890026092529,
+"specific": 3.581747953784742e-10,
+"recorded": 1.0,
+"self_assert": 0.9997387528419495,
+"relevant": 8.592165867682411e-10
+},
+"verdict_s": 0.05516344588249922,
+"questions_s": 0.4946616664528847
+},
+"r635451": {
+"verdict": 1.0,
+"answers": {
+"pressure": 0.9046505093574524,
+"press_key": 1.0,
+"details": 4.539786823443137e-05,
+"sales": 2.51099923076481e-08,
+"institution": 0.9990890026092529,
+"specific": 7.582560135332983e-10,
+"recorded": 1.0,
+"self_assert": 0.010986941866576672,
+"relevant": 1.2501528701136522e-09
+},
+"verdict_s": 0.0553962392732501,
+"questions_s": 0.49806847609579563
+},
+"r1100694": {
+"verdict": 0.01798621006309986,
+"answers": {
+"pressure": 6.348800152267131e-09,
+"press_key": 1.0,
+"details": 3.775134371775124e-11,
+"sales": 1.5229979055675358e-08,
+"institution": 2.3823690753488336e-07,
+"specific": 0.00012339458044152707,
+"recorded": 1.0,
+"self_assert": 0.9990890026092529,
+"relevant": 0.9999785423278809
+},
+"verdict_s": 0.05163768120110035,
+"questions_s": 0.4500313103199005
+},
+"rs6diZGlyX3M0YmRmYTp0b21jYXQxMTgyOjE2NzM1NDMxMjY0NDlyNklte4.gen_Every1_Telecom_Robocall__Utility-30MinDisconnect": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 1.1861120086109622e-08,
+"sales": 1.9555681518568235e-08,
+"institution": 7.889262633398175e-06,
+"specific": 4.599055858367507e-10,
+"recorded": 1.0,
+"self_assert": 0.999995231628418,
+"relevant": 3.581747953784742e-10
+},
+"verdict_s": 0.05376546178013086,
+"questions_s": 0.5018387865275145
+},
+"r694456": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 1.493094675675266e-10,
+"sales": 4.05865202557365e-10,
+"institution": 0.022977370768785477,
+"specific": 3.581747953784742e-10,
+"recorded": 1.0,
+"self_assert": 0.8175744414329529,
+"relevant": 6.691585618945339e-10
+},
+"verdict_s": 0.05443208757787943,
+"questions_s": 0.49370461888611317
+},
+"r711071": {
+"verdict": 1.0,
+"answers": {
+"pressure": 5.315785145398877e-08,
+"press_key": 2.335593052293916e-09,
+"details": 1.855391076333035e-07,
+"sales": 0.9525741338729858,
+"institution": 0.9998766183853149,
+"specific": 2.335593052293916e-09,
+"recorded": 1.0,
+"self_assert": 0.01798621006309986,
+"relevant": 6.691585618945339e-10
+},
+"verdict_s": 0.05503155570477247,
+"questions_s": 0.49787909630686045
+},
+"r1251111": {
+"verdict": 1.0,
+"answers": {
+"pressure": 0.9995694756507874,
+"press_key": 3.850741947530878e-09,
+"details": 1.1253515452835927e-07,
+"sales": 0.0011695103021338582,
+"institution": 0.3775406777858734,
+"specific": 1.1032560420787263e-09,
+"recorded": 0.9995694756507874,
+"self_assert": 0.037326887249946594,
+"relevant": 2.64657362691878e-09
+},
+"verdict_s": 0.05482848081737757,
+"questions_s": 0.49262837413698435
+},
+"r444728": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.855391076333035e-07,
+"details": 7.889262633398175e-06,
+"sales": 1.9555681518568235e-08,
+"institution": 1.0,
+"specific": 1.4166088302403068e-09,
+"recorded": 1.0,
+"self_assert": 0.9999545812606812,
+"relevant": 7.582560135332983e-10
+},
+"verdict_s": 0.05558028817176819,
+"questions_s": 0.5012730406597257
+},
+"r58345": {
+"verdict": 0.9933071732521057,
+"answers": {
+"pressure": 2.1724400056655213e-10,
+"press_key": 1.0,
+"details": 2.5946094231454886e-11,
+"sales": 5.315785145398877e-08,
+"institution": 0.01798621006309986,
+"specific": 1.4166088302403068e-09,
+"recorded": 1.0,
+"self_assert": 3.535625000949949e-05,
+"relevant": 4.363462480228009e-09
+},
+"verdict_s": 0.055286780931055546,
+"questions_s": 0.4877117769792676
+},
+"rs6diZGlyX2ptMmRpcjp0b21jYXQ0ODgwOjE2NTY2MTIxNzUyMDFWeJvMHD.gen_Jumpsolinc_Robocall__Discount-DirecTV50": {
+"verdict": 0.9999997615814209,
+"answers": {
+"pressure": 8.592165867682411e-10,
+"press_key": 0.9999994039535522,
+"details": 1.0261880234452292e-10,
+"sales": 1.0,
+"institution": 0.000552778656128794,
+"specific": 3.581747953784742e-10,
+"recorded": 1.0,
+"self_assert": 1.67014204635052e-05,
+"relevant": 3.3982678893096363e-09
+},
+"verdict_s": 0.05535833723843098,
+"questions_s": 0.49717951845377684
+},
+"r660789": {
+"verdict": 0.2689414322376251,
+"answers": {
+"pressure": 1.0,
+"press_key": 3.224186428951725e-08,
+"details": 4.139937814784389e-08,
+"sales": 5.04347383412096e-07,
+"institution": 0.998498797416687,
+"specific": 1.1032560420787263e-09,
+"recorded": 0.008577484637498856,
+"self_assert": 1.0,
+"relevant": 4.599055858367507e-10
+},
+"verdict_s": 0.05471449438482523,
+"questions_s": 0.4957820940762758
+},
+"r162225": {
+"verdict": 0.0019267346942797303,
+"answers": {
+"pressure": 3.1608812789407637e-10,
+"press_key": 1.0,
+"details": 1.917171560394948e-10,
+"sales": 3.224186428951725e-08,
+"institution": 1.9555681518568235e-08,
+"specific": 3.850741947530878e-09,
+"recorded": 1.0,
+"self_assert": 7.889262633398175e-06,
+"relevant": 0.00033535013790242374
+},
+"verdict_s": 0.05179959908127785,
+"questions_s": 0.44851183518767357
+},
+"r622461": {
+"verdict": 1.0,
+"answers": {
+"pressure": 0.9999997615814209,
+"press_key": 1.0,
+"details": 9.23744991609965e-09,
+"sales": 2.1724400056655213e-10,
+"institution": 0.9975274205207825,
+"specific": 6.691585618945339e-10,
+"recorded": 1.0,
+"self_assert": 0.000552778656128794,
+"relevant": 2.061153470123145e-09
+},
+"verdict_s": 0.05205909162759781,
+"questions_s": 0.4754926925525069
+},
+"r841764": {
+"verdict": 1.0,
+"answers": {
+"pressure": 2.061153470123145e-09,
+"press_key": 0.9999991655349731,
+"details": 1.6918978718027944e-10,
+"sales": 1.0,
+"institution": 0.0002611903182696551,
+"specific": 3.1608812789407637e-10,
+"recorded": 1.0,
+"self_assert": 6.144174221844878e-06,
+"relevant": 3.1608812789407637e-10
+},
+"verdict_s": 0.05321057979017496,
+"questions_s": 0.4957808908075094
+},
+"r795465": {
+"verdict": 0.9999985694885254,
+"answers": {
+"pressure": 1.760343138812459e-06,
+"press_key": 1.0,
+"details": 3.0590220490012143e-07,
+"sales": 0.9241418242454529,
+"institution": 1.0,
+"specific": 2.061153470123145e-09,
+"recorded": 1.0,
+"self_assert": 0.9947799444198608,
+"relevant": 2.7894683785056884e-10
+},
+"verdict_s": 0.05559094808995724,
+"questions_s": 0.4985479563474655
+},
+"r447431": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 1.1253515452835927e-07,
+"sales": 7.99195917777773e-11,
+"institution": 0.851952850818634,
+"specific": 4.05865202557365e-10,
+"recorded": 1.0,
+"self_assert": 0.6791787147521973,
+"relevant": 7.582560135332983e-10
+},
+"verdict_s": 0.05692320875823498,
+"questions_s": 0.4934399649500847
+},
+"rs3diZGlyX21mbWRmYTp0b21jYXQ0NjA3OjE2MTEwODQwNjYxMjNksMHUcH.gen[1]_Whisl_Robocall__Travel_Scam": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.1861120086109622e-08,
+"press_key": 1.0,
+"details": 1.2501528701136522e-09,
+"sales": 0.9999998807907104,
+"institution": 0.9997387528419495,
+"specific": 4.599055858367507e-10,
+"recorded": 1.0,
+"self_assert": 0.0019267346942797303,
+"relevant": 4.05865202557365e-10
+},
+"verdict_s": 0.05441122781485319,
+"questions_s": 0.4906476028263569
+},
+"r1246788": {
+"verdict": 0.9999985694885254,
+"answers": {
+"pressure": 7.484622619813308e-05,
+"press_key": 1.0,
+"details": 2.4616969573898473e-10,
+"sales": 4.599055858367507e-10,
+"institution": 1.0,
+"specific": 4.05865202557365e-10,
+"recorded": 1.0,
+"self_assert": 1.0,
+"relevant": 7.582560135332983e-10
+},
+"verdict_s": 0.05531861074268818,
+"questions_s": 0.4971712017431855
+},
+"r795473": {
+"verdict": 1.0,
+"answers": {
+"pressure": 5.315785145398877e-08,
+"press_key": 1.0,
+"details": 7.194132845000922e-09,
+"sales": 0.003172682598233223,
+"institution": 0.003172682598233223,
+"specific": 6.691585618945339e-10,
+"recorded": 1.0,
+"self_assert": 0.037326887249946594,
+"relevant": 2.4616969573898473e-10
+},
+"verdict_s": 0.05468024965375662,
+"questions_s": 0.4850992960855365
+},
+"r927213": {
+"verdict": 1.0,
+"answers": {
+"pressure": 0.9859364032745361,
+"press_key": 1.0,
+"details": 5.315785145398877e-08,
+"sales": 0.006692850962281227,
+"institution": 9.610241977497935e-05,
+"specific": 8.592165867682411e-10,
+"recorded": 1.0,
+"self_assert": 0.7772998809814453,
+"relevant": 5.211412412720051e-10
+},
+"verdict_s": 0.053551786579191685,
+"questions_s": 0.4911945415660739
+},
+"rs6diZGlyX2NzbWRpcjp0b21jYXQ5NDMyOjE2NTM0MjA2Njc3MDJOMqjSeD.gen_Inbound_Robocall__Discount-DirecTV50": {
+"verdict": 1.0,
+"answers": {
+"pressure": 2.64657362691878e-09,
+"press_key": 0.9999994039535522,
+"details": 2.1724400056655213e-10,
+"sales": 1.0,
+"institution": 0.0024726230185478926,
+"specific": 4.05865202557365e-10,
+"recorded": 1.0,
+"self_assert": 2.1444948288262822e-05,
+"relevant": 3.1608812789407637e-10
+},
+"verdict_s": 0.054873486049473286,
+"questions_s": 0.49737284425646067
+},
+"r702997": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 6.475947884609923e-07,
+"sales": 5.211412412720051e-10,
+"institution": 0.9399133324623108,
+"specific": 3.581747953784742e-10,
+"recorded": 1.0,
+"self_assert": 1.0,
+"relevant": 2.7894683785056884e-10
+},
+"verdict_s": 0.05495476070791483,
+"questions_s": 0.49770366214215755
+},
+"r509596": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 3.3982678893096363e-09,
+"sales": 2.2897348947448215e-11,
+"institution": 0.999841570854187,
+"specific": 2.4616969573898473e-10,
+"recorded": 1.0,
+"self_assert": 0.9994471669197083,
+"relevant": 3.1608812789407637e-10
+},
+"verdict_s": 0.05547955725342035,
+"questions_s": 0.4928391743451357
+},
+"rs6diZGlyX3dzMmRpcjp0b21jYXQ4NTY1OjE2ODk2MDMwNzYwODZI5J9RxX.gen_Bandwidth_Robocall__Utility-SupplyCharges": {
+"verdict": 3.224186428951725e-08,
+"answers": {
+"pressure": 7.194132845000922e-09,
+"press_key": 0.9999898672103882,
+"details": 5.905303468445311e-10,
+"sales": 2.1724400056655213e-10,
+"institution": 6.475947884609923e-07,
+"specific": 0.9999898672103882,
+"recorded": 3.224186428951725e-08,
+"self_assert": 1.0,
+"relevant": 6.475947884609923e-07
+},
+"verdict_s": 0.05460920464247465,
+"questions_s": 0.4969203546643257
+},
+"r568829": {
+"verdict": 1.0,
+"answers": {
+"pressure": 5.04347383412096e-07,
+"press_key": 1.0,
+"details": 0.01798621006309986,
+"sales": 1.1628233098637253e-10,
+"institution": 0.9933071732521057,
+"specific": 3.1608812789407637e-10,
+"recorded": 0.9399133324623108,
+"self_assert": 0.999841570854187,
+"relevant": 2.061153470123145e-09
+},
+"verdict_s": 0.05552497319877148,
+"questions_s": 0.49014293495565653
+},
+"r739597": {
+"verdict": 0.999998927116394,
+"answers": {
+"pressure": 1.4166088302403068e-09,
+"press_key": 1.67014204635052e-05,
+"details": 1.9555681518568235e-08,
+"sales": 3.224186428951725e-08,
+"institution": 0.9999998807907104,
+"specific": 2.061153470123145e-09,
+"recorded": 0.04742587357759476,
+"self_assert": 0.998498797416687,
+"relevant": 6.691585618945339e-10
+},
+"verdict_s": 0.05440117884427309,
+"questions_s": 0.49114775378257036
+},
+"r782206": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 4.8473686869998645e-11,
+"sales": 2.940077348245751e-11,
+"institution": 0.9999417066574097,
+"specific": 1.6052279505629485e-09,
+"recorded": 1.0,
+"self_assert": 1.0,
+"relevant": 7.194132845000922e-09
+},
+"verdict_s": 0.05461627710610628,
+"questions_s": 0.4967860896140337
+},
+"r482012": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.1253515452835927e-07,
+"details": 2.1724400056655213e-10,
+"sales": 4.8473686869998645e-11,
+"institution": 9.610241977497935e-05,
+"specific": 1.917171560394948e-10,
+"recorded": 1.0,
+"self_assert": 0.9999991655349731,
+"relevant": 5.905303468445311e-10
+},
+"verdict_s": 0.05482146702706814,
+"questions_s": 0.4987539881840348
+},
+"r1132273": {
+"verdict": 0.562176525592804,
+"answers": {
+"pressure": 0.9998766183853149,
+"press_key": 9.23744991609965e-09,
+"details": 3.224186428951725e-08,
+"sales": 0.9999998807907104,
+"institution": 3.7266393064783188e-06,
+"specific": 8.592165867682411e-10,
+"recorded": 1.0677027830752195e-06,
+"self_assert": 0.9999998807907104,
+"relevant": 2.7894683785056884e-10
+},
+"verdict_s": 0.05532105639576912,
+"questions_s": 0.500312247313559
+},
+"r819751": {
+"verdict": 0.9999982118606567,
+"answers": {
+"pressure": 5.602796449011294e-09,
+"press_key": 0.00020342698553577065,
+"details": 4.139937814784389e-08,
+"sales": 2.51099923076481e-08,
+"institution": 0.9999996423721313,
+"specific": 1.2501528701136522e-09,
+"recorded": 0.999998927116394,
+"self_assert": 0.11920291930437088,
+"relevant": 4.05865202557365e-10
+},
+"verdict_s": 0.054589416831731796,
+"questions_s": 0.4894226072356105
+},
+"r601883": {
+"verdict": 0.999987006187439,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.5229979055675358e-08,
+"details": 1.9555681518568235e-08,
+"sales": 3.3315444153414475e-11,
+"institution": 0.999998927116394,
+"specific": 1.2501528701136522e-09,
+"recorded": 0.7772998809814453,
+"self_assert": 0.9999998807907104,
+"relevant": 1.9555681518568235e-08
+},
+"verdict_s": 0.055000416934490204,
+"questions_s": 0.49602656811475754
+},
+"r453402": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 9.23744991609965e-09,
+"sales": 6.691585618945339e-10,
+"institution": 0.999841570854187,
+"specific": 2.7894683785056884e-10,
+"recorded": 1.0,
+"self_assert": 0.7772998809814453,
+"relevant": 4.599055858367507e-10
+},
+"verdict_s": 0.05486776493489742,
+"questions_s": 0.4937420906499028
+},
+"r70577": {
+"verdict": 1.0,
+"answers": {
+"pressure": 5.211412412720051e-10,
+"press_key": 1.0,
+"details": 4.2777878461741636e-11,
+"sales": 1.0,
+"institution": 3.0590220490012143e-07,
+"specific": 7.582560135332983e-10,
+"recorded": 1.0,
+"self_assert": 0.8175744414329529,
+"relevant": 7.194132845000922e-09
+},
+"verdict_s": 0.05411694943904877,
+"questions_s": 0.4687602985650301
+},
+"r701103": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.760343138812459e-06,
+"press_key": 1.0,
+"details": 0.0007096704212017357,
+"sales": 1.493094675675266e-10,
+"institution": 0.622459352016449,
+"specific": 3.1608812789407637e-10,
+"recorded": 0.32082128524780273,
+"self_assert": 0.9999833106994629,
+"relevant": 1.8189617589925433e-09
+},
+"verdict_s": 0.05319537967443466,
+"questions_s": 0.4925307082012296
+},
+"r630211": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 6.475947884609923e-07,
+"sales": 7.99195917777773e-11,
+"institution": 0.9995694756507874,
+"specific": 3.581747953784742e-10,
+"recorded": 1.0,
+"self_assert": 0.9914224743843079,
+"relevant": 6.691585618945339e-10
+},
+"verdict_s": 0.054904705844819546,
+"questions_s": 0.4829107103869319
+},
+"r557662": {
+"verdict": 1.0,
+"answers": {
+"pressure": 0.0015011823270469904,
+"press_key": 1.0,
+"details": 5.829126530443318e-05,
+"sales": 0.7772998809814453,
+"institution": 0.9914224743843079,
+"specific": 0.9999998807907104,
+"recorded": 1.0,
+"self_assert": 0.9998766183853149,
+"relevant": 0.9999785423278809
+},
+"verdict_s": 0.05341649893671274,
+"questions_s": 0.497088223695755
+},
+"r782203": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 4.8473686869998645e-11,
+"sales": 2.940077348245751e-11,
+"institution": 0.9999417066574097,
+"specific": 1.6052279505629485e-09,
+"recorded": 1.0,
+"self_assert": 1.0,
+"relevant": 7.194132845000922e-09
+},
+"verdict_s": 0.05547009967267513,
+"questions_s": 0.4956635283306241
+},
+"r565718": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 1.3176514046531196e-10,
+"sales": 1.67014204635052e-05,
+"institution": 0.9999994039535522,
+"specific": 8.592165867682411e-10,
+"recorded": 1.0,
+"self_assert": 0.562176525592804,
+"relevant": 3.1608812789407637e-10
+},
+"verdict_s": 0.05416077375411987,
+"questions_s": 0.46288603264838457
+},
+"r560658": {
+"verdict": 1.0,
+"answers": {
+"pressure": 3.535625000949949e-05,
+"press_key": 5.602796449011294e-09,
+"details": 8.315279842463497e-07,
+"sales": 4.8473686869998645e-11,
+"institution": 1.0,
+"specific": 4.05865202557365e-10,
+"recorded": 0.22270013391971588,
+"self_assert": 1.0,
+"relevant": 4.599055858367507e-10
+},
+"verdict_s": 0.05335936136543751,
+"questions_s": 0.49459044076502323
+},
+"r1054675": {
+"verdict": 1.0,
+"answers": {
+"pressure": 2.902311962316162e-06,
+"press_key": 1.0,
+"details": 5.315785145398877e-08,
+"sales": 0.2689414322376251,
+"institution": 0.9046505093574524,
+"specific": 5.905303468445311e-10,
+"recorded": 1.0,
+"self_assert": 0.00033535013790242374,
+"relevant": 1.917171560394948e-10
+},
+"verdict_s": 0.0548598300665617,
+"questions_s": 0.4905191296711564
+},
+"r787210": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 9.23744991609965e-09,
+"sales": 1.493094675675266e-10,
+"institution": 0.18242552876472473,
+"specific": 3.581747953784742e-10,
+"recorded": 1.0,
+"self_assert": 3.9278620533877984e-07,
+"relevant": 8.592165867682411e-10
+},
+"verdict_s": 0.05476901866495609,
+"questions_s": 0.49029369093477726
+},
+"r701181": {
+"verdict": 0.9992903470993042,
+"answers": {
+"pressure": 1.9555681518568235e-08,
+"press_key": 1.6052279505629485e-09,
+"details": 0.0007096704212017357,
+"sales": 2.51099923076481e-08,
+"institution": 1.0,
+"specific": 1.2501528701136522e-09,
+"recorded": 0.006692850962281227,
+"self_assert": 0.9999545812606812,
+"relevant": 2.1724400056655213e-10
+},
+"verdict_s": 0.055248417891561985,
+"questions_s": 0.4995661787688732
+},
+"r547592": {
+"verdict": 0.9626730680465698,
+"answers": {
+"pressure": 7.582560135332983e-10,
+"press_key": 1.1032560420787263e-09,
+"details": 1.3709573067899328e-06,
+"sales": 1.0,
+"institution": 0.9999985694885254,
+"specific": 2.7894683785056884e-10,
+"recorded": 1.0,
+"self_assert": 0.037326887249946594,
+"relevant": 2.4616969573898473e-10
+},
+"verdict_s": 0.05445224605500698,
+"questions_s": 0.4933647233992815
+},
+"r787202": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 9.23744991609965e-09,
+"sales": 1.493094675675266e-10,
+"institution": 0.18242552876472473,
+"specific": 3.581747953784742e-10,
+"recorded": 1.0,
+"self_assert": 3.9278620533877984e-07,
+"relevant": 8.592165867682411e-10
+},
+"verdict_s": 0.054669168777763844,
+"questions_s": 0.4895622916519642
+},
+"r460624": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 3.7266393064783188e-06,
+"sales": 9.736200734522527e-10,
+"institution": 0.9999417066574097,
+"specific": 9.736200734522527e-10,
+"recorded": 1.0,
+"self_assert": 2.902311962316162e-06,
+"relevant": 8.592165867682411e-10
+},
+"verdict_s": 0.055444841273128986,
+"questions_s": 0.49360834527760744
+},
+"r1037787": {
+"verdict": 1.0,
+"answers": {
+"pressure": 0.9999963045120239,
+"press_key": 1.1861120086109622e-08,
+"details": 0.9996646642684937,
+"sales": 0.3775406777858734,
+"institution": 0.9999998807907104,
+"specific": 1.4166088302403068e-09,
+"recorded": 1.0,
+"self_assert": 0.0007096704212017357,
+"relevant": 2.4616969573898473e-10
+},
+"verdict_s": 0.05491152871400118,
+"questions_s": 0.49163832422345877
+},
+"rs6diZGlyX2p3NWRpcjp0b21jYXQxNjYyOjE2Mzc5NTYxNTM4MjgzyNI86o.gen_Callvox_Robocall__SSA-P1-TexasFraud__GovtImpers_": {
+"verdict": 1.0,
+"answers": {
+"pressure": 0.04742587357759476,
+"press_key": 1.5229979055675358e-08,
+"details": 0.999995231628418,
+"sales": 6.22414481066258e-11,
+"institution": 1.0,
+"specific": 8.592165867682411e-10,
+"recorded": 0.9968273043632507,
+"self_assert": 0.999841570854187,
+"relevant": 4.599055858367507e-10
+},
+"verdict_s": 0.05501548573374748,
+"questions_s": 0.4952353658154607
+},
+"c01_status": {
+"verdict": 1.5229979055675358e-08,
+"answers": {
+"pressure": 2.7894683785056884e-10,
+"press_key": 2.4616969573898473e-10,
+"details": 4.2777878461741636e-11,
+"sales": 9.056076721858375e-11,
+"institution": 3.3982678893096363e-09,
+"specific": 1.0,
+"recorded": 1.1861120086109622e-08,
+"self_assert": 0.9999998807907104,
+"relevant": 1.0
+},
+"verdict_s": 0.05121112149208784,
+"questions_s": 0.44492314010858536
+},
+"c02_booking": {
+"verdict": 5.602796449011294e-09,
+"answers": {
+"pressure": 9.056076721858375e-11,
+"press_key": 1.0261880234452292e-10,
+"details": 1.2256067688509731e-11,
+"sales": 1.3176514046531196e-10,
+"institution": 7.582560135332983e-10,
+"specific": 1.0,
+"recorded": 3.581747953784742e-10,
+"self_assert": 0.9999785423278809,
+"relevant": 1.0
+},
+"verdict_s": 0.050285423174500465,
+"questions_s": 0.4507878478616476
+},
+"c03_price": {
+"verdict": 1.9555681518568235e-08,
+"answers": {
+"pressure": 1.493094675675266e-10,
+"press_key": 1.493094675675266e-10,
+"details": 2.940077348245751e-11,
+"sales": 2.335593052293916e-09,
+"institution": 2.7894683785056884e-10,
+"specific": 9.23744991609965e-09,
+"recorded": 4.363462480228009e-09,
+"self_assert": 0.00043055712012574077,
+"relevant": 1.0
+},
+"verdict_s": 0.04993259347975254,
+"questions_s": 0.44490115996450186
+},
+"c04_message": {
+"verdict": 3.3982678893096363e-09,
+"answers": {
+"pressure": 2.1724400056655213e-10,
+"press_key": 0.2689414322376251,
+"details": 2.1724400056655213e-10,
+"sales": 3.581747953784742e-10,
+"institution": 5.315785145398877e-08,
+"specific": 0.7772998809814453,
+"recorded": 3.3982678893096363e-09,
+"self_assert": 1.67014204635052e-05,
+"relevant": 0.998498797416687
+},
+"verdict_s": 0.05036337114870548,
+"questions_s": 0.4607586432248354
+},
+"c05_change": {
+"verdict": 5.211412412720051e-10,
+"answers": {
+"pressure": 1.0261880234452292e-10,
+"press_key": 3.1608812789407637e-10,
+"details": 1.3887942879042825e-11,
+"sales": 4.8473686869998645e-11,
+"institution": 1.1032560420787263e-09,
+"specific": 0.9994471669197083,
+"recorded": 6.691585618945339e-10,
+"self_assert": 0.9975274205207825,
+"relevant": 1.0
+},
+"verdict_s": 0.05027199722826481,
+"questions_s": 0.44998821895569563
+},
+"c06_spam": {
+"verdict": 1.0,
+"answers": {
+"pressure": 3.7266393064783188e-06,
+"press_key": 1.0,
+"details": 8.592165867682411e-10,
+"sales": 1.0,
+"institution": 0.9241418242454529,
+"specific": 6.691585618945339e-10,
+"recorded": 1.0,
+"self_assert": 0.977022647857666,
+"relevant": 1.1861120086109622e-08
+},
+"verdict_s": 0.05069977976381779,
+"questions_s": 0.4532977854833007
+},
+"g01_repair_status": {
+"verdict": 7.194132845000922e-09,
+"answers": {
+"pressure": 2.061153470123145e-09,
+"press_key": 3.581747953784742e-10,
+"details": 1.1628233098637253e-10,
+"sales": 1.3176514046531196e-10,
+"institution": 7.194132845000922e-09,
+"specific": 1.0,
+"recorded": 7.582560135332983e-10,
+"self_assert": 1.0,
+"relevant": 1.0
+},
+"verdict_s": 0.050600502640008926,
+"questions_s": 0.45198476035147905
+},
+"g02_booking": {
+"verdict": 4.363462480228009e-09,
+"answers": {
+"pressure": 1.1628233098637253e-10,
+"press_key": 1.917171560394948e-10,
+"details": 3.3315444153414475e-11,
+"sales": 1.917171560394948e-10,
+"institution": 1.6052279505629485e-09,
+"specific": 1.0,
+"recorded": 7.99195917777773e-11,
+"self_assert": 0.9999998807907104,
+"relevant": 1.0
+},
+"verdict_s": 0.0503586120903492,
+"questions_s": 0.4540037950500846
+},
+"g03_message": {
+"verdict": 2.64657362691878e-09,
+"answers": {
+"pressure": 2.1724400056655213e-10,
+"press_key": 0.9999251365661621,
+"details": 2.64657362691878e-09,
+"sales": 1.493094675675266e-10,
+"institution": 4.363462480228009e-09,
+"specific": 1.0,
+"recorded": 4.139937814784389e-08,
+"self_assert": 0.2689414322376251,
+"relevant": 1.0
+},
+"verdict_s": 0.052318734116852283,
+"questions_s": 0.4613768169656396
+},
+"g04_faq": {
+"verdict": 0.000552778656128794,
+"answers": {
+"pressure": 1.1628233098637253e-10,
+"press_key": 1.0261880234452292e-10,
+"details": 1.0815941892117209e-11,
+"sales": 5.602796449011294e-09,
+"institution": 1.4166088302403068e-09,
+"specific": 0.9975274205207825,
+"recorded": 2.2603242086915998e-06,
+"self_assert": 1.1253515452835927e-07,
+"relevant": 1.0
+},
+"verdict_s": 0.04988527297973633,
+"questions_s": 0.450506835244596
+},
+"g05_booking_change": {
+"verdict": 9.736200734522527e-10,
+"answers": {
+"pressure": 6.22414481066258e-11,
+"press_key": 6.22414481066258e-11,
+"details": 2.0206837939018563e-11,
+"sales": 3.775134371775124e-11,
+"institution": 1.6052279505629485e-09,
+"specific": 1.0,
+"recorded": 6.691585618945339e-10,
+"self_assert": 1.0,
+"relevant": 1.0
+},
+"verdict_s": 0.05035587679594755,
+"questions_s": 0.4479107353836298
+},
+"g06_spam": {
+"verdict": 1.0,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.0,
+"details": 1.4166088302403068e-09,
+"sales": 0.9820137619972229,
+"institution": 3.7266393064783188e-06,
+"specific": 4.05865202557365e-10,
+"recorded": 1.0,
+"self_assert": 0.7772998809814453,
+"relevant": 1.5229979055675358e-08
+},
+"verdict_s": 0.049985202960669994,
+"questions_s": 0.45033838506788015
+},
+"g07_repair_status": {
+"verdict": 7.194132845000922e-09,
+"answers": {
+"pressure": 1.4166088302403068e-09,
+"press_key": 3.581747953784742e-10,
+"details": 1.3176514046531196e-10,
+"sales": 1.493094675675266e-10,
+"institution": 5.602796449011294e-09,
+"specific": 1.0,
+"recorded": 4.05865202557365e-10,
+"self_assert": 1.0,
+"relevant": 1.0
+},
+"verdict_s": 0.05043638963252306,
+"questions_s": 0.45381646044552326
+},
+"g08_booking": {
+"verdict": 7.194132845000922e-09,
+"answers": {
+"pressure": 1.3176514046531196e-10,
+"press_key": 2.1724400056655213e-10,
+"details": 6.22414481066258e-11,
+"sales": 1.3176514046531196e-10,
+"institution": 6.691585618945339e-10,
+"specific": 1.0,
+"recorded": 6.22414481066258e-11,
+"self_assert": 0.9999998807907104,
+"relevant": 1.0
+},
+"verdict_s": 0.05100266449153423,
+"questions_s": 0.45169292762875557
+},
+"g09_message": {
+"verdict": 7.194132845000922e-09,
+"answers": {
+"pressure": 1.917171560394948e-10,
+"press_key": 0.999987006187439,
+"details": 1.2501528701136522e-09,
+"sales": 2.7894683785056884e-10,
+"institution": 7.194132845000922e-09,
+"specific": 1.0,
+"recorded": 8.764246928194552e-08,
+"self_assert": 0.9933071732521057,
+"relevant": 1.0
+},
+"verdict_s": 0.05219420790672302,
+"questions_s": 0.46297353878617287
+},
+"g10_faq": {
+"verdict": 5.602796449011294e-09,
+"answers": {
+"pressure": 7.99195917777773e-11,
+"press_key": 7.052879807956103e-11,
+"details": 6.5601998659736704e-12,
+"sales": 2.7894683785056884e-10,
+"institution": 5.905303468445311e-10,
+"specific": 0.9999995231628418,
+"recorded": 4.363462480228009e-09,
+"self_assert": 1.0677027830752195e-06,
+"relevant": 1.0
+},
+"verdict_s": 0.05003072880208492,
+"questions_s": 0.45007101725786924
+},
+"g11_booking_change": {
+"verdict": 1.1032560420787263e-09,
+"answers": {
+"pressure": 7.052879807956103e-11,
+"press_key": 9.056076721858375e-11,
+"details": 1.3887942879042825e-11,
+"sales": 4.2777878461741636e-11,
+"institution": 1.6052279505629485e-09,
+"specific": 1.0,
+"recorded": 4.05865202557365e-10,
+"self_assert": 0.9999996423721313,
+"relevant": 1.0
+},
+"verdict_s": 0.050750987604260445,
+"questions_s": 0.45179229602217674
+},
+"g12_spam": {
+"verdict": 1.0,
+"answers": {
+"pressure": 3.7266393064783188e-06,
+"press_key": 0.9980732202529907,
+"details": 4.05865202557365e-10,
+"sales": 1.0,
+"institution": 1.855391076333035e-07,
+"specific": 9.736200734522527e-10,
+"recorded": 1.0,
+"self_assert": 0.851952850818634,
+"relevant": 5.905303468445311e-10
+},
+"verdict_s": 0.05057613551616669,
+"questions_s": 0.4588636541739106
+},
+"g13_repair_status": {
+"verdict": 1.9555681518568235e-08,
+"answers": {
+"pressure": 4.363462480228009e-09,
+"press_key": 2.7894683785056884e-10,
+"details": 6.22414481066258e-11,
+"sales": 1.917171560394948e-10,
+"institution": 1.9555681518568235e-08,
+"specific": 1.0,
+"recorded": 8.592165867682411e-10,
+"self_assert": 1.0,
+"relevant": 1.0
+},
+"verdict_s": 0.05044466443359852,
+"questions_s": 0.45417794678360224
+},
+"g14_booking": {
+"verdict": 4.363462480228009e-09,
+"answers": {
+"pressure": 1.493094675675266e-10,
+"press_key": 2.7894683785056884e-10,
+"details": 3.775134371775124e-11,
+"sales": 1.917171560394948e-10,
+"institution": 1.2501528701136522e-09,
+"specific": 1.0,
+"recorded": 7.052879807956103e-11,
+"self_assert": 0.9999997615814209,
+"relevant": 1.0
+},
+"verdict_s": 0.050264764577150345,
+"questions_s": 0.45944265369325876
+},
+"g15_message": {
+"verdict": 4.363462480228009e-09,
+"answers": {
+"pressure": 2.4616969573898473e-10,
+"press_key": 0.9999251365661621,
+"details": 7.582560135332983e-10,
+"sales": 9.056076721858375e-11,
+"institution": 3.3982678893096363e-09,
+"specific": 1.0,
+"recorded": 1.9555681518568235e-08,
+"self_assert": 0.977022647857666,
+"relevant": 1.0
+},
+"verdict_s": 0.050673170015215874,
+"questions_s": 0.45819877088069916
+},
+"g16_faq": {
+"verdict": 4.363462480228009e-09,
+"answers": {
+"pressure": 7.99195917777773e-11,
+"press_key": 6.22414481066258e-11,
+"details": 6.5601998659736704e-12,
+"sales": 3.581747953784742e-10,
+"institution": 5.211412412720051e-10,
+"specific": 0.9999998807907104,
+"recorded": 4.363462480228009e-09,
+"self_assert": 8.315279842463497e-07,
+"relevant": 1.0
+},
+"verdict_s": 0.050016301684081554,
+"questions_s": 0.44729741010814905
+},
+"g17_booking_change": {
+"verdict": 8.592165867682411e-10,
+"answers": {
+"pressure": 4.2777878461741636e-11,
+"press_key": 6.22414481066258e-11,
+"details": 2.2897348947448215e-11,
+"sales": 3.3315444153414475e-11,
+"institution": 2.061153470123145e-09,
+"specific": 1.0,
+"recorded": 1.917171560394948e-10,
+"self_assert": 0.9999998807907104,
+"relevant": 1.0
+},
+"verdict_s": 0.05003942642360926,
+"questions_s": 0.4496408700942993
+},
+"g18_spam": {
+"verdict": 1.0,
+"answers": {
+"pressure": 0.9999998807907104,
+"press_key": 1.0,
+"details": 1.783247334519178e-11,
+"sales": 0.9999998807907104,
+"institution": 0.999841570854187,
+"specific": 4.05865202557365e-10,
+"recorded": 1.0,
+"self_assert": 0.8807970285415649,
+"relevant": 1.8189617589925433e-09
+},
+"verdict_s": 0.0502523398026824,
+"questions_s": 0.450382137671113
+},
+"g19_repair_status": {
+"verdict": 9.23744991609965e-09,
+"answers": {
+"pressure": 3.3982678893096363e-09,
+"press_key": 3.1608812789407637e-10,
+"details": 1.1628233098637253e-10,
+"sales": 1.3176514046531196e-10,
+"institution": 7.194132845000922e-09,
+"specific": 1.0,
+"recorded": 3.581747953784742e-10,
+"self_assert": 1.0,
+"relevant": 1.0
+},
+"verdict_s": 0.05048639513552189,
+"questions_s": 0.45352027751505375
+},
+"g20_booking": {
+"verdict": 9.23744991609965e-09,
+"answers": {
+"pressure": 1.493094675675266e-10,
+"press_key": 2.4616969573898473e-10,
+"details": 5.492788168748319e-11,
+"sales": 1.917171560394948e-10,
+"institution": 2.061153470123145e-09,
+"specific": 0.9999996423721313,
+"recorded": 2.4616969573898473e-10,
+"self_assert": 0.9999995231628418,
+"relevant": 1.0
+},
+"verdict_s": 0.050920238718390465,
+"questions_s": 0.4546389514580369
+},
+"g21_message": {
+"verdict": 7.194132845000922e-09,
+"answers": {
+"pressure": 2.4616969573898473e-10,
+"press_key": 0.998498797416687,
+"details": 5.602796449011294e-09,
+"sales": 1.493094675675266e-10,
+"institution": 4.363462480228009e-09,
+"specific": 1.0,
+"recorded": 1.9555681518568235e-08,
+"self_assert": 0.32082128524780273,
+"relevant": 1.0
+},
+"verdict_s": 0.050617264583706856,
+"questions_s": 0.4588516503572464
+},
+"g22_faq": {
+"verdict": 9.23744991609965e-09,
+"answers": {
+"pressure": 1.493094675675266e-10,
+"press_key": 1.0261880234452292e-10,
+"details": 7.433680407342713e-12,
+"sales": 8.592165867682411e-10,
+"institution": 8.592165867682411e-10,
+"specific": 1.0,
+"recorded": 1.9555681518568235e-08,
+"self_assert": 8.315279842463497e-07,
+"relevant": 1.0
+},
+"verdict_s": 0.05020799767225981,
+"questions_s": 0.448476517572999
+},
+"g23_booking_change": {
+"verdict": 1.1032560420787263e-09,
+"answers": {
+"pressure": 7.052879807956103e-11,
+"press_key": 7.99195917777773e-11,
+"details": 1.573710259328287e-11,
+"sales": 2.940077348245751e-11,
+"institution": 1.6052279505629485e-09,
+"specific": 1.0,
+"recorded": 2.1724400056655213e-10,
+"self_assert": 0.9999998807907104,
+"relevant": 1.0
+},
+"verdict_s": 0.05006574559956789,
+"questions_s": 0.4501957343891263
+},
+"g24_spam": {
+"verdict": 1.0,
+"answers": {
+"pressure": 3.7266393064783188e-06,
+"press_key": 0.9980732202529907,
+"details": 4.05865202557365e-10,
+"sales": 1.0,
+"institution": 1.855391076333035e-07,
+"specific": 9.736200734522527e-10,
+"recorded": 1.0,
+"self_assert": 0.851952850818634,
+"relevant": 5.905303468445311e-10
+},
+"verdict_s": 0.050534085370600224,
+"questions_s": 0.46023127157241106
+},
+"c01": {
+"verdict": 4.363462480228009e-09,
+"answers": {
+"pressure": 1.917171560394948e-10,
+"press_key": 1.917171560394948e-10,
+"details": 2.5946094231454886e-11,
+"sales": 5.492788168748319e-11,
+"institution": 3.3982678893096363e-09,
+"specific": 1.0,
+"recorded": 2.51099923076481e-08,
+"self_assert": 0.9999996423721313,
+"relevant": 1.0
+},
+"verdict_s": 0.05014073848724365,
+"questions_s": 0.44835029914975166
+},
+"c02": {
+"verdict": 7.194132845000922e-09,
+"answers": {
+"pressure": 3.1608812789407637e-10,
+"press_key": 1.0261880234452292e-10,
+"details": 2.0206837939018563e-11,
+"sales": 7.052879807956103e-11,
+"institution": 4.05865202557365e-10,
+"specific": 1.0,
+"recorded": 2.4616969573898473e-10,
+"self_assert": 0.9999998807907104,
+"relevant": 1.0
+},
+"verdict_s": 0.04945884272456169,
+"questions_s": 0.44747121073305607
+},
+"c03": {
+"verdict": 2.51099923076481e-08,
+"answers": {
+"pressure": 3.581747953784742e-10,
+"press_key": 1.493094675675266e-10,
+"details": 2.0206837939018563e-11,
+"sales": 2.4616969573898473e-10,
+"institution": 1.9555681518568235e-08,
+"specific": 1.0,
+"recorded": 6.475947884609923e-07,
+"self_assert": 0.9999997615814209,
+"relevant": 1.0
+},
+"verdict_s": 0.04973103106021881,
+"questions_s": 0.4521047491580248
+},
+"c04": {
+"verdict": 4.363462480228009e-09,
+"answers": {
+"pressure": 7.052879807956103e-11,
+"press_key": 1.6918978718027944e-10,
+"details": 1.3887942879042825e-11,
+"sales": 1.1628233098637253e-10,
+"institution": 6.691585618945339e-10,
+"specific": 1.0,
+"recorded": 2.4616969573898473e-10,
+"self_assert": 0.9999985694885254,
+"relevant": 1.0
+},
+"verdict_s": 0.049655526876449585,
+"questions_s": 0.4478994132950902
+},
+"c05": {
+"verdict": 4.363462480228009e-09,
+"answers": {
+"pressure": 1.3176514046531196e-10,
+"press_key": 1.0261880234452292e-10,
+"details": 1.3887942879042825e-11,
+"sales": 7.052879807956103e-11,
+"institution": 9.736200734522527e-10,
+"specific": 1.0,
+"recorded": 1.6052279505629485e-09,
+"self_assert": 0.060086652636528015,
+"relevant": 1.0
+},
+"verdict_s": 0.04964056797325611,
+"questions_s": 0.44529119972139597
+},
+"c06": {
+"verdict": 7.194132845000922e-09,
+"answers": {
+"pressure": 2.1724400056655213e-10,
+"press_key": 5.315785145398877e-08,
+"details": 1.0261880234452292e-10,
+"sales": 9.056076721858375e-11,
+"institution": 9.736200734522527e-10,
+"specific": 1.0,
+"recorded": 4.139937814784389e-08,
+"self_assert": 0.9820137619972229,
+"relevant": 1.0
+},
+"verdict_s": 0.04970941040664911,
+"questions_s": 0.44699165876954794
+},
+"c07": {
+"verdict": 5.602796449011294e-09,
+"answers": {
+"pressure": 1.6918978718027944e-10,
+"press_key": 2.1724400056655213e-10,
+"details": 2.940077348245751e-11,
+"sales": 2.061153470123145e-09,
+"institution": 5.211412412720051e-10,
+"specific": 3.3982678893096363e-09,
+"recorded": 2.3823690753488336e-07,
+"self_assert": 1.0129991096619051e-05,
+"relevant": 1.0
+},
+"verdict_s": 0.0500202402472496,
+"questions_s": 0.4481393676251173
+},
+"c08": {
+"verdict": 2.061153470123145e-09,
+"answers": {
+"pressure": 9.056076721858375e-11,
+"press_key": 5.211412412720051e-10,
+"details": 1.3887942879042825e-11,
+"sales": 7.99195917777773e-11,
+"institution": 1.1032560420787263e-09,
+"specific": 2.061153470123145e-09,
+"recorded": 4.363462480228009e-09,
+"self_assert": 1.3709573067899328e-06,
+"relevant": 0.9999996423721313
+},
+"verdict_s": 0.04923797398805618,
+"questions_s": 0.4450895069167018
+},
+"c09": {
+"verdict": 4.363462480228009e-09,
+"answers": {
+"pressure": 1.3176514046531196e-10,
+"press_key": 1.917171560394948e-10,
+"details": 2.0206837939018563e-11,
+"sales": 1.0261880234452292e-10,
+"institution": 8.592165867682411e-10,
+"specific": 1.0,
+"recorded": 4.05865202557365e-10,
+"self_assert": 0.999998927116394,
+"relevant": 1.0
+},
+"verdict_s": 0.049479193054139614,
+"questions_s": 0.4458742765709758
+},
+"c10": {
+"verdict": 5.315785145398877e-08,
+"answers": {
+"pressure": 1.6918978718027944e-10,
+"press_key": 5.211412412720051e-10,
+"details": 7.433680407342713e-12,
+"sales": 1.0261880234452292e-10,
+"institution": 1.6052279505629485e-09,
+"specific": 4.05865202557365e-10,
+"recorded": 1.1861120086109622e-08,
+"self_assert": 1.67014204635052e-05,
+"relevant": 3.581747953784742e-10
+},
+"verdict_s": 0.04942009039223194,
+"questions_s": 0.44458654057234526
+},
+"c11": {
+"verdict": 6.475947884609923e-07,
+"answers": {
+"pressure": 2.940077348245751e-11,
+"press_key": 4.2777878461741636e-11,
+"details": 1.3887942879042825e-11,
+"sales": 1.6918978718027944e-10,
+"institution": 3.581747953784742e-10,
+"specific": 0.9999645948410034,
+"recorded": 6.691585618945339e-10,
+"self_assert": 0.003172682598233223,
+"relevant": 1.0
+},
+"verdict_s": 0.049726702272892,
+"questions_s": 0.4453122802078724
+},
+"c12": {
+"verdict": 2.51099923076481e-08,
+"answers": {
+"pressure": 1.1032560420787263e-09,
+"press_key": 9.23744991609965e-09,
+"details": 1.1032560420787263e-09,
+"sales": 4.363462480228009e-09,
+"institution": 3.9278620533877984e-07,
+"specific": 1.0,
+"recorded": 6.475947884609923e-07,
+"self_assert": 0.9999039173126221,
+"relevant": 1.0
+},
+"verdict_s": 0.049914599396288395,
+"questions_s": 0.44858515448868275
+},
+"c13": {
+"verdict": 7.194132845000922e-09,
+"answers": {
+"pressure": 3.1608812789407637e-10,
+"press_key": 2.7894683785056884e-10,
+"details": 8.592165867682411e-10,
+"sales": 1.3176514046531196e-10,
+"institution": 1.1861120086109622e-08,
+"specific": 1.0,
+"recorded": 8.764246928194552e-08,
+"self_assert": 0.9999645948410034,
+"relevant": 1.0
+},
+"verdict_s": 0.04987864103168249,
+"questions_s": 0.4475045623257756
+},
+"c14": {
+"verdict": 4.363462480228009e-09,
+"answers": {
+"pressure": 1.1628233098637253e-10,
+"press_key": 8.764246928194552e-08,
+"details": 2.2897348947448215e-11,
+"sales": 6.22414481066258e-11,
+"institution": 3.3982678893096363e-09,
+"specific": 1.0,
+"recorded": 2.1444948288262822e-05,
+"self_assert": 1.3007129382458515e-05,
+"relevant": 0.014063628390431404
+},
+"verdict_s": 0.04912079218775034,
+"questions_s": 0.44430112931877375
+},
+"c15": {
+"verdict": 9.23744991609965e-09,
+"answers": {
+"pressure": 9.056076721858375e-11,
+"press_key": 1.6918978718027944e-10,
+"details": 1.2256067688509731e-11,
+"sales": 7.99195917777773e-11,
+"institution": 8.592165867682411e-10,
+"specific": 1.1032560420787263e-09,
+"recorded": 1.1861120086109622e-08,
+"self_assert": 5.04347383412096e-07,
+"relevant": 2.51099923076481e-08
+},
+"verdict_s": 0.049396635964512825,
+"questions_s": 0.44321728125214577
+},
+"c16": {
+"verdict": 1.5229979055675358e-08,
+"answers": {
+"pressure": 1.6052279505629485e-09,
+"press_key": 1.8189617589925433e-09,
+"details": 6.22414481066258e-11,
+"sales": 2.7894683785056884e-10,
+"institution": 1.6052279505629485e-09,
+"specific": 0.9999982118606567,
+"recorded": 2.64657362691878e-09,
+"self_assert": 0.9999417066574097,
+"relevant": 1.0
+},
+"verdict_s": 0.04960438050329685,
+"questions_s": 0.44742452073842287
+},
+"l01": {
+"verdict": 9.23744991609965e-09,
+"answers": {
+"pressure": 1.0,
+"press_key": 1.4166088302403068e-09,
+"details": 7.194132845000922e-09,
+"sales": 3.3982678893096363e-09,
+"institution": 1.4449801710725296e-07,
+"specific": 0.9999785423278809,
+"recorded": 4.05865202557365e-10,
+"self_assert": 1.0,
+"relevant": 4.539786823443137e-05
+},
+"verdict_s": 0.05275897029787302,
+"questions_s": 0.4837139956653118
+},
+"l02": {
+"verdict": 3.9278620533877984e-07,
+"answers": {
+"pressure": 7.582560135332983e-10,
+"press_key": 2.7894683785056884e-10,
+"details": 3.775134371775124e-11,
+"sales": 1.0261880234452292e-10,
+"institution": 9.23744991609965e-09,
+"specific": 0.9999417066574097,
+"recorded": 3.9278620533877984e-07,
+"self_assert": 0.9999982118606567,
+"relevant": 0.0015011823270469904
+},
+"verdict_s": 0.05089147388935089,
+"questions_s": 0.45715491008013487
+},
+"l03": {
+"verdict": 1.0,
+"answers": {
+"pressure": 0.005220125429332256,
+"press_key": 0.9999998807907104,
+"details": 2.902311962316162e-06,
+"sales": 6.22414481066258e-11,
+"institution": 1.0,
+"specific": 3.581747953784742e-10,
+"recorded": 1.0,
+"self_assert": 0.9999251365661621,
+"relevant": 3.581747953784742e-10
+},
+"verdict_s": 0.052504077553749084,
+"questions_s": 0.47536759451031685
+},
+"l04": {
+"verdict": 2.64657362691878e-09,
+"answers": {
+"pressure": 1.5229979055675358e-08,
+"press_key": 9.056076721858375e-11,
+"details": 3.97896212506188e-12,
+"sales": 1.2256067688509731e-11,
+"institution": 0.9626730680465698,
+"specific": 1.8189617589925433e-09,
+"recorded": 0.9992903470993042,
+"self_assert": 1.0,
+"relevant": 8.764246928194552e-08
+},
+"verdict_s": 0.05216164607554674,
+"questions_s": 0.46341390535235405
+},
+"l05": {
+"verdict": 6.825602838489431e-08,
+"answers": {
+"pressure": 1.0,
+"press_key": 6.825602838489431e-08,
+"details": 7.582560135332983e-10,
+"sales": 1.3176514046531196e-10,
+"institution": 2.061153470123145e-09,
+"specific": 0.9626730680465698,
+"recorded": 1.8189617589925433e-09,
+"self_assert": 1.0,
+"relevant": 1.0
+},
+"verdict_s": 0.05108561273664236,
+"questions_s": 0.45785986818373203
+},
+"l06": {
+"verdict": 3.3982678893096363e-09,
+"answers": {
+"pressure": 1.0261880234452292e-10,
+"press_key": 5.905303468445311e-10,
+"details": 2.64657362691878e-09,
+"sales": 9.056076721858375e-11,
+"institution": 3.3982678893096363e-09,
+"specific": 1.0,
+"recorded": 2.1724400056655213e-10,
+"self_assert": 0.14804719388484955,
+"relevant": 1.0
+},
+"verdict_s": 0.05069427005946636,
+"questions_s": 0.4589651869609952
+},
+"l07": {
+"verdict": 1.6052279505629485e-09,
+"answers": {
+"pressure": 2.2897348947448215e-11,
+"press_key": 2.1724400056655213e-10,
+"details": 7.433680407342713e-12,
+"sales": 2.2897348947448215e-11,
+"institution": 2.64657362691878e-09,
+"specific": 4.363462480228009e-09,
+"recorded": 1.1861120086109622e-08,
+"self_assert": 0.9999997615814209,
+"relevant": 1.0
+},
+"verdict_s": 0.05141287390142679,
+"questions_s": 0.4623156301677227
+},
+"l08": {
+"verdict": 5.829126530443318e-05,
+"answers": {
+"pressure": 5.492788168748319e-11,
+"press_key": 1.0261880234452292e-10,
+"details": 1.573710259328287e-11,
+"sales": 1.0,
+"institution": 1.0129991096619051e-05,
+"specific": 1.3007129382458515e-05,
+"recorded": 2.061153470123145e-09,
+"self_assert": 4.785094461112749e-06,
+"relevant": 3.9278620533877984e-07
+},
+"verdict_s": 0.05086589604616165,
+"questions_s": 0.4561753096058965
+},
+"l09": {
+"verdict": 8.592165867682411e-10,
+"answers": {
+"pressure": 3.775134371775124e-11,
+"press_key": 5.492788168748319e-11,
+"details": 8.423464183116014e-12,
+"sales": 3.775134371775124e-11,
+"institution": 4.363462480228009e-09,
+"specific": 2.51099923076481e-08,
+"recorded": 4.05865202557365e-10,
+"self_assert": 1.0,
+"relevant": 1.0
+},
+"verdict_s": 0.055686209350824356,
+"questions_s": 0.46095385402441025
+},
+"l10": {
+"verdict": 3.7266393064783188e-06,
+"answers": {
+"pressure": 4.05865202557365e-10,
+"press_key": 1.1628233098637253e-10,
+"details": 1.573710259328287e-11,
+"sales": 3.581747953784742e-10,
+"institution": 7.582560135332983e-10,
+"specific": 0.9241418242454529,
+"recorded": 5.602796449011294e-09,
+"self_assert": 0.9999963045120239,
+"relevant": 1.0
+},
+"verdict_s": 0.052634263411164284,
+"questions_s": 0.4613568391650915
+},
+"l11": {
+"verdict": 3.224186428951725e-08,
+"answers": {
+"pressure": 4.599055858367507e-10,
+"press_key": 1.0261880234452292e-10,
+"details": 2.7894683785056884e-10,
+"sales": 5.211412412720051e-10,
+"institution": 6.475947884609923e-07,
+"specific": 0.9820137619972229,
+"recorded": 4.05865202557365e-10,
+"self_assert": 0.9999997615814209,
+"relevant": 1.0
+},
+"verdict_s": 0.05076877120882273,
+"questions_s": 0.4593163141980767
+},
+"l12": {
+"verdict": 1.8189617589925433e-09,
+"answers": {
+"pressure": 0.9999645948410034,
+"press_key": 1.1628233098637253e-10,
+"details": 1.2256067688509731e-11,
+"sales": 2.0206837939018563e-11,
+"institution": 7.194132845000922e-09,
+"specific": 7.194132845000922e-09,
+"recorded": 2.64657362691878e-09,
+"self_assert": 1.0,
+"relevant": 7.194132845000922e-09
+},
+"verdict_s": 0.05080764554440975,
+"questions_s": 0.4590275948867202
+}
+}
+}

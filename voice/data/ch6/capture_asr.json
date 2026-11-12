@@ -1,0 +1,2354 @@
+{
+"csm/r01_raw_0": {
+"wide": "Thanks for calling Halfway Cycles, you're through to the workshop. How can I help?",
+"phone": "Thanks for calling Halfway Cycles, you're through to the workshop. How can I help?"
+},
+"csm/r02_raw_0": {
+"wide": "Your ticket is HW1040 and the Trek Domain is ready to collect after 2pm.",
+"phone": "Your ticket is HW1040 and the Trek Domain is ready to collect after 2pm."
+},
+"csm/r03_raw_0": {
+"wide": "A wheel true is twenty five pounds and a full service is one hundred and forty nine pounds ninety nine.",
+"phone": "A wheel true is twenty five pounds and a full service is one hundred and forty nine pounds ninety nine."
+},
+"csm/r04_raw_0": {
+"wide": "I've booked you in for through fourteen Novat 10 Utre thirty.",
+"phone": "I've booked you in for Su 14 Nova at 10, Utre at 30."
+},
+"csm/r05_raw_0": {
+"wide": "Priya will call you back on 455-55DR19192 before 6pm.",
+"phone": "Priya will call you back on 455-55DR19-192 before 6pm."
+},
+"csm/r06_raw_0": {
+"wide": "Is that Okafor Okafo R?",
+"phone": "Is that Okafor, O-K-A-F-O-R?"
+},
+"csm/r07_raw_0": {
+"wide": "We've ordered a Shimano 105 DAI2 Riamek, so allow 3-5 working days.",
+"phone": "We've ordered a Shimano 105 DAI2 Riamek, so allow 3-5 working days."
+},
+"csm/r08_raw_0": {
+"wide": "We're open months at 9am dash 6pm.",
+"phone": "We're open months at 9am-6pm."
+},
+"csm/r09_raw_0": {
+"wide": "That comes to thirty seven pounds fifty, including V eight.",
+"phone": "That comes to thirty seven pounds fifty, including V eight."
+},
+"csm/r10_raw_0": {
+"wide": "Sorry, the canyon grizzle won't be ready until Friday, but the Brompton is done.",
+"phone": "Sorry, the canyon grizzle won't be ready until Friday, but the Brompton is done."
+},
+"csm/r11_raw_0": {
+"wide": "Your next service is due at 1,500 miles.",
+"phone": "Your next service is due at 1,500 miles."
+},
+"csm/r12_raw_0": {
+"wide": "Let me just check that for you.",
+"phone": "Mm. Let me just check that for you."
+},
+"csm/r01_spoken_0": {
+"wide": "Thanks for calling Halfway Cycles, you're through to the workshop. How can I help?",
+"phone": "Thanks for calling Halfway Cycles, you're through to the workshop. How can I help?"
+},
+"csm/r02_spoken_0": {
+"wide": "Your ticket is HW1042 and the Trek Demand is ready to collect after 2pm.",
+"phone": "Your ticket is HW1042 and the Trek Demand is ready to collect after 2pm."
+},
+"csm/r03_spoken_0": {
+"wide": "A wheel true is twenty five pounds and a full service is one hundred and forty nine pounds ninety nine.",
+"phone": "A wheel true is twenty five pounds and a full service is one hundred and forty nine pounds ninety nine."
+},
+"csm/r04_spoken_0": {
+"wide": "I've booked you in for Thursday, the fourteenth of november, at ten thirty.",
+"phone": "I've booked you in for Thursday the fourteenth of November at ten thirty."
+},
+"csm/r05_spoken_0": {
+"wide": "Priya will call you back on 415-555-0192 before six.",
+"phone": "Priya will call you back on 415-555-0192 before 6."
+},
+"csm/r06_spoken_0": {
+"wide": "Is that oka for O K A A F O?",
+"phone": "Is that oka for O K A A F O?"
+},
+"csm/r07_spoken_0": {
+"wide": "We've ordered a Shimano 105, DI2 RIA MEC, so allow three to five working days.",
+"phone": "We've ordered a Shimano 105, DI2 RIA MEC, so allow three to five working days."
+},
+"csm/r08_spoken_0": {
+"wide": "were open Monday to Saturday, 9 a.m. to 6 p.m.",
+"phone": "We'll open Monday to Saturday, 9 a.m. to 6 p.m."
+},
+"csm/r09_spoken_0": {
+"wide": "That comes to \u00a337.50, including",
+"phone": "That comes to thirty seven pounds fifty, including"
+},
+"csm/r10_spoken_0": {
+"wide": "Sorry, the canyon grizzle won't be ready until Friday, but the Brompton is done.",
+"phone": "Sorry, the canyon grizzle won't be ready until Friday, but the Brompton is done."
+},
+"csm/r11_spoken_0": {
+"wide": "Your next service is due at 1500 miles.",
+"phone": "Your next service is due at 1500 miles."
+},
+"csm/r12_spoken_0": {
+"wide": "Let me just check that for you.",
+"phone": "Mm. Let me just check that for you."
+},
+"csm/r01_spoken_1": {
+"wide": "Thanks for calling half wheel cycles, you're through to the workshop, how can I help?",
+"phone": "Thanks for calling Half Wheel Cycles. You're through to the workshop. How can I help?"
+},
+"csm/r02_spoken_1": {
+"wide": "Your ticket is HW one or four two and the Trek Doman is ready to collect after 2 PM.",
+"phone": "Your ticket is HW1042 and the Trek Do Man is ready to collect after 2pm."
+},
+"csm/r03_spoken_1": {
+"wide": "A wheel true is twenty five pounds and a full service is one hundred and forty nine pounds ninety nine.",
+"phone": "A wheel true is \u00a325 and a full service is \u00a3149.99."
+},
+"csm/r04_spoken_1": {
+"wide": "I've booked you in for Thursday the fourteenth of November at 10.13.",
+"phone": "I've booked you in for Thursday the 14th of November at 10.30."
+},
+"csm/r05_spoken_1": {
+"wide": "Priya will call you back on 415-550192 before 6PN.",
+"phone": "Priya will call you back on 41550192 before 6pm."
+},
+"csm/r06_spoken_1": {
+"wide": "Is that Okafor? OK A",
+"phone": "Is that ok four? O K A"
+},
+"csm/r07_spoken_1": {
+"wide": "We've ordered a Shimano one hundred five D I two RIA mech, so allow three to five working days.",
+"phone": "We've ordered a Shimano 105D i2 Riomec, so allow three to five working days."
+},
+"csm/r08_spoken_1": {
+"wide": "We're open Monday to Saturday, 9 a.m. to 6 p.m.",
+"phone": "We're open Monday to Saturday, 9am to 6pm."
+},
+"csm/r09_spoken_1": {
+"wide": "That comes to thirty seven pounds fifty, including VAT.",
+"phone": "That comes to \u00a337.50, including V80."
+},
+"csm/r10_spoken_1": {
+"wide": "Sorry, the canyon grizzle won't be ready until Friday, but the Brompton is done.",
+"phone": "Sorry, the canyon grizzle won't be ready until Friday, but the Brompton is done."
+},
+"csm/r11_spoken_1": {
+"wide": "Your next service is due at one thousand five hundred miles.",
+"phone": "Your next service is due at 1,500 miles."
+},
+"csm/r12_spoken_1": {
+"wide": "Mm, let me just check that for you. Mm, okay, yes, I can see it here.",
+"phone": "Mm, let me just check that for you. Mm, okay, yes, I can see it here."
+},
+"csm/r01_spoken_2": {
+"wide": "Thanks for calling Half Wheel Cycles. You're through to the workshop. How can I help?",
+"phone": "Thanks for calling Half Wheel Cycles. You're through to the workshop. How can I help?"
+},
+"csm/r02_spoken_2": {
+"wide": "Your ticket is HW1042 and the track domain is ready to collect after 2pm.",
+"phone": "Your ticket is HW1042 and the track domain is ready to collect after 2pm."
+},
+"csm/r03_spoken_2": {
+"wide": "A wheel true is twenty five pounds, and a full service is one hundred and forty nine pounds ninety nine.",
+"phone": "A wheel true is twenty five pounds and a full service is one hundred and forty nine pounds ninety nine."
+},
+"csm/r04_spoken_2": {
+"wide": "I've booked you in for Thursday the 14th of November at 10.30.",
+"phone": "I've booked you in for Thursday the 14th of November at 10.30."
+},
+"csm/r05_spoken_2": {
+"wide": "Priya will call you back on 415550192 before 6pm.",
+"phone": "Priya will call you back on 415550192 before 6 p.m."
+},
+"csm/r06_spoken_2": {
+"wide": "Is that Oka for O K A F O R?",
+"phone": "Is that Oka for O K A F O R?"
+},
+"csm/r07_spoken_2": {
+"wide": "We've ordered a Shimano one hundred five DI two rear mech, so allow three to five working days.",
+"phone": "We've ordered a Shimano 105 DI2 Rear Mech, so allows three to five working days."
+},
+"csm/r08_spoken_2": {
+"wide": "We are open Monday to Saturday, nine AM to six PM.",
+"phone": "We are open Monday to Saturday, 9 a.m. to 6 p.m."
+},
+"csm/r09_spoken_2": {
+"wide": "That comes to \u00a337.50, including VAT.",
+"phone": "That comes to \u00a337.50, including VAT."
+},
+"csm/r10_spoken_2": {
+"wide": "Sorry. The Canyon Grizzle won't be ready until Friday, but the Brompton is done.",
+"phone": "Sorry, the Canyon Grizzle won't be ready until Friday, but the Brompton is done."
+},
+"csm/r11_spoken_2": {
+"wide": "Your next service is due at 1500 miles.",
+"phone": "Your next service is due at one thousand five hundred miles."
+},
+"csm/r12_spoken_2": {
+"wide": "Hmm, let me just check that for you.",
+"phone": "Hmm. Let me just check that for you."
+},
+"kokoro/r01_raw_0": {
+"wide": "Thanks for calling Half Wheel Cycles You're Through to the Workshop. How can I help?",
+"phone": "Thanks for calling Half Wheel Cycles. You're through to the workshop. How can I help?"
+},
+"kokoro/r02_raw_0": {
+"wide": "Your ticket is HW1042, and the track domain is ready to collect after 2pm.",
+"phone": "Your ticket is HW1042 and the track domain is ready to collect after 2pm."
+},
+"kokoro/r03_raw_0": {
+"wide": "A wheel true is twenty five pounds, and a full service is one hundred forty nine pounds and ninety nine pence.",
+"phone": "A wheel true is \u00a325 and a full service is \u00a3149.99."
+},
+"kokoro/r04_raw_0": {
+"wide": "I've booked you in for Thur 14 NOV at 10.30.",
+"phone": "I've booked you in for Sur 14 NOV at 10.30."
+},
+"kokoro/r05_raw_0": {
+"wide": "Priya will call you back on 415555192 before 6pm.",
+"phone": "Priya will call you back on 415555192 before 6pm."
+},
+"kokoro/r06_raw_0": {
+"wide": "Is that okafa, okafor?",
+"phone": "Is that Okafa Okafor?"
+},
+"kokoro/r07_raw_0": {
+"wide": "We've ordered a Shimano 105 DAI2 rear mech, so allow 3.5 working days.",
+"phone": "We've ordered a Shimano 105 DAI2 rear mech, so allow 3.5 working days."
+},
+"kokoro/r08_raw_0": {
+"wide": "We are open Moansat 9 and 6 p.m.",
+"phone": "We are open MoNSA at 9 and 6 p.m."
+},
+"kokoro/r09_raw_0": {
+"wide": "That comes to \u00a337.50 including VAT.",
+"phone": "That comes to \u00a337.50 including VAT."
+},
+"kokoro/r10_raw_0": {
+"wide": "Sorry, the canyon grizzle won't be ready until Friday, but the Brompton is done.",
+"phone": "Sorry, the Canyon Grizzle won't be ready until Friday, but the Brompton is done."
+},
+"kokoro/r11_raw_0": {
+"wide": "Your next service is due at 1,500 miles.",
+"phone": "Your next service is due at 1,500 miles."
+},
+"kokoro/r12_raw_0": {
+"wide": "Let me just check that for you. Okay yes I can see it here.",
+"phone": "Mm, let me just check that for you. Okay, yes, I can see it here."
+},
+"kokoro/r01_spoken_0": {
+"wide": "Thanks for calling Half Wheel Cycles You're Through to the Workshop. How can I help?",
+"phone": "Thanks for calling Half Wheel Cycles. You're through to the workshop. How can I help?"
+},
+"kokoro/r02_spoken_0": {
+"wide": "Your ticket is HW1042, and the Trek Domain is ready to collect after 2pm.",
+"phone": "Your ticket is HW1042 and the Trek Domain is ready to collect after 2pm."
+},
+"kokoro/r03_spoken_0": {
+"wide": "A wheel true is \u00a325 and a full service is \u00a3149.99.",
+"phone": "A wheel true is \u00a325 and a full service is \u00a3149.99."
+},
+"kokoro/r04_spoken_0": {
+"wide": "I've booked you in for Thursday, the 14th of November, at 10.30.",
+"phone": "I've booked you in for Thursday the 14th of November at 10.30."
+},
+"kokoro/r05_spoken_0": {
+"wide": "Priya will call you back on 415-555-0192 before 6pm.",
+"phone": "Priya will call you back on 415-555-0192 before 6pm."
+},
+"kokoro/r06_spoken_0": {
+"wide": "Is that Okafa Okafo R?",
+"phone": "Is that all Kuffa? O-K-A-F-O-R?"
+},
+"kokoro/r07_spoken_0": {
+"wide": "We've ordered a Shimano 105D i2 rear mech, so allow 3-5 working days.",
+"phone": "We've ordered a Shimano 105D i2 rear mech, so allow 3-5 working days."
+},
+"kokoro/r08_spoken_0": {
+"wide": "We are open Monday to Saturday, 9am to 6pm.",
+"phone": "We are open Monday to Saturday, 9am to 6pm."
+},
+"kokoro/r09_spoken_0": {
+"wide": "That comes to \u00a337.50 including VAT.",
+"phone": "That comes to \u00a337.50 including VAT."
+},
+"kokoro/r10_spoken_0": {
+"wide": "Sorry, the canyon grizzle won't be ready until Friday, but the Brompton is done.",
+"phone": "Sorry, the Canyon Grizzle won't be ready until Friday, but the Brompton is done."
+},
+"kokoro/r11_spoken_0": {
+"wide": "Your next service is due at 1,500 miles.",
+"phone": "Your next service is due at 1,500 miles."
+},
+"kokoro/r12_spoken_0": {
+"wide": "Let me just check that for you. Okay yes I can see it here.",
+"phone": "Let me just check that for you. Okay, yes, I can see it here."
+},
+"kyutai/r01_raw_0": {
+"wide": "Thanks for calling Half Wheel Cycles. You're through to the workshop. How can I help?",
+"phone": "Thanks for calling Half Wheel Cycles. You're through to the workshop. How can I help?"
+},
+"kyutai/r02_raw_0": {
+"wide": "Your ticket is HW one two four two and the trek demand is ready to collect after two PM.",
+"phone": "Your ticket is HW1242 and the Trek Demand is ready to collect after 2pm."
+},
+"kyutai/r03_raw_0": {
+"wide": "A wheel true is twenty five pounds and a full service is one forty nine nine.",
+"phone": "A wheel true is twenty five pounds and a full service is \u00a3149.99."
+},
+"kyutai/r04_raw_0": {
+"wide": "I've booked you in for Thu fourteen Nov at ten thirty.",
+"phone": "I've booked you in for Sioux fourteen Nov at ten thirty."
+},
+"kyutai/r05_raw_0": {
+"wide": "Priya. We'll call you back on 415-555-0192.",
+"phone": "Priya. We'll call you back on 415-555-0192."
+},
+"kyutai/r06_raw_0": {
+"wide": "Is that Okafor Okafor?",
+"phone": "Is that Okafor OKAFOR?"
+},
+"kyutai/r07_raw_0": {
+"wide": "We've ordered a Shimano one 05 Die two rear mech, so allow three five working days.",
+"phone": "We've ordered a Shimano 105 DI2 Rear Mech to allow 3-5 working days."
+},
+"kyutai/r08_raw_0": {
+"wide": "We're open Monsat 9 a.m. 6 p.m.",
+"phone": "We're open Monsat 9 a.m. 6 p.m."
+},
+"kyutai/r09_raw_0": {
+"wide": "That comes to thirty seven fifty including V AT.",
+"phone": "That comes for thirty seven fifty, including V A T."
+},
+"kyutai/r10_raw_0": {
+"wide": "Sorry, the Canyon Grizzle won't be ready until Friday, but the Brompton is done.",
+"phone": "Sorry, the Canyon Grizzle won't be ready until Friday, but the Brompton is done."
+},
+"kyutai/r11_raw_0": {
+"wide": "Your next service is due at one thousand five hundred miles.",
+"phone": "Your next service is due at 1500 miles."
+},
+"kyutai/r12_raw_0": {
+"wide": "Mm, let me just check that for you. Okay, yes, I can see it here.",
+"phone": "Mm, let me just check that for you. Okay, yes, I can see it here."
+},
+"kyutai/r01_spoken_0": {
+"wide": "Thanks for calling Half Wheel Cycles. You're through to the workshop. How can I help?",
+"phone": "Thanks for calling Half Wheel Cycles. You're through to the workshop. How can I help?"
+},
+"kyutai/r02_spoken_0": {
+"wide": "Your ticket is HW one zero four two, and the Trek Domani is ready to collect after two PM.",
+"phone": "Your ticket is HW1042 and the Trek Domani is ready to collect after 2pm."
+},
+"kyutai/r03_spoken_0": {
+"wide": "A wheel true is twenty five pounds, and a full service is one hundred and forty nine pounds ninety nine.",
+"phone": "A wheel true is twenty five pounds and a full service is \u00a3149.99."
+},
+"kyutai/r04_spoken_0": {
+"wide": "I've booked you in for Thursday, the fourteenth of November, at ten thirty.",
+"phone": "I've booked you in for Thursday, the fourteenth of November, at ten thirty."
+},
+"kyutai/r05_spoken_0": {
+"wide": "Priya will call you back on 415-555-0192 before 6pm.",
+"phone": "Priya will call you back on 415-555-0192 before 6pm."
+},
+"kyutai/r06_spoken_0": {
+"wide": "is that Okafor O K A F O R",
+"phone": "It's that Okafor, O K A F O R."
+},
+"kyutai/r07_spoken_0": {
+"wide": "We've ordered a Shimano one zero five D I two Rear Mech, so allow three to five working days.",
+"phone": "We've ordered a Shimano 105 DI2 Rear Mech, so allow 3-5 working days."
+},
+"kyutai/r08_spoken_0": {
+"wide": "were open Monday to Saturday, nine AM to six PM",
+"phone": "We're open Monday to Saturday, 9 a.m. to 6 p.m."
+},
+"kyutai/r09_spoken_0": {
+"wide": "That comes to thirty seven pounds fifty, including V A T.",
+"phone": "That comes for thirty seven pounds fifty, including V A T."
+},
+"kyutai/r10_spoken_0": {
+"wide": "Sorry, the Canyon Grizzle won't be ready until Friday, but the Brompton is done.",
+"phone": "Sorry, the Canyon Grizzle won't be ready until Friday, but the Brompton is done."
+},
+"kyutai/r11_spoken_0": {
+"wide": "Your next service is due at one thousand five hundred miles.",
+"phone": "Your next service is due at one thousand five hundred miles."
+},
+"kyutai/r12_spoken_0": {
+"wide": "Mm, let me just check that for you. Okay, yes, I can see it here.",
+"phone": "Mm, let me just check that for you. Okay, yes, I can see it here."
+},
+"kyutai/r01_spoken_1": {
+"wide": "Thanks for calling Half Wheel Cycles. You're through to the workshop. How can I help?",
+"phone": "Thanks for calling Half Wheel Cycles. You're through to the workshop. How can I help?"
+},
+"kyutai/r02_spoken_1": {
+"wide": "Your ticket is HW one zero four two, and the trek domain is ready to collect after two PM.",
+"phone": "Your ticket is HW1042 and the Trek Domain is ready to collect after 2pm."
+},
+"kyutai/r03_spoken_1": {
+"wide": "a wheel true is twenty five pounds, and a full service is one hundred and forty nine pounds ninety nine.",
+"phone": "A wheel true is twenty five pounds and a full service is one hundred and forty nine pounds ninety nine."
+},
+"kyutai/r04_spoken_1": {
+"wide": "I've booked you in for Thursday, the 14th of November, at 10:30.",
+"phone": "I've booked you in for Thursday, the fourteenth of November, at 10:30."
+},
+"kyutai/r05_spoken_1": {
+"wide": "Priya will call you back on 415-555-0192 before 6pm.",
+"phone": "Priya, we'll call you back on 415-555-0192 before 6pm."
+},
+"kyutai/r06_spoken_1": {
+"wide": "Is that Okefor, O K A F O R?",
+"phone": "Is that Okafor, O K A F O R?"
+},
+"kyutai/r07_spoken_1": {
+"wide": "We've ordered a Shimano 105 DI two rear mech, so allow three to five working days.",
+"phone": "We've ordered a Shimano 105DI2 rear mech, so allow three to five working days."
+},
+"kyutai/r08_spoken_1": {
+"wide": "We're open Monday to Saturday, nine a.m. to six p.m.",
+"phone": "We're open Monday to Saturday, 9am to 6pm."
+},
+"kyutai/r09_spoken_1": {
+"wide": "That comes to thirty seven pounds fifty, including VAT.",
+"phone": "That comes to thirty seven pounds fifty, including V A T."
+},
+"kyutai/r10_spoken_1": {
+"wide": "Sorry. The Canyon Grizzle won't be ready until Friday, but the Brompton is done.",
+"phone": "Sorry. The Canyon Grizzle won't be ready until Friday, but the Brompton is done."
+},
+"kyutai/r11_spoken_1": {
+"wide": "Your next service is due at one thousand five hundred miles.",
+"phone": "Your next service is due at 1500 miles."
+},
+"kyutai/r12_spoken_1": {
+"wide": "Mm. Let me just check that for you. Okay, yes, I can see it here.",
+"phone": "Mm. Let me just check that for you. Okay, yes, I can see it here."
+},
+"kyutai/r01_spoken_2": {
+"wide": "Thanks for calling Half Wheel Cycles. You're through to the workshop. How can I help?",
+"phone": "Thanks for calling. Half Wheel Cycles. You're through to the workshop. How can I help?"
+},
+"kyutai/r02_spoken_2": {
+"wide": "Your ticket is HW one zero four two and the Trek Domani is ready to collect after two PM.",
+"phone": "Your ticket is HW1042 and the Trek Domani is ready to collect after 2pm."
+},
+"kyutai/r03_spoken_2": {
+"wide": "a wheel true is twenty five pounds, and a full service is one hundred and forty nine pounds ninety nine.",
+"phone": "A wheel true is twenty five pounds, and a full service is one hundred and forty nine pounds ninety nine."
+},
+"kyutai/r04_spoken_2": {
+"wide": "I've booked you in for Thursday, the fourteenth of November, at ten thirty.",
+"phone": "I've booked you in for Thursday, the fourteenth of November, at ten thirty."
+},
+"kyutai/r05_spoken_2": {
+"wide": "Priya will call you back on 415-555-0192 before 6 p.m.",
+"phone": "and Priya, we'll call you back on 415-555-0192 before 6pm."
+},
+"kyutai/r06_spoken_2": {
+"wide": "Is that Okafor, O K A F O R?",
+"phone": "Is that Okafor? O K A F O R?"
+},
+"kyutai/r07_spoken_2": {
+"wide": "We've ordered a Shimano one zero five DI two rear mech, so allow three to five working days.",
+"phone": "We've ordered a Shimano 105DI two-rear mech, so allow three to five working days."
+},
+"kyutai/r08_spoken_2": {
+"wide": "We're open Monday to Saturday, nine AM to six PM.",
+"phone": "We're open Monday to Saturday, 9 a.m. to 6 p.m."
+},
+"kyutai/r09_spoken_2": {
+"wide": "That comes to thirty seven pounds fifty, including V A T.",
+"phone": "That comes to \u00a337.50, including VAT."
+},
+"kyutai/r10_spoken_2": {
+"wide": "Sorry, the Canyon Grizzle won't be ready until Friday, but the Brompton is done.",
+"phone": "Sorry, the Canyon Grizzle won't be ready until Friday, but the Brompton is done."
+},
+"kyutai/r11_spoken_2": {
+"wide": "Your next service is due at one thousand five hundred miles.",
+"phone": "Your next service is due at 1500 miles."
+},
+"kyutai/r12_spoken_2": {
+"wide": "Mm. Let me just check that for you. Okay, yes, I can see it here.",
+"phone": "Mm. Let me just check that for you. Okay, yes. I can see it here."
+},
+"mimi/1/6930-76324-0014": {
+"wide": "This thought, however, did not enter the hands of the enthusiastic terror."
+},
+"mimi/1/1320-122612-0016": {
+"wide": "Run back on peasant bring you the size of the singer's foot."
+},
+"mimi/1/260-123286-0006": {
+"wide": "We are losing time, and the fact is, I have not come all this way to take a little sail on Maury Raft."
+},
+"mimi/1/7729-102255-0024": {
+"wide": "The pre-state men clung to their prairie towns and prairie ravines with all the obstinacy and courage of true defenders of their homes and firesides."
+},
+"mimi/1/2094-142345-0014": {
+"wide": "The fact that it was churning day was another reason why it was inconvenient to have the wheels and why consequently Mrs. Plazer should have sold Molly the housemaid with usual acidity."
+},
+"mimi/1/3575-170457-0030": {
+"wide": "Under the second letter also she spoke and told me that it contained an invitation for her to go and see the poet if ever she visited Elise."
+},
+"mimi/1/3575-170457-0040": {
+"wide": "Indeed, they're only one or two strangers who could be admitted among the sisters without producing the same results."
+},
+"mimi/1/8463-287645-0013": {
+"wide": "As his age and also the name of his master, sacred statement varies somewhat from the advertisement."
+},
+"mimi/1/8230-279154-0030": {
+"wide": "Simnon's two books mentioned in an earlier lecture do not touch, knowledge, and read at all closely."
+},
+"mimi/1/7176-88083-0024": {
+"wide": "The last trot like as I would have it on just the corner of the horse and early off and be breaking itself early."
+},
+"mimi/1/1995-1836-0006": {
+"wide": "He was therefore most agreeably surprised to hear Mr. Creswell express himself so cordially as approving of Negro education."
+},
+"mimi/1/1995-1826-0023": {
+"wide": "Good, they were more under the tops of that, but underground, on the rivers, is like yens. Is that so?"
+},
+"mimi/1/1284-1181-0010": {
+"wide": "Their contents set all over the way, leaving in the bottom of each kettle a huge range of fine white powder."
+},
+"mimi/1/5142-33396-0011": {
+"wide": "And there she sat on the rollers of the spare ship that I ever saw."
+},
+"mimi/1/5142-33396-0015": {
+"wide": "As our boats lashed down the boulders into the water, I made it a song and sang it."
+},
+"mimi/1/8455-210777-0049": {
+"wide": "Lieutenant Crossrest is a very gallant officer."
+},
+"mimi/1/2830-3980-0063": {
+"wide": "Understore these words, for they are full of comfort for sore consciences."
+},
+"mimi/1/2830-3980-0066": {
+"wide": "Since Christ was given for our sins, it stands to reason that they cannot be put away in our own efforts."
+},
+"mimi/1/4446-2271-0010": {
+"wide": "He's another loser keen about her, letting me do."
+},
+"mimi/1/4446-2273-0035": {
+"wide": "By leaning over her shoulder without touching her whispered in her ear, you are giving me a chance. Yes."
+},
+"mimi/1/4446-2275-0023": {
+"wide": "I was in the room, I meant to, but somehow I couldn't."
+},
+"mimi/1/1221-135767-0014": {
+"wide": "Yea, he has honorable worship, but he hath a godly minister with him, and likewise a lead."
+},
+"mimi/1/7021-85628-0008": {
+"wide": "Or, like as not, they must have thought him a prince when they saw his fine cap."
+},
+"mimi/1/8224-274384-0002": {
+"wide": "They informed the English Parliament of this unexpected incident and assured them they had entered into no private treaty with the King."
+},
+"mimi/1/3729-6852-0014": {
+"wide": "Yeah, going to be changed for a Louis. I had it."
+},
+"mimi/1/1089-134686-0024": {
+"wide": "Day the wine change into vinegar and the hollow strumble into corruption after they have been consecrated, is Jesus Christ still present on their species as God and as man?"
+},
+"mimi/1/1188-133604-0029": {
+"wide": "Only there are two sorts of colladines are."
+},
+"mimi/1/2300-131720-0009": {
+"wide": "For some years, it was not found feasible to operate motors on an alternating current service, and that reason was often urged against seriously."
+},
+"mimi/1/1580-141084-0000": {
+"wide": "It was the Indian, whose hard silhouette appeared suddenly upon his blind."
+},
+"mimi/1/4970-29095-0006": {
+"wide": "Is that a father will lead you to away to a school of the world's people?"
+},
+"mimi/1/4970-29095-0033": {
+"wide": "I'd have a box when they're putting to measure for it and putting it on. If you go anywhere, it's in a box veiled in pinions and shaggy metabilities."
+},
+"mimi/1/4992-23283-0008": {
+"wide": "He seems to wait for a replay that she may not be proceeded."
+},
+"mimi/1/61-70970-0012": {
+"wide": "Yeah, he will teach you a few strips when more he has come."
+},
+"mimi/1/61-70970-0036": {
+"wide": "Robin Tizuda saw that his now said Lord and Seneon on terror, and he became a change of himself for her ringham."
+},
+"mimi/1/237-134500-0014": {
+"wide": "and then he'll move his way slowly down toward the cherry trees."
+},
+"mimi/1/237-126133-0017": {
+"wide": "There, Japan, you caught it, asper safe, while the other screamed at the side of Jasper's face."
+},
+"mimi/1/3570-5695-0001": {
+"wide": "The dependent who was first eleated or easy to was a wife or chief wife, and as would be expected in late development of the institution, when the number of cousins had reused nearly all credit with Limeros, the life remains a lot."
+},
+"mimi/1/5683-32865-0004": {
+"wide": "What Ira Lord Shalvers said, Miss Brandon received it very graciously, and even with a momentary smile."
+},
+"mimi/1/5683-32866-0017": {
+"wide": "I'm very lazy about it, whoever it is, I can't help it."
+},
+"mimi/1/121-127105-0029": {
+"wide": "They have plenty of people to help, but of course the young lady who devoted the governess would even free for each."
+},
+"mimi/1/3080-5040-0015": {
+"wide": "Because I do find fault with my other letters. This is like to be shorter than the day. I not intended so that I can show you."
+},
+"mimi/1/3080-5040-0023": {
+"wide": "How welcome you will be. At last."
+},
+"mimi/1/8280-266249-0030": {
+"wide": "They handling honor, and I'm saying I even thought I was being badly policed by a middle-aged man officer."
+},
+"mimi/1/8280-266249-0054": {
+"wide": "He came from under the table, asked or who was there, he saw it."
+},
+"mimi/1/5764-299665-0017": {
+"wide": "He really gizen fear who friendly repeated his passage. Though he slay me, yet should I trust him."
+},
+"mimi/1/6128-63244-0000": {
+"wide": "These passes out to the so much of the idols I feed, but I feel your morals and young sorrows loses."
+},
+"mimi/1/2033-164915-0011": {
+"wide": "Well that I fear that the comedy also serving But unto Allah we are all referring"
+},
+"mimi/1/3331-159605-0037": {
+"wide": "You know the reaffected party, but just a town you like here has an ideal host."
+},
+"mimi/1/533-131564-0026": {
+"wide": "He never found me that he"
+},
+"mimi/1/533-1066-0019": {
+"wide": "I slid with myself, I enjoy restings horribly."
+},
+"mimi/1/3528-168669-0084": {
+"wide": "Costs that were needed to the Ministry of the Police, sent to the age, sending some off."
+},
+"mimi/1/7975-280057-0004": {
+"wide": "The British James of the Board Chamber 13, 1848, Thomas 1831, and Robert and Sever in 1833."
+},
+"mimi/1/7975-280076-0008": {
+"wide": "I will give you this outline as THM Holware Violence and Actions at the time of certain robberies with which I'm charged."
+},
+"mimi/1/7975-280085-0008": {
+"wide": "But they suddenly after he got close enough so that one of them broke in a walk and stayed with a shot."
+},
+"mimi/1/3005-163390-0013": {
+"wide": "Well they don't because it didn't read a reckoner all alive."
+},
+"mimi/1/3005-163390-0019": {
+"wide": "Oh yeah, in his mouth, what in?"
+},
+"mimi/1/8131-117029-0004": {
+"wide": "Corey came to a row of temporary models, individual duoling as well as his own, without oh privacy."
+},
+"mimi/1/8131-117017-0009": {
+"wide": "Some heard away as Cordon and other Hollow and Tewer, but those have been more swinging as"
+},
+"mimi/1/5442-41169-0007": {
+"wide": "Oh, soldiers seemed always at a loss to the language on the side of the Revlin's mind, but it was an expression of sanity and conviction that the sole he must meet."
+},
+"mimi/1/367-130732-0007": {
+"wide": "One hand of lost smith, one teasing bowl of butter, one half pint of cream, you will see four eggs, one wine lass of sherry, lost your ass."
+},
+"mimi/1/367-130732-0019": {
+"wide": "He disinfected and went sittering at a sherry and crabby and let all her together with a slow hire for behaviours."
+},
+"mimi/1/3538-163619-0008": {
+"wide": "Um what is my brother said anyhow just his very ends?"
+},
+"mimi/1/3538-163624-0008": {
+"wide": "So Regan made us hard and sit every Friday with a blow on the luck of iron and the story of Robo."
+},
+"mimi/1/8461-281231-0033": {
+"wide": "He had not until then been forced to presidence of the Jewish maiden in the abode of the emphasis, and great was his feeling and indignation living that she was amongst them."
+},
+"mimi/1/8461-281231-0038": {
+"wide": "Visitors of who the weather for present occupies seats behind the superiors and kindness to the aspires of the order of Ruin White."
+},
+"mimi/1/3997-180297-0004": {
+"wide": "My dear fruit is I sir. You do not know what you are saying."
+},
+"mimi/1/4294-9934-0029": {
+"wide": "And I went, he had three francs left."
+},
+"mimi/1/1688-142285-0059": {
+"wide": "No, I won't add it in my way to free you too."
+},
+"mimi/1/4852-28311-0015": {
+"wide": "An empty lot cleaned it into a church lane. They don't go to isolation as they all shape great building that serves the roots of the house and place of business."
+},
+"mimi/1/1998-29455-0011": {
+"wide": "I'm my two little human fancy as you as a feel."
+},
+"mimi/1/2609-157645-0012": {
+"wide": "I didn't mean to deny how I'm through this, dear reverence."
+},
+"mimi/1/2609-169640-0014": {
+"wide": "I heard they were under the lowering point of shoot as they were kind of dripped from the spanger move until home of the days."
+},
+"mimi/1/6432-63722-0028": {
+"wide": "and watched I have you with Caesar Twitter."
+},
+"mimi/1/6432-63723-0055": {
+"wide": "I went over at the end of the day and noticed some are missing, though I saw a mall when I paid a visit to her just a short time before she was killed."
+},
+"mimi/1/6070-86744-0023": {
+"wide": "So let's see these are questions that in your place I should like to have answered."
+},
+"mimi/1/2414-159411-0000": {
+"wide": "When in some linear time, King Ronan, who was walking along the road, became the holding an iron cage in which I agree tiger and shed on out of the villages to avoid him."
+},
+"mimi/1/2414-128291-0011": {
+"wide": "One and the scandal, yeah, wonder rage, folly is right, always try my eye."
+},
+"mimi/1/4350-9170-0016": {
+"wide": "After conquest, the power of the emperor put an end to the girl's ascensions, and so the state actually fights itself."
+},
+"mimi/1/4350-9170-0037": {
+"wide": "So the universal military service comes to pass in men. After making every tired eyes to get rid of the cool idea of strife and security of existence, they're called upon to face all of Harold Zaynah."
+},
+"mimi/1/8188-274364-0011": {
+"wide": "You never see any trial to the reward. You are solved and loose for all roles around. And if you are cowardly men."
+},
+"mimi/2/6930-76324-0014": {
+"wide": "This thought, however, did not enter the heads of the enthusiastic pair."
+},
+"mimi/2/1320-122612-0016": {
+"wide": "Run back, Uncus, and bring me the size of the singer's foot."
+},
+"mimi/2/260-123286-0006": {
+"wide": "We are losing time. And the fact is, I've not come all this way to take a little sail upon a pond on a raft."
+},
+"mimi/2/7729-102255-0024": {
+"wide": "the Free State men clung to their prairie towns and prairie ravines with all the obstinacy and courage of true defenders of their homes and firesides."
+},
+"mimi/2/2094-142345-0014": {
+"wide": "The fact that it was Cheering Day was another reason why it was inconvenient to have the widows, and why, consequently, misses Poyser should scold Molly, the housemaid, with unusual civility."
+},
+"mimi/2/3575-170457-0030": {
+"wide": "Of this second letter also she spoke, and told me that it contained an invitation for her to go and see the poet if ever she visited the lakes."
+},
+"mimi/2/3575-170457-0040": {
+"wide": "Indeed, there were only one or two strangers who could be admitted among the sisters without producing the same results."
+},
+"mimi/2/8463-287645-0013": {
+"wide": "As to his age and also the name of his master, Jacob's statement varied somewhat from the advertisement."
+},
+"mimi/2/8230-279154-0030": {
+"wide": "Simmons two books mentioned in an earlier lecture do not touch knowledge memory at all closely."
+},
+"mimi/2/7176-88083-0024": {
+"wide": "The last drop fly, as luck would have it, caught just in the quinter of the hawk's angrily open beak, hooking itself firmly."
+},
+"mimi/2/1995-1836-0006": {
+"wide": "She was therefore most agreeably surprised to hear mister Cresswell express himself so cordially as approving of negro education."
+},
+"mimi/2/1995-1826-0023": {
+"wide": "Bulls don't go on the tops of bars, but underground, on the roots, like yans. Is that so?"
+},
+"mimi/2/1284-1181-0010": {
+"wide": "Their contents had all boiled away, leaving in the bottom of each kettle a few grains of fine white powder."
+},
+"mimi/2/5142-33396-0011": {
+"wide": "There she sat on the rollers as stairship as I ever saw."
+},
+"mimi/2/5142-33396-0015": {
+"wide": "As our boat plashed down the bowlers into the water, I made this song and sang it."
+},
+"mimi/2/8455-210777-0049": {
+"wide": "Lieutenant Crossgreaves is a very gallant officer."
+},
+"mimi/2/2830-3980-0063": {
+"wide": "Underscore these words, for they are full of comfort for sore consciences."
+},
+"mimi/2/2830-3980-0066": {
+"wide": "Since Christ was given for our sins, it stands to reason that they cannot be put away by our own efforts."
+},
+"mimi/2/4446-2271-0010": {
+"wide": "There's another was awfully keen about her. Let me introduce you."
+},
+"mimi/2/4446-2273-0035": {
+"wide": "By leaning over her shoulder without touching her and whispered in her ear, You are giving me a chance. Yes,"
+},
+"mimi/2/4446-2275-0023": {
+"wide": "Now it's in a brawn. I meant to, but somehow I couldn't."
+},
+"mimi/2/1221-135767-0014": {
+"wide": "Yea, his honourable worship is within, but he hath a godly minister or two with him, and likewise a leech."
+},
+"mimi/2/7021-85628-0008": {
+"wide": "for, like us not, they must have thought him a prince when they saw his fine cap."
+},
+"mimi/2/8224-274384-0002": {
+"wide": "They informed the English parliament of this unexpected incident, and assured them that they had entered into no private treaty with the king."
+},
+"mimi/2/3729-6852-0014": {
+"wide": "Here, go and get me change for Louis. I have it, sir."
+},
+"mimi/2/1089-134686-0024": {
+"wide": "If the wine change into vinegar, and the host crumble into corruption after they have been consecrated, is Jesus Christ still present unto their species as God and as man?"
+},
+"mimi/2/1188-133604-0029": {
+"wide": "Only there are two sorts of cloud environment."
+},
+"mimi/2/2300-131720-0009": {
+"wide": "For some years it was not found feasible to operate motors on alternating current circuits, and that reason was often urged against it seriously."
+},
+"mimi/2/1580-141084-0000": {
+"wide": "It was the Indian, whose dark silhouette appeared suddenly upon his blind."
+},
+"mimi/2/4970-29095-0006": {
+"wide": "Is thy father willing thee should go away to a school of the world people?"
+},
+"mimi/2/4970-29095-0033": {
+"wide": "But a box women are put into, measure for it, and put in young. If we go anywhere, it's in a box, dailed and pinioned and shut in by disabilities."
+},
+"mimi/2/4992-23283-0008": {
+"wide": "He seemed to wait for a reply, but as she made none, he proceeded."
+},
+"mimi/2/61-70970-0012": {
+"wide": "Yet he will teach you a few tricks when morning is come."
+},
+"mimi/2/61-70970-0036": {
+"wide": "Robin Fitzooth saw that his doubts of Warrenton had been unfair, and he became ashamed of himself for harbouring them."
+},
+"mimi/2/237-134500-0014": {
+"wide": "and Amio mowed his way slowly down toward the cherry trees."
+},
+"mimi/2/237-126133-0017": {
+"wide": "There, Jap, you've caught it laughed Percy, while the others screamed at the sight of Jasper's face."
+},
+"mimi/2/3570-5695-0001": {
+"wide": "The dependent who was first delegated for these duties was the wife or the chief wife. And as would be expected in the later development of the institution, when the number of persons by whom these teachers are customarily performed gradually narrows, the wife remains the last."
+},
+"mimi/2/5683-32865-0004": {
+"wide": "Whatever Lord Chelford said, Miss Brendan received it very graciously, and even with a momentary smile."
+},
+"mimi/2/5683-32866-0017": {
+"wide": "I'm very uneasy about it, whatever it is. I can't help it."
+},
+"mimi/2/121-127105-0029": {
+"wide": "There are plenty of people to help. But of course, the young lady who should go down as governess would be in supreme authority."
+},
+"mimi/2/3080-5040-0015": {
+"wide": "Because you find fault with my other letters, this is like to be shorter than they. I did not intend it so, though, I can assure you."
+},
+"mimi/2/3080-5040-0023": {
+"wide": "how welcome you will be but alas."
+},
+"mimi/2/8280-266249-0030": {
+"wide": "They're a gambling owner, and I would say that young fellow is being badly fleeced by the middle-aged man opposite."
+},
+"mimi/2/8280-266249-0054": {
+"wide": "It came to line at the table. That's the word. Look what's there. Look yourself."
+},
+"mimi/2/5764-299665-0017": {
+"wide": "Yep's religious and fearful, tremblingly repeated his passage. Though he slay me, yet will I trust him."
+},
+"mimi/2/6128-63244-0000": {
+"wide": "Miss Chases offered with so much on the vital subdivision. Would not she make your mouth and give them some raised lenses?"
+},
+"mimi/2/2033-164915-0011": {
+"wide": "Was as I feared the coming else discerning But unto Allah we are all returning."
+},
+"mimi/2/3331-159605-0037": {
+"wide": "Now don't be affected, Polly, but just tell me like a dear has not he proposed?"
+},
+"mimi/2/533-131564-0026": {
+"wide": "They never tried me mailing, said he."
+},
+"mimi/2/533-1066-0019": {
+"wide": "In spite of myself, I drew my breath in sharply."
+},
+"mimi/2/3528-168669-0084": {
+"wide": "God subordinated to the Commissary of Police, such as the age sales of"
+},
+"mimi/2/7975-280057-0004": {
+"wide": "My brother James was born January fifteenth, eighteen forty eight, John in eighteen fifty one, and Robert in December eighteen fifty three."
+},
+"mimi/2/7975-280076-0008": {
+"wide": "I will give you this outline, a sketch of my whereabouts and actions at the time of certain robberies with which I'm charged."
+},
+"mimi/2/7975-280085-0008": {
+"wide": "But they soon after got close enough so that one of them broke my walking stick with a shot."
+},
+"mimi/2/3005-163390-0013": {
+"wide": "Well, it don't because it's in the breed. I reckon they're all a lot of it."
+},
+"mimi/2/3005-163390-0019": {
+"wide": "Suppose he opened his mouth. What then?"
+},
+"mimi/2/8131-117029-0004": {
+"wide": "Gordon came to a row of temporary bubbles, individual dwellings built like the dome, but opaque for privacy."
+},
+"mimi/2/8131-117017-0009": {
+"wide": "Some turned away as Cordon and the other cop went to work, but most of them worked squeamish."
+},
+"mimi/2/5442-41169-0007": {
+"wide": "Oh, still just the same, always at a loss, the landowner answered with a reason's mind, but with an expression of serenity and conviction that so it must be."
+},
+"mimi/2/367-130732-0007": {
+"wide": "One pound of lobster meat, one teaspoonful of butter, one half pint of cream, yolks of four eggs, one wine glass of sherry, lobster fat."
+},
+"mimi/2/367-130732-0019": {
+"wide": "He just in a stewpan and went simmering at the sherry and crab meat and let all come together with the slow fire for eight minutes."
+},
+"mimi/2/3538-163619-0008": {
+"wide": "What is my brother saying? That's his sister again."
+},
+"mimi/2/3538-163624-0008": {
+"wide": "So Regan made a sword, and Sigurd tried it with a blow on a lump of iron, and the sword broke."
+},
+"mimi/2/8461-281231-0033": {
+"wide": "He had not until then been informed of the presence of the Jewish maiden in the abode of the Templars, and great was his fury and indignation at learning that she was amongst them."
+},
+"mimi/2/8461-281231-0038": {
+"wide": "The preceptors, of whom there were four present, occupied seats behind the superiors, and behind them stood the esquires of the order, wriled in white."
+},
+"mimi/2/3997-180297-0004": {
+"wide": "My dear Prudence, I answered, you do not know what you are saying."
+},
+"mimi/2/4294-9934-0029": {
+"wide": "At that moment he had three francs left."
+},
+"mimi/2/1688-142285-0059": {
+"wide": "No, I'll not have my wench preach to you."
+},
+"mimi/2/4852-28311-0015": {
+"wide": "And then through lot cutting into by a church lane, you have a look of isolation, the L-shaped brick building that served Mr. Rookers, both house and place of business."
+},
+"mimi/2/1998-29455-0011": {
+"wide": "Um I tell you the woman print and he goes on, like I said, he was a big affiels."
+},
+"mimi/2/2609-157645-0012": {
+"wide": "David Dean Sandberg did not at all improve this error evidence."
+},
+"mimi/2/2609-169640-0014": {
+"wide": "I hovered them around on the boring pilot shoot as they were kind of drift from the spinker boom and fell upon the decks."
+},
+"mimi/2/6432-63722-0028": {
+"wide": "And the watch, heavy, yes, it's here."
+},
+"mimi/2/6432-63723-0055": {
+"wide": "I went over them the other day and noticed some were missing, though I saw them all when I paid a visit to her just a short time before she was killed."
+},
+"mimi/2/6070-86744-0023": {
+"wide": "Certainly, these are questions that in your place I should like to have answered."
+},
+"mimi/2/2414-159411-0000": {
+"wide": "Once upon a time a Brahman, who was walking along the road, came upon an iron case, in which a great tiger administered up by the villagers who caught him."
+},
+"mimi/2/2414-128291-0011": {
+"wide": "Want that ambitious, being scandy, care warned revenge, populous pride, all this struck my eye."
+},
+"mimi/2/4350-9170-0016": {
+"wide": "After conquest, the power of the emperor puts an end to an earlier sentence, and so the state conception of life justifies itself."
+},
+"mimi/2/4350-9170-0037": {
+"wide": "But with universal military service, it comes to pass that men, after making every sacrifice to get rid of the cruelty of strife and insecurity of existence, are called upon to face all the perils they have meant to avoid."
+},
+"mimi/2/8188-274364-0011": {
+"wide": "And manage to see how you tried the affection of your people. You exalt and loose from all rules of government, and may do what power all admit."
+},
+"mimi/4/6930-76324-0014": {
+"wide": "This thought, however, did not enter the heads of the enthusiastic pair."
+},
+"mimi/4/1320-122612-0016": {
+"wide": "Run back, Uncas, and bring me the size of the singer's foot."
+},
+"mimi/4/260-123286-0006": {
+"wide": "We are losing time, and the fact is, I have not come all this way to take a little sail upon a pond on a raft."
+},
+"mimi/4/7729-102255-0024": {
+"wide": "the Free State men clung to their prairie towns and prairie ravines with all the obstinacy and courage of true defenders of their homes and firesides."
+},
+"mimi/4/2094-142345-0014": {
+"wide": "The fact that it was churning day was another reason why it was inconvenient to have the widows, and why, consequently, misses Poyser should scold Molly, the housemaid, with unusual severity."
+},
+"mimi/4/3575-170457-0030": {
+"wide": "Of this second letter also she spoke, and told me that it contained an invitation for her to go and see the poet if ever she visited the lakes."
+},
+"mimi/4/3575-170457-0040": {
+"wide": "Indeed, there were only one or two strangers who could be admitted among the sisters without producing the same result."
+},
+"mimi/4/8463-287645-0013": {
+"wide": "As to his age, and also the name of his master, Jacob's statement varied somewhat from the advertisement."
+},
+"mimi/4/8230-279154-0030": {
+"wide": "Simmons' two books, mentioned in an earlier lecture, do not touch knowledge memory at all closely."
+},
+"mimi/4/7176-88083-0024": {
+"wide": "The last drop fly, as luck would have it, caught just in the corner of the hawk's angrily open beak, hooking itself firmly."
+},
+"mimi/4/1995-1836-0006": {
+"wide": "She was therefore most agreeably surprised to hear mister Cresswell express himself so cordially as approving of negro education."
+},
+"mimi/4/1995-1826-0023": {
+"wide": "Googles don't go on the tops of vines, but on the ground, on the roots, like yanins. Is that so?"
+},
+"mimi/4/1284-1181-0010": {
+"wide": "Their contents had all boiled away, leaving in the bottom of each kettle a few grains of fine white powder."
+},
+"mimi/4/5142-33396-0011": {
+"wide": "There she sat on the rollers, as fair a ship as I ever saw,"
+},
+"mimi/4/5142-33396-0015": {
+"wide": "As our boat flashed down the rollers into the water, I made this song and sang it."
+},
+"mimi/4/8455-210777-0049": {
+"wide": "Lieutenant Crostre's is a very gallant officer."
+},
+"mimi/4/2830-3980-0063": {
+"wide": "Underscore these words, for they are full of comfort for sore consciences."
+},
+"mimi/4/2830-3980-0066": {
+"wide": "Since Christ was given for our sins, it stands to reason that they cannot be put away by our own efforts."
+},
+"mimi/4/4446-2271-0010": {
+"wide": "Here's another who's awfully keen about her. Let me introduce you."
+},
+"mimi/4/4446-2273-0035": {
+"wide": "Bartlean over her shoulder without touching her and whispered in her ear, You are giving me a chance? Yes."
+},
+"mimi/4/4446-2275-0023": {
+"wide": "Alexander groaned. I meant to, but somehow I couldn't."
+},
+"mimi/4/1221-135767-0014": {
+"wide": "Yea, his honourable worship is within, but he hath a godly minister or two with him, and likewise a leech."
+},
+"mimi/4/7021-85628-0008": {
+"wide": "for, like as not, they must have thought him a prince when they saw his fine cap."
+},
+"mimi/4/8224-274384-0002": {
+"wide": "They informed the English parliament of this unexpected incident, and assured them that they had entered into no private treaty with the king."
+},
+"mimi/4/3729-6852-0014": {
+"wide": "Here, go and get me change for Louis. I have it."
+},
+"mimi/4/1089-134686-0024": {
+"wide": "If the wine change into vinegar, and the host crumble into corruption after they have been consecrated, is Jesus Christ still present under their species as God and as man?"
+},
+"mimi/4/1188-133604-0029": {
+"wide": "Only, there are two sorts of cloud and fire."
+},
+"mimi/4/2300-131720-0009": {
+"wide": "For some years it was not found feasible to operate motors on alternating current circuits, and that reason was often urged against it seriously."
+},
+"mimi/4/1580-141084-0000": {
+"wide": "It was the Indian, whose dark silhouette appeared suddenly upon his blind."
+},
+"mimi/4/4970-29095-0006": {
+"wide": "Is thy father willing thee should go away to a school of the world's people?"
+},
+"mimi/4/4970-29095-0033": {
+"wide": "What a box women are put into, measured for it, and put in young If we go anywhere it's in a box, veiled and pinioned and shut in by disabilities."
+},
+"mimi/4/4992-23283-0008": {
+"wide": "He seemed to wait for her reply, but as she made none, he proceeded."
+},
+"mimi/4/61-70970-0012": {
+"wide": "yet he will teach you a few tricks when morning is come."
+},
+"mimi/4/61-70970-0036": {
+"wide": "Robin Fitzooth saw that his doubts of Warrington had been unfair, and he became ashamed of himself for harbouring them."
+},
+"mimi/4/237-134500-0014": {
+"wide": "and Abriel mowed his way slowly down toward the cherry trees."
+},
+"mimi/4/237-126133-0017": {
+"wide": "There, Jap, you've caught it laughed Percy, while the others screamed at the sight of Jasper's face."
+},
+"mimi/4/3570-5695-0001": {
+"wide": "The dependent who was first delegated for these duties was the wife, or the chief wife and, as would be expected in the later development of the institution, when the number of persons by whom these duties are customarily performed gradually narrows, the wife remains the last."
+},
+"mimi/4/5683-32865-0004": {
+"wide": "Whatever Lord Chelford said, Miss Brendan received it very graciously, and even with a momentary smile."
+},
+"mimi/4/5683-32866-0017": {
+"wide": "I'm very uneasy about it, whatever it is. I can't help it."
+},
+"mimi/4/121-127105-0029": {
+"wide": "There were plenty of people to help. But of course the young lady who should go down as governess would be in supreme authority."
+},
+"mimi/4/3080-5040-0015": {
+"wide": "Because you find fault with my other letters, this is like to be shorter than they. I did not intend it so that I can assure you."
+},
+"mimi/4/3080-5040-0023": {
+"wide": "How welcome you will be But alas,"
+},
+"mimi/4/8280-266249-0030": {
+"wide": "They're gambling, Honor, and I'm afraid that young fellow is being badly fleeced by the middle aged man opposite."
+},
+"mimi/4/8280-266249-0054": {
+"wide": "It came from under the table, fast ward. Look what's there. Look yourself."
+},
+"mimi/4/5764-299665-0017": {
+"wide": "Lips religious and fearful, Trembling he repeated this passage Though he slay me, yet will I trust him"
+},
+"mimi/4/6128-63244-0000": {
+"wide": "This transit in itself reflects so much on the vital subject. Would not she make a few remarks and give them some of her experiences?"
+},
+"mimi/4/2033-164915-0011": {
+"wide": "Was as I feared the coming ills discerning But unto Allah we are all returning."
+},
+"mimi/4/3331-159605-0037": {
+"wide": "Now don't be affected, Polly but just tell me like a dear has not we proposed?"
+},
+"mimi/4/533-131564-0026": {
+"wide": "You never tried me, merely, said he."
+},
+"mimi/4/533-1066-0019": {
+"wide": "In spite of myself, I drew my breath on sharply."
+},
+"mimi/4/3528-168669-0084": {
+"wide": "God subordinated to the commissary of police, such as the age. Seven sora."
+},
+"mimi/4/7975-280057-0004": {
+"wide": "My brother James was born january fifteenth, eighteen forty eight, John in eighteen fifty one, and Robert in december, eighteen fifty three."
+},
+"mimi/4/7975-280076-0008": {
+"wide": "I will give you this outline and sketch of my whereabouts and actions at the time of certain robberies with which I am charged."
+},
+"mimi/4/7975-280085-0008": {
+"wide": "But they soon after got close enough so that one of them broke my walking stick with a shot."
+},
+"mimi/4/3005-163390-0013": {
+"wide": "Well, it don't, because it's in the breeze. I reckon they're all alive."
+},
+"mimi/4/3005-163390-0019": {
+"wide": "S'pose he opened his mouth. What then?"
+},
+"mimi/4/8131-117029-0004": {
+"wide": "Gordon came to a row of temporary bubbles, individual dwellings built like the dome, but opaque for privacy."
+},
+"mimi/4/8131-117017-0009": {
+"wide": "Some turned away as Gordon and the other cop went to work. But most of them worked squeamish."
+},
+"mimi/4/5442-41169-0007": {
+"wide": "Oh, still just the same, always at a loss, the lounge online answered with a resigned smile, but with an expression of serenity and conviction that so ignosed."
+},
+"mimi/4/367-130732-0007": {
+"wide": "One pound of lobster meat, one teaspoonful of butter, one half pint of cream, yolks of four eggs, one wine glass of sherry, lobster fat."
+},
+"mimi/4/367-130732-0019": {
+"wide": "Keep this in a stewpan, and when simmering, add the sherry and crab meat, and let all cook together with a slow fire for eight minutes."
+},
+"mimi/4/3538-163619-0008": {
+"wide": "What is my brother saying? asked his sister again."
+},
+"mimi/4/3538-163624-0008": {
+"wide": "So Regan made a sword, and Sigurd tried it with a blow on a limp of iron, and the sword broke."
+},
+"mimi/4/8461-281231-0033": {
+"wide": "He had not until then been informed of the presence of the Jewish maiden in the abode of the Templars, and great was his fury and indignation on learning that she was amongst them."
+},
+"mimi/4/8461-281231-0038": {
+"wide": "The preceptors, of whom there were four present, occupied seats behind the superiors, and behind them stood the esquires of the order, robed in white."
+},
+"mimi/4/3997-180297-0004": {
+"wide": "My dear prudence, I answered, you do not know what you are saying."
+},
+"mimi/4/4294-9934-0029": {
+"wide": "At that moment he had three francs left."
+},
+"mimi/4/1688-142285-0059": {
+"wide": "No, I'll not have my wench preach to."
+},
+"mimi/4/4852-28311-0015": {
+"wide": "An empty lot cut him into by a church lane gave a look of isolation to the L shaped brick building that served mister Wicker's both house and place of business."
+},
+"mimi/4/1998-29455-0011": {
+"wide": "How am I to be at the woman clan if you go soon like as if you was a baker fields?"
+},
+"mimi/4/2609-157645-0012": {
+"wide": "David Dean Southern did not at all improve this irreverence."
+},
+"mimi/4/2609-169640-0014": {
+"wide": "I heard the randoming of the boarding pilots, too, as they were cut adrift from the splinter boom and fell upon the decks."
+},
+"mimi/4/6432-63722-0028": {
+"wide": "And the watch, have you it? Yes, it's here."
+},
+"mimi/4/6432-63723-0055": {
+"wide": "I went over them the other day, and noticed some were missing, though I saw them all when I paid a visit to her just a short time before she was killed."
+},
+"mimi/4/6070-86744-0023": {
+"wide": "Certainly these are questions that, in your place, I should like to have answered."
+},
+"mimi/4/2414-159411-0000": {
+"wide": "Once upon a time a Brahmin, who was walking along the road, came upon an iron cage, in which a great tiger administered up by the villagers who quacked him."
+},
+"mimi/4/2414-128291-0011": {
+"wide": "Wanton ambitity, beaten envy, care won't revenge, populist pride, all this struck my eye,"
+},
+"mimi/4/4350-9170-0016": {
+"wide": "After conquest, the power of the emperor puts an end to internal dissensions, and so the state conception of life justifies itself."
+},
+"mimi/4/4350-9170-0037": {
+"wide": "But with universal military service it comes to pass that men, after making every sacrifice to get rid of the cruelty of strife and the insecurity of existence, are called upon to face all the perils they admit to avoid."
+},
+"mimi/4/8188-274364-0011": {
+"wide": "Her majesty having tried the affections of the people, you are absolute and loose from all rules of governance, and may do what power will admit."
+},
+"mimi/8/6930-76324-0014": {
+"wide": "This thought, however, did not enter the heads of the enthusiastic pair."
+},
+"mimi/8/1320-122612-0016": {
+"wide": "Run back, Uncas, and bring me the size of the singer's foot."
+},
+"mimi/8/260-123286-0006": {
+"wide": "We are losing time, and the fact is, I have not come all this way to take a little sail upon a pond on a raft."
+},
+"mimi/8/7729-102255-0024": {
+"wide": "The Free State men clung to their prairie towns and prairie ravines with all the obstinacy and courage of true defenders of their homes and firesides."
+},
+"mimi/8/2094-142345-0014": {
+"wide": "The fact that it was churning day was another reason why it was inconvenient to have the widows, and why, consequently, misses Poyser should scold Molly, the housemaid, with unusual severity."
+},
+"mimi/8/3575-170457-0030": {
+"wide": "Of this second letter also she spoke, and told me that it contained an invitation for her to go and see the poet if ever she visited the lakes."
+},
+"mimi/8/3575-170457-0040": {
+"wide": "Indeed, there were only one or two strangers who could be admitted among the sisters without producing the same result"
+},
+"mimi/8/8463-287645-0013": {
+"wide": "As to his age, and also the name of his master, Jacob's statement varied somewhat from the advertisement."
+},
+"mimi/8/8230-279154-0030": {
+"wide": "Simmons' two books, mentioned in an earlier lecture, do not touch knowledge memory at all closely."
+},
+"mimi/8/7176-88083-0024": {
+"wide": "The last drop fly, as luck would have it, caught just in the corner of the hawk's angrily opened beak, hooking itself firmly."
+},
+"mimi/8/1995-1836-0006": {
+"wide": "She was therefore most agreeably surprised to hear mister Cresswell express himself so cordially as approving of negro education."
+},
+"mimi/8/1995-1826-0023": {
+"wide": "Googles don't grow on the topsy vines, but underground, on the roots, like yams. Is that so?"
+},
+"mimi/8/1284-1181-0010": {
+"wide": "Their contents had all boiled away, leaving in the bottom of each kettle a few grains of fine white powder."
+},
+"mimi/8/5142-33396-0011": {
+"wide": "There she sat on the rollers, as fair a ship as I ever saw."
+},
+"mimi/8/5142-33396-0015": {
+"wide": "As our boat flashed down the rollers into the water, I made this song and sang it."
+},
+"mimi/8/8455-210777-0049": {
+"wide": "Lieutenant Crostre is a very gallant officer."
+},
+"mimi/8/2830-3980-0063": {
+"wide": "Underscore these words, for they are full of comfort for sore consciences."
+},
+"mimi/8/2830-3980-0066": {
+"wide": "Since Christ was given for our sins, it stands to reason that they cannot be put away by our own efforts."
+},
+"mimi/8/4446-2271-0010": {
+"wide": "He's another who's awfully keen about her. Let me introduce you."
+},
+"mimi/8/4446-2273-0035": {
+"wide": "Bartley leaned over her shoulder without touching her, and whispered in her ear, You are giving me a chance? Yes."
+},
+"mimi/8/4446-2275-0023": {
+"wide": "Alexander groaned. I meant to, but somehow I couldn't."
+},
+"mimi/8/1221-135767-0014": {
+"wide": "yea, his honourable worship is within, but he hath a godly minister or two with him, and likewise a leech."
+},
+"mimi/8/7021-85628-0008": {
+"wide": "for, like as not, they must have thought him a prince when they saw his fine cap."
+},
+"mimi/8/8224-274384-0002": {
+"wide": "They informed the English parliament of this unexpected incident, and assured them that they had entered into no private treaty with the king."
+},
+"mimi/8/3729-6852-0014": {
+"wide": "Here, go and get me change for a Louis. I have it, sir."
+},
+"mimi/8/1089-134686-0024": {
+"wide": "If the wine change into vinegar, and the host crumble into corruption after they have been consecrated, is Jesus Christ still present under their species as God and as man?"
+},
+"mimi/8/1188-133604-0029": {
+"wide": "Only, there are two sorts of cloud in flour."
+},
+"mimi/8/2300-131720-0009": {
+"wide": "For some years it was not found feasible to operate motors on alternating current circuits, and that reason was often urged against it seriously."
+},
+"mimi/8/1580-141084-0000": {
+"wide": "It was the Indian, whose dark silhouette appeared suddenly upon his blind."
+},
+"mimi/8/4970-29095-0006": {
+"wide": "Is thy father willing thee should go away to a school of the world's people?"
+},
+"mimi/8/4970-29095-0033": {
+"wide": "What a box women are put into measured for it, and put in young If we go anywhere it's in a box, veiled and pinioned and shut in by disabilities."
+},
+"mimi/8/4992-23283-0008": {
+"wide": "He seemed to wait for her reply, but as she made none, he proceeded."
+},
+"mimi/8/61-70970-0012": {
+"wide": "yet he will teach you a few tricks when morning is come."
+},
+"mimi/8/61-70970-0036": {
+"wide": "Robin Fitzooth saw that his doubts of Warrington had been unfair, and he became ashamed of himself for harbouring them."
+},
+"mimi/8/237-134500-0014": {
+"wide": "and Amiel mowed his way slowly down toward the cherry trees."
+},
+"mimi/8/237-126133-0017": {
+"wide": "There, Jap, you've caught it laughed Percy, while the others screamed at the sight of Jasper's face."
+},
+"mimi/8/3570-5695-0001": {
+"wide": "The dependent who was first delegated for these duties was the wife, or the chief wife and, as would be expected, in the later development of the institution, when the number of persons by whom these duties are customarily performed gradually narrows, the wife remains the last."
+},
+"mimi/8/5683-32865-0004": {
+"wide": "Whatever Lord Chelford said, Miss Brandon received it very graciously, and even with a momentary smile."
+},
+"mimi/8/5683-32866-0017": {
+"wide": "I am very uneasy about it, whatever it is. I can't help it."
+},
+"mimi/8/121-127105-0029": {
+"wide": "There were plenty of people to help, but of course the young lady who should go down as governess would be in supreme authority."
+},
+"mimi/8/3080-5040-0015": {
+"wide": "Because you find fault with my other letters, this is like to be shorter than they. I did not intend it so, though, I can assure you."
+},
+"mimi/8/3080-5040-0023": {
+"wide": "How welcome you will be But, alas,"
+},
+"mimi/8/8280-266249-0030": {
+"wide": "They are gambling, yonder, and I'm afraid that young fellow is being badly fleeced by the middle aged man opposite."
+},
+"mimi/8/8280-266249-0054": {
+"wide": "It came from under the table, gasped Ward. Look what's there. Look yourself."
+},
+"mimi/8/5764-299665-0017": {
+"wide": "Lips, prodigious and fearful, tremblingly repeat this passage Though he slay me, yet will I trust him"
+},
+"mimi/8/6128-63244-0000": {
+"wide": "Miss Transville herself have thought so much on the vital subject. Would not she make a few remarks, and give them some of her experiences?"
+},
+"mimi/8/2033-164915-0011": {
+"wide": "was as I feared the coming ills discerning But unto Allah we are all returning."
+},
+"mimi/8/3331-159605-0037": {
+"wide": "Now don't be affected, Polly but just tell me, like a dear, has not he proposed?"
+},
+"mimi/8/533-131564-0026": {
+"wide": "You never tried me, Melee, said he."
+},
+"mimi/8/533-1066-0019": {
+"wide": "In spite of myself, I drew my breath in sharply."
+},
+"mimi/8/3528-168669-0084": {
+"wide": "God subordinated to the commissary of police. Such is the age. Silence, Sauvant"
+},
+"mimi/8/7975-280057-0004": {
+"wide": "My brother James was born january fifteenth, eighteen forty eight, John in eighteen fifty one, and Robert in december, eighteen fifty three."
+},
+"mimi/8/7975-280076-0008": {
+"wide": "I will give you this outline and sketch of my whereabouts and actions at the time of certain robberies with which I am charged."
+},
+"mimi/8/7975-280085-0008": {
+"wide": "but they soon after got close enough so that one of them broke my walking stick with a shot."
+},
+"mimi/8/3005-163390-0013": {
+"wide": "Well, it don't, because it's in debris. I reckon they're all alive."
+},
+"mimi/8/3005-163390-0019": {
+"wide": "S'pose he opened his mouth. What then?"
+},
+"mimi/8/8131-117029-0004": {
+"wide": "Gordon came to a row of temporary bubbles, individual dwellings built like the dome, but opaque for privacy."
+},
+"mimi/8/8131-117017-0009": {
+"wide": "Some turned away as Gordon and the other cop went to work. But most of them weren't squeamish."
+},
+"mimi/8/5442-41169-0007": {
+"wide": "Oh, still just the same, always at a loss, the landowner answered with a resigned smile, but with an expression of serenity and conviction that so it must be."
+},
+"mimi/8/367-130732-0007": {
+"wide": "One pound of lobster meat, one teaspoonful of butter, one half pint of cream, yolks of four eggs, one wine glass of sherry, lobster fat."
+},
+"mimi/8/367-130732-0019": {
+"wide": "Heat this in a stewpan, and when simmering add the sherry and crab meat, and let all cook together with a slow fire for eight minutes."
+},
+"mimi/8/3538-163619-0008": {
+"wide": "What is my brother saying? asked his sister again."
+},
+"mimi/8/3538-163624-0008": {
+"wide": "So Regan made a sword, and Sigurd tried it with a blow on a limp of iron, and the sword broke."
+},
+"mimi/8/8461-281231-0033": {
+"wide": "He had not until then been informed of the presence of the Jewish maiden in the abode of the Templars, and great was his fury and indignation on learning that she was amongst them."
+},
+"mimi/8/8461-281231-0038": {
+"wide": "The preceptors, of whom there were four present, occupied seats behind the superiors, and behind them stood the esquires of the order, robed in white."
+},
+"mimi/8/3997-180297-0004": {
+"wide": "My dear Prudence, I answered, you do not know what you are saying."
+},
+"mimi/8/4294-9934-0029": {
+"wide": "At that moment he had three francs left."
+},
+"mimi/8/1688-142285-0059": {
+"wide": "No, I will not have my wedge preached to."
+},
+"mimi/8/4852-28311-0015": {
+"wide": "An empty lot cut in into by a church lane gave a look of isolation to the L shaped brick building that served mister Wicker as both house and place of business."
+},
+"mimi/8/1998-29455-0011": {
+"wide": "How am I to wear the woman pram if she goes on like as if you was a deck of fields?"
+},
+"mimi/8/2609-157645-0012": {
+"wide": "David Dean, Salvador, did not at all approve this irreverence."
+},
+"mimi/8/2609-169640-0014": {
+"wide": "I heard the rattling of the boarding pipes, too, as they were cut adrift from the spinker boom and fell upon the decks."
+},
+"mimi/8/6432-63722-0028": {
+"wide": "And the watch. Have you it? Yes, Latilia."
+},
+"mimi/8/6432-63723-0055": {
+"wide": "I went over them the other day, and noticed some were missing, though I saw them all when I paid a visit to her just a short time before she was killed,"
+},
+"mimi/8/6070-86744-0023": {
+"wide": "Certainly these are questions that, in your place, I should like to have answered."
+},
+"mimi/8/2414-159411-0000": {
+"wide": "Once upon a time a Brahmin, who was walking along a road, came upon an iron cage, in which a great tiger had been shut up by the villagers who caught him."
+},
+"mimi/8/2414-128291-0011": {
+"wide": "Wanton avidity, business envy, care worn revenge, populous pride, all these trap my eye,"
+},
+"mimi/8/4350-9170-0016": {
+"wide": "After conquest the power of the emperor puts an end to internal dissensions, and so the state conception of life justifies itself."
+},
+"mimi/8/4350-9170-0037": {
+"wide": "But with universal military service it comes to pass that men, after making every sacrifice to get rid of the cruelty of strife and the insecurity of existence, are called upon to face all the perils they had meant to avoid."
+},
+"mimi/8/8188-274364-0011": {
+"wide": "Your Majesty having tried the affections of your people, you are absolved and loose from all rules of government, and may do what power will admit."
+},
+"mimi/16/6930-76324-0014": {
+"wide": "This thought, however, did not enter the heads of the enthusiastic pair."
+},
+"mimi/16/1320-122612-0016": {
+"wide": "Run back, Uncas, and bring me the size of the singer's foot."
+},
+"mimi/16/260-123286-0006": {
+"wide": "We are losing time, and the fact is, I have not come all this way to take a little sail upon a pond on a raft."
+},
+"mimi/16/7729-102255-0024": {
+"wide": "the Free State men clung to their prairie towns and prairie ravines with all the obstinacy and courage of true defenders of their homes and firesides."
+},
+"mimi/16/2094-142345-0014": {
+"wide": "The fact that it was churning day was another reason why it was inconvenient to have the widows, and why, consequently, misses Poyser should scold Molly, the housemaid, with unusual severity."
+},
+"mimi/16/3575-170457-0030": {
+"wide": "Of this second letter also she spoke, and told me that it contained an invitation for her to go and see the poet if ever she visited the lakes."
+},
+"mimi/16/3575-170457-0040": {
+"wide": "Indeed, there were only one or two strangers who could be admitted among the sisters without producing the same result,"
+},
+"mimi/16/8463-287645-0013": {
+"wide": "As to his age, and also the name of his master, Jacob's statement varied somewhat from the advertisement."
+},
+"mimi/16/8230-279154-0030": {
+"wide": "Simmons' two books, mentioned in an earlier lecture, do not touch knowledge memory at all closely."
+},
+"mimi/16/7176-88083-0024": {
+"wide": "The last drop fly, as luck would have it, caught just in the corner of the hawk's angrily open beak, hooking itself firmly."
+},
+"mimi/16/1995-1836-0006": {
+"wide": "She was therefore most agreeably surprised to hear mister Cresswell express himself so cordially as approving of negro education."
+},
+"mimi/16/1995-1826-0023": {
+"wide": "Googles don't grow on the tops of vines, but under ground, on the roots, like yams. Is that so?"
+},
+"mimi/16/1284-1181-0010": {
+"wide": "Their contents had all boiled away, leaving in the bottom of each kettle a few grains of fine white powder."
+},
+"mimi/16/5142-33396-0011": {
+"wide": "There she sat on the rollers, as fair a ship as I ever saw."
+},
+"mimi/16/5142-33396-0015": {
+"wide": "As our boat flashed down the rollers into the water, I made this song and sang it."
+},
+"mimi/16/8455-210777-0049": {
+"wide": "Lieutenant Cross Trees is a very gallant officer."
+},
+"mimi/16/2830-3980-0063": {
+"wide": "Underscore these words, for they are full of comfort for sore consciences."
+},
+"mimi/16/2830-3980-0066": {
+"wide": "Since Christ was given for our sins, it stands to reason that they cannot be put away by our own efforts."
+},
+"mimi/16/4446-2271-0010": {
+"wide": "He's another who's awfully keen about her. Let me introduce you."
+},
+"mimi/16/4446-2273-0035": {
+"wide": "Bartley leaned over her shoulder without touching her, and whispered in her ear, You are giving me a chance? Yes."
+},
+"mimi/16/4446-2275-0023": {
+"wide": "Alexander groaned. I meant to, but somehow I couldn't."
+},
+"mimi/16/1221-135767-0014": {
+"wide": "Yea, his honourable worship is within, but he hath a godly minister or two with him, and likewise a leech."
+},
+"mimi/16/7021-85628-0008": {
+"wide": "for, like as not, they must have thought him a prince when they saw his fine cap."
+},
+"mimi/16/8224-274384-0002": {
+"wide": "They informed the English parliament of this unexpected incident, and assured them that they had entered into no private treaty with the king."
+},
+"mimi/16/3729-6852-0014": {
+"wide": "Here, go and get me change for a Louis. I have it, sir."
+},
+"mimi/16/1089-134686-0024": {
+"wide": "If the wine change into vinegar, and the host crumble into corruption after they have been consecrated, is Jesus Christ still present under their species as God and as man?"
+},
+"mimi/16/1188-133604-0029": {
+"wide": "Only, there are two sorts of cloud and fire."
+},
+"mimi/16/2300-131720-0009": {
+"wide": "For some years it was not found feasible to operate motors on alternating current circuits, and that reason was often urged against it seriously."
+},
+"mimi/16/1580-141084-0000": {
+"wide": "It was the Indian, whose dark silhouette appeared suddenly upon his blind."
+},
+"mimi/16/4970-29095-0006": {
+"wide": "Is thy father willing thee should go away to a school of the world's people?"
+},
+"mimi/16/4970-29095-0033": {
+"wide": "What a box women are put into measured for it, and put in young If we go anywhere it's in a box, veiled and pinioned and shut in by disabilities."
+},
+"mimi/16/4992-23283-0008": {
+"wide": "He seemed to wait for her reply, but as she made none, he proceeded."
+},
+"mimi/16/61-70970-0012": {
+"wide": "yet he will teach you a few tricks when morning is come."
+},
+"mimi/16/61-70970-0036": {
+"wide": "Robin Fitzooth saw that his doubts of Warrenton had been unfair, and he became ashamed of himself for harbouring them."
+},
+"mimi/16/237-134500-0014": {
+"wide": "and Emile mowed his way slowly down toward the cherry trees."
+},
+"mimi/16/237-126133-0017": {
+"wide": "There, Jap, you've caught it lapped Percy, while the others screamed at the sight of Jasper's face."
+},
+"mimi/16/3570-5695-0001": {
+"wide": "The dependent who was first delegated for these duties was the wife, or the chief wife and, as would be expected, in the later development of the institution, when the number of persons by whom these duties are customarily performed gradually narrows, the wife remains the last."
+},
+"mimi/16/5683-32865-0004": {
+"wide": "Whatever Lord Chelford said, Miss Brandon received it very graciously, and even with a momentary smile."
+},
+"mimi/16/5683-32866-0017": {
+"wide": "I am very uneasy about it, whatever it is. I can't help it."
+},
+"mimi/16/121-127105-0029": {
+"wide": "There were plenty of people to help but of course the young lady who should go down as governess would be in supreme authority."
+},
+"mimi/16/3080-5040-0015": {
+"wide": "Because you find fault with my other letters, this is like to be shorter than they. I did not intend it so, though, I can assure you."
+},
+"mimi/16/3080-5040-0023": {
+"wide": "How welcome you will be But, alas,"
+},
+"mimi/16/8280-266249-0030": {
+"wide": "They are gambling yonder, and I'm afraid that young fellow is being badly fleeced by the middle aged man opposite."
+},
+"mimi/16/8280-266249-0054": {
+"wide": "It came from under the table, gasped Ward. Look what's there. Looked hisself."
+},
+"mimi/16/5764-299665-0017": {
+"wide": "Lips prodigious and fearful Tremblingly repeat this passage Though he slay me, yet will I trust him"
+},
+"mimi/16/6128-63244-0000": {
+"wide": "Miss Chancellor herself had thought so much on the vital subject. Would not she make a few remarks, and give them some of her experiences?"
+},
+"mimi/16/2033-164915-0011": {
+"wide": "Twas as I feared the coming ills discerning But unto Allah we are all returning."
+},
+"mimi/16/3331-159605-0037": {
+"wide": "Now don't be affected, Polly but just tell me, like a dear, has not yet proposed?"
+},
+"mimi/16/533-131564-0026": {
+"wide": "You never tried me, Millie, said he."
+},
+"mimi/16/533-1066-0019": {
+"wide": "In spite of myself, I drew my breath in sharply."
+},
+"mimi/16/3528-168669-0084": {
+"wide": "God subordinated to the commissary of police. Such is the age. Silence,"
+},
+"mimi/16/7975-280057-0004": {
+"wide": "My brother James was born january fifteenth, eighteen forty eight, John in eighteen fifty one, and Robert in december, eighteen fifty three."
+},
+"mimi/16/7975-280076-0008": {
+"wide": "I will give you this outline and sketch of my whereabouts and actions at the time of certain robberies with which I am charged."
+},
+"mimi/16/7975-280085-0008": {
+"wide": "but they soon after got close enough so that one of them broke my walking stick with a shot,"
+},
+"mimi/16/3005-163390-0013": {
+"wide": "Well, it don't, because it's in the breeze. I reckon they're all alike."
+},
+"mimi/16/3005-163390-0019": {
+"wide": "S'pose he opened his mouth. What then?"
+},
+"mimi/16/8131-117029-0004": {
+"wide": "Gordon came to a row of temporary bubbles, individual dwellings built like the dome, but opaque for privacy."
+},
+"mimi/16/8131-117017-0009": {
+"wide": "Some turned away as Gordon and the other cop went to work. But most of them weren't squeamish."
+},
+"mimi/16/5442-41169-0007": {
+"wide": "Oh, still just the same, always at a loss, the landowner answered with a resigned smile, but with an expression of serenity and conviction that so it must be."
+},
+"mimi/16/367-130732-0007": {
+"wide": "One pound of lobster meat, one teaspoonful of butter, one half pint of cream, yolks of four eggs, one wine glass of sherry, lobster fat."
+},
+"mimi/16/367-130732-0019": {
+"wide": "Heat this in a stewpan, and when simmering add the sherry and crab meat, and let all cook together with a slow fire for eight minutes."
+},
+"mimi/16/3538-163619-0008": {
+"wide": "What is my brother saying? asked his sister again."
+},
+"mimi/16/3538-163624-0008": {
+"wide": "So Regan made a sword, and Sigurd tried it with a blow on a limp of iron, and the sword broke."
+},
+"mimi/16/8461-281231-0033": {
+"wide": "He had not until then been informed of the presence of the Jewish maiden in the abode of the Templars, and great was his fury and indignation on learning that she was amongst them."
+},
+"mimi/16/8461-281231-0038": {
+"wide": "The preceptors, of whom there were four present, occupied seats behind their superiors, and behind them stood the esquires of the order, robed in white."
+},
+"mimi/16/3997-180297-0004": {
+"wide": "My dear Prudence, I answered, you do not know what you are saying."
+},
+"mimi/16/4294-9934-0029": {
+"wide": "At that moment he had three francs left."
+},
+"mimi/16/1688-142285-0059": {
+"wide": "Now, I'll not have my wench preach to."
+},
+"mimi/16/4852-28311-0015": {
+"wide": "An empty lot cut into by church lane gave a look of isolation to the L shaped brick building that served mister Wicker as both house and place of business."
+},
+"mimi/16/1998-29455-0011": {
+"wide": "How am I to wear the woman pram if you goes on like as if you was a peg of heels?"
+},
+"mimi/16/2609-157645-0012": {
+"wide": "David Dean's, however, did not at all prove this irreverence."
+},
+"mimi/16/2609-169640-0014": {
+"wide": "I heard the rattling of the boarding pipes, too, as they were cut adrift from the spinker boom, and fell upon the decks."
+},
+"mimi/16/6432-63722-0028": {
+"wide": "And the watch. Have you it? Yes, the tear."
+},
+"mimi/16/6432-63723-0055": {
+"wide": "I went over them the other day, and noticed some were missing, though I saw them all when I paid a visit to her just a short time before she was killed,"
+},
+"mimi/16/6070-86744-0023": {
+"wide": "Certainly these are questions that, in your place, I should like to have answered."
+},
+"mimi/16/2414-159411-0000": {
+"wide": "Once upon a time a Brahmin, who was walking along the road, came upon an iron cage, in which a great tiger had been shut up by the villagers who caught him."
+},
+"mimi/16/2414-128291-0011": {
+"wide": "Wanton avidity, bilious envy, care worn revenge, populous pride, all these struck my eye,"
+},
+"mimi/16/4350-9170-0016": {
+"wide": "After conquest the power of the emperor puts an end to internal dissensions, and so the state conception of life justifies itself."
+},
+"mimi/16/4350-9170-0037": {
+"wide": "But with universal military service it comes to pass that men, after making every sacrifice to get rid of the cruelty of strife and the insecurity of existence, are called upon to face all the perils they had meant to avoid."
+},
+"mimi/16/8188-274364-0011": {
+"wide": "Your Majesty having tried the affections of your people, you are absolved and loose from all rules of government, and may do what power will admit."
+},
+"mimi/32/6930-76324-0014": {
+"wide": "This thought, however, did not enter the heads of the enthusiastic pair."
+},
+"mimi/32/1320-122612-0016": {
+"wide": "Run back, Uncas, and bring me the size of the singer's foot."
+},
+"mimi/32/260-123286-0006": {
+"wide": "We are losing time, and the fact is, I have not come all this way to take a little sail upon a pond on a raft."
+},
+"mimi/32/7729-102255-0024": {
+"wide": "The Free State men clung to their prairie towns and prairie ravines with all the obstinacy and courage of true defenders of their homes and firesides."
+},
+"mimi/32/2094-142345-0014": {
+"wide": "The fact that it was churning day was another reason why it was inconvenient to have the widows, and why, consequently, misses Poyser should scold Molly, the housemaid, with unusual severity."
+},
+"mimi/32/3575-170457-0030": {
+"wide": "Of this second letter also she spoke, and told me that it contained an invitation for her to go and see the poet if ever she visited the lakes."
+},
+"mimi/32/3575-170457-0040": {
+"wide": "Indeed, there were only one or two strangers who could be admitted among the sisters without producing the same result,"
+},
+"mimi/32/8463-287645-0013": {
+"wide": "As to his age, and also the name of his master, Jacob's statement varied somewhat from the advertisement."
+},
+"mimi/32/8230-279154-0030": {
+"wide": "Simmons's two books, mentioned in an earlier lecture, do not touch knowledge memory at all closely."
+},
+"mimi/32/7176-88083-0024": {
+"wide": "The last drop fly, as luck would have it, caught just in the corner of the hawk's angrily open beak, hooking itself firmly."
+},
+"mimi/32/1995-1836-0006": {
+"wide": "She was therefore most agreeably surprised to hear mister Cresswell express himself so cordially as approving of negro education."
+},
+"mimi/32/1995-1826-0023": {
+"wide": "Googles don't grow on the tops of vines, but on the ground, on the roots, like yams. Is that so?"
+},
+"mimi/32/1284-1181-0010": {
+"wide": "Their contents had all boiled away, leaving in the bottom of each kettle a few grains of fine white powder."
+},
+"mimi/32/5142-33396-0011": {
+"wide": "There she sat on the rollers, as fair a ship as I ever saw."
+},
+"mimi/32/5142-33396-0015": {
+"wide": "As our boat flashed down the rollers into the water, I made this song and sang it."
+},
+"mimi/32/8455-210777-0049": {
+"wide": "Lieutenant Crosstrees is a very gallant officer."
+},
+"mimi/32/2830-3980-0063": {
+"wide": "Underscore these words, for they are full of comfort for sore consciences."
+},
+"mimi/32/2830-3980-0066": {
+"wide": "Since Christ was given for our sins, it stands to reason that they cannot be put away by our own efforts."
+},
+"mimi/32/4446-2271-0010": {
+"wide": "He's another who's awfully keen about her. Let me introduce you."
+},
+"mimi/32/4446-2273-0035": {
+"wide": "Bartley leaned over her shoulder without touching her, and whispered in her ear, You are giving me a chance? Yes."
+},
+"mimi/32/4446-2275-0023": {
+"wide": "Alexander groaned. I meant to, but somehow I couldn't."
+},
+"mimi/32/1221-135767-0014": {
+"wide": "Yea, his honourable worship is within, but he hath a godly minister or two with him, and likewise a leech."
+},
+"mimi/32/7021-85628-0008": {
+"wide": "for, like as not, they must have thought him a prince when they saw his fine cap."
+},
+"mimi/32/8224-274384-0002": {
+"wide": "They informed the English parliament of this unexpected incident, and assured them that they had entered into no private treaty with the king."
+},
+"mimi/32/3729-6852-0014": {
+"wide": "Here, go and get me change for a Louis. I have it, sir."
+},
+"mimi/32/1089-134686-0024": {
+"wide": "If the wine change into vinegar, and the host crumble into corruption, after they have been consecrated, is Jesus Christ still present under their species as God and as man?"
+},
+"mimi/32/1188-133604-0029": {
+"wide": "Only, there are two sorts of cloud and fire."
+},
+"mimi/32/2300-131720-0009": {
+"wide": "For some years it was not found feasible to operate motors on alternating current circuits, and that reason was often urged against it seriously."
+},
+"mimi/32/1580-141084-0000": {
+"wide": "It was the Indian, whose dark silhouette appeared suddenly upon his blind."
+},
+"mimi/32/4970-29095-0006": {
+"wide": "Is thy father willing thee should go away to a school of the world's people?"
+},
+"mimi/32/4970-29095-0033": {
+"wide": "What a box women are put into measured for it, and put in young If we go anywhere it's in a box, veiled and pinioned and shut in by disabilities."
+},
+"mimi/32/4992-23283-0008": {
+"wide": "He seemed to wait for her reply, but as she made none, he proceeded."
+},
+"mimi/32/61-70970-0012": {
+"wide": "yet he will teach you a few tricks when morning is come."
+},
+"mimi/32/61-70970-0036": {
+"wide": "Robin Fitzhuth saw that his doubts of Warrenton had been unfair, and he became ashamed of himself for harbouring them."
+},
+"mimi/32/237-134500-0014": {
+"wide": "and Emile mowed his way slowly down toward the cherry trees."
+},
+"mimi/32/237-126133-0017": {
+"wide": "There, Jap, you've caught it laughed Percy, while the others screamed at the sight of Jasper's face."
+},
+"mimi/32/3570-5695-0001": {
+"wide": "The dependent who was first delegated for these duties was the wife, or the chief wife and, as would be expected, in the later development of the institution, when the number of persons by whom these duties are customarily performed gradually narrows, the wife remains the last."
+},
+"mimi/32/5683-32865-0004": {
+"wide": "Whatever Lord Chelford said, Miss Brandon received it very graciously, and even with a momentary smile."
+},
+"mimi/32/5683-32866-0017": {
+"wide": "I am very uneasy about it, whatever it is. I can't help it."
+},
+"mimi/32/121-127105-0029": {
+"wide": "There were plenty of people to help but of course the young lady, who should go down as governess, would be in supreme authority,"
+},
+"mimi/32/3080-5040-0015": {
+"wide": "Because you find fault with my other letters, this is like to be shorter than they. I did not intend it so, though, I can assure you."
+},
+"mimi/32/3080-5040-0023": {
+"wide": "How welcome you will be But, alas,"
+},
+"mimi/32/8280-266249-0030": {
+"wide": "They are gambling yonder, and I'm afraid that young fellow is being badly fleeced by the middle aged man opposite."
+},
+"mimi/32/8280-266249-0054": {
+"wide": "It came from under the table, gasped Ward. Look what's there. Looked yourself."
+},
+"mimi/32/5764-299665-0017": {
+"wide": "Lips, religious and fearful, tremblingly repeat this passage Though he slay me, yet will I trust him"
+},
+"mimi/32/6128-63244-0000": {
+"wide": "Miss Chancellor herself had thought so much on the vital subject. Would not she make a few remarks, and give them some of her experiences?"
+},
+"mimi/32/2033-164915-0011": {
+"wide": "Twas as I feared the Caminils discerning But unto Allah we are all returning."
+},
+"mimi/32/3331-159605-0037": {
+"wide": "Now don't be affected, Polly but just tell me, like a dear, has not he proposed?"
+},
+"mimi/32/533-131564-0026": {
+"wide": "You never tried me, Millie, said he."
+},
+"mimi/32/533-1066-0019": {
+"wide": "In spite of myself, I drew my breath in sharply."
+},
+"mimi/32/3528-168669-0084": {
+"wide": "God subordinated to the commissary of police. Such is the age. Silence, Favant"
+},
+"mimi/32/7975-280057-0004": {
+"wide": "My brother James was born january fifteenth, eighteen forty eight, John in eighteen fifty one, and Robert in december, eighteen fifty three."
+},
+"mimi/32/7975-280076-0008": {
+"wide": "I will give you this outline and sketch of my whereabouts and actions at the time of certain robberies with which I am charged."
+},
+"mimi/32/7975-280085-0008": {
+"wide": "but they soon after got close enough so that one of them broke my walking stick with a shot,"
+},
+"mimi/32/3005-163390-0013": {
+"wide": "Well, it don't, because it's in debris. I reckon they're all alike."
+},
+"mimi/32/3005-163390-0019": {
+"wide": "S'pose he opened his mouth. What then?"
+},
+"mimi/32/8131-117029-0004": {
+"wide": "Gordon came to a row of temporary bubbles, individual dwellings built like the dome, but opaque for privacy."
+},
+"mimi/32/8131-117017-0009": {
+"wide": "Some turned away as Gordon and the other cop went to work. But most of them weren't squeamish."
+},
+"mimi/32/5442-41169-0007": {
+"wide": "Oh, still just the same, always at a loss, the landowner answered with a resigned smile, but with an expression of serenity and conviction that so it must be."
+},
+"mimi/32/367-130732-0007": {
+"wide": "One pound of lobster meat, one teaspoonful of butter, one half pint of cream, yolks of four eggs, one wine glass of sherry, lobster fat."
+},
+"mimi/32/367-130732-0019": {
+"wide": "Heat this in a stewpan, and when simmering add the sherry and crab meat, and let all cook together with a slow fire for eight minutes."
+},
+"mimi/32/3538-163619-0008": {
+"wide": "What is my brother saying? asked his sister again."
+},
+"mimi/32/3538-163624-0008": {
+"wide": "So Regan made a sword, and Sigurd tried it with a blow on a limp of iron, and the sword broke."
+},
+"mimi/32/8461-281231-0033": {
+"wide": "He had not until then been informed of the presence of the Jewish maiden in the abode of the Templars, and great was his fury and indignation on learning that she was amongst them."
+},
+"mimi/32/8461-281231-0038": {
+"wide": "The preceptors, of whom there were four present, occupied seats behind the superiors, and behind them stood the esquires of the order, robed in white."
+},
+"mimi/32/3997-180297-0004": {
+"wide": "My dear Prudence, I answered, you do not know what you are saying."
+},
+"mimi/32/4294-9934-0029": {
+"wide": "At that moment he had three francs left."
+},
+"mimi/32/1688-142285-0059": {
+"wide": "Now, I'll not have my wench preached to."
+},
+"mimi/32/4852-28311-0015": {
+"wide": "An empty lot cut into by church lane gave a look of isolation to the L shaped brick building that served mister Wicker as both house and place of business."
+},
+"mimi/32/1998-29455-0011": {
+"wide": "How am I to wheel the room in pram, if you goes on like as if you was a peg of eels?"
+},
+"mimi/32/2609-157645-0012": {
+"wide": "David Dean's, however, did not at all prove this irreverence,"
+},
+"mimi/32/2609-169640-0014": {
+"wide": "I heard the rattling of the boarding pipes, too, as they were cut adrift from the spanker boom, and fell upon the decks."
+},
+"mimi/32/6432-63722-0028": {
+"wide": "And the watch, have you it? Yes, it's here."
+},
+"mimi/32/6432-63723-0055": {
+"wide": "I went over them the other day, and noticed some were missing, though I saw them all when I paid a visit to her just a short time before she was killed."
+},
+"mimi/32/6070-86744-0023": {
+"wide": "Certainly these are questions that, in your place, I should like to have answered."
+},
+"mimi/32/2414-159411-0000": {
+"wide": "Once upon a time a Brahmin, who was walking along the road, came upon an iron cage, in which a great tiger had been shut up by the villagers who caught him."
+},
+"mimi/32/2414-128291-0011": {
+"wide": "Wanton avidity, bilious envy, careworn revenge, populous pride, all these struck mine eye,"
+},
+"mimi/32/4350-9170-0016": {
+"wide": "After conquest the power of the emperor puts an end to internal dissensions, and so the state conception of life justifies itself."
+},
+"mimi/32/4350-9170-0037": {
+"wide": "But with universal military service it comes to pass that men, after making every sacrifice to get rid of the cruelty of strife and the insecurity of existence, are called upon to face all the perils they had meant to avoid."
+},
+"mimi/32/8188-274364-0011": {
+"wide": "Your Majesty having tried the affections of your people, you are absolved and loose from all rules of government, and may do what power will admit."
+},
+"pocket/r01_raw_0": {
+"wide": "Thanks for calling Half Wheel Cycles You're Through to the Workshop. How can I help?",
+"phone": "Thanks for calling Half Wheel Cycles. You're through to the workshop. How can I help?"
+},
+"pocket/r02_raw_0": {
+"wide": "Your ticket is HW ten forty two and the trek domain is ready to collect after two PM",
+"phone": "Your ticket is HW1042 and the Trek Domain is ready to collect after 2pm."
+},
+"pocket/r03_raw_0": {
+"wide": "A wheel true is twenty five pounds, and a full service is one hundred pounds.",
+"phone": "A wheel true is \u00a325 and a full service is \u00a3100."
+},
+"pocket/r04_raw_0": {
+"wide": "I've booked you in for through 14 Nov at 10.30.",
+"phone": "I've booked you in for 0.14 NOVE at 10.30."
+},
+"pocket/r05_raw_0": {
+"wide": "Priya will call you back on four fifteen five five five five oh one nine two before six PM",
+"phone": "Priya will call you back on 415-5555-0192 before 6pm."
+},
+"pocket/r06_raw_0": {
+"wide": "Is that Okafor, Okafo R?",
+"phone": "Is that Okafor? O-K-A-F-O-R?"
+},
+"pocket/r07_raw_0": {
+"wide": "We've ordered a Shimano one hundred and five Di2 rear mech, so allow three five working days.",
+"phone": "We've ordered a Shimano 105 Die 2 rear mech to allow 3-5 working days."
+},
+"pocket/r08_raw_0": {
+"wide": "were open Monsat, nine AM six PM.",
+"phone": "We're open Monsat, 9am 6pm."
+},
+"pocket/r09_raw_0": {
+"wide": "That comes to 37%.",
+"phone": "That comes to 37%."
+},
+"pocket/r10_raw_0": {
+"wide": "Sorry, the Canyon Grizzle won't be ready until Friday, but the Brompton is done.",
+"phone": "Sorry, the Canyon Grizzle won't be ready until Friday, but the Brompton is done."
+},
+"pocket/r11_raw_0": {
+"wide": "Your next service is due at one thousand five hundred miles.",
+"phone": "Your next service is due at 1,500 miles."
+},
+"pocket/r12_raw_0": {
+"wide": "Mm let me just check that for you. Okay, yes, I can see it here.",
+"phone": "Mm, let me just check that for you. Okay, yes, I can see it here."
+},
+"pocket/r01_spoken_0": {
+"wide": "Thanks for calling Half Wheel Cycles You're Through to the Workshop. How can I help?",
+"phone": "Thanks for calling Half Wheel Cycles. You're through to the workshop. How can I help?"
+},
+"pocket/r02_spoken_0": {
+"wide": "Your ticket is HW1042 and the trek domain is ready to collect after two PM",
+"phone": "Your ticket is HW1042 and the Trek Domain is ready to collect after 2pm."
+},
+"pocket/r03_spoken_0": {
+"wide": "A wheel true is twenty five pounds, and a full service is one hundred and forty nine pounds. ninety nine.",
+"phone": "A wheel true is twenty five pounds, and a full service is one hundred and forty nine pounds ninety nine."
+},
+"pocket/r04_spoken_0": {
+"wide": "I've booked you in for Thursday, the fourteenth of November, at ten thirty.",
+"phone": "I've booked you in for Thursday, the fourteenth of November, at ten thirty."
+},
+"pocket/r05_spoken_0": {
+"wide": "Priya will call you back on four one five five five five oh one nine two before six PM",
+"phone": "Priya will call you back on 415-555-0192 before 6pm."
+},
+"pocket/r06_spoken_0": {
+"wide": "Is that Okafor, O K A F O R?",
+"phone": "Is that Okafor? O-K-A-F-O-R?"
+},
+"pocket/r07_spoken_0": {
+"wide": "We've ordered a Shimano 105D I two rear mech, so allow three to five working days.",
+"phone": "We've ordered a Shimano 105DI2 Rear Mac, so allow 3-5 working days."
+},
+"pocket/r08_spoken_0": {
+"wide": "We're open Monday to Saturday, nine A.M. to six p.m.",
+"phone": "We're open Monday to Saturday, 9 a.m. to 6 p.m."
+},
+"pocket/r09_spoken_0": {
+"wide": "That comes to thirty seven pounds fifty, including VAT.",
+"phone": "That comes to \u00a337.50, including VAT."
+},
+"pocket/r10_spoken_0": {
+"wide": "Sorry, the Canyon Grizzle won't be ready until Friday, but the Brompton is done.",
+"phone": "Sorry, the Canyon Grizzle won't be ready until Friday, but the Brompton is done."
+},
+"pocket/r11_spoken_0": {
+"wide": "Your next service is due at one thousand five hundred miles.",
+"phone": "Your next service is due at 1,500 miles."
+},
+"pocket/r12_spoken_0": {
+"wide": "Mm let me just check that for you. Okay, yes, I can see it here.",
+"phone": "Mm, let me just check that for you. Okay, yes, I can see it here."
+},
+"pocket/r01_spoken_1": {
+"wide": "Thanks for calling Half Wheel Cycles. You're through to the workshop. How can I help?",
+"phone": "Thanks for calling Half Wheel Cycles. You're through to the workshop. How can I help?"
+},
+"pocket/r02_spoken_1": {
+"wide": "Your ticket is HW1042 and the track domain is ready to collect after 2 p.m.",
+"phone": "Your ticket is HW1042 and the track domain is ready to collect after 2pm."
+},
+"pocket/r03_spoken_1": {
+"wide": "A wheel true is twenty five pounds, and a full service is one hundred and forty nine pounds. ninety nine.",
+"phone": "a wheel true is twenty five pounds, and a full service is one hundred and forty nine pounds ninety nine."
+},
+"pocket/r04_spoken_1": {
+"wide": "I've booked you in for Thursday, the fourteenth of November, at ten thirty.",
+"phone": "I've booked you in for Thursday, the fourteenth of November, at ten thirty."
+},
+"pocket/r05_spoken_1": {
+"wide": "Priya will call you back on four one five five five five oh one nine two before six PM",
+"phone": "Priya will call you back on 415-555-0192 before 6pm."
+},
+"pocket/r06_spoken_1": {
+"wide": "Is that Okafor O K A F O R?",
+"phone": "Is that Okafor, O K A F O R?"
+},
+"pocket/r07_spoken_1": {
+"wide": "We've ordered a Shimano one O five D I two rear mech, so allow three to five working days.",
+"phone": "We've ordered a Shimano 105DI2 rear mech, so allow 3-5 working days."
+},
+"pocket/r08_spoken_1": {
+"wide": "We're open Monday to Saturday, 9 a.m. to 6 p.m.",
+"phone": "We're open Monday to Saturday, 9 a.m. to 6 p.m."
+},
+"pocket/r09_spoken_1": {
+"wide": "That comes to thirty seven pounds fifty, including VAT.",
+"phone": "That comes to \u00a337.50, including VAT."
+},
+"pocket/r10_spoken_1": {
+"wide": "Sorry, the Canyon Grizzle won't be ready until Friday, but the Brompton is done.",
+"phone": "Sorry, the Canyon Grizzle won't be ready until Friday, but the Brompton is done."
+},
+"pocket/r11_spoken_1": {
+"wide": "Your next service is due at one thousand five hundred miles.",
+"phone": "Your next service is due at 1,500 miles."
+},
+"pocket/r12_spoken_1": {
+"wide": "Mm, let me just check that for you. Okay, yes, I can see it here.",
+"phone": "Mm, let me just check that for you. Okay, yes, I can see it here."
+},
+"pocket/r01_spoken_2": {
+"wide": "Thanks for calling Half Wheel Cycles. You're through to the workshop. How can I help?",
+"phone": "Thanks for calling Half Wheel Cycles. You're through to the workshop. How can I help?"
+},
+"pocket/r02_spoken_2": {
+"wide": "Your ticket is HW1042 and the Trek Domain is ready to collect after 2 pm.",
+"phone": "Your ticket is HW1042 and the Trek domain is ready to collect after 2pm."
+},
+"pocket/r03_spoken_2": {
+"wide": "A wheel true is twenty five pounds, and a full service is one hundred and forty nine pounds ninety nine.",
+"phone": "A wheel true is twenty five pounds, and a full service is one hundred and forty nine pounds ninety nine."
+},
+"pocket/r04_spoken_2": {
+"wide": "I've booked you in for Thursday, the fourteenth of November, at ten thirty.",
+"phone": "I've booked you in for Thursday, the fourteenth of November, at ten thirty."
+},
+"pocket/r05_spoken_2": {
+"wide": "Priya will call you back on 415-555-0192 before 6pm.",
+"phone": "Priya will call you back on 415-555-0192 before 6pm."
+},
+"pocket/r06_spoken_2": {
+"wide": "Is that Okafor O-K-A-F-O-R?",
+"phone": "Is that Okafor? O-K-A-F-O-R?"
+},
+"pocket/r07_spoken_2": {
+"wide": "We've ordered a Shimano I O five D I two rear mech, so allow three to five working days.",
+"phone": "We've ordered a Shimano 105DI2 Rear Mech, so allow 3-5 working days."
+},
+"pocket/r08_spoken_2": {
+"wide": "We're open Monday to Saturday, nine AM to six PM.",
+"phone": "We're open Monday to Saturday, 9 a.m. to 6 p.m."
+},
+"pocket/r09_spoken_2": {
+"wide": "That comes to thirty seven pounds fifty, including VAT.",
+"phone": "That comes to thirty seven pounds fifty, including VAT."
+},
+"pocket/r10_spoken_2": {
+"wide": "Sorry, the Canyon Grizzle won't be ready until Friday, but the Brompton is done.",
+"phone": "Sorry, the Canyon Grizzle won't be ready until Friday, but the Brompton is done."
+},
+"pocket/r11_spoken_2": {
+"wide": "Your next service is due at one thousand five hundred miles.",
+"phone": "Your next service is due at one thousand five hundred miles."
+},
+"pocket/r12_spoken_2": {
+"wide": "Mm let me just check that for you. Okay, yes, I can see it here.",
+"phone": "Mm. Let me just check that for you. Okay, yes, I can see it here."
+},
+"mimi/original/6930-76324-0014": {
+"wide": "This thought, however, did not enter the heads of the enthusiastic pair."
+},
+"mimi/original/1320-122612-0016": {
+"wide": "Run back, Uncas, and bring me the size of the singer's foot."
+},
+"mimi/original/260-123286-0006": {
+"wide": "We are losing time, and the fact is, I have not come all this way to take a little sail upon a pond on a raft."
+},
+"mimi/original/7729-102255-0024": {
+"wide": "the Free State men clung to their prairie towns and prairie ravines with all the obstinacy and courage of true defenders of their homes and firesides."
+},
+"mimi/original/2094-142345-0014": {
+"wide": "The fact that it was churning day was another reason why it was inconvenient to have the widows, and why, consequently, misses Poyser should scold Molly, the housemaid, with unusual severity."
+},
+"mimi/original/3575-170457-0030": {
+"wide": "Of this second letter also she spoke, and told me that it contained an invitation for her to go and see the poet if ever she visited the lakes."
+},
+"mimi/original/3575-170457-0040": {
+"wide": "Indeed, there were only one or two strangers who could be admitted among the sisters without producing the same result,"
+},
+"mimi/original/8463-287645-0013": {
+"wide": "As to his age, and also the name of his master, Jacob's statement varied somewhat from the advertisement."
+},
+"mimi/original/8230-279154-0030": {
+"wide": "Simmonds' two books, mentioned in an earlier lecture, do not touch knowledge memory at all closely."
+},
+"mimi/original/7176-88083-0024": {
+"wide": "The last drop fly, as luck would have it, caught just in the corner of the hawk's angrily open beak, hooking itself firmly."
+},
+"mimi/original/1995-1836-0006": {
+"wide": "She was therefore most agreeably surprised to hear mister Cresswell express himself so cordially as approving of negro education."
+},
+"mimi/original/1995-1826-0023": {
+"wide": "Googles don't grow on the tops of vines, but on the ground, on the roots, like yams. Is that so?"
+},
+"mimi/original/1284-1181-0010": {
+"wide": "Their contents had all boiled away, leaving in the bottom of each kettle a few grains of fine white powder."
+},
+"mimi/original/5142-33396-0011": {
+"wide": "There she sat on the rollers, as fair a ship as I ever saw."
+},
+"mimi/original/5142-33396-0015": {
+"wide": "As our boat flashed down the rollers into the water, I made this song and sang it."
+},
+"mimi/original/8455-210777-0049": {
+"wide": "Lieutenant Crostrees is a very gallant officer."
+},
+"mimi/original/2830-3980-0063": {
+"wide": "Underscore these words, for they are full of comfort for sore consciences."
+},
+"mimi/original/2830-3980-0066": {
+"wide": "Since Christ was given for our sins it stands to reason that they cannot be put away by our own efforts."
+},
+"mimi/original/4446-2271-0010": {
+"wide": "He's another who's awfully keen about her. Let me introduce you."
+},
+"mimi/original/4446-2273-0035": {
+"wide": "Bartley leaned over her shoulder without touching her, and whispered in her ear, You are giving me a chance? Yes."
+},
+"mimi/original/4446-2275-0023": {
+"wide": "Alexander groaned. I meant to, but somehow I couldn't."
+},
+"mimi/original/1221-135767-0014": {
+"wide": "yea, his honourable worship is within, but he hath a godly minister or two with him, and likewise a leech."
+},
+"mimi/original/7021-85628-0008": {
+"wide": "for, like as not, they must have thought him a prince when they saw his fine cap."
+},
+"mimi/original/8224-274384-0002": {
+"wide": "They informed the English parliament of this unexpected incident, and assured them that they had entered into no private treaty with the king."
+},
+"mimi/original/3729-6852-0014": {
+"wide": "Here, go and get me change for a Louis. I have it, sir."
+},
+"mimi/original/1089-134686-0024": {
+"wide": "If the wine change into vinegar, and the host crumble into corruption, after they have been consecrated, is Jesus Christ still present under their species as God and as man?"
+},
+"mimi/original/1188-133604-0029": {
+"wide": "Only, there are two sorts of cloud and fire."
+},
+"mimi/original/2300-131720-0009": {
+"wide": "For some years it was not found feasible to operate motors on alternating current circuits, and that reason was often urged against it seriously."
+},
+"mimi/original/1580-141084-0000": {
+"wide": "It was the Indian, whose dark silhouette appeared suddenly upon his blind."
+},
+"mimi/original/4970-29095-0006": {
+"wide": "Is thy father willing thee should go away to a school of the world's people?"
+},
+"mimi/original/4970-29095-0033": {
+"wide": "What a box women are put into measured for it, and put in young If we go anywhere it's in a box, bailed and pinioned and shut in by disabilities."
+},
+"mimi/original/4992-23283-0008": {
+"wide": "He seemed to wait for her reply, but as she made none, he proceeded."
+},
+"mimi/original/61-70970-0012": {
+"wide": "yet he will teach you a few tricks when morning is come."
+},
+"mimi/original/61-70970-0036": {
+"wide": "Robin Fitzooth saw that his doubts of Warrenton had been unfair, and he became ashamed of himself for harbouring them."
+},
+"mimi/original/237-134500-0014": {
+"wide": "and Emile mowed his way slowly down toward the cherry trees."
+},
+"mimi/original/237-126133-0017": {
+"wide": "There, Jap, you've caught it laughed Percy, while the others screamed at the sight of Jasper's face."
+},
+"mimi/original/3570-5695-0001": {
+"wide": "The dependent who was first delegated for these duties was the wife, or the chief wife and, as would be expected, in the later development of the institution, when the number of persons by whom these duties are customarily performed gradually narrows, the wife remains the last."
+},
+"mimi/original/5683-32865-0004": {
+"wide": "Whatever Lord Chelford said, Miss Brandon received it very graciously, and even with a momentary smile."
+},
+"mimi/original/5683-32866-0017": {
+"wide": "I am very uneasy about it, whatever it is. I can't help it."
+},
+"mimi/original/121-127105-0029": {
+"wide": "There were plenty of people to help, but of course the young lady, who should go down as governess, would be in supreme authority,"
+},
+"mimi/original/3080-5040-0015": {
+"wide": "Because you find fault with my other letters, this is like to be shorter than they. I did not intend it so, though, I can assure you."
+},
+"mimi/original/3080-5040-0023": {
+"wide": "How welcome you will be But, alas,"
+},
+"mimi/original/8280-266249-0030": {
+"wide": "They are gambling yonder, and I'm afraid that young fellow is being badly fleeced by the middle aged man opposite."
+},
+"mimi/original/8280-266249-0054": {
+"wide": "It came from under the table, gasped Ward. Look what's there Looked yourself."
+},
+"mimi/original/5764-299665-0017": {
+"wide": "Lips, religious and fearful, Tremblingly repeat this passage Though he slay me, yet will I trust him"
+},
+"mimi/original/6128-63244-0000": {
+"wide": "Miss Chancellor herself had thought so much on the vital subject. Would not she make a few remarks, and give them some of her experiences?"
+},
+"mimi/original/2033-164915-0011": {
+"wide": "Twas as I feared the Caminils discerning But unto Allah we are all returning."
+},
+"mimi/original/3331-159605-0037": {
+"wide": "Now don't be affected, Polly, but just tell me, like a dear, has not he proposed?"
+},
+"mimi/original/533-131564-0026": {
+"wide": "You never tried me, Millie, said he."
+},
+"mimi/original/533-1066-0019": {
+"wide": "In spite of myself, I drew my breath in sharply."
+},
+"mimi/original/3528-168669-0084": {
+"wide": "God subordinated to the commissary of police. Such is the age. Silence,"
+},
+"mimi/original/7975-280057-0004": {
+"wide": "My brother James was born january fifteenth, eighteen forty eight, John in eighteen fifty one, and Robert in december, eighteen fifty three."
+},
+"mimi/original/7975-280076-0008": {
+"wide": "I will give you this outline and sketch of my whereabouts and actions at the time of certain robberies with which I am charged."
+},
+"mimi/original/7975-280085-0008": {
+"wide": "but they soon after got close enough so that one of them broke my walking stick with a shot,"
+},
+"mimi/original/3005-163390-0013": {
+"wide": "Well, it don't, because it's in the breed. I reckon they're all alike."
+},
+"mimi/original/3005-163390-0019": {
+"wide": "S'pose he opened his mouth. What then?"
+},
+"mimi/original/8131-117029-0004": {
+"wide": "Gordon came to a row of temporary bubbles individual dwellings built like the dome, but opaque for privacy."
+},
+"mimi/original/8131-117017-0009": {
+"wide": "Some turned away as Gordon and the other cop went to work. But most of them weren't squeamish."
+},
+"mimi/original/5442-41169-0007": {
+"wide": "Oh, still just the same, always at a loss, the landowner answered with a resigned smile, but with an expression of serenity and conviction that so it must be."
+},
+"mimi/original/367-130732-0007": {
+"wide": "one pound of lobster meat, one teaspoonful of butter, one half pint of cream, yolks of four eggs, one wine glass of sherry, lobster fat."
+},
+"mimi/original/367-130732-0019": {
+"wide": "Heat this in a stewpan, and when simmering add the sherry and crab meat and let all cook together with a slow fire for eight minutes."
+},
+"mimi/original/3538-163619-0008": {
+"wide": "What is my brother saying? asked his sister again."
+},
+"mimi/original/3538-163624-0008": {
+"wide": "So Regan made a sword, and Sigurd tried it with a blow on a lump of iron, and the sword broke."
+},
+"mimi/original/8461-281231-0033": {
+"wide": "He had not until then been informed of the presence of the Jewish maiden in the abode of the Templars, and great was his fury and indignation on learning that she was amongst them."
+},
+"mimi/original/8461-281231-0038": {
+"wide": "The preceptors, of whom there were four present, occupied seats behind the superiors, and behind them stood the esquires of the order, robed in white."
+},
+"mimi/original/3997-180297-0004": {
+"wide": "My dear Prudence, I answered, you do not know what you are saying."
+},
+"mimi/original/4294-9934-0029": {
+"wide": "At that moment he had three francs left."
+},
+"mimi/original/1688-142285-0059": {
+"wide": "Now, I'll not have my wench preached to."
+},
+"mimi/original/4852-28311-0015": {
+"wide": "An empty lot cut into by church lane gave a look of isolation to the L shaped brick building that served mister Wicker as both house and place of business."
+},
+"mimi/original/1998-29455-0011": {
+"wide": "How am I to wear the room in pram, if you goes on like as if you was a peck of eels?"
+},
+"mimi/original/2609-157645-0012": {
+"wide": "David Dean's, however, did not at all prove this irreverence,"
+},
+"mimi/original/2609-169640-0014": {
+"wide": "I heard the rattling of the boarding pipes, too, as they were cut adrift from the spanker boom, and fell upon the decks."
+},
+"mimi/original/6432-63722-0028": {
+"wide": "And the watch? Have you it? Yes, it's here."
+},
+"mimi/original/6432-63723-0055": {
+"wide": "I went over them the other day, and noticed some were missing, though I saw them all when I paid a visit to her just a short time before she was killed."
+},
+"mimi/original/6070-86744-0023": {
+"wide": "Certainly these are questions that, in your place, I should like to have answered."
+},
+"mimi/original/2414-159411-0000": {
+"wide": "Once upon a time a Brahmin, who was walking along the road, came upon an iron cage, in which a great tiger had been shut up by the villagers who caught him."
+},
+"mimi/original/2414-128291-0011": {
+"wide": "Wanton avidity, bilious envy, care worn revenge, populous pride, all these struck mine eye,"
+},
+"mimi/original/4350-9170-0016": {
+"wide": "After conquest the power of the emperor puts an end to internal dissensions, and so the state conception of life justifies itself."
+},
+"mimi/original/4350-9170-0037": {
+"wide": "But with universal military service it comes to pass that men, after making every sacrifice to get rid of the cruelty of strife and the insecurity of existence, are called upon to face all the perils they had meant to avoid."
+},
+"mimi/original/8188-274364-0011": {
+"wide": "Your Majesty having tried the affections of your people, you are absolved and loose from all rules of government, and may do what power will admit."
+}
+}

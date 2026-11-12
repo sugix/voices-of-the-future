@@ -1,0 +1,489 @@
+{
+"meta": {
+"model": "hexgrad/Kokoro-82M",
+"voice": "bf_lily",
+"gpu_name": "NVIDIA L4"
+},
+"clips": {
+"kokoro/r01_raw_0": {
+"model": "kokoro",
+"line": "r01",
+"variant": "raw",
+"seed": 0,
+"text": "Thanks for calling Halfwheel Cycles, you're through to the workshop. How can I help?",
+"phonemes": "\u03b8\u02c8a\u014bks f\u0254\u02d0 k\u02c8\u0254\u02d0l\u026a\u014b h\u02c8\u0251\u02d0fwi\u02d0l s\u02c8Ik\u1d4alz, j\u0254\u02d0 \u03b8\u0279u\u02d0 t\u0259 \u00f0\u0259 w\u02c8\u025c\u02d0k\u0283\u0252p. h\u02ccW kan \u02ccI h\u02c8\u025blp?",
+"sr": 24000,
+"seconds": 4.85,
+"wav": "data/ch6/wav/kokoro/r01_raw_0.wav",
+"gpu": {
+"ttfa": 0.10326186590828001,
+"wall": 0.10331317293457687
+},
+"cpu": {
+"ttfa": 1.8280844788532704,
+"wall": 1.8281374189537019,
+"threads": 4
+}
+},
+"kokoro/r02_raw_0": {
+"model": "kokoro",
+"line": "r02",
+"variant": "raw",
+"seed": 0,
+"text": "Your ticket is HW-1042, and the Trek Domane is ready to collect after 2pm.",
+"phonemes": "j\u02cc\u0254\u02d0 t\u02c8\u026ak\u026at \u026az \u02ccA\u02a7d\u02c8\u028cb\u1d4alju\u02d0 t\u02c8\u025bn f\u02c8\u0254\u02d0ti t\u02c8u\u02d0, and \u00f0\u0259 t\u0279\u02c8\u025bk d\u0259m\u02c8An \u026az \u0279\u02c8\u025bdi t\u0259 k\u0259l\u02c8\u025bkt \u02c8\u0251\u02d0ft\u0259 t\u02c8u\u02d0 p\u02cci\u02d0\u02c8\u025bm.",
+"sr": 24000,
+"seconds": 6.6,
+"wav": "data/ch6/wav/kokoro/r02_raw_0.wav",
+"gpu": {
+"ttfa": 0.10429446608759463,
+"wall": 0.1043398620095104
+},
+"cpu": {
+"ttfa": 2.8718915870413184,
+"wall": 2.8719364320859313,
+"threads": 4
+}
+},
+"kokoro/r03_raw_0": {
+"model": "kokoro",
+"line": "r03",
+"variant": "raw",
+"seed": 0,
+"text": "A wheel true is \u00a325, and a full service is \u00a3149.99.",
+"phonemes": "\u0250 w\u02c8i\u02d0l t\u0279\u02c8u\u02d0 \u026az tw\u02c8\u025bnti f\u02c8Iv p\u02c8Wndz, and \u0250 f\u02c8\u028al s\u02c8\u025c\u02d0v\u026as \u026az w\u02c8\u028cn h\u02c8\u028cnd\u0279\u0259d f\u02c8\u0254\u02d0ti n\u02c8In p\u02c8Wndz and n\u02c8Inti n\u02c8In p\u02c8\u025bns.",
+"sr": 24000,
+"seconds": 7.025,
+"wav": "data/ch6/wav/kokoro/r03_raw_0.wav",
+"gpu": {
+"ttfa": 0.10143786296248436,
+"wall": 0.10147663694806397
+},
+"cpu": {
+"ttfa": 2.7143038709182292,
+"wall": 2.7143479250371456,
+"threads": 4
+}
+},
+"kokoro/r04_raw_0": {
+"model": "kokoro",
+"line": "r04",
+"variant": "raw",
+"seed": 0,
+"text": "I've booked you in for Thu 14 Nov at 10:30.",
+"phonemes": "\u02ccIv b\u02c8\u028akt ju\u02d0 \u02c8\u026an f\u0254\u02d0 \u03b8\u02c8\u025c\u02d0 f\u02cc\u0254\u02d0t\u02c8i\u02d0n n\u02c8\u0252v at t\u02c8\u025bn:\u03b8\u02c8\u025c\u02d0ti.",
+"sr": 24000,
+"seconds": 3.775,
+"wav": "data/ch6/wav/kokoro/r04_raw_0.wav",
+"gpu": {
+"ttfa": 0.09261542488820851,
+"wall": 0.09265459887683392
+},
+"cpu": {
+"ttfa": 1.4791545330081135,
+"wall": 1.4791942681185901,
+"threads": 4
+}
+},
+"kokoro/r05_raw_0": {
+"model": "kokoro",
+"line": "r05",
+"variant": "raw",
+"seed": 0,
+"text": "Priya will call you back on 415-555-0192 before 6pm.",
+"phonemes": "p\u0279\u02c8\u026aj\u0259 w\u026al k\u02c8\u0254\u02d0l ju\u02d0 b\u02c8ak \u02cc\u0252n f\u02c8\u0254\u02d0 h\u02c8\u028cnd\u0279\u0259d f\u02cc\u026aft\u02c8i\u02d0nf\u02c8Iv f\u02c8\u026afti f\u02c8Ivw\u02cc\u028cn n\u02ccInti t\u02ccu\u02d0 b\u026af\u02c8\u0254\u02d0 s\u02c8\u026aks p\u02cci\u02d0\u02c8\u025bm.",
+"sr": 24000,
+"seconds": 6.3,
+"wav": "data/ch6/wav/kokoro/r05_raw_0.wav",
+"gpu": {
+"ttfa": 0.09974533994682133,
+"wall": 0.09978407388553023
+},
+"cpu": {
+"ttfa": 2.3778446989599615,
+"wall": 2.377888713032007,
+"threads": 4
+}
+},
+"kokoro/r06_raw_0": {
+"model": "kokoro",
+"line": "r06",
+"variant": "raw",
+"seed": 0,
+"text": "Is that Okafor, O-K-A-F-O-R?",
+"phonemes": "\u02cc\u026az \u00f0\u02c8at \u02c8\u0252kaf\u0259, \u02ccQk\u02c8A\u02ccA\u02cc\u025bf\u02c8Q\u02c8\u0251\u02d0?",
+"sr": 24000,
+"seconds": 3.125,
+"wav": "data/ch6/wav/kokoro/r06_raw_0.wav",
+"gpu": {
+"ttfa": 0.0923285810276866,
+"wall": 0.09236279595643282
+},
+"cpu": {
+"ttfa": 1.245429344009608,
+"wall": 1.2454661738593131,
+"threads": 4
+}
+},
+"kokoro/r07_raw_0": {
+"model": "kokoro",
+"line": "r07",
+"variant": "raw",
+"seed": 0,
+"text": "We've ordered a Shimano 105 Di2 rear mech, so allow 3-5 working days.",
+"phonemes": "w\u02cci\u02d0v \u02c8\u0254\u02d0d\u0259d \u0250 \u0283\u026am\u02c8\u0251\u02d0nQ w\u02c8\u028cn h\u02c8\u028cnd\u0279\u0259d f\u02c8Iv d\u02c8I t\u02c8u\u02d0 \u0279\u02c8\u026a\u0259 m\u02c8\u025bk, s\u02ccQ \u0259l\u02c8W \u03b8\u0279\u02c8i\u02d0f\u02ccIv w\u02c8\u025c\u02d0k\u026a\u014b d\u02c8Az.",
+"sr": 24000,
+"seconds": 6.05,
+"wav": "data/ch6/wav/kokoro/r07_raw_0.wav",
+"gpu": {
+"ttfa": 0.09880860196426511,
+"wall": 0.09884799714200199
+},
+"cpu": {
+"ttfa": 2.2947634430602193,
+"wall": 2.2948053320869803,
+"threads": 4
+}
+},
+"kokoro/r08_raw_0": {
+"model": "kokoro",
+"line": "r08",
+"variant": "raw",
+"seed": 0,
+"text": "We're open Mon-Sat, 9am-6pm.",
+"phonemes": "w\u02cc\u026a\u0259 \u02c8Qp\u1d4an m\u02c8Qns\u02ccat, n\u02c8In \u0250m s\u02c8\u026aks p\u02cci\u02d0\u02c8\u025bm.",
+"sr": 24000,
+"seconds": 3.35,
+"wav": "data/ch6/wav/kokoro/r08_raw_0.wav",
+"gpu": {
+"ttfa": 0.08941901684738696,
+"wall": 0.08945586695335805
+},
+"cpu": {
+"ttfa": 1.3168913128320128,
+"wall": 1.3169283128809184,
+"threads": 4
+}
+},
+"kokoro/r09_raw_0": {
+"model": "kokoro",
+"line": "r09",
+"variant": "raw",
+"seed": 0,
+"text": "That comes to \u00a337.50 including VAT.",
+"phonemes": "\u00f0\u02c8at k\u02c8\u028cmz t\u0259 \u03b8\u02c8\u025c\u02d0ti s\u02c8\u025bv\u1d4an p\u02c8Wndz and f\u02c8\u026afti p\u02c8\u025bns \u026ankl\u02c8u\u02d0d\u026a\u014b v\u02c8at.",
+"sr": 24000,
+"seconds": 4.55,
+"wav": "data/ch6/wav/kokoro/r09_raw_0.wav",
+"gpu": {
+"ttfa": 0.09202976291999221,
+"wall": 0.09206617204472423
+},
+"cpu": {
+"ttfa": 1.7265840379986912,
+"wall": 1.726623201975599,
+"threads": 4
+}
+},
+"kokoro/r10_raw_0": {
+"model": "kokoro",
+"line": "r10",
+"variant": "raw",
+"seed": 0,
+"text": "Sorry, the Canyon Grizl won't be ready until Friday, but the Brompton is done.",
+"phonemes": "s\u02c8\u0252\u0279i, \u00f0\u0259 k\u02c8anj\u0259n \u0261\u0279\u02c8\u026az\u1d4al wQnt bi\u02d0 \u0279\u02c8\u025bdi \u0259nt\u02c8\u026al f\u0279\u02c8IdA, b\u02cc\u028ct \u00f0\u0259 b\u0279\u02c8\u0252mpt\u0259n \u026az d\u02c8\u028cn.",
+"sr": 24000,
+"seconds": 4.95,
+"wav": "data/ch6/wav/kokoro/r10_raw_0.wav",
+"gpu": {
+"ttfa": 0.09476437419652939,
+"wall": 0.09480318799614906
+},
+"cpu": {
+"ttfa": 1.922036532079801,
+"wall": 1.9220816378947347,
+"threads": 4
+}
+},
+"kokoro/r11_raw_0": {
+"model": "kokoro",
+"line": "r11",
+"variant": "raw",
+"seed": 0,
+"text": "Your next service is due at 1,500 miles.",
+"phonemes": "j\u02cc\u0254\u02d0 n\u02c8\u025bkst s\u02c8\u025c\u02d0v\u026as \u026az dj\u02c8u\u02d0 at w\u02c8\u028cn \u03b8\u02c8Wz\u1d4and f\u02c8Iv h\u02c8\u028cnd\u0279\u0259d m\u02c8Ilz.",
+"sr": 24000,
+"seconds": 4.175,
+"wav": "data/ch6/wav/kokoro/r11_raw_0.wav",
+"gpu": {
+"ttfa": 0.09196271584369242,
+"wall": 0.0919996160082519
+},
+"cpu": {
+"ttfa": 1.632160650100559,
+"wall": 1.6322002050001174,
+"threads": 4
+}
+},
+"kokoro/r12_raw_0": {
+"model": "kokoro",
+"line": "r12",
+"variant": "raw",
+"seed": 0,
+"text": "Mm, let me just check that for you. Okay, yes, I can see it here.",
+"phonemes": "m, l\u02c8\u025bt m\u02cci\u02d0 \u02a4\u02c8\u028cst \u02a7\u02c8\u025bk \u00f0\u02c8at f\u0254\u02d0 ju\u02d0. \u02ccQk\u02c8A, j\u02c8\u025bs, \u02ccI kan s\u02c8i\u02d0 \u026at h\u02c8\u026a\u0259.",
+"sr": 24000,
+"seconds": 4.175,
+"wav": "data/ch6/wav/kokoro/r12_raw_0.wav",
+"gpu": {
+"ttfa": 0.059407475870102644,
+"wall": 0.05944309290498495
+},
+"cpu": {
+"ttfa": 1.1233218831475824,
+"wall": 1.123365635983646,
+"threads": 4
+}
+},
+"kokoro/r01_spoken_0": {
+"model": "kokoro",
+"line": "r01",
+"variant": "spoken",
+"seed": 0,
+"text": "Thanks for calling Halfwheel Cycles, you're through to the workshop. How can I help?",
+"phonemes": "\u03b8\u02c8a\u014bks f\u0254\u02d0 k\u02c8\u0254\u02d0l\u026a\u014b h\u02c8\u0251\u02d0fwi\u02d0l s\u02c8Ik\u1d4alz, j\u0254\u02d0 \u03b8\u0279u\u02d0 t\u0259 \u00f0\u0259 w\u02c8\u025c\u02d0k\u0283\u0252p. h\u02ccW kan \u02ccI h\u02c8\u025blp?",
+"sr": 24000,
+"seconds": 4.85,
+"wav": "data/ch6/wav/kokoro/r01_spoken_0.wav",
+"gpu": {
+"ttfa": 0.06049873703159392,
+"wall": 0.060532200150191784
+},
+"cpu": {
+"ttfa": 1.2960273460485041,
+"wall": 1.2960693549830467,
+"threads": 4
+}
+},
+"kokoro/r02_spoken_0": {
+"model": "kokoro",
+"line": "r02",
+"variant": "spoken",
+"seed": 0,
+"text": "Your ticket is H W one oh four two, and the Trek Domane is ready to collect after two P M.",
+"phonemes": "j\u02cc\u0254\u02d0 t\u02c8\u026ak\u026at \u026az \u02c8A\u02a7 d\u02c8\u028cb\u1d4alju\u02d0 w\u02c8\u028cn \u02c8Q f\u02c8\u0254\u02d0 t\u02c8u\u02d0, and \u00f0\u0259 t\u0279\u02c8\u025bk d\u0259m\u02c8An \u026az \u0279\u02c8\u025bdi t\u0259 k\u0259l\u02c8\u025bkt \u02c8\u0251\u02d0ft\u0259 t\u02c8u\u02d0 p\u02c8i\u02d0 \u02c8\u025bm",
+"sr": 24000,
+"seconds": 6.625,
+"wav": "data/ch6/wav/kokoro/r02_spoken_0.wav",
+"gpu": {
+"ttfa": 0.09943752596154809,
+"wall": 0.09947925503365695
+},
+"cpu": {
+"ttfa": 2.511413146974519,
+"wall": 2.5114598451182246,
+"threads": 4
+}
+},
+"kokoro/r03_spoken_0": {
+"model": "kokoro",
+"line": "r03",
+"variant": "spoken",
+"seed": 0,
+"text": "A wheel true is twenty five pounds, and a full service is one hundred and forty nine pounds ninety nine.",
+"phonemes": "\u0250 w\u02c8i\u02d0l t\u0279\u02c8u\u02d0 \u026az tw\u02c8\u025bnti f\u02c8Iv p\u02c8Wndz, and \u0250 f\u02c8\u028al s\u02c8\u025c\u02d0v\u026as \u026az w\u02c8\u028cn h\u02c8\u028cnd\u0279\u0259d and f\u02c8\u0254\u02d0ti n\u02c8In p\u02c8Wndz n\u02c8Inti n\u02c8In.",
+"sr": 24000,
+"seconds": 6.65,
+"wav": "data/ch6/wav/kokoro/r03_spoken_0.wav",
+"gpu": {
+"ttfa": 0.09979935293085873,
+"wall": 0.09984331601299345
+},
+"cpu": {
+"ttfa": 2.596300310920924,
+"wall": 2.596345928031951,
+"threads": 4
+}
+},
+"kokoro/r04_spoken_0": {
+"model": "kokoro",
+"line": "r04",
+"variant": "spoken",
+"seed": 0,
+"text": "I've booked you in for Thursday the fourteenth of November at ten thirty.",
+"phonemes": "\u02ccIv b\u02c8\u028akt ju\u02d0 \u02c8\u026an f\u0254\u02d0 \u03b8\u02c8\u025c\u02d0zdA \u00f0\u0259 f\u02cc\u0254\u02d0t\u02c8i\u02d0n\u03b8 \u0252v nQv\u02c8\u025bmb\u0259 at t\u02c8\u025bn \u03b8\u02c8\u025c\u02d0ti.",
+"sr": 24000,
+"seconds": 4.425,
+"wav": "data/ch6/wav/kokoro/r04_spoken_0.wav",
+"gpu": {
+"ttfa": 0.09134387201629579,
+"wall": 0.09138300595805049
+},
+"cpu": {
+"ttfa": 1.7613078749272972,
+"wall": 1.761348180938512,
+"threads": 4
+}
+},
+"kokoro/r05_spoken_0": {
+"model": "kokoro",
+"line": "r05",
+"variant": "spoken",
+"seed": 0,
+"text": "Priya will call you back on four one five, five five five, oh one nine two before six P M.",
+"phonemes": "p\u0279\u02c8\u026aj\u0259 w\u026al k\u02c8\u0254\u02d0l ju\u02d0 b\u02c8ak \u02cc\u0252n f\u02c8\u0254\u02d0 w\u02c8\u028cn f\u02c8Iv, f\u02c8Iv f\u02c8Iv f\u02c8Iv, \u02c8Q w\u02c8\u028cn n\u02c8In t\u02c8u\u02d0 b\u026af\u02c8\u0254\u02d0 s\u02c8\u026aks p\u02c8i\u02d0 \u02c8\u025bm",
+"sr": 24000,
+"seconds": 6.375,
+"wav": "data/ch6/wav/kokoro/r05_spoken_0.wav",
+"gpu": {
+"ttfa": 0.09996854397468269,
+"wall": 0.10000923089683056
+},
+"cpu": {
+"ttfa": 2.438841852126643,
+"wall": 2.4388864061329514,
+"threads": 4
+}
+},
+"kokoro/r06_spoken_0": {
+"model": "kokoro",
+"line": "r06",
+"variant": "spoken",
+"seed": 0,
+"text": "Is that Okafor, O, K, A, F, O, R?",
+"phonemes": "\u02cc\u026az \u00f0\u02c8at \u02c8\u0252kaf\u0259, \u02c8Q, k\u02c8A, \u02c8A, \u02c8\u025bf, \u02c8Q, \u02c8\u0251\u02d0?",
+"sr": 24000,
+"seconds": 3.25,
+"wav": "data/ch6/wav/kokoro/r06_spoken_0.wav",
+"gpu": {
+"ttfa": 0.08732100506313145,
+"wall": 0.08736806409433484
+},
+"cpu": {
+"ttfa": 1.3211601260118186,
+"wall": 1.3212000920902938,
+"threads": 4
+}
+},
+"kokoro/r07_spoken_0": {
+"model": "kokoro",
+"line": "r07",
+"variant": "spoken",
+"seed": 0,
+"text": "We've ordered a Shimano one oh five D I two rear mech, so allow three to five working days.",
+"phonemes": "w\u02cci\u02d0v \u02c8\u0254\u02d0d\u0259d \u0250 \u0283\u026am\u02c8\u0251\u02d0nQ w\u02c8\u028cn \u02c8Q f\u02c8Iv d\u02c8i\u02d0 \u02ccI t\u02c8u\u02d0 \u0279\u02c8\u026a\u0259 m\u02c8\u025bk, s\u02ccQ \u0259l\u02c8W \u03b8\u0279\u02c8i\u02d0 t\u0259 f\u02c8Iv w\u02c8\u025c\u02d0k\u026a\u014b d\u02c8Az.",
+"sr": 24000,
+"seconds": 6.2,
+"wav": "data/ch6/wav/kokoro/r07_spoken_0.wav",
+"gpu": {
+"ttfa": 0.09950105589814484,
+"wall": 0.09954238496720791
+},
+"cpu": {
+"ttfa": 2.39829945913516,
+"wall": 2.398345896974206,
+"threads": 4
+}
+},
+"kokoro/r08_spoken_0": {
+"model": "kokoro",
+"line": "r08",
+"variant": "spoken",
+"seed": 0,
+"text": "We're open Monday to Saturday, nine A M to six P M.",
+"phonemes": "w\u02cc\u026a\u0259 \u02c8Qp\u1d4an m\u02c8\u028cndA t\u0259 s\u02c8at\u0259dA, n\u02c8In \u02c8A \u02c8\u025bm t\u0259 s\u02c8\u026aks p\u02c8i\u02d0 \u02c8\u025bm",
+"sr": 24000,
+"seconds": 4.25,
+"wav": "data/ch6/wav/kokoro/r08_spoken_0.wav",
+"gpu": {
+"ttfa": 0.09082084894180298,
+"wall": 0.09085763897746801
+},
+"cpu": {
+"ttfa": 1.672237399034202,
+"wall": 1.6722848790232092,
+"threads": 4
+}
+},
+"kokoro/r09_spoken_0": {
+"model": "kokoro",
+"line": "r09",
+"variant": "spoken",
+"seed": 0,
+"text": "That comes to thirty seven pounds fifty including V A T.",
+"phonemes": "\u00f0\u02c8at k\u02c8\u028cmz t\u0259 \u03b8\u02c8\u025c\u02d0ti s\u02c8\u025bv\u1d4an p\u02c8Wndz f\u02c8\u026afti \u026ankl\u02c8u\u02d0d\u026a\u014b v\u02c8i\u02d0 \u0250 t\u02c8i\u02d0",
+"sr": 24000,
+"seconds": 4.05,
+"wav": "data/ch6/wav/kokoro/r09_spoken_0.wav",
+"gpu": {
+"ttfa": 0.09106444078497589,
+"wall": 0.0911010499112308
+},
+"cpu": {
+"ttfa": 1.5917278351262212,
+"wall": 1.591767881065607,
+"threads": 4
+}
+},
+"kokoro/r10_spoken_0": {
+"model": "kokoro",
+"line": "r10",
+"variant": "spoken",
+"seed": 0,
+"text": "Sorry, the Canyon Grizl won't be ready until Friday, but the Brompton is done.",
+"phonemes": "s\u02c8\u0252\u0279i, \u00f0\u0259 k\u02c8anj\u0259n \u0261\u0279\u02c8\u026az\u1d4al wQnt bi\u02d0 \u0279\u02c8\u025bdi \u0259nt\u02c8\u026al f\u0279\u02c8IdA, b\u02cc\u028ct \u00f0\u0259 b\u0279\u02c8\u0252mpt\u0259n \u026az d\u02c8\u028cn.",
+"sr": 24000,
+"seconds": 4.95,
+"wav": "data/ch6/wav/kokoro/r10_spoken_0.wav",
+"gpu": {
+"ttfa": 0.06134852999821305,
+"wall": 0.061389387119561434
+},
+"cpu": {
+"ttfa": 1.320713076973334,
+"wall": 1.3207578919827938,
+"threads": 4
+}
+},
+"kokoro/r11_spoken_0": {
+"model": "kokoro",
+"line": "r11",
+"variant": "spoken",
+"seed": 0,
+"text": "Your next service is due at one thousand five hundred miles.",
+"phonemes": "j\u02cc\u0254\u02d0 n\u02c8\u025bkst s\u02c8\u025c\u02d0v\u026as \u026az dj\u02c8u\u02d0 at w\u02c8\u028cn \u03b8\u02c8Wz\u1d4and f\u02c8Iv h\u02c8\u028cnd\u0279\u0259d m\u02c8Ilz.",
+"sr": 24000,
+"seconds": 4.175,
+"wav": "data/ch6/wav/kokoro/r11_spoken_0.wav",
+"gpu": {
+"ttfa": 0.056768205016851425,
+"wall": 0.05680113798007369
+},
+"cpu": {
+"ttfa": 1.115796647965908,
+"wall": 1.1158365029841661,
+"threads": 4
+}
+},
+"kokoro/r12_spoken_0": {
+"model": "kokoro",
+"line": "r12",
+"variant": "spoken",
+"seed": 0,
+"text": "Mm, let me just check that for you. Okay, yes, I can see it here.",
+"phonemes": "m, l\u02c8\u025bt m\u02cci\u02d0 \u02a4\u02c8\u028cst \u02a7\u02c8\u025bk \u00f0\u02c8at f\u0254\u02d0 ju\u02d0. \u02ccQk\u02c8A, j\u02c8\u025bs, \u02ccI kan s\u02c8i\u02d0 \u026at h\u02c8\u026a\u0259.",
+"sr": 24000,
+"seconds": 4.175,
+"wav": "data/ch6/wav/kokoro/r12_spoken_0.wav",
+"gpu": {
+"ttfa": 0.057497248984873295,
+"wall": 0.05752959102392197
+},
+"cpu": {
+"ttfa": 1.1230620190035552,
+"wall": 1.123108257073909,
+"threads": 4
+}
+}
+}
+}

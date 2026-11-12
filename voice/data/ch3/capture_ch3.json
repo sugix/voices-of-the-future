@@ -1,0 +1,197 @@
+{
+ "env": {
+  "gpu": "NVIDIA RTX 4000 Ada Generation",
+  "torch": "2.6.0+cu124",
+  "python": "3.12.16",
+  "nemo": "3.0.0",
+  "qwen_peak_gb": 7.5
+ },
+ "results": {
+  "nvidia/parakeet-ctc-0.6b": {
+   "c01_status/clean": {
+    "text": "hi is my bike ready the ticket number is h w one oh four two",
+    "seconds": 0.113,
+    "audio_s": 5.0
+   },
+   "c01_status/phone": {
+    "text": "hi is my bike ready the ticket number is h w one oh four two",
+    "seconds": 0.094,
+    "audio_s": 5.0
+   },
+   "c02_booking/clean": {
+    "text": "hello i'd like to book a tune up for my trek domain sl five sometime thursday afternoon if you have it",
+    "seconds": 0.104,
+    "audio_s": 7.88
+   },
+   "c02_booking/phone": {
+    "text": "hello i'd like to book a tune up for my trek domain sl f sometime thursday afternoon if you have it",
+    "seconds": 0.104,
+    "audio_s": 7.88
+   },
+   "c03_price/clean": {
+    "text": "how much do you charge to true a rear wheel and replace the brake pads",
+    "seconds": 0.101,
+    "audio_s": 4.22
+   },
+   "c03_price/phone": {
+    "text": "how much do you charge to true a rear wheel and replace the brake pads",
+    "seconds": 0.11,
+    "audio_s": 4.22
+   },
+   "c04_message/clean": {
+    "text": "could you ask priya to call me back it's daniel oaffa on four one five five five five oh one nine two",
+    "seconds": 0.11,
+    "audio_s": 8.05
+   },
+   "c04_message/phone": {
+    "text": "could you ask priya to call me back it's daniel oaffa on four one five five five five oh one nine two",
+    "seconds": 0.137,
+    "audio_s": 8.05
+   },
+   "c05_change/clean": {
+    "text": "i booked a service for saturday at ten but i need to move it to monday",
+    "seconds": 0.115,
+    "audio_s": 5.0
+   },
+   "c05_change/phone": {
+    "text": "i booked a service for saturday at ten but i need to move it to monday",
+    "seconds": 0.106,
+    "audio_s": 5.0
+   },
+   "c06_spam/clean": {
+    "text": "congratulations your business has been selected for a limited time merchant processing offer press one now to speak with a specialist",
+    "seconds": 0.104,
+    "audio_s": 8.62
+   },
+   "c06_spam/phone": {
+    "text": "congratulations your business has been selected for a limited time merchant processing offer press one now to speak with a specialist",
+    "seconds": 0.112,
+    "audio_s": 8.62
+   }
+  },
+  "nvidia/parakeet-tdt-0.6b-v2": {
+   "c01_status/clean": {
+    "text": "Hi, is my bike ready? The ticket number is HW1042.",
+    "seconds": 0.184,
+    "audio_s": 5.0
+   },
+   "c01_status/phone": {
+    "text": "Hi, is my bike ready? The ticket number is HW1042.",
+    "seconds": 0.069,
+    "audio_s": 5.0
+   },
+   "c02_booking/clean": {
+    "text": "Hello, I'd like to book a tune-up for my Trek Domain SL5, sometime Thursday afternoon if you have it.",
+    "seconds": 0.075,
+    "audio_s": 7.88
+   },
+   "c02_booking/phone": {
+    "text": "Hello, I'd like to book a tune-up for my Trek Domain SL5, sometime Thursday afternoon if you have it.",
+    "seconds": 0.074,
+    "audio_s": 7.88
+   },
+   "c03_price/clean": {
+    "text": "How much do you charge to true a rear wheel and replace the brake pads?",
+    "seconds": 0.07,
+    "audio_s": 4.22
+   },
+   "c03_price/phone": {
+    "text": "How much do you charge to true a rear wheel and replace the brake pads?",
+    "seconds": 0.153,
+    "audio_s": 4.22
+   },
+   "c04_message/clean": {
+    "text": "Could you ask Priya to call me back? It's Daniel Okafa, on 415-555-0192.",
+    "seconds": 0.074,
+    "audio_s": 8.05
+   },
+   "c04_message/phone": {
+    "text": "Could you ask Priya to call me back? It's Daniel Okafer on 415-555-0192.",
+    "seconds": 0.08,
+    "audio_s": 8.05
+   },
+   "c05_change/clean": {
+    "text": "I booked a service for Saturday at 10, but I need to move it to Monday.",
+    "seconds": 0.071,
+    "audio_s": 5.0
+   },
+   "c05_change/phone": {
+    "text": "I booked a service for Saturday at ten, but I need to move it to Monday.",
+    "seconds": 0.078,
+    "audio_s": 5.0
+   },
+   "c06_spam/clean": {
+    "text": "Congratulations. Your business has been selected for a limited time merchant processing offer. Press one now to speak with a specialist.",
+    "seconds": 0.076,
+    "audio_s": 8.62
+   },
+   "c06_spam/phone": {
+    "text": "Congratulations. Your business has been selected for a limited-time merchant processing offer. Press 1 now to speak with a specialist.",
+    "seconds": 0.169,
+    "audio_s": 8.62
+   }
+  },
+  "Qwen/Qwen3-ASR-1.7B (fp16)": {
+   "c01_status/clean": {
+    "text": "Hi, is my bike ready? The ticket number is H W 1042.",
+    "seconds": 0.719,
+    "audio_s": 5.0
+   },
+   "c01_status/phone": {
+    "text": "Hi, is my bike ready? The ticket number is H W 1042.",
+    "seconds": 0.721,
+    "audio_s": 5.0
+   },
+   "c02_booking/clean": {
+    "text": "Hello, I'd like to book a tune-up for my Trek Domain SL5 sometime Thursday afternoon if you have it.",
+    "seconds": 0.948,
+    "audio_s": 7.88
+   },
+   "c02_booking/phone": {
+    "text": "Hello, I'd like to book a tune-up for my Trek Domain SL5 sometime Thursday afternoon, if you have it.",
+    "seconds": 0.895,
+    "audio_s": 7.88
+   },
+   "c03_price/clean": {
+    "text": "How much do you charge to true a rear wheel and replace the brake pads?",
+    "seconds": 0.626,
+    "audio_s": 4.22
+   },
+   "c03_price/phone": {
+    "text": "How much do you charge to true a rear wheel and replace the brake pads?",
+    "seconds": 0.698,
+    "audio_s": 4.22
+   },
+   "c04_message/clean": {
+    "text": "Could you ask Priya to call me back? It's Daniel Ocafa on four one five five five five o one nine two.",
+    "seconds": 0.989,
+    "audio_s": 8.05
+   },
+   "c04_message/phone": {
+    "text": "Could you ask Priya to call me back? It's Daniel O'Kaffer on four one five five five five o one nine two.",
+    "seconds": 1.018,
+    "audio_s": 8.05
+   },
+   "c05_change/clean": {
+    "text": "I booked a service for Saturday at 10, but I need to move it to Monday.",
+    "seconds": 0.747,
+    "audio_s": 5.0
+   },
+   "c05_change/phone": {
+    "text": "I booked a service for Saturday at ten, but I need to move it to Monday.",
+    "seconds": 0.69,
+    "audio_s": 5.0
+   },
+   "c06_spam/clean": {
+    "text": "Congratulations! Your business has been selected for a limited-time merchant processing offer. Press one now to speak with a specialist.",
+    "seconds": 0.997,
+    "audio_s": 8.62
+   },
+   "c06_spam/phone": {
+    "text": "Congratulations, your business has been selected for a limited-time merchant processing offer. Press one now to speak with a specialist.",
+    "seconds": 1.208,
+    "audio_s": 8.62
+   }
+  }
+ }
+}

@@ -1,0 +1,728 @@
+{
+"meta": {
+"model": "kyutai/pocket-tts-without-voice-cloning",
+"voice": "anna (vctk p228)"
+},
+"clips": {
+"pocket/r01_raw_0": {
+"model": "pocket",
+"line": "r01",
+"variant": "raw",
+"seed": 0,
+"text": "Thanks for calling Halfwheel Cycles, you're through to the workshop. How can I help?",
+"sr": 24000,
+"seconds": 4.32,
+"wav": "data/ch6/wav/pocket/r01_raw_0.wav",
+"cpu": {
+"ttfa": 0.20753516093827784,
+"wall": 1.831181398127228,
+"threads": 2
+}
+},
+"pocket/r02_raw_0": {
+"model": "pocket",
+"line": "r02",
+"variant": "raw",
+"seed": 0,
+"text": "Your ticket is HW-1042, and the Trek Domane is ready to collect after 2pm.",
+"sr": 24000,
+"seconds": 6.48,
+"wav": "data/ch6/wav/pocket/r02_raw_0.wav",
+"cpu": {
+"ttfa": 0.20195134193636477,
+"wall": 2.637056860839948,
+"threads": 2
+}
+},
+"pocket/r03_raw_0": {
+"model": "pocket",
+"line": "r03",
+"variant": "raw",
+"seed": 0,
+"text": "A wheel true is \u00a325, and a full service is \u00a3149.99.",
+"sr": 24000,
+"seconds": 4.0,
+"wav": "data/ch6/wav/pocket/r03_raw_0.wav",
+"cpu": {
+"ttfa": 0.1865271518472582,
+"wall": 1.70150370686315,
+"threads": 2
+}
+},
+"pocket/r04_raw_0": {
+"model": "pocket",
+"line": "r04",
+"variant": "raw",
+"seed": 0,
+"text": "I've booked you in for Thu 14 Nov at 10:30.",
+"sr": 24000,
+"seconds": 3.12,
+"wav": "data/ch6/wav/pocket/r04_raw_0.wav",
+"cpu": {
+"ttfa": 0.18525325297378004,
+"wall": 1.3288400450255722,
+"threads": 2
+}
+},
+"pocket/r05_raw_0": {
+"model": "pocket",
+"line": "r05",
+"variant": "raw",
+"seed": 0,
+"text": "Priya will call you back on 415-555-0192 before 6pm.",
+"sr": 24000,
+"seconds": 5.44,
+"wav": "data/ch6/wav/pocket/r05_raw_0.wav",
+"cpu": {
+"ttfa": 0.19309186306782067,
+"wall": 2.230168028967455,
+"threads": 2
+}
+},
+"pocket/r06_raw_0": {
+"model": "pocket",
+"line": "r06",
+"variant": "raw",
+"seed": 0,
+"text": "Is that Okafor, O-K-A-F-O-R?",
+"sr": 24000,
+"seconds": 2.8,
+"wav": "data/ch6/wav/pocket/r06_raw_0.wav",
+"cpu": {
+"ttfa": 0.16619601612910628,
+"wall": 1.198305977974087,
+"threads": 2
+}
+},
+"pocket/r07_raw_0": {
+"model": "pocket",
+"line": "r07",
+"variant": "raw",
+"seed": 0,
+"text": "We've ordered a Shimano 105 Di2 rear mech, so allow 3-5 working days.",
+"sr": 24000,
+"seconds": 6.08,
+"wav": "data/ch6/wav/pocket/r07_raw_0.wav",
+"cpu": {
+"ttfa": 0.19383790902793407,
+"wall": 2.487559965113178,
+"threads": 2
+}
+},
+"pocket/r08_raw_0": {
+"model": "pocket",
+"line": "r08",
+"variant": "raw",
+"seed": 0,
+"text": "We're open Mon-Sat, 9am-6pm.",
+"sr": 24000,
+"seconds": 3.12,
+"wav": "data/ch6/wav/pocket/r08_raw_0.wav",
+"cpu": {
+"ttfa": 0.1721476640086621,
+"wall": 1.2974162318278104,
+"threads": 2
+}
+},
+"pocket/r09_raw_0": {
+"model": "pocket",
+"line": "r09",
+"variant": "raw",
+"seed": 0,
+"text": "That comes to \u00a337.50 including VAT.",
+"sr": 24000,
+"seconds": 1.76,
+"wav": "data/ch6/wav/pocket/r09_raw_0.wav",
+"cpu": {
+"ttfa": 0.17532393313013017,
+"wall": 0.8091245200484991,
+"threads": 2
+}
+},
+"pocket/r10_raw_0": {
+"model": "pocket",
+"line": "r10",
+"variant": "raw",
+"seed": 0,
+"text": "Sorry, the Canyon Grizl won't be ready until Friday, but the Brompton is done.",
+"sr": 24000,
+"seconds": 4.32,
+"wav": "data/ch6/wav/pocket/r10_raw_0.wav",
+"cpu": {
+"ttfa": 0.18815396912395954,
+"wall": 1.8537442090455443,
+"threads": 2
+}
+},
+"pocket/r11_raw_0": {
+"model": "pocket",
+"line": "r11",
+"variant": "raw",
+"seed": 0,
+"text": "Your next service is due at 1,500 miles.",
+"sr": 24000,
+"seconds": 3.76,
+"wav": "data/ch6/wav/pocket/r11_raw_0.wav",
+"cpu": {
+"ttfa": 0.17496089497581124,
+"wall": 1.5852231669705361,
+"threads": 2
+}
+},
+"pocket/r12_raw_0": {
+"model": "pocket",
+"line": "r12",
+"variant": "raw",
+"seed": 0,
+"text": "Mm, let me just check that for you. Okay, yes, I can see it here.",
+"sr": 24000,
+"seconds": 4.8,
+"wav": "data/ch6/wav/pocket/r12_raw_0.wav",
+"cpu": {
+"ttfa": 0.18269518692977726,
+"wall": 1.9582840129733086,
+"threads": 2
+}
+},
+"pocket/r01_spoken_0": {
+"model": "pocket",
+"line": "r01",
+"variant": "spoken",
+"seed": 0,
+"text": "Thanks for calling Halfwheel Cycles, you're through to the workshop. How can I help?",
+"sr": 24000,
+"seconds": 4.32,
+"wav": "data/ch6/wav/pocket/r01_spoken_0.wav",
+"cpu": {
+"ttfa": 0.1993624169845134,
+"wall": 1.8330555858556181,
+"threads": 2
+}
+},
+"pocket/r02_spoken_0": {
+"model": "pocket",
+"line": "r02",
+"variant": "spoken",
+"seed": 0,
+"text": "Your ticket is H W one oh four two, and the Trek Domane is ready to collect after two P M.",
+"sr": 24000,
+"seconds": 6.88,
+"wav": "data/ch6/wav/pocket/r02_spoken_0.wav",
+"cpu": {
+"ttfa": 0.19470846210606396,
+"wall": 2.8291852050460875,
+"threads": 2
+}
+},
+"pocket/r03_spoken_0": {
+"model": "pocket",
+"line": "r03",
+"variant": "spoken",
+"seed": 0,
+"text": "A wheel true is twenty five pounds, and a full service is one hundred and forty nine pounds ninety nine.",
+"sr": 24000,
+"seconds": 6.24,
+"wav": "data/ch6/wav/pocket/r03_spoken_0.wav",
+"cpu": {
+"ttfa": 0.19920096010901034,
+"wall": 2.5628428671043366,
+"threads": 2
+}
+},
+"pocket/r04_spoken_0": {
+"model": "pocket",
+"line": "r04",
+"variant": "spoken",
+"seed": 0,
+"text": "I've booked you in for Thursday the fourteenth of November at ten thirty.",
+"sr": 24000,
+"seconds": 3.92,
+"wav": "data/ch6/wav/pocket/r04_spoken_0.wav",
+"cpu": {
+"ttfa": 0.18817141302861273,
+"wall": 1.6632128779310733,
+"threads": 2
+}
+},
+"pocket/r05_spoken_0": {
+"model": "pocket",
+"line": "r05",
+"variant": "spoken",
+"seed": 0,
+"text": "Priya will call you back on four one five, five five five, oh one nine two before six P M.",
+"sr": 24000,
+"seconds": 5.52,
+"wav": "data/ch6/wav/pocket/r05_spoken_0.wav",
+"cpu": {
+"ttfa": 0.17387191695161164,
+"wall": 2.2368789890315384,
+"threads": 2
+}
+},
+"pocket/r06_spoken_0": {
+"model": "pocket",
+"line": "r06",
+"variant": "spoken",
+"seed": 0,
+"text": "Is that Okafor, O, K, A, F, O, R?",
+"sr": 24000,
+"seconds": 3.36,
+"wav": "data/ch6/wav/pocket/r06_spoken_0.wav",
+"cpu": {
+"ttfa": 0.18336653080768883,
+"wall": 1.4058213119860739,
+"threads": 2
+}
+},
+"pocket/r07_spoken_0": {
+"model": "pocket",
+"line": "r07",
+"variant": "spoken",
+"seed": 0,
+"text": "We've ordered a Shimano one oh five D I two rear mech, so allow three to five working days.",
+"sr": 24000,
+"seconds": 6.48,
+"wav": "data/ch6/wav/pocket/r07_spoken_0.wav",
+"cpu": {
+"ttfa": 0.19361499603837729,
+"wall": 2.577915680827573,
+"threads": 2
+}
+},
+"pocket/r08_spoken_0": {
+"model": "pocket",
+"line": "r08",
+"variant": "spoken",
+"seed": 0,
+"text": "We're open Monday to Saturday, nine A M to six P M.",
+"sr": 24000,
+"seconds": 4.08,
+"wav": "data/ch6/wav/pocket/r08_spoken_0.wav",
+"cpu": {
+"ttfa": 0.18530104379169643,
+"wall": 1.7226154739037156,
+"threads": 2
+}
+},
+"pocket/r09_spoken_0": {
+"model": "pocket",
+"line": "r09",
+"variant": "spoken",
+"seed": 0,
+"text": "That comes to thirty seven pounds fifty including V A T.",
+"sr": 24000,
+"seconds": 4.0,
+"wav": "data/ch6/wav/pocket/r09_spoken_0.wav",
+"cpu": {
+"ttfa": 0.18691421602852643,
+"wall": 1.652670064009726,
+"threads": 2
+}
+},
+"pocket/r10_spoken_0": {
+"model": "pocket",
+"line": "r10",
+"variant": "spoken",
+"seed": 0,
+"text": "Sorry, the Canyon Grizl won't be ready until Friday, but the Brompton is done.",
+"sr": 24000,
+"seconds": 4.32,
+"wav": "data/ch6/wav/pocket/r10_spoken_0.wav",
+"cpu": {
+"ttfa": 0.19033474009484053,
+"wall": 1.7709795150440186,
+"threads": 2
+}
+},
+"pocket/r11_spoken_0": {
+"model": "pocket",
+"line": "r11",
+"variant": "spoken",
+"seed": 0,
+"text": "Your next service is due at one thousand five hundred miles.",
+"sr": 24000,
+"seconds": 3.76,
+"wav": "data/ch6/wav/pocket/r11_spoken_0.wav",
+"cpu": {
+"ttfa": 0.1811563151422888,
+"wall": 1.5647042151540518,
+"threads": 2
+}
+},
+"pocket/r12_spoken_0": {
+"model": "pocket",
+"line": "r12",
+"variant": "spoken",
+"seed": 0,
+"text": "Mm, let me just check that for you. Okay, yes, I can see it here.",
+"sr": 24000,
+"seconds": 4.8,
+"wav": "data/ch6/wav/pocket/r12_spoken_0.wav",
+"cpu": {
+"ttfa": 0.1838855769019574,
+"wall": 1.9479051590897143,
+"threads": 2
+}
+},
+"pocket/r01_spoken_1": {
+"model": "pocket",
+"line": "r01",
+"variant": "spoken",
+"seed": 1,
+"text": "Thanks for calling Halfwheel Cycles, you're through to the workshop. How can I help?",
+"sr": 24000,
+"seconds": 4.88,
+"wav": "data/ch6/wav/pocket/r01_spoken_1.wav",
+"cpu": {
+"ttfa": 0.19824063684791327,
+"wall": 2.0131652150303125,
+"threads": 2
+}
+},
+"pocket/r02_spoken_1": {
+"model": "pocket",
+"line": "r02",
+"variant": "spoken",
+"seed": 1,
+"text": "Your ticket is H W one oh four two, and the Trek Domane is ready to collect after two P M.",
+"sr": 24000,
+"seconds": 6.72,
+"wav": "data/ch6/wav/pocket/r02_spoken_1.wav",
+"cpu": {
+"ttfa": 0.19482468301430345,
+"wall": 2.698133314959705,
+"threads": 2
+}
+},
+"pocket/r03_spoken_1": {
+"model": "pocket",
+"line": "r03",
+"variant": "spoken",
+"seed": 1,
+"text": "A wheel true is twenty five pounds, and a full service is one hundred and forty nine pounds ninety nine.",
+"sr": 24000,
+"seconds": 6.48,
+"wav": "data/ch6/wav/pocket/r03_spoken_1.wav",
+"cpu": {
+"ttfa": 0.1983164418488741,
+"wall": 2.6160385909024626,
+"threads": 2
+}
+},
+"pocket/r04_spoken_1": {
+"model": "pocket",
+"line": "r04",
+"variant": "spoken",
+"seed": 1,
+"text": "I've booked you in for Thursday the fourteenth of November at ten thirty.",
+"sr": 24000,
+"seconds": 4.08,
+"wav": "data/ch6/wav/pocket/r04_spoken_1.wav",
+"cpu": {
+"ttfa": 0.18440486281178892,
+"wall": 1.699214800959453,
+"threads": 2
+}
+},
+"pocket/r05_spoken_1": {
+"model": "pocket",
+"line": "r05",
+"variant": "spoken",
+"seed": 1,
+"text": "Priya will call you back on four one five, five five five, oh one nine two before six P M.",
+"sr": 24000,
+"seconds": 5.52,
+"wav": "data/ch6/wav/pocket/r05_spoken_1.wav",
+"cpu": {
+"ttfa": 0.19044924690388143,
+"wall": 2.2273476850241423,
+"threads": 2
+}
+},
+"pocket/r06_spoken_1": {
+"model": "pocket",
+"line": "r06",
+"variant": "spoken",
+"seed": 1,
+"text": "Is that Okafor, O, K, A, F, O, R?",
+"sr": 24000,
+"seconds": 3.44,
+"wav": "data/ch6/wav/pocket/r06_spoken_1.wav",
+"cpu": {
+"ttfa": 0.181236949050799,
+"wall": 1.4191009609494358,
+"threads": 2
+}
+},
+"pocket/r07_spoken_1": {
+"model": "pocket",
+"line": "r07",
+"variant": "spoken",
+"seed": 1,
+"text": "We've ordered a Shimano one oh five D I two rear mech, so allow three to five working days.",
+"sr": 24000,
+"seconds": 6.16,
+"wav": "data/ch6/wav/pocket/r07_spoken_1.wav",
+"cpu": {
+"ttfa": 0.18922228808514774,
+"wall": 2.453628201968968,
+"threads": 2
+}
+},
+"pocket/r08_spoken_1": {
+"model": "pocket",
+"line": "r08",
+"variant": "spoken",
+"seed": 1,
+"text": "We're open Monday to Saturday, nine A M to six P M.",
+"sr": 24000,
+"seconds": 3.92,
+"wav": "data/ch6/wav/pocket/r08_spoken_1.wav",
+"cpu": {
+"ttfa": 0.1805223219562322,
+"wall": 1.622014297870919,
+"threads": 2
+}
+},
+"pocket/r09_spoken_1": {
+"model": "pocket",
+"line": "r09",
+"variant": "spoken",
+"seed": 1,
+"text": "That comes to thirty seven pounds fifty including V A T.",
+"sr": 24000,
+"seconds": 3.68,
+"wav": "data/ch6/wav/pocket/r09_spoken_1.wav",
+"cpu": {
+"ttfa": 0.17975745000876486,
+"wall": 1.5213186140172184,
+"threads": 2
+}
+},
+"pocket/r10_spoken_1": {
+"model": "pocket",
+"line": "r10",
+"variant": "spoken",
+"seed": 1,
+"text": "Sorry, the Canyon Grizl won't be ready until Friday, but the Brompton is done.",
+"sr": 24000,
+"seconds": 4.4,
+"wav": "data/ch6/wav/pocket/r10_spoken_1.wav",
+"cpu": {
+"ttfa": 0.1958144020754844,
+"wall": 1.8113771839998662,
+"threads": 2
+}
+},
+"pocket/r11_spoken_1": {
+"model": "pocket",
+"line": "r11",
+"variant": "spoken",
+"seed": 1,
+"text": "Your next service is due at one thousand five hundred miles.",
+"sr": 24000,
+"seconds": 3.84,
+"wav": "data/ch6/wav/pocket/r11_spoken_1.wav",
+"cpu": {
+"ttfa": 0.1765637779608369,
+"wall": 1.605147860944271,
+"threads": 2
+}
+},
+"pocket/r12_spoken_1": {
+"model": "pocket",
+"line": "r12",
+"variant": "spoken",
+"seed": 1,
+"text": "Mm, let me just check that for you. Okay, yes, I can see it here.",
+"sr": 24000,
+"seconds": 4.24,
+"wav": "data/ch6/wav/pocket/r12_spoken_1.wav",
+"cpu": {
+"ttfa": 0.18438840215094388,
+"wall": 1.7892384971491992,
+"threads": 2
+}
+},
+"pocket/r01_spoken_2": {
+"model": "pocket",
+"line": "r01",
+"variant": "spoken",
+"seed": 2,
+"text": "Thanks for calling Halfwheel Cycles, you're through to the workshop. How can I help?",
+"sr": 24000,
+"seconds": 4.88,
+"wav": "data/ch6/wav/pocket/r01_spoken_2.wav",
+"cpu": {
+"ttfa": 0.197099972050637,
+"wall": 2.0332944160327315,
+"threads": 2
+}
+},
+"pocket/r02_spoken_2": {
+"model": "pocket",
+"line": "r02",
+"variant": "spoken",
+"seed": 2,
+"text": "Your ticket is H W one oh four two, and the Trek Domane is ready to collect after two P M.",
+"sr": 24000,
+"seconds": 6.72,
+"wav": "data/ch6/wav/pocket/r02_spoken_2.wav",
+"cpu": {
+"ttfa": 0.1925396549049765,
+"wall": 2.631032705074176,
+"threads": 2
+}
+},
+"pocket/r03_spoken_2": {
+"model": "pocket",
+"line": "r03",
+"variant": "spoken",
+"seed": 2,
+"text": "A wheel true is twenty five pounds, and a full service is one hundred and forty nine pounds ninety nine.",
+"sr": 24000,
+"seconds": 6.24,
+"wav": "data/ch6/wav/pocket/r03_spoken_2.wav",
+"cpu": {
+"ttfa": 0.1890905280597508,
+"wall": 2.474485917016864,
+"threads": 2
+}
+},
+"pocket/r04_spoken_2": {
+"model": "pocket",
+"line": "r04",
+"variant": "spoken",
+"seed": 2,
+"text": "I've booked you in for Thursday the fourteenth of November at ten thirty.",
+"sr": 24000,
+"seconds": 3.92,
+"wav": "data/ch6/wav/pocket/r04_spoken_2.wav",
+"cpu": {
+"ttfa": 0.17645958997309208,
+"wall": 1.609401635825634,
+"threads": 2
+}
+},
+"pocket/r05_spoken_2": {
+"model": "pocket",
+"line": "r05",
+"variant": "spoken",
+"seed": 2,
+"text": "Priya will call you back on four one five, five five five, oh one nine two before six P M.",
+"sr": 24000,
+"seconds": 6.0,
+"wav": "data/ch6/wav/pocket/r05_spoken_2.wav",
+"cpu": {
+"ttfa": 0.19479179987683892,
+"wall": 2.3942173798568547,
+"threads": 2
+}
+},
+"pocket/r06_spoken_2": {
+"model": "pocket",
+"line": "r06",
+"variant": "spoken",
+"seed": 2,
+"text": "Is that Okafor, O, K, A, F, O, R?",
+"sr": 24000,
+"seconds": 4.08,
+"wav": "data/ch6/wav/pocket/r06_spoken_2.wav",
+"cpu": {
+"ttfa": 0.18166475091129541,
+"wall": 1.6562583048362285,
+"threads": 2
+}
+},
+"pocket/r07_spoken_2": {
+"model": "pocket",
+"line": "r07",
+"variant": "spoken",
+"seed": 2,
+"text": "We've ordered a Shimano one oh five D I two rear mech, so allow three to five working days.",
+"sr": 24000,
+"seconds": 6.4,
+"wav": "data/ch6/wav/pocket/r07_spoken_2.wav",
+"cpu": {
+"ttfa": 0.195219341898337,
+"wall": 2.5360211909282953,
+"threads": 2
+}
+},
+"pocket/r08_spoken_2": {
+"model": "pocket",
+"line": "r08",
+"variant": "spoken",
+"seed": 2,
+"text": "We're open Monday to Saturday, nine A M to six P M.",
+"sr": 24000,
+"seconds": 4.4,
+"wav": "data/ch6/wav/pocket/r08_spoken_2.wav",
+"cpu": {
+"ttfa": 0.17971963807940483,
+"wall": 1.7864544210024178,
+"threads": 2
+}
+},
+"pocket/r09_spoken_2": {
+"model": "pocket",
+"line": "r09",
+"variant": "spoken",
+"seed": 2,
+"text": "That comes to thirty seven pounds fifty including V A T.",
+"sr": 24000,
+"seconds": 3.92,
+"wav": "data/ch6/wav/pocket/r09_spoken_2.wav",
+"cpu": {
+"ttfa": 0.1813976641278714,
+"wall": 1.5991547440644354,
+"threads": 2
+}
+},
+"pocket/r10_spoken_2": {
+"model": "pocket",
+"line": "r10",
+"variant": "spoken",
+"seed": 2,
+"text": "Sorry, the Canyon Grizl won't be ready until Friday, but the Brompton is done.",
+"sr": 24000,
+"seconds": 4.8,
+"wav": "data/ch6/wav/pocket/r10_spoken_2.wav",
+"cpu": {
+"ttfa": 0.1885445909574628,
+"wall": 1.938240802846849,
+"threads": 2
+}
+},
+"pocket/r11_spoken_2": {
+"model": "pocket",
+"line": "r11",
+"variant": "spoken",
+"seed": 2,
+"text": "Your next service is due at one thousand five hundred miles.",
+"sr": 24000,
+"seconds": 3.76,
+"wav": "data/ch6/wav/pocket/r11_spoken_2.wav",
+"cpu": {
+"ttfa": 0.1805833070538938,
+"wall": 1.5472475059796125,
+"threads": 2
+}
+},
+"pocket/r12_spoken_2": {
+"model": "pocket",
+"line": "r12",
+"variant": "spoken",
+"seed": 2,
+"text": "Mm, let me just check that for you. Okay, yes, I can see it here.",
+"sr": 24000,
+"seconds": 4.24,
+"wav": "data/ch6/wav/pocket/r12_spoken_2.wav",
+"cpu": {
+"ttfa": 0.18090309505350888,
+"wall": 1.7741182229947299,
+"threads": 2
+}
+}
+}
+}

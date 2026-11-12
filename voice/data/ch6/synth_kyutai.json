@@ -1,0 +1,683 @@
+{
+"meta": {
+"model": "kyutai/tts-1.6b-en_fr",
+"voice": "vctk/p228_023.wav",
+"gpu_name": "NVIDIA L4",
+"frame_rate": 12.5,
+"delay_steps": 16
+},
+"clips": {
+"kyutai/r01_raw_0": {
+"model": "kyutai",
+"line": "r01",
+"variant": "raw",
+"seed": 0,
+"text": "Thanks for calling Halfwheel Cycles, you're through to the workshop. How can I help?",
+"sr": 24000,
+"seconds": 5.44,
+"wav": "data/ch6/wav/kyutai/r01_raw_0.wav",
+"gpu": {
+"ttfa": 0.9656505989842117,
+"wall": 3.040561808971688
+}
+},
+"kyutai/r02_raw_0": {
+"model": "kyutai",
+"line": "r02",
+"variant": "raw",
+"seed": 0,
+"text": "Your ticket is HW-1042, and the Trek Domane is ready to collect after 2pm.",
+"sr": 24000,
+"seconds": 6.4,
+"wav": "data/ch6/wav/kyutai/r02_raw_0.wav",
+"gpu": {
+"ttfa": 0.9565666648559272,
+"wall": 3.4033995368517935
+}
+},
+"kyutai/r03_raw_0": {
+"model": "kyutai",
+"line": "r03",
+"variant": "raw",
+"seed": 0,
+"text": "A wheel true is \u00a325, and a full service is \u00a3149.99.",
+"sr": 24000,
+"seconds": 5.76,
+"wav": "data/ch6/wav/kyutai/r03_raw_0.wav",
+"gpu": {
+"ttfa": 0.9556481309700757,
+"wall": 3.1548259709961712
+}
+},
+"kyutai/r04_raw_0": {
+"model": "kyutai",
+"line": "r04",
+"variant": "raw",
+"seed": 0,
+"text": "I've booked you in for Thu 14 Nov at 10:30.",
+"sr": 24000,
+"seconds": 3.92,
+"wav": "data/ch6/wav/kyutai/r04_raw_0.wav",
+"gpu": {
+"ttfa": 0.9557749521918595,
+"wall": 2.4424058981239796
+}
+},
+"kyutai/r05_raw_0": {
+"model": "kyutai",
+"line": "r05",
+"variant": "raw",
+"seed": 0,
+"text": "Priya will call you back on 415-555-0192 before 6pm.",
+"sr": 24000,
+"seconds": 4.64,
+"wav": "data/ch6/wav/kyutai/r05_raw_0.wav",
+"gpu": {
+"ttfa": 0.9594020480290055,
+"wall": 2.7245122601743788
+}
+},
+"kyutai/r06_raw_0": {
+"model": "kyutai",
+"line": "r06",
+"variant": "raw",
+"seed": 0,
+"text": "Is that Okafor, O-K-A-F-O-R?",
+"sr": 24000,
+"seconds": 2.88,
+"wav": "data/ch6/wav/kyutai/r06_raw_0.wav",
+"gpu": {
+"ttfa": 0.9561204579658806,
+"wall": 2.039998473133892
+}
+},
+"kyutai/r07_raw_0": {
+"model": "kyutai",
+"line": "r07",
+"variant": "raw",
+"seed": 0,
+"text": "We've ordered a Shimano 105 Di2 rear mech, so allow 3-5 working days.",
+"sr": 24000,
+"seconds": 6.64,
+"wav": "data/ch6/wav/kyutai/r07_raw_0.wav",
+"gpu": {
+"ttfa": 0.9604979678988457,
+"wall": 3.500471331877634
+}
+},
+"kyutai/r08_raw_0": {
+"model": "kyutai",
+"line": "r08",
+"variant": "raw",
+"seed": 0,
+"text": "We're open Mon-Sat, 9am-6pm.",
+"sr": 24000,
+"seconds": 2.56,
+"wav": "data/ch6/wav/kyutai/r08_raw_0.wav",
+"gpu": {
+"ttfa": 0.9593241300899535,
+"wall": 1.920233559096232
+}
+},
+"kyutai/r09_raw_0": {
+"model": "kyutai",
+"line": "r09",
+"variant": "raw",
+"seed": 0,
+"text": "That comes to \u00a337.50 including VAT.",
+"sr": 24000,
+"seconds": 3.2,
+"wav": "data/ch6/wav/kyutai/r09_raw_0.wav",
+"gpu": {
+"ttfa": 0.9593280469998717,
+"wall": 2.1676939020399004
+}
+},
+"kyutai/r10_raw_0": {
+"model": "kyutai",
+"line": "r10",
+"variant": "raw",
+"seed": 0,
+"text": "Sorry, the Canyon Grizl won't be ready until Friday, but the Brompton is done.",
+"sr": 24000,
+"seconds": 5.44,
+"wav": "data/ch6/wav/kyutai/r10_raw_0.wav",
+"gpu": {
+"ttfa": 0.961681263986975,
+"wall": 3.0390986611600965
+}
+},
+"kyutai/r11_raw_0": {
+"model": "kyutai",
+"line": "r11",
+"variant": "raw",
+"seed": 0,
+"text": "Your next service is due at 1,500 miles.",
+"sr": 24000,
+"seconds": 3.52,
+"wav": "data/ch6/wav/kyutai/r11_raw_0.wav",
+"gpu": {
+"ttfa": 0.9586287799756974,
+"wall": 2.2926183009985834
+}
+},
+"kyutai/r12_raw_0": {
+"model": "kyutai",
+"line": "r12",
+"variant": "raw",
+"seed": 0,
+"text": "Mm, let me just check that for you. Okay, yes, I can see it here.",
+"sr": 24000,
+"seconds": 5.84,
+"wav": "data/ch6/wav/kyutai/r12_raw_0.wav",
+"gpu": {
+"ttfa": 0.9551569090690464,
+"wall": 3.1888183301780373
+}
+},
+"kyutai/r01_spoken_0": {
+"model": "kyutai",
+"line": "r01",
+"variant": "spoken",
+"seed": 0,
+"text": "Thanks for calling Halfwheel Cycles, you're through to the workshop. How can I help?",
+"sr": 24000,
+"seconds": 5.44,
+"wav": "data/ch6/wav/kyutai/r01_spoken_0.wav",
+"gpu": {
+"ttfa": 0.9642024009954184,
+"wall": 3.0432948081288487
+}
+},
+"kyutai/r02_spoken_0": {
+"model": "kyutai",
+"line": "r02",
+"variant": "spoken",
+"seed": 0,
+"text": "Your ticket is H W one oh four two, and the Trek Domane is ready to collect after two P M.",
+"sr": 24000,
+"seconds": 7.04,
+"wav": "data/ch6/wav/kyutai/r02_spoken_0.wav",
+"gpu": {
+"ttfa": 0.9644211258273572,
+"wall": 3.6640891740098596
+}
+},
+"kyutai/r03_spoken_0": {
+"model": "kyutai",
+"line": "r03",
+"variant": "spoken",
+"seed": 0,
+"text": "A wheel true is twenty five pounds, and a full service is one hundred and forty nine pounds ninety nine.",
+"sr": 24000,
+"seconds": 6.96,
+"wav": "data/ch6/wav/kyutai/r03_spoken_0.wav",
+"gpu": {
+"ttfa": 0.954457872081548,
+"wall": 3.6237869560718536
+}
+},
+"kyutai/r04_spoken_0": {
+"model": "kyutai",
+"line": "r04",
+"variant": "spoken",
+"seed": 0,
+"text": "I've booked you in for Thursday the fourteenth of November at ten thirty.",
+"sr": 24000,
+"seconds": 4.72,
+"wav": "data/ch6/wav/kyutai/r04_spoken_0.wav",
+"gpu": {
+"ttfa": 0.9588932918850332,
+"wall": 2.758940005907789
+}
+},
+"kyutai/r05_spoken_0": {
+"model": "kyutai",
+"line": "r05",
+"variant": "spoken",
+"seed": 0,
+"text": "Priya will call you back on four one five, five five five, oh one nine two before six P M.",
+"sr": 24000,
+"seconds": 7.04,
+"wav": "data/ch6/wav/kyutai/r05_spoken_0.wav",
+"gpu": {
+"ttfa": 0.9838928999379277,
+"wall": 3.684785502962768
+}
+},
+"kyutai/r06_spoken_0": {
+"model": "kyutai",
+"line": "r06",
+"variant": "spoken",
+"seed": 0,
+"text": "Is that Okafor, O, K, A, F, O, R?",
+"sr": 24000,
+"seconds": 5.68,
+"wav": "data/ch6/wav/kyutai/r06_spoken_0.wav",
+"gpu": {
+"ttfa": 0.95783881098032,
+"wall": 3.1334696598351
+}
+},
+"kyutai/r07_spoken_0": {
+"model": "kyutai",
+"line": "r07",
+"variant": "spoken",
+"seed": 0,
+"text": "We've ordered a Shimano one oh five D I two rear mech, so allow three to five working days.",
+"sr": 24000,
+"seconds": 7.2,
+"wav": "data/ch6/wav/kyutai/r07_spoken_0.wav",
+"gpu": {
+"ttfa": 1.0084705259650946,
+"wall": 3.7754993170965463
+}
+},
+"kyutai/r08_spoken_0": {
+"model": "kyutai",
+"line": "r08",
+"variant": "spoken",
+"seed": 0,
+"text": "We're open Monday to Saturday, nine A M to six P M.",
+"sr": 24000,
+"seconds": 4.8,
+"wav": "data/ch6/wav/kyutai/r08_spoken_0.wav",
+"gpu": {
+"ttfa": 0.9613924159202725,
+"wall": 2.7946446649730206
+}
+},
+"kyutai/r09_spoken_0": {
+"model": "kyutai",
+"line": "r09",
+"variant": "spoken",
+"seed": 0,
+"text": "That comes to thirty seven pounds fifty including V A T.",
+"sr": 24000,
+"seconds": 4.56,
+"wav": "data/ch6/wav/kyutai/r09_spoken_0.wav",
+"gpu": {
+"ttfa": 0.9568494318518788,
+"wall": 2.696817616932094
+}
+},
+"kyutai/r10_spoken_0": {
+"model": "kyutai",
+"line": "r10",
+"variant": "spoken",
+"seed": 0,
+"text": "Sorry, the Canyon Grizl won't be ready until Friday, but the Brompton is done.",
+"sr": 24000,
+"seconds": 5.44,
+"wav": "data/ch6/wav/kyutai/r10_spoken_0.wav",
+"gpu": {
+"ttfa": 0.9560927450656891,
+"wall": 3.039100815076381
+}
+},
+"kyutai/r11_spoken_0": {
+"model": "kyutai",
+"line": "r11",
+"variant": "spoken",
+"seed": 0,
+"text": "Your next service is due at one thousand five hundred miles.",
+"sr": 24000,
+"seconds": 3.92,
+"wav": "data/ch6/wav/kyutai/r11_spoken_0.wav",
+"gpu": {
+"ttfa": 0.9592591170221567,
+"wall": 2.452981313923374
+}
+},
+"kyutai/r12_spoken_0": {
+"model": "kyutai",
+"line": "r12",
+"variant": "spoken",
+"seed": 0,
+"text": "Mm, let me just check that for you. Okay, yes, I can see it here.",
+"sr": 24000,
+"seconds": 5.84,
+"wav": "data/ch6/wav/kyutai/r12_spoken_0.wav",
+"gpu": {
+"ttfa": 0.9724821790587157,
+"wall": 3.2140353999566287
+}
+},
+"kyutai/r01_spoken_1": {
+"model": "kyutai",
+"line": "r01",
+"variant": "spoken",
+"seed": 1,
+"text": "Thanks for calling Halfwheel Cycles, you're through to the workshop. How can I help?",
+"sr": 24000,
+"seconds": 5.2,
+"wav": "data/ch6/wav/kyutai/r01_spoken_1.wav",
+"gpu": {
+"ttfa": 0.9647242808714509,
+"wall": 2.955014791805297
+}
+},
+"kyutai/r02_spoken_1": {
+"model": "kyutai",
+"line": "r02",
+"variant": "spoken",
+"seed": 1,
+"text": "Your ticket is H W one oh four two, and the Trek Domane is ready to collect after two P M.",
+"sr": 24000,
+"seconds": 6.96,
+"wav": "data/ch6/wav/kyutai/r02_spoken_1.wav",
+"gpu": {
+"ttfa": 0.9612348568625748,
+"wall": 3.6395819808822125
+}
+},
+"kyutai/r03_spoken_1": {
+"model": "kyutai",
+"line": "r03",
+"variant": "spoken",
+"seed": 1,
+"text": "A wheel true is twenty five pounds, and a full service is one hundred and forty nine pounds ninety nine.",
+"sr": 24000,
+"seconds": 7.76,
+"wav": "data/ch6/wav/kyutai/r03_spoken_1.wav",
+"gpu": {
+"ttfa": 0.9563260788563639,
+"wall": 3.947917755926028
+}
+},
+"kyutai/r04_spoken_1": {
+"model": "kyutai",
+"line": "r04",
+"variant": "spoken",
+"seed": 1,
+"text": "I've booked you in for Thursday the fourteenth of November at ten thirty.",
+"sr": 24000,
+"seconds": 5.76,
+"wav": "data/ch6/wav/kyutai/r04_spoken_1.wav",
+"gpu": {
+"ttfa": 0.966835067840293,
+"wall": 3.1791413000319153
+}
+},
+"kyutai/r05_spoken_1": {
+"model": "kyutai",
+"line": "r05",
+"variant": "spoken",
+"seed": 1,
+"text": "Priya will call you back on four one five, five five five, oh one nine two before six P M.",
+"sr": 24000,
+"seconds": 7.2,
+"wav": "data/ch6/wav/kyutai/r05_spoken_1.wav",
+"gpu": {
+"ttfa": 0.9937024910468608,
+"wall": 3.7671438162215054
+}
+},
+"kyutai/r06_spoken_1": {
+"model": "kyutai",
+"line": "r06",
+"variant": "spoken",
+"seed": 1,
+"text": "Is that Okafor, O, K, A, F, O, R?",
+"sr": 24000,
+"seconds": 4.56,
+"wav": "data/ch6/wav/kyutai/r06_spoken_1.wav",
+"gpu": {
+"ttfa": 0.9539979589171708,
+"wall": 2.6981664579361677
+}
+},
+"kyutai/r07_spoken_1": {
+"model": "kyutai",
+"line": "r07",
+"variant": "spoken",
+"seed": 1,
+"text": "We've ordered a Shimano one oh five D I two rear mech, so allow three to five working days.",
+"sr": 24000,
+"seconds": 7.04,
+"wav": "data/ch6/wav/kyutai/r07_spoken_1.wav",
+"gpu": {
+"ttfa": 0.9562976639717817,
+"wall": 3.668773195007816
+}
+},
+"kyutai/r08_spoken_1": {
+"model": "kyutai",
+"line": "r08",
+"variant": "spoken",
+"seed": 1,
+"text": "We're open Monday to Saturday, nine A M to six P M.",
+"sr": 24000,
+"seconds": 4.64,
+"wav": "data/ch6/wav/kyutai/r08_spoken_1.wav",
+"gpu": {
+"ttfa": 0.9552599340677261,
+"wall": 2.730735112912953
+}
+},
+"kyutai/r09_spoken_1": {
+"model": "kyutai",
+"line": "r09",
+"variant": "spoken",
+"seed": 1,
+"text": "That comes to thirty seven pounds fifty including V A T.",
+"sr": 24000,
+"seconds": 5.2,
+"wav": "data/ch6/wav/kyutai/r09_spoken_1.wav",
+"gpu": {
+"ttfa": 0.9553806539624929,
+"wall": 2.9516849210485816
+}
+},
+"kyutai/r10_spoken_1": {
+"model": "kyutai",
+"line": "r10",
+"variant": "spoken",
+"seed": 1,
+"text": "Sorry, the Canyon Grizl won't be ready until Friday, but the Brompton is done.",
+"sr": 24000,
+"seconds": 5.44,
+"wav": "data/ch6/wav/kyutai/r10_spoken_1.wav",
+"gpu": {
+"ttfa": 0.9662135478574783,
+"wall": 3.0555619539227337
+}
+},
+"kyutai/r11_spoken_1": {
+"model": "kyutai",
+"line": "r11",
+"variant": "spoken",
+"seed": 1,
+"text": "Your next service is due at one thousand five hundred miles.",
+"sr": 24000,
+"seconds": 4.0,
+"wav": "data/ch6/wav/kyutai/r11_spoken_1.wav",
+"gpu": {
+"ttfa": 1.003617773996666,
+"wall": 2.5309792298357934
+}
+},
+"kyutai/r12_spoken_1": {
+"model": "kyutai",
+"line": "r12",
+"variant": "spoken",
+"seed": 1,
+"text": "Mm, let me just check that for you. Okay, yes, I can see it here.",
+"sr": 24000,
+"seconds": 5.36,
+"wav": "data/ch6/wav/kyutai/r12_spoken_1.wav",
+"gpu": {
+"ttfa": 0.9754813518375158,
+"wall": 3.0347209819592535
+}
+},
+"kyutai/r01_spoken_2": {
+"model": "kyutai",
+"line": "r01",
+"variant": "spoken",
+"seed": 2,
+"text": "Thanks for calling Halfwheel Cycles, you're through to the workshop. How can I help?",
+"sr": 24000,
+"seconds": 5.44,
+"wav": "data/ch6/wav/kyutai/r01_spoken_2.wav",
+"gpu": {
+"ttfa": 0.9715844339225441,
+"wall": 3.0630260640755296
+}
+},
+"kyutai/r02_spoken_2": {
+"model": "kyutai",
+"line": "r02",
+"variant": "spoken",
+"seed": 2,
+"text": "Your ticket is H W one oh four two, and the Trek Domane is ready to collect after two P M.",
+"sr": 24000,
+"seconds": 6.24,
+"wav": "data/ch6/wav/kyutai/r02_spoken_2.wav",
+"gpu": {
+"ttfa": 0.9738550838083029,
+"wall": 3.376784331863746
+}
+},
+"kyutai/r03_spoken_2": {
+"model": "kyutai",
+"line": "r03",
+"variant": "spoken",
+"seed": 2,
+"text": "A wheel true is twenty five pounds, and a full service is one hundred and forty nine pounds ninety nine.",
+"sr": 24000,
+"seconds": 8.16,
+"wav": "data/ch6/wav/kyutai/r03_spoken_2.wav",
+"gpu": {
+"ttfa": 0.9682439221069217,
+"wall": 4.12305263010785
+}
+},
+"kyutai/r04_spoken_2": {
+"model": "kyutai",
+"line": "r04",
+"variant": "spoken",
+"seed": 2,
+"text": "I've booked you in for Thursday the fourteenth of November at ten thirty.",
+"sr": 24000,
+"seconds": 5.12,
+"wav": "data/ch6/wav/kyutai/r04_spoken_2.wav",
+"gpu": {
+"ttfa": 0.9709863478783518,
+"wall": 2.937261320883408
+}
+},
+"kyutai/r05_spoken_2": {
+"model": "kyutai",
+"line": "r05",
+"variant": "spoken",
+"seed": 2,
+"text": "Priya will call you back on four one five, five five five, oh one nine two before six P M.",
+"sr": 24000,
+"seconds": 8.8,
+"wav": "data/ch6/wav/kyutai/r05_spoken_2.wav",
+"gpu": {
+"ttfa": 0.9708743160590529,
+"wall": 4.374443628126755
+}
+},
+"kyutai/r06_spoken_2": {
+"model": "kyutai",
+"line": "r06",
+"variant": "spoken",
+"seed": 2,
+"text": "Is that Okafor, O, K, A, F, O, R?",
+"sr": 24000,
+"seconds": 5.2,
+"wav": "data/ch6/wav/kyutai/r06_spoken_2.wav",
+"gpu": {
+"ttfa": 0.9594585062004626,
+"wall": 2.9579761950299144
+}
+},
+"kyutai/r07_spoken_2": {
+"model": "kyutai",
+"line": "r07",
+"variant": "spoken",
+"seed": 2,
+"text": "We've ordered a Shimano one oh five D I two rear mech, so allow three to five working days.",
+"sr": 24000,
+"seconds": 6.64,
+"wav": "data/ch6/wav/kyutai/r07_spoken_2.wav",
+"gpu": {
+"ttfa": 0.9614765758160502,
+"wall": 3.522503747837618
+}
+},
+"kyutai/r08_spoken_2": {
+"model": "kyutai",
+"line": "r08",
+"variant": "spoken",
+"seed": 2,
+"text": "We're open Monday to Saturday, nine A M to six P M.",
+"sr": 24000,
+"seconds": 4.16,
+"wav": "data/ch6/wav/kyutai/r08_spoken_2.wav",
+"gpu": {
+"ttfa": 0.962452869862318,
+"wall": 2.5543760168366134
+}
+},
+"kyutai/r09_spoken_2": {
+"model": "kyutai",
+"line": "r09",
+"variant": "spoken",
+"seed": 2,
+"text": "That comes to thirty seven pounds fifty including V A T.",
+"sr": 24000,
+"seconds": 5.2,
+"wav": "data/ch6/wav/kyutai/r09_spoken_2.wav",
+"gpu": {
+"ttfa": 0.9630639799870551,
+"wall": 2.963085414841771
+}
+},
+"kyutai/r10_spoken_2": {
+"model": "kyutai",
+"line": "r10",
+"variant": "spoken",
+"seed": 2,
+"text": "Sorry, the Canyon Grizl won't be ready until Friday, but the Brompton is done.",
+"sr": 24000,
+"seconds": 5.44,
+"wav": "data/ch6/wav/kyutai/r10_spoken_2.wav",
+"gpu": {
+"ttfa": 0.9646007670089602,
+"wall": 3.0583644062280655
+}
+},
+"kyutai/r11_spoken_2": {
+"model": "kyutai",
+"line": "r11",
+"variant": "spoken",
+"seed": 2,
+"text": "Your next service is due at one thousand five hundred miles.",
+"sr": 24000,
+"seconds": 4.32,
+"wav": "data/ch6/wav/kyutai/r11_spoken_2.wav",
+"gpu": {
+"ttfa": 0.9848552881740034,
+"wall": 2.638480465160683
+}
+},
+"kyutai/r12_spoken_2": {
+"model": "kyutai",
+"line": "r12",
+"variant": "spoken",
+"seed": 2,
+"text": "Mm, let me just check that for you. Okay, yes, I can see it here.",
+"sr": 24000,
+"seconds": 5.04,
+"wav": "data/ch6/wav/kyutai/r12_spoken_2.wav",
+"gpu": {
+"ttfa": 0.9681766759604216,
+"wall": 2.904937861021608
+}
+}
+}
+}

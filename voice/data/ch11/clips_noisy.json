@@ -1,0 +1,327 @@
+{
+"c01_0": {
+"voice": "af_heart",
+"snr": 10,
+"speech_end": 5.16
+},
+"c01_1": {
+"voice": "af_heart",
+"snr": 10,
+"speech_end": 1.54
+},
+"c01_fix_ticket": {
+"voice": "af_heart",
+"snr": 10,
+"speech_end": 2.92
+},
+"c02_0": {
+"voice": "am_michael",
+"snr": 10,
+"speech_end": 3.51
+},
+"c02_1": {
+"voice": "am_michael",
+"snr": 10,
+"speech_end": 4.09
+},
+"c02_2": {
+"voice": "am_michael",
+"snr": 10,
+"speech_end": 2.13
+},
+"c02_fix_ticket": {
+"voice": "am_michael",
+"snr": 10,
+"speech_end": 2.98
+},
+"c03_0": {
+"voice": "bf_emma",
+"snr": 10,
+"speech_end": 3.3099999999999996
+},
+"c03_1": {
+"voice": "bf_emma",
+"snr": 10,
+"speech_end": 3.6799999999999997
+},
+"c03_2": {
+"voice": "bf_emma",
+"snr": 10,
+"speech_end": 4.25
+},
+"c03_3": {
+"voice": "bf_emma",
+"snr": 10,
+"speech_end": 1.47
+},
+"c03_4": {
+"voice": "bf_emma",
+"snr": 10,
+"speech_end": 1.18
+},
+"c03_fix_phone": {
+"voice": "bf_emma",
+"snr": 10,
+"speech_end": 3.63
+},
+"c03_fix_name": {
+"voice": "bf_emma",
+"snr": 10,
+"speech_end": 3.1199999999999997
+},
+"c04_0": {
+"voice": "af_bella",
+"snr": 10,
+"speech_end": 2.92
+},
+"c04_1": {
+"voice": "af_bella",
+"snr": 10,
+"speech_end": 1.29
+},
+"c04_2": {
+"voice": "af_bella",
+"snr": 10,
+"speech_end": 1.32
+},
+"c04_3": {
+"voice": "af_bella",
+"snr": 10,
+"speech_end": 1.5
+},
+"c04_fix_name": {
+"voice": "af_bella",
+"snr": 10,
+"speech_end": 2.73
+},
+"c05_0": {
+"voice": "bm_george",
+"snr": 10,
+"speech_end": 3.4
+},
+"c05_1": {
+"voice": "bm_george",
+"snr": 10,
+"speech_end": 4.81
+},
+"c05_2": {
+"voice": "bm_george",
+"snr": 10,
+"speech_end": 1.6300000000000001
+},
+"c05_3": {
+"voice": "bm_george",
+"snr": 10,
+"speech_end": 1.11
+},
+"c05_fix_name": {
+"voice": "bm_george",
+"snr": 10,
+"speech_end": 3.57
+},
+"c06_0": {
+"voice": "af_nicole",
+"snr": 10,
+"speech_end": 4.7
+},
+"c06_1": {
+"voice": "af_nicole",
+"snr": 10,
+"speech_end": 8.13
+},
+"c06_2": {
+"voice": "af_nicole",
+"snr": 10,
+"speech_end": 1.53
+},
+"c06_3": {
+"voice": "af_nicole",
+"snr": 10,
+"speech_end": 1.02
+},
+"c06_fix_phone": {
+"voice": "af_nicole",
+"snr": 10,
+"speech_end": 5.71
+},
+"c06_fix_name": {
+"voice": "af_nicole",
+"snr": 10,
+"speech_end": 1.84
+},
+"c07_0": {
+"voice": "am_fenrir",
+"snr": 10,
+"speech_end": 1.94
+},
+"c07_1": {
+"voice": "am_fenrir",
+"snr": 10,
+"speech_end": 1.6300000000000001
+},
+"c07_2": {
+"voice": "am_fenrir",
+"snr": 10,
+"speech_end": 1.15
+},
+"c08_0": {
+"voice": "bf_isabella",
+"snr": 10,
+"speech_end": 1.93
+},
+"c08_1": {
+"voice": "bf_isabella",
+"snr": 10,
+"speech_end": 1.51
+},
+"c08_2": {
+"voice": "bf_isabella",
+"snr": 10,
+"speech_end": 1.29
+},
+"c09_0": {
+"voice": "bm_fable",
+"snr": 10,
+"speech_end": 4.1
+},
+"c09_1": {
+"voice": "bm_fable",
+"snr": 10,
+"speech_end": 3.92
+},
+"c09_2": {
+"voice": "bm_fable",
+"snr": 10,
+"speech_end": 1.83
+},
+"c09_3": {
+"voice": "bm_fable",
+"snr": 10,
+"speech_end": 2.01
+},
+"c09_fix_name": {
+"voice": "bm_fable",
+"snr": 10,
+"speech_end": 2.6799999999999997
+},
+"c10_0": {
+"voice": "af_heart",
+"snr": 10,
+"speech_end": 2.6199999999999997
+},
+"c10_1": {
+"voice": "af_heart",
+"snr": 10,
+"speech_end": 2.0
+},
+"c11_0": {
+"voice": "am_michael",
+"snr": 10,
+"speech_end": 3.1199999999999997
+},
+"c11_1": {
+"voice": "am_michael",
+"snr": 10,
+"speech_end": 1.22
+},
+"c12_0": {
+"voice": "bf_emma",
+"snr": 10,
+"speech_end": 4.64
+},
+"c12_1": {
+"voice": "bf_emma",
+"snr": 10,
+"speech_end": 1.73
+},
+"c12_2": {
+"voice": "bf_emma",
+"snr": 10,
+"speech_end": 1.6400000000000001
+},
+"c12_fix_ticket": {
+"voice": "bf_emma",
+"snr": 10,
+"speech_end": 2.51
+},
+"c13_0": {
+"voice": "am_fenrir",
+"snr": 10,
+"speech_end": 5.71
+},
+"c13_1": {
+"voice": "am_fenrir",
+"snr": 10,
+"speech_end": 2.21
+},
+"c13_fix_ticket": {
+"voice": "am_fenrir",
+"snr": 10,
+"speech_end": 2.15
+},
+"c14_0": {
+"voice": "bf_isabella",
+"snr": 10,
+"speech_end": 2.09
+},
+"c14_1": {
+"voice": "bf_isabella",
+"snr": 10,
+"speech_end": 5.56
+},
+"c14_2": {
+"voice": "bf_isabella",
+"snr": 10,
+"speech_end": 1.48
+},
+"c14_3": {
+"voice": "bf_isabella",
+"snr": 10,
+"speech_end": 1.29
+},
+"c14_fix_phone": {
+"voice": "bf_isabella",
+"snr": 10,
+"speech_end": 3.76
+},
+"c14_fix_name": {
+"voice": "bf_isabella",
+"snr": 10,
+"speech_end": 3.53
+},
+"c15_0": {
+"voice": "bm_george",
+"snr": 10,
+"speech_end": 2.9099999999999997
+},
+"c15_1": {
+"voice": "bm_george",
+"snr": 10,
+"speech_end": 1.4200000000000002
+},
+"c16_0": {
+"voice": "af_bella",
+"snr": 10,
+"speech_end": 4.04
+},
+"c16_1": {
+"voice": "af_bella",
+"snr": 10,
+"speech_end": 1.53
+},
+"c16_2": {
+"voice": "af_bella",
+"snr": 10,
+"speech_end": 1.32
+},
+"c16_3": {
+"voice": "af_bella",
+"snr": 10,
+"speech_end": 0.8300000000000001
+},
+"c16_fix_name": {
+"voice": "af_bella",
+"snr": 10,
+"speech_end": 3.19
+}
+}

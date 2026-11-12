@@ -1,0 +1,129 @@
+{
+"model": "unsloth/csm-1b",
+"replies": [
+"I'm really sorry about that. Let me check what's happened with your bike.",
+"Okay. Your bike will be ready on Friday afternoon."
+],
+"clips": {
+"calm_r0_0": {
+"mood": "calm",
+"reply": "I'm really sorry about that. Let me check what's happened with your bike.",
+"seed": 0,
+"seconds": 3.04,
+"f0_median": 200.29043054093617,
+"f0_range_semitones": 6.049927797269069,
+"words_per_s": 5.01930501930502,
+"loudness_db": -18.25806427001953
+},
+"calm_r0_1": {
+"mood": "calm",
+"reply": "I'm really sorry about that. Let me check what's happened with your bike.",
+"seed": 1,
+"seconds": 3.68,
+"f0_median": 189.0489924635466,
+"f0_range_semitones": 3.9700606036238666,
+"words_per_s": 4.088050314465408,
+"loudness_db": -31.476531982421875
+},
+"calm_r0_2": {
+"mood": "calm",
+"reply": "I'm really sorry about that. Let me check what's happened with your bike.",
+"seed": 2,
+"seconds": 3.44,
+"f0_median": 187.9601503892369,
+"f0_range_semitones": 6.279953736799243,
+"words_per_s": 4.333333333333333,
+"loudness_db": -21.426319122314453
+},
+"calm_r1_0": {
+"mood": "calm",
+"reply": "Okay. Your bike will be ready on Friday afternoon.",
+"seed": 0,
+"seconds": 3.44,
+"f0_median": 202.61769324165294,
+"f0_range_semitones": 7.6,
+"words_per_s": 3.272727272727273,
+"loudness_db": -19.3951358795166
+},
+"calm_r1_1": {
+"mood": "calm",
+"reply": "Okay. Your bike will be ready on Friday afternoon.",
+"seed": 1,
+"seconds": 9.6,
+"f0_median": 173.35869045284167,
+"f0_range_semitones": 17.4,
+"words_per_s": 0.9698275862068966,
+"loudness_db": -40.78045654296875
+},
+"calm_r1_2": {
+"mood": "calm",
+"reply": "Okay. Your bike will be ready on Friday afternoon.",
+"seed": 2,
+"seconds": 3.6,
+"f0_median": 174.36294713023523,
+"f0_range_semitones": 4.599999999999999,
+"words_per_s": 2.8662420382165603,
+"loudness_db": -23.97878646850586
+},
+"angry_r0_0": {
+"mood": "angry",
+"reply": "I'm really sorry about that. Let me check what's happened with your bike.",
+"seed": 0,
+"seconds": 3.52,
+"f0_median": 204.97199743238755,
+"f0_range_semitones": 4.820046263200764,
+"words_per_s": 4.545454545454546,
+"loudness_db": -21.455127716064453
+},
+"angry_r0_1": {
+"mood": "angry",
+"reply": "I'm really sorry about that. Let me check what's happened with your bike.",
+"seed": 1,
+"seconds": 3.52,
+"f0_median": 178.43848782469672,
+"f0_range_semitones": 4.3999999999999995,
+"words_per_s": 4.3478260869565215,
+"loudness_db": -23.295719146728516
+},
+"angry_r0_2": {
+"mood": "angry",
+"reply": "I'm really sorry about that. Let me check what's happened with your bike.",
+"seed": 2,
+"seconds": 3.52,
+"f0_median": 196.28267580609582,
+"f0_range_semitones": 6.399999999999997,
+"words_per_s": 4.088050314465408,
+"loudness_db": -21.425968170166016
+},
+"angry_r1_0": {
+"mood": "angry",
+"reply": "Okay. Your bike will be ready on Friday afternoon.",
+"seed": 0,
+"seconds": 2.48,
+"f0_median": 209.7629907627354,
+"f0_range_semitones": 4.770060603623861,
+"words_per_s": 3.829787234042553,
+"loudness_db": -17.071151733398438
+},
+"angry_r1_1": {
+"mood": "angry",
+"reply": "Okay. Your bike will be ready on Friday afternoon.",
+"seed": 1,
+"seconds": 2.96,
+"f0_median": 187.9601503892369,
+"f0_range_semitones": 3.8999999999999977,
+"words_per_s": 3.284671532846715,
+"loudness_db": -20.789196014404297
+},
+"angry_r1_2": {
+"mood": "angry",
+"reply": "Okay. Your bike will be ready on Friday afternoon.",
+"seed": 2,
+"seconds": 2.72,
+"f0_median": 190.14414213582498,
+"f0_range_semitones": 5.360000093421181,
+"words_per_s": 3.71900826446281,
+"loudness_db": -18.570629119873047
+}
+}
+}
