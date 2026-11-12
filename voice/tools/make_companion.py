@@ -173,7 +173,7 @@ def main(dest):
     voice = dest / "voice"
     if voice.exists():
         shutil.rmtree(voice)
-    tracked = subprocess.run(["git", "ls-files", "data", "sim", "tools", "*.md", "references.bib"], cwd=BOOK,
+    tracked = subprocess.run(["git", "ls-files", "data", "sim", "tools", ":(glob)*.md", "references.bib"], cwd=BOOK,
                              capture_output=True, text=True, check=True).stdout.split()
     for rel in tracked:
         (voice / rel).parent.mkdir(parents=True, exist_ok=True)
