@@ -103,6 +103,8 @@ Every model got something wrong, and each got it wrong differently. Kokoro read 
 
 Every model here does the same job: text goes in, a waveform comes out. They differ in what they predict in between, and that one choice explains most of what I measured later.
 
+**The design they replaced.** For most of the last decade, neural TTS came in two stages. An acoustic model such as Tacotron 2 {cite}`shen2018tacotron2` read the text and predicted a mel spectrogram, Chapter 2's picture of energy across frequency bands over time, one frame every 12.5 ms. A separate vocoder, first WaveNet and later much faster ones such as HiFi-GAN {cite}`kong2020hifigan`, turned that picture into waveform samples. The split works because a mel spectrogram is small enough to predict and complete enough to rebuild speech from. All three designs below keep the idea of predicting something far more compact than the waveform. They differ in what that something is.
+
 **Phonemes, then a vocoder (Kokoro).** Kokoro-82M is built on StyleTTS 2 {cite}`li2023styletts2`. A grapheme-to-phoneme front end (misaki, with espeak-ng as a fallback) turns the text into phonemes. A duration predictor decides how long each one lasts, a decoder paints the whole utterance at once, and an iSTFTNet vocoder turns it into 24 kHz audio. Nothing is sampled and nothing is generated one step at a time, which is why it is fast and why it says a sentence the same way every time. It is also why its mistakes are easy to find: the phonemes are a readable intermediate, and when the audio is wrong, the phonemes were wrong first.
 
 ```{code-cell} ipython3
@@ -118,6 +120,18 @@ You don't need to read IPA to see the problems. In the ticket, `ˌAʧdˈʌbᵊlj
 Both token models split that work the same way. A large backbone transformer looks at the text and all the audio so far, once per frame; a small depth transformer then predicts that frame's 32 codes one after another. CSM-1B uses a 1B Llama backbone and a 100M depth decoder. Kyutai TTS 1.6B uses a 1B backbone and adds the idea from its paper, *delayed streams modelling* {cite}`zeghidour2025dsm`: text and audio are two time-aligned streams, and the audio runs 16 frames (1.28 s) behind the text, so the model always knows the next few words before it has to say them. Both models sample, so they read the same sentence a little differently every time, and both copy a voice from a few seconds of reference audio.
 
 **Continuous latents (Pocket TTS).** Pocket TTS keeps the backbone but drops the tokens {cite}`rouard2025calm`. Instead of choosing codes from a codebook, a small head generates the next frame of a continuous audio latent directly. There is no quantiser throwing information away and no 32-step depth loop per frame, which goes a long way to explaining how 100M parameters can sound this good on two CPU threads.
+
+Why predict frames at all? Count the steps a model has to take for a five-second reply:
+
+```{code-cell} ipython3
+sr, fps = 24_000, 12.5  # Mimi: 24 kHz audio, 12.5 frames a second
+print(f"one Mimi frame = {1000 / fps:.0f} ms of audio = {sr / fps:,.0f} samples")
+for what, per_second in [("waveform, one sample per step", sr), ("mel spectrogram, a frame every 12.5 ms", 80),
+                         ("Mimi, one frame per step", fps)]:
+    print(f"{what:40} {5 * per_second:>8,.0f} steps")
+```
+
+A model that wrote samples one at a time would take 120,000 steps; Kyutai TTS and CSM's backbones take about 60, one per Mimi frame, and the codec's decoder fills in the 1,920 samples behind each one. The 80 ms is how much sound a frame holds, not how long it takes to compute. Those are separate numbers: a model can play while it generates only if it makes frames faster than 12.5 a second, which is what the time-to-first-audio and real-time measurements below check.
 
 ### How many bits does a voice need?
 
@@ -416,6 +430,7 @@ That puts about 0.2 s of speaking delay on top of Chapter 5's 1.3 s of listening
 | A name is mispronounced every time | The phoneme front end guessed from the spelling | A respelling or phoneme override for that name (Chapter 7) |
 | A clip runs on long after the sentence, or stops halfway | A sampled model treating the text as a prompt | Cap generation length relative to the text, check the duration, retry |
 | A long silence before the receptionist speaks | A model that renders the whole utterance before playing | Stream, or split the reply into sentences and start with the first |
+| Each sentence sounds fine, but the reply sounds stitched together | Each sentence was synthesised on its own, so pitch and pace reset at every boundary | Split only where the wait matters, keep short replies whole, and give the voice the previous sentence where the model takes context (CSM, Chapter 10) |
 | The round trip says a fact was wrong but it sounds right | The recogniser's own error | Listen; for spellings and codes, check the model's phonemes |
 
 ```{tip}

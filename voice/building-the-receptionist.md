@@ -374,6 +374,7 @@ The companion notebook, `chapters/08-building-the-receptionist`, has the saved l
 2. **Tighten the end of turn.** Rescore the latency with a 0.8 s rule instead of 1.2 s. How much faster is it, and which callers from Chapter 5 would it cut off?
 3. **A smarter route for names.** When the caller's name doesn't snap to the catalogue, look the caller up by phone number instead. Which calls does it rescue?
 4. **Break the guard.** Remove the yes check from `confirm_action` and rerun the `twophase` configuration. How many wrong bookings come back?
+5. **Hear the joins.** Speaking sentence by sentence starts sooner, but every sentence is read on its own, so the intonation can't run across the reply. Take a three-sentence reply from the logs, have Kokoro read it whole and sentence by sentence, and compare the pitch around each boundary with the measure in `sim/capture_ch7.py`. Listen to both. Is the earlier start worth it?
 
 ## Next
 
