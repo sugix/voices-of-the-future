@@ -28,11 +28,17 @@ A phone call passes through the same layers in every voice agent, whatever the v
 
 Two things stand out from that table. First, most of the failures that matter are about **names and numbers**: a misheard bike model, a mispronounced surname, a booking under "Epha Bion" instead of Aoife Byrne. Second, the rules that held were **the ones in code**, not the ones in a prompt. Both themes come back in almost every chapter.
 
-## Two ways to build it
+## Three ways to build it
 
-The stack above is a chain of separate models, with text handed between them: recogniser, language model, voice. The alternative is one model that takes speech in and gives speech out, and listens while it talks. {doc}`speech-to-speech` puts Moshi, the best-known open one, on Halfwheel's phone. It sounds natural, picks up first and respects pauses. But with no instructions or tools, it turned a repair ticket into an airline ticket, and on phone audio it often waited longer than the chain to answer. My own meeting agent, Kadence, came to the same conclusion: when the job is actions, text in the middle is a feature, because a transcript can be checked before anything acts on it.
+The stack above is a **chain** of separate models, with text handed between them: a recogniser writes down what the caller said, a language model decides what to do and writes a reply, and a voice reads it out. Each one waits for the one before it to finish, and that is where most of the caller's wait comes from.
 
-So Halfwheel's receptionist is a chain, and it borrows from the speech-to-speech models where they're strong: listening for the shape of a turn, and letting the conversation shape the voice.
+The alternative is **one model** that takes speech in and gives speech out, with no recogniser in front and no voice behind, and that listens while it talks. {doc}`speech-to-speech` puts Moshi, the best-known open one, on Halfwheel's phone. It sounds like a person: it picks up first, it waits through a hesitant caller's pauses, and when it did reply, it was often quicker than the chain. But it can't run a shop. With no instructions or tools, it turned a repair ticket into an airline ticket, and in 25 of 96 runs it never replied at all.
+
+Kadence, my stand-up meeting agent, hit the same wall from the other side. An audio-in model heard "ENG-142" as "ENG-112" and called the right tool on 7 of 10 tests; a text chain got all 10. When the job is actions, text in the middle is a feature: a transcript can be checked, normalised and matched against the shop's own records before anything acts on it.
+
+Between the two sits a **split**, which is what many systems sold as speech-to-speech really are. A speech model does the listening, the turn-taking and the voice, and hands each request to a text model that thinks and calls the tools. Chapter 10 shows how to tell the three designs apart from outside, and why a quick "time to first audio" can be an "mm-hm" rather than an answer.
+
+So Halfwheel's receptionist is a chain, built so it can grow into a split. It borrows from the speech-to-speech models where they're strong: listening for the shape of a turn, and letting the conversation shape the voice.
 
 Managed voice-agent platforms bundle the whole chain behind one API, and they're the fastest way to a working demo. This book is about what's inside them, so that you can choose, measure and fix each layer, whether you build it yourself or buy it.
 
