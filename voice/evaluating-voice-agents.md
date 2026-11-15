@@ -26,6 +26,7 @@ Here is where I ended up:
 | Runs vary even with the same audio | five sampled reruns scored {glue}`samp_min` to {glue}`samp_max` of 16 |
 | A model judge with a vague question is worse than none | asked "did the caller get what they needed?", it agreed with the rules on {glue:text}`j1_agree:.0f`% of {glue}`n_judged` conversations, below chance (kappa {glue:text}`j1_kappa:.2f`) |
 | Told the expected behaviour, it's useful | agreement {glue:text}`j2_agree:.0f`% (kappa {glue:text}`j2_kappa:.2f`), and it caught a made-up address the rules missed in {glue}`j2_inv` conversations |
+| Public leaderboards make a shortlist, not a choice | on τ-Voice's phone-line tasks, the best voice agent completed 67%; the best text models complete about 85% of the same tasks; no public board uses your callers or your words |
 | The field finds what the bench can't | Call Gate's real misses and Kadence's café failures were all outside their test sets |
 
 ```{note}
@@ -38,6 +39,7 @@ The new runs come from `sim/capture_ch11.py`, which ran Kokoro, Parakeet and two
 - How much luck is in a score from sixteen calls.
 - The same calls with new voices, a noisier line and repeated runs.
 - Who decides "handled": my rules against a language model judge.
+- What the public leaderboards measure, and what they can't tell you.
 - What the lab can't tell you, from two systems that met real callers.
 ```
 
@@ -58,13 +60,31 @@ Every chapter in this book built a bench for one layer of the receptionist. Put 
 | Audio | wrong sample rate, clipping, a bad phone line | WER and entities under each mistake | 2 | the wrong sample rate took WER from 5% to 46% |
 | Hearing | a word or a name misheard | WER, and entity accuracy | 4 | 96% of entities with boosting and snapping |
 | Turn-taking | cutting callers off, or making them wait | cut-offs and wait after the turn ends | 5 | 3 of 16 cut off at 1.2 s, 1.2 s wait |
+| Interruptions | stopping for its own echo or an "mm-hm", or talking over a real interruption | false stops, missed interruptions, time to pause | 5 | no false stops with echo cancellation; every interruption caught in 0.06 s |
 | Speaking | the wrong words, or the right words unclear | facts heard back through ASR | 6 | 65 of 66 facts after normalisation |
 | Delivery | the wrong tone | pitch, range, pace; listening | 7 | the reference clip moved pitch by 33 Hz, the tag by less |
+| Voice quality | sounds robotic, or not like the voice you chose | listeners' scores (a mean opinion score, or a model that predicts one), speaker similarity | 6, 7 | by ear only: I didn't run a listening panel |
 | The task | wrong actions, invented facts | handled calls, wrong actions | 8 | 11 of 16 handled, 1 wrong action (with the guard in code) |
 | Screening | blocking a customer | false blocks and missed robocalls | 9 | 1 genuine caller blocked, 100 of 155 robocalls blocked |
-| Timing | the caller waits | seconds from their last word to the reply | 8 | 2.4 s median |
+| Timing | the caller waits | seconds from their last word to the first sound and to the first answer, at the median and the 90th percentile | 8, 10 | 2.4 s median to the answer; an acknowledgement could make the first sound 1.2 s |
+| Capacity | waits grow when many callers ring at once | first-sentence time under load, simultaneous calls per GPU | 12 | 0.26 s alone, 0.45 s with 32 requests in flight |
 
 Each row has its own bench because each layer fails differently, and a single end-to-end score can't say which layer broke. But the end-to-end score is still the one that matters to the caller, so the rest of this chapter takes Chapter 8's "11 of 16" and tests how much it can be trusted.
+
+## What the public leaderboards measure
+
+A bench of your own calls tells you how one system does on your job. Public leaderboards answer a different question: how many systems compare on the same test. They are the only fair comparison across dozens of models, because everyone runs exactly the same thing, and there is now one for each layer of this book:
+
+| Leaderboard | What competes | How it scores | What it can't tell Halfwheel |
+|---|---|---|---|
+| Open ASR Leaderboard {cite}`srivastav2025openasr` | more than 60 open and commercial recognisers, on a dozen public datasets | average WER, and speed as RTFx: seconds of audio transcribed per second | its audio isn't 8 kHz phone calls, and every word counts the same, so it can't see "Okafor" or "HW-1042" (Chapter 4) |
+| TTS Arena (Hugging Face) | open and commercial text-to-speech models | listeners hear two models read the same text and vote for the more natural; the votes become an Elo rating, like chess | it rewards how natural a voice sounds, not whether a phone number was read the way your business says it (Chapter 6) |
+| Full-Duplex-Bench {cite}`lin2025fullduplexbench` | full-duplex speech models such as Moshi | scripted moments where the user pauses, backchannels or interrupts; how often the model takes the turn, and how fast it reacts | conversation only: no tasks and no tools (Chapter 10) |
+| τ-Voice {cite}`ray2026tauvoice` | voice agents on 278 customer-service tasks, over simulated phone audio (8 kHz μ-law, background noise, dropped frames) with interruptions | whether the final state of the database is right, the same standard as Chapter 8's "handled" | its tasks come from other businesses, its callers are synthetic, and the tools aren't yours |
+
+τ-Voice is the closest to this chapter, and it found the same gap from the other side. On the same tasks, the strongest text models complete about 85%; spoken over a phone line, the best voice agent completed 67%. Hearing and speaking cost some of what the model could do in text, which is Chapter 8's finding (12 of 16 calls handled with perfect transcripts, 11 through the phone line) at a much larger scale.
+
+So use the leaderboards the way Chapter 4 used one: to pick the three or four candidates worth running on your own bench, never to make the choice. Check the live pages rather than any ranking in a book, because they change every few weeks, and look past the headline number to the column that matches your problem: RTFx if you're short of GPUs, the phone-audio results if your callers are on the phone.
 
 ## Sixteen calls is a wide interval
 
@@ -250,10 +270,11 @@ Both point to the same practice: treat the bench as the floor, and keep evaluati
 
 Putting the chapter together, Halfwheel's receptionist is evaluated like this:
 
-1. **Per layer, on every change:** the benches from Chapters 2 to 9, each with its own number.
-2. **End to end, on every change:** Chapter 8's calls under all four conditions, greedy decoding, with per-call results compared against the last version, not just the total.
-3. **Judged by rules where possible,** with a model judge given the expected behaviour for the rest, checked against a labelled sample.
-4. **After launch:** every call logged, changes shadowed first, and a weekly sample of real calls labelled and added to the bench.
+1. **Shortlist from the public leaderboards** when a new model appears, then run only the shortlist on Halfwheel's benches.
+2. **Per layer, on every change:** the benches from Chapters 2 to 9, each with its own number.
+3. **End to end, on every change:** Chapter 8's calls under all four conditions, greedy decoding, with per-call results compared against the last version, not just the total.
+4. **Judged by rules where possible,** with a model judge given the expected behaviour for the rest, checked against a labelled sample.
+5. **After launch:** every call logged, changes shadowed first, and a weekly sample of real calls labelled and added to the bench.
 
 ## When it breaks
 

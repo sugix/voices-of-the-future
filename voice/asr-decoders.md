@@ -41,9 +41,15 @@ Code for this chapter runs on any laptop. The real-model section at the end need
 
 ## The problem: long audio, short text, no alignment
 
-A 10-second call gives the encoder 125 frames. The transcript is about 25 words, or roughly 30 tokens for a subword tokeniser. Nobody labels which frames belong to which character, and nobody wants to. Training data is just audio and its transcript.
+A 10-second call gives the encoder 125 frames, one every 80 ms. The transcript is about 25 words, or roughly 30 tokens for a subword tokeniser, the word pieces most models write in ("tune" and "-up" rather than "tune-up"). So the decoder has to turn 125 things into 30, and nobody tells it which frames go with which token. Three things make that harder than it sounds:
 
-So the decoder has to learn a mapping between a long sequence and a short one without being told where anything lines up. Each of the three decoders solves that differently.
+- **Speech doesn't keep time.** The same "one oh four two" takes a second from a quick caller and two from a careful one, so one token can last a single frame or ten.
+- **Many frames carry nothing new.** Pauses, breaths and the long middle of a vowel are frames where the next token hasn't started yet.
+- **Boundaries are blurred.** Sounds run into each other, so "next Tuesday" is closer to "nexTuesday". Two people marking where each word starts would disagree by tens of milliseconds.
+
+Marking alignments by hand would be slow and still not quite right, so nobody does it. Training data is just audio and its transcript. The decoder has to learn the mapping between a long sequence and a short one without being told where anything lines up, and each of the three decoders solves that differently. CTC lets any frame say "nothing new here". A transducer lets the decoder decide when to move on to the next frame. An LLM decoder looks at all the frames at once and writes the text like a language model.
+
+To try each one on the caller's ticket number, I start with a small character vocabulary. Real models use a few thousand subword tokens, but characters keep the pictures readable:
 
 ```{code-cell} ipython3
 import itertools
@@ -62,7 +68,7 @@ FRAME_S = 0.08  # 80 ms per encoder frame
 
 ## CTC: one guess per frame, then clean up
 
-Connectionist Temporal Classification {cite}`graves2006ctc` makes one prediction per encoder frame. Each prediction is either a character or a special **blank** that means "nothing new here". To get text, you apply one rule: **merge repeated symbols, then remove blanks.**
+Connectionist Temporal Classification {cite}`graves2006ctc` is the simplest answer to the alignment problem. On top of the encoder sits one small layer that, for every frame, gives a probability for each symbol in the vocabulary: here 38 characters plus one extra symbol, the **blank**, which means "nothing new here". The model never outputs a timing. It just says, frame by frame, what it thinks is being said at that moment. To get text from that, you apply one rule: **merge repeated symbols, then remove blanks.**
 
 ```{code-cell} ipython3
 def ctc_collapse(path):
@@ -80,6 +86,15 @@ for p in ["hh_i", "hhhiii", "bell", "bel_ll"]:
 ```
 
 The blank does two jobs. It lets the model say nothing while a sound is still going on, and it separates genuine double letters: without a blank between them, the two l's in "bell" merge into one.
+
+The rule also means that many different frame-by-frame paths spell the same text. Here is every way to spread "hi" over just four frames:
+
+```{code-cell} ipython3
+paths = ["".join(p) for p in itertools.product("_hi", repeat=4) if ctc_collapse(p) == "hi"]
+print(len(paths), "paths:", ", ".join(paths))
+```
+
+That is what makes training possible without alignments. The model is never told which of those paths is right. Training raises the total probability of *every* path that collapses to the transcript, and the model is free to settle on whatever timing suits it. With 125 frames there are far too many paths to list, so the subsection below shows how that total is computed without listing them.
 
 Here is a fake set of frame probabilities for our caller's ticket number, shaped like what a real CTC head produces: a sharp peak per frame, mostly on blank.
 
@@ -111,7 +126,7 @@ ax.set_title("CTC frame probabilities for 'hw 1042'")
 plt.tight_layout()
 ```
 
-Greedy decoding takes the most likely symbol at every frame. Because each frame is scored independently, a GPU computes all of them at once. That is why CTC is the fastest of the three decoders.
+Read the picture with frames left to right and symbols top to bottom; bright means likely. Most frames are bright on blank, with a single bright frame for each character, the spiky pattern real CTC models learn. **Greedy decoding** takes the most likely symbol at every frame, then collapses. Because each frame is scored independently, a GPU computes all of them at once. That is why CTC is the fastest of the three decoders.
 
 The catch is in that word *independently*. The CTC head never looks at what it already wrote. It cannot know that "hw" is usually followed by four digits at Halfwheel. That knowledge has to come from somewhere else, which is the next section.
 
