@@ -254,13 +254,15 @@ def to_phone(audio, sr, snr_db, rng):
     return (0.9 * out / np.max(np.abs(out))).astype(np.float32)
 
 
-mine = to_phone(clean, clean_sr, snr_db=25, rng=np.random.default_rng(0))
-for name, x in [("my to_phone", mine), ("the book's phone file", phone)]:
+mine = to_phone(clean, clean_sr, snr_db=25, rng=np.random.default_rng(0))  # the clean call, through it again
+for name, x in [("to_phone, run just now", mine), ("the saved phone file", phone)]:
     f2, p2 = signal.welch(x, PHONE_SR, nperseg=512)
     band = (f2 >= 300) & (f2 <= 3400)
     print(f"{name:22} {len(x):6} samples, {p2[band].sum() / p2.sum():.1%} of power inside 300-3,400 Hz")
 ```
-My rebuild and the book's file keep the same share of their power inside the phone band. The noise differs because the random seed does, which is the point of seeding: rerun the book's generator and you get the book's files exactly. The μ-law step happens when the file is written (`soundfile.write(..., subtype="ULAW")`), which is the step you just decoded by hand.
+That cell is a check that this function really is the one behind the book's files. It runs the clean recording of the first call through `to_phone` again and compares the result with the phone version saved in `data/calls/phone/`, the one this chapter has been reading. Both keep the same share of their power inside the phone band, so the filtering matches. The individual samples differ, because the background noise is random: I seeded this run with 0, while the book's generator, `sim/halfwheel_calls.py`, draws every call's noise from one generator seeded with 1042. That is what a seed is for. Run the generator again and you get the book's files exactly, sample for sample.
+
+One step of the phone line isn't in `to_phone`: μ-law. It happens when the file is written, with `soundfile.write(..., subtype="ULAW")`, and it is the encoding you decoded by hand earlier in this chapter.
 
 ## What a speech model actually sees
 
