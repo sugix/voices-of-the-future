@@ -40,6 +40,23 @@ Here is where I ended up:
 Every number here comes from saved model outputs, so the chapter runs on a CPU in seconds. The capture script, `sim/capture_ch7.py`, ran on one rented RTX 4090. The companion notebook, `chapters/07-directing-a-voice` in [github.com/sugix/voices-of-the-future](https://github.com/sugix/voices-of-the-future), reruns Kokoro, Kyutai TTS and Fish S1-mini on a free Colab T4. Fish S2-Pro needs about 24 GB of GPU memory.
 ```
 
+```{admonition} In this chapter
+:class: note
+
+- Pace: the one control every model offers, and how precisely it works.
+- Emotion: what style tags, voice choices and reference recordings actually change, measured in pitch and pace.
+- Names: respellings and phonemes for the words a model will never guess.
+- Cloning: what a reference recording passes on besides the voice.
+```
+
+```{admonition} Refresher from earlier chapters
+:class: dropdown
+
+- **Three designs** ({doc}`how-tts-works`): Kokoro predicts phonemes and durations, so it is fast and says a line the same way every time; Kyutai TTS and CSM generate codec tokens and sample, so each reading differs; Pocket TTS predicts continuous frames on a CPU.
+- **Cloning** ({doc}`how-tts-works`): the token models copy a voice from a few seconds of reference audio. That reference turns out to matter far more than any tag.
+- **Pitch, in words**: how high a voice sounds, in hertz. A semitone is one step on a piano, about a 6% change in pitch; a pitch range of 3 semitones sounds flat, 8 sounds lively.
+```
+
 ## The same voice for good news and bad
 
 Here are the two lines from the opening, read by Kokoro with Chapter 5's `bf_lily` voice, and what a few simple measurements make of them:

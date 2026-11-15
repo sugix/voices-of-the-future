@@ -32,6 +32,22 @@ Here is where I ended up:
 Every number here comes from saved model outputs, so the chapter runs on a CPU in seconds. The capture scripts (`sim/capture_ch5.py`, `sim/aec_ch5.py`) ran on one rented L4 GPU in under an hour; the companion notebook, `chapters/05-listening-live` in [github.com/sugix/voices-of-the-future](https://github.com/sugix/voices-of-the-future), reruns the models on a free Colab T4.
 ```
 
+```{admonition} In this chapter
+:class: note
+
+- Streaming recognition: how long a model waits before it commits to a word, and what that costs in accuracy.
+- End of turn: telling a caller who has finished from one who is just thinking.
+- Barge-in: noticing when the caller talks over the receptionist, without being fooled by its own echo or an "mm-hm".
+```
+
+```{admonition} Refresher from earlier chapters
+:class: dropdown
+
+- **Voice activity detection** ({doc}`audio-for-ml`): Silero VAD gives the probability that a short chunk of audio is speech. It heard 97% of speech and ignored almost all hold music.
+- **Halfwheel's recogniser** ({doc}`choosing-asr`): Parakeet-TDT with light boosting and snapping to the catalogue. It transcribes a finished call in about a tenth of a second on a GPU.
+- **Transducers** ({doc}`asr-decoders`): Parakeet-TDT reads its own output as it goes, which is what lets it run on audio that is still arriving.
+```
+
 ## How long to wait before writing a word
 
 A streaming recogniser has to commit to words before the sentence is over. The longer it waits, the more context it has and the fewer mistakes it makes, but the later the receptionist knows what was said. I measured that trade on the same bench as Chapter 4 (Halfwheel's 30 phone calls and 80 LibriSpeech recordings over the phone line), with three kinds of model:

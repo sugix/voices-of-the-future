@@ -13,9 +13,30 @@ description: What a phone call looks like to a speech model, built from scratch 
 
 # Audio for ML engineers
 
-A customer rings Halfwheel Cycles and says, "Hi, is my bike ready? The ticket number is HW-1042." That is five seconds of speech. By the time it reaches the receptionist, it is 40,000 numbers, each squeezed into a single byte, and a good part of what made the voice sound like a person in the room is gone.
+A customer rings Halfwheel Cycles and says, "Hi, is my bike ready? The ticket number is HW-1042." That is five seconds of speech. What reaches the receptionist isn't sound at all. It's a list of numbers: the phone network measures the caller's voice 8,000 times a second and stores each measurement in a single byte, so those five seconds arrive as 40,000 bytes. On the way, the network also throws away everything above about 3,400 hertz, the high pitches that carry the hiss of an "s" and the edge of an "f". That is much of what made the voice sound like a person in the room.
 
 Every chapter after this one hands audio like that to a model. In my experience most voice bugs are not model bugs. They are audio bugs: the wrong sample rate, a "resampler" that was really just slicing, a voice detector that answered the hold music. This chapter is the minimum audio you need to stop making them, built from scratch on that one call and then measured on all thirty of Halfwheel's test calls.
+
+```{admonition} In this chapter
+:class: note
+
+- What a recording really is: a list of numbers, and the short header that says how to read them.
+- What a phone line takes away, and the two tricks (resampling and μ-law) that decide whether the rest survives.
+- The picture a speech model actually reads, the log-mel spectrogram, built in one function.
+- Seven ways to hand audio to a model, and what each mistake costs in misheard words.
+- How to tell speech from hold music before you spend a model on it.
+```
+
+```{admonition} New to audio? Six words this chapter uses
+:class: dropdown
+
+- **Sample**: one measurement of the air pressure at the microphone, a single number. A recording is a long list of them.
+- **Sample rate**: how many samples a second. 8,000 on a phone line, 16,000 for most speech models, 24,000 or more for studio audio.
+- **Bit depth**: how many bits store each sample. 16 bits gives 65,536 possible levels; a phone line uses 8, so 256.
+- **Frequency**: how fast the pressure wobbles, in hertz (Hz), wobbles a second. Low voices sit around 100 to 200 Hz; the hiss of an "s" is above 4,000 Hz (4 kHz).
+- **Spectrum**: how much energy a short piece of sound has at each frequency. A Fourier transform computes it from the samples.
+- **Spectrogram**: spectra of many short pieces side by side, a picture with time across and frequency up. Speech models read a version of it, built later in this chapter.
+```
 
 Here is what I found:
 
@@ -243,7 +264,14 @@ My rebuild and the book's file keep the same share of their power inside the pho
 
 ## What a speech model actually sees
 
-Almost no speech recogniser reads samples directly. It reads a **log-mel spectrogram**: the audio cut into overlapping 25 ms windows every 10 ms, each window turned into a spectrum with a Fourier transform, the spectrum pooled into 80 bands spaced the way human hearing is (fine at low frequencies, coarse at high ones), and the result put on a log scale. That is all the feature extraction there is, and it fits in one function:
+So far everything has been samples: 16,000 numbers a second once the call is resampled for a model. Almost no speech recogniser reads those directly, because one sample on its own says nothing about what was said. What carries the words is which frequencies are loud at each moment: the low hum of a vowel, the high hiss of an "s". So the first thing every recogniser does is turn the samples into a picture of that, a **log-mel spectrogram**, in four steps:
+
+1. **Cut the audio into short, overlapping windows.** 25 ms each, starting every 10 ms, so a second of audio becomes 100 windows. 25 ms is short enough that a speech sound barely changes inside one window.
+2. **Measure each window's spectrum.** A Fourier transform says how much energy the window has at each frequency, from 0 Hz up to half the sample rate.
+3. **Pool the frequencies into 80 mel bands.** Hearing tells 200 Hz from 300 Hz easily, but 7,000 Hz from 7,100 Hz hardly at all, so the bands are narrow at low frequencies and wide at high ones. The **mel** scale is that spacing, measured on listeners.
+4. **Take the logarithm.** Loudness is heard in ratios, not differences, so a log scale makes a whisper and a shout comparable, the same reason sound is measured in decibels.
+
+The result is a grid: one column of 80 numbers for every 10 ms. That is all the feature extraction there is, and it fits in one function:
 
 ```{code-cell} ipython3
 def log_mel(x, sr=16000, n_fft=512, win=400, hop=160, n_mels=80):
@@ -277,7 +305,7 @@ for a, M, name in [(ax[0], M_clean, "clean"), (ax[1], M_phone, "phone")]:
 ax[0].set_ylabel("mel band")
 fig.tight_layout()
 ```
-That is 100 frames a second, each a column of 80 numbers. Parakeet and Whisper large-v3 use 128 bands, but the idea is identical. On the clean call, the top quarter of the picture is full of consonants. On the phone call, the 19 bands above 4 kHz are empty, because an 8 kHz signal cannot contain anything there however carefully it is upsampled, and the bands between 3.4 and 4 kHz are dimmed. A model trained on full-band speech sees a quarter of its input go dark on every phone call. It copes, mostly, but this is the gap that phone-specific training data, and Chapter 4's tricks, are there to close.
+Read each picture left to right in time, with low frequencies at the bottom and bright meaning loud. That is 100 frames a second, each a column of 80 numbers. Parakeet and Whisper large-v3 use 128 bands, but the idea is identical. On the clean call, the top quarter of the picture is full of consonants. On the phone call, the 19 bands above 4 kHz are empty, because an 8 kHz signal cannot contain anything there however carefully it is upsampled, and the bands between 3.4 and 4 kHz are dimmed. A model trained on full-band speech sees a quarter of its input go dark on every phone call. It copes, mostly, but this is the gap that phone-specific training data, and Chapter 4's tricks, are there to close.
 
 These frames are the starting point for Chapter 3. Parakeet's encoder compresses every eight of them into one 80 ms frame for its decoder to read. Some newer models, such as Kyutai's and the Moshi family in Chapter 10, skip the spectrogram and learn their own audio codec from raw samples, but they still care just as much about sample rate.
 

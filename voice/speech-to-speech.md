@@ -33,6 +33,24 @@ Here is where I ended up:
 Every number here comes from saved outputs, so the chapter runs on a CPU in seconds. The capture script, `sim/capture_ch10.py`, ran Moshi (7B) and CSM on one rented L4 GPU in about 30 minutes. The companion notebook reruns CSM on a free Colab T4. Moshi didn't fit a 16 GB GPU with Kyutai's PyTorch package, in float16 or with its 8-bit build, so it needs a 24 GB GPU such as an L4; on a Mac, Kyutai's MLX build is the alternative.
 ```
 
+```{admonition} In this chapter
+:class: note
+
+- Three steps from a chain of models towards one: Spirit LM, Moshi and CSM.
+- Moshi answering Halfwheel's calls in full duplex: what it does well, and what it can't do.
+- CSM: how hearing the conversation changes a voice.
+- Kadence, and the strict and split meanings of speech-to-speech.
+```
+
+```{admonition} Refresher from earlier chapters
+:class: dropdown
+
+- **The chain's wait** ({doc}`building-the-receptionist`): about 2.4 s from the caller's last word to the receptionist's first, half of it the 1.2 s silence rule.
+- **Why the rule is there** ({doc}`listening-live`): a shorter silence rule cut off callers who were only pausing to think; a 0.5 s rule cut off 14 of 16.
+- **Mimi** ({doc}`how-tts-works`): Kyutai's codec turns 24 kHz audio into 12.5 frames a second of tokens. Moshi listens and speaks in those frames.
+- **CSM** ({doc}`how-tts-works`): one of Chapter 6's four voices, the one that sometimes ran on past the end of its text.
+```
+
 ## Three steps towards one model
 
 **Spirit LM** (Meta, 2024) {cite}`nguyen2024spiritlm` showed that a text language model can learn speech. It starts from a 7B text model and keeps training it on sequences that switch between text tokens and speech tokens (HuBERT units, plus pitch and style tokens in its Expressive version), sometimes mid-sentence. The result can continue a sentence in either form, and carries some of the meaning across. But it takes turns: it hears a whole input, then produces a whole output. And it was released for non-commercial research only, so it isn't run here.

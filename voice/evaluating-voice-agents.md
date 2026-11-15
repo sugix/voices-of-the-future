@@ -32,6 +32,23 @@ Here is where I ended up:
 The new runs come from `sim/capture_ch11.py`, which ran Kokoro, Parakeet and two Qwen3 models on one rented L4 in about an hour. On a free Colab T4 the receptionist reruns, but the judge, Qwen3-8B, needs a larger GPU. Everything else is saved data from earlier chapters, so this chapter runs on a CPU in seconds.
 ```
 
+```{admonition} In this chapter
+:class: note
+
+- How much luck is in a score from sixteen calls.
+- The same calls with new voices, a noisier line and repeated runs.
+- Who decides "handled": my rules against a language model judge.
+- What the lab can't tell you, from two systems that met real callers.
+```
+
+```{admonition} Refresher from earlier chapters
+:class: dropdown
+
+- **The bench** ({doc}`building-the-receptionist`): sixteen simulated callers who talk back. A call is handled only if every needed tool ran with the right details, nothing wrong was saved, the caller heard what they needed, and nothing was made up. The final receptionist handled 11.
+- **Word error rate and entities** ({doc}`choosing-asr`): the share of words wrong, and the share of tickets, names and bikes heard right. The second is the one the business feels.
+- **Greedy decoding** ({doc}`building-the-receptionist`): Chapter 8's model always picked its most likely next word, so a rerun gave the same answer. Here sampling is switched on to see how much the result moves.
+```
+
 ## What to measure
 
 Every chapter in this book built a bench for one layer of the receptionist. Put together, they're an evaluation plan:

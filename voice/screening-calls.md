@@ -32,6 +32,23 @@ Here is where I ended up:
 The robocalls are real: 150 English recordings from the NCSU Robocall Audio Dataset {cite}`prasad2023robocall`, collected by the US Federal Trade Commission and released into the public domain. The capture script, `sim/capture_ch9.py`, downloads them, puts them through Chapter 2's phone line and Chapter 4's recogniser, and asks Qwen3-4B the questions on one rented L4. The chapter runs from the saved answers in seconds; the companion notebook reruns the questions on a free Colab T4.
 ```
 
+```{admonition} In this chapter
+:class: note
+
+- Who actually rings a small shop, including genuine callers who sound like scams.
+- Three ways to screen a call on its first words: a word list, a single question to a model, and nine specific questions.
+- Remembering scam scripts that come back, and rules for what never to block.
+- Call Gate: a screen that has met real callers on a real line.
+```
+
+```{admonition} Refresher from earlier chapters
+:class: dropdown
+
+- **The receptionist** ({doc}`building-the-receptionist`): Qwen3-4B with four tools, which does whatever a caller asks if a tool allows it. That helpfulness is why screening matters.
+- **Rules in code** ({doc}`building-the-receptionist`): Chapter 8 found that rules held only when code enforced them. The screen's "never block" rules follow the same lesson.
+- **Hearing** ({doc}`choosing-asr`): every call, robocall or not, goes through the phone line and Parakeet, so the screen judges a transcript with the same mistakes the receptionist hears.
+```
+
 ## Who rings a bike shop
 
 The bench has two sides. On one side, {glue}`n_robo` real robocalls, plus the 5 synthetic spam calls from Chapter 3. On the other, Halfwheel's genuine callers from Chapters 3, 4 and 8, and twelve *lookalikes*: genuine calls that share words with scams. A supplier chases an overdue invoice. The bank's fraud team asks the shop to call back. An angry customer wants a refund today. An insurer asks for a frame number.
@@ -86,7 +103,7 @@ The receptionist already has a language model, so the obvious next step is to as
 print(judged["system"], "\n\nQuestion:", judged["verdict"])
 ```
 
-Instead of letting it write an answer, I read its probability of starting with "Yes" against "No", straight from the model's output. That gives a score between 0 and 1 from a single forward pass, with no generated text to parse.
+Instead of letting it write an answer, I read its probability of starting with "Yes" against "No", straight from the model's output. That gives a score between 0 and 1 from a single forward pass, with no generated text to parse. To compare scores without first choosing a threshold, I use the **AUC** (area under the ROC curve): the chance that a randomly chosen robocall scores higher than a randomly chosen genuine call. 1.0 means the score separates them perfectly; 0.5 is a coin flip.
 
 ```{code-cell} ipython3
 def auc(score, positive):

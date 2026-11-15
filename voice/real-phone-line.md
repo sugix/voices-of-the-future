@@ -31,6 +31,24 @@ Here is where I ended up:
 The load tests come from `sim/capture_ch12.py`. They replay the real model requests from Chapter 8 against Qwen3-4B on vLLM, and time Parakeet, Kokoro and Pocket TTS under load, on one rented RTX 4000 Ada GPU (20 GB). Parakeet, Kokoro, Pocket TTS and Qwen3-4B also ran on a 16 GB GPU in float16; I haven't run vLLM on a T4, an older generation that recent vLLM releases may not support. I haven't connected the receptionist to a live phone number in this chapter, because that needs your own telephony account; the protocol code below is the part that changes.
 ```
 
+```{admonition} In this chapter
+:class: note
+
+- How a phone call reaches your code: a WebSocket carrying 20 ms packets of audio both ways.
+- The receptionist rebuilt as a stream, with barge-in.
+- How many calls one GPU can carry, from replayed requests.
+- What it costs, and what to check before switching it on.
+```
+
+```{admonition} Refresher from earlier chapters
+:class: dropdown
+
+- **The phone's audio** ({doc}`audio-for-ml`): 8,000 μ-law samples a second, 64 kbit/s, the format telephony providers still send.
+- **Barge-in** ({doc}`listening-live`): pause on any voice within 0.06 s; stop if it keeps going past about 0.9 s, otherwise resume.
+- **Streaming the reply** ({doc}`building-the-receptionist`): speak the first sentence as soon as the model writes it, which brought the median wait to 2.4 s.
+- **Serving engine, in words**: a server such as vLLM keeps one model on the GPU and works on many callers' requests in the same batch, instead of one after another.
+```
+
 ## How a phone call reaches your code
 
 There are three common ways in:

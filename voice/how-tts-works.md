@@ -32,6 +32,23 @@ Here is where I ended up:
 Every number here comes from saved model outputs, so the chapter runs on a CPU in seconds. The capture script, `sim/capture_ch6.py`, ran all four models on one rented L4 GPU in about 35 minutes; the companion notebook, `chapters/06-how-tts-works` in [github.com/sugix/voices-of-the-future](https://github.com/sugix/voices-of-the-future), reruns them on a free Colab T4, and Kokoro and Pocket TTS run on a laptop CPU.
 ```
 
+```{admonition} In this chapter
+:class: note
+
+- Four open text-to-speech models reading the receptionist's real lines, checked fact by fact.
+- The three designs inside them, and what each predicts between the text and the waveform.
+- Why text has to be rewritten for the ear before any model sees it, and a function that does it.
+- How soon each model starts talking, whether it says the same thing twice, and whether it survives the phone line.
+```
+
+```{admonition} Refresher from earlier chapters
+:class: dropdown
+
+- **Spectrograms** ({doc}`audio-for-ml`): a picture of sound, time across and frequency up. Older TTS systems predicted one and then turned it into audio.
+- **The round trip** ({doc}`choosing-asr`): Chapter 4's recogniser and its entity scoring check what a listener would hear. Here they check the voice instead of the caller.
+- **Normalisation** ({doc}`choosing-asr`): Chapter 4 rewrote transcripts into one form before scoring. Speaking needs the reverse: rewrite written text into the words to say.
+```
+
 ## One line, four voices
 
 The four models cover the three designs you will meet in open TTS today:

@@ -34,6 +34,24 @@ In Chapter 3, every model failed on the same bike model and the same surname. Th
 The scoring code runs anywhere. The model runs need a GPU, and the companion notebook does them on a free Colab T4: [github.com/sugix/voices-of-the-future](https://github.com/sugix/voices-of-the-future), `chapters/04-choosing-asr`.
 ```
 
+```{admonition} In this chapter
+:class: note
+
+- Word error rate built from scratch, so you know exactly what the number counts.
+- Why the same transcript can score 0% or 40% depending on formatting, and how to normalise before scoring.
+- Scoring the words the business needs (tickets, names, bikes, phone numbers) instead of every word.
+- Six models on a bench of Halfwheel calls and real recordings, through the phone line.
+- Two cheap fixes, hints and snapping to the shop's records, and the mistake each one can introduce.
+```
+
+```{admonition} Refresher from earlier chapters
+:class: dropdown
+
+- **Decoders** ({doc}`asr-decoders`): CTC makes one guess per 80 ms frame and then cleans up; a transducer (RNN-T, TDT) also reads the text it has already written; an LLM decoder is a language model that listens, fluent but slower and prone to inventing text over silence.
+- **Snapping** ({doc}`asr-decoders`): Chapter 3 fixed "HW-1042" by matching what was heard against the shop's list of open tickets. This chapter does the same for every kind of entity.
+- **The phone line** ({doc}`audio-for-ml`): `to_phone()` turns any clean recording into what the shop's phone delivers: 8 kHz, band-limited, μ-law, with background noise.
+```
+
 ## Word error rate, from scratch
 
 Word error rate (WER) counts the fewest word **substitutions**, **deletions** and **insertions** that turn the model's transcript into the reference, divided by the number of reference words. It is an edit distance over words, and it fits in a dozen lines:

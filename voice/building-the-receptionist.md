@@ -32,6 +32,25 @@ Here is where I ended up:
 Every number here comes from saved logs, so the chapter runs on a CPU in seconds. The capture script, `sim/capture_ch8.py`, ran the callers, the recogniser and the language models on one rented L4 GPU. The receptionist itself is `sim/receptionist.py` and the bench is `sim/bench_calls.py`; this chapter shows their key parts. The companion notebook reruns everything on a free Colab T4 except the 8B model, which doesn't fit a T4's 16 GB in float16 and needs a larger GPU.
 ```
 
+```{admonition} In this chapter
+:class: note
+
+- Every earlier chapter joined into one receptionist, with a small language model and four tools.
+- Sixteen simulated callers who talk back, and what counts as a call handled.
+- How big the model needs to be, and what mishearing costs.
+- Why a rule in a prompt is a request and a rule in code is a rule.
+- Where the caller's wait goes, stage by stage.
+```
+
+```{admonition} Refresher from earlier chapters
+:class: dropdown
+
+- **Listening** ({doc}`listening-live`): Silero VAD and a 1.2 s silence rule decide when the caller has finished.
+- **Hearing** ({doc}`choosing-asr`): Parakeet-TDT, boosted with the shop's words, with names and bikes snapped to the catalogue.
+- **Speaking** ({doc}`how-tts-works` and {doc}`directing-a-voice`): `speakable()` rewrites tickets, prices and dates into words; Pocket TTS starts talking in about 0.2 s on a CPU; read-backs go a little slower.
+- **Tools, in words**: instead of answering in prose, the model can write a structured request, a function name and its arguments, which ordinary code runs. The result goes back to the model, and only then does it reply.
+```
+
 ## The receptionist in one loop
 
 Each caller turn goes through the same steps, and each step is something an earlier chapter built:

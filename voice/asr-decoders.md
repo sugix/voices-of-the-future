@@ -31,6 +31,14 @@ All three share the same first half: an **encoder** that turns audio into a sequ
 Code for this chapter runs on any laptop. The real-model section at the end needs a GPU; the companion notebook runs it on a free Colab T4: [github.com/sugix/voices-of-the-future](https://github.com/sugix/voices-of-the-future).
 ```
 
+```{admonition} Refresher from earlier chapters
+:class: dropdown
+
+- **What arrives** ({doc}`audio-for-ml`): the call comes in at 8,000 samples a second and is resampled to 16,000 for the model.
+- **What the model reads** ({doc}`audio-for-ml`): a log-mel spectrogram, one column of 80 or 128 numbers every 10 ms, saying how loud each band of frequencies is at that moment.
+- **The phone line** ({doc}`audio-for-ml`): nothing above 4 kHz survives, so the high hiss that tells "s" from "f" is mostly gone before any model sees the call.
+```
+
 ## The problem: long audio, short text, no alignment
 
 A 10-second call gives the encoder 125 frames. The transcript is about 25 words, or roughly 30 tokens for a subword tokeniser. Nobody labels which frames belong to which character, and nobody wants to. Training data is just audio and its transcript.
