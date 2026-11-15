@@ -26,6 +26,7 @@ Here is where I ended up:
 | It respects pauses | it started speaking in a caller's mid-sentence pause in {glue}`m_pause` of {glue}`m_hes` runs; Chapter 5's 0.5 s silence rule cut off 14 of 16 callers |
 | It can't do the job | with no instructions and no tools, it turned a repair ticket into an airline ticket and a tune-up into "the tuner" |
 | Conversation context changes the voice | after an angry caller, CSM read the same replies {glue:text}`csm_db:.0f` dB louder, faster, and with a narrower pitch range than after a calm one |
+| "Speech-to-speech" often means a split | a speech model that acknowledges as soon as the turn ends would make the first sound {glue:text}`ack_s:.1f` s, but the answer would still take {glue:text}`ans_s:.1f` s |
 | For actions, a chain of models still wins | in Kadence, my stand-up meeting agent, a text pipeline called the right tool on 10 of 10 tests where an audio-in model managed 7 |
 
 ```{note}
@@ -174,11 +175,76 @@ Two more Kadence lessons carry straight over to Halfwheel:
 - **Never let the model say it acted.** Every Kadence turn had to be a tool call, including "speak" and "stay silent", and spoken confirmations came from the tool's return value, not the model's words. That's the fix for Chapter 8's receptionist that said "booked" with nothing saved.
 - **Real rooms are not test benches.** Kadence's evaluation of 155 generated scenarios reached 91.6% overall after prompt hardening, with tool calls at 82% against my 90% target. In real meetings, background chatter in a café triggered unintended comments on a real ticket, and noise turned "COG-13" into "COG 31". Chapter 11 is about measuring that gap.
 
+## Speech model talks, text model thinks
+
+"Speech-to-speech" gets used for two different designs, and the difference matters when you choose one. In the strict sense it means what Moshi is: one network, audio tokens in and audio tokens out, with no recogniser in front and no voice behind. Moshi does write text, its inner monologue, but the same network writes it in step with its audio, and nothing is handed to another model.
+
+The other design is a split. A speech model sits on the call: it listens, decides when the caller has finished, says "mm-hm", stops when it's interrupted and speaks in its own voice. When the caller wants something done, it hands the request to a separate language model, which reasons, calls the tools and sends back the answer to speak. The turn-taking never leaves the audio, so it can be as natural as Moshi's. The content does leave it: the language model works on text, so somewhere inside the speech model there is still a recogniser and a voice, just not as separate boxes. That is how a system can be called speech-to-speech and still let you swap in any language model as its brain. It is also the obvious way to combine this chapter's turn-taking with Kadence's lesson that actions want text in the middle.
+
+| Design | What crosses between the parts | What the thinking model hears | Who decides when to speak |
+|---|---|---|---|
+| Chain (Chapter 8) | text: a transcript in, a reply out | the words | a silence rule (Chapter 5) |
+| One speech model (Moshi) | nothing: it's one network | everything, tone included | the model |
+| Split: a speech model talks, a text model thinks | text or structured requests | the words, unless the speech side passes on how they were said | the speech model |
+
+The split also changes what "fast" means. A speech model can say "Sure, let me check that" the moment the caller stops, while the language model is still working, so the time to the first sound and the time to the first useful words come apart. Chapter 8's logs show by how much:
+
+```{code-cell} ipython3
+import re
+
+talk8 = json.load(open("data/ch8/talk_4b-snap-guarded.json"))["calls"]
+hear8, speak8 = json.load(open("data/ch8/hear.json")), json.load(open("data/ch8/speak.json"))
+turn_ends, answer, tools = [], [], []
+for call in talk8.values():
+    for t in call:
+        if not t["steps"]:
+            continue  # nothing was heard, so nothing was said
+        steps, h = t["steps"], hear8[t["clip"]]
+        first = re.split(r"(?<=[.!?])\s", t["reply"].strip())[0]
+        turn_ends.append(h["endpoint_wait"])  # when the receptionist decided the caller had finished
+        answer.append(h["endpoint_wait"] + h["asr_s"] + sum(s["timing"]["total"] for s in steps[:-1])
+                      + (steps[-1]["timing"]["first_sentence"] or steps[-1]["timing"]["total"])
+                      + speak8[first]["pocket_cpu"])  # Chapter 8's wait to the first words of the answer
+        tools.append(len(steps) > 1)
+turn_ends, answer, tools = np.array(turn_ends), np.array(answer), np.array(tools)
+
+print(f"{len(answer)} turns from Chapter 8, {tools.sum()} with tool calls (medians, seconds after the caller stops)\n")
+print(f"{'':52s}first sound  first answer")
+print(f"{'chain: speak the first sentence when it is ready':52s}{np.median(answer):8.2f} s {np.median(answer):10.2f} s")
+print(f"{'chain + a recorded acknowledgement when the turn ends':52s}{np.median(turn_ends):8.2f} s {np.median(answer):10.2f} s")
+print(f"{'   the same, turns with tool calls only':52s}{np.median(turn_ends[tools]):8.2f} s {np.median(answer[tools]):10.2f} s")
+print(f"{'Moshi, deciding for itself (openers)':52s}{np.median(waits):8.2f} s {'no answer':>12s}")
+```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+glue("ack_s", float(np.median(turn_ends)), display=False)
+glue("ans_s", float(np.median(answer)), display=False)
+glue("ans_tools_s", float(np.median(answer[tools])), display=False)
+glue("moshi_wait", float(np.median(waits)), display=False)
+```
+
+An acknowledgement played the moment the turn ends would halve the silence: the caller hears something after {glue:text}`ack_s:.1f` s instead of {glue:text}`ans_s:.1f` s. The answer arrives no sooner, and on turns with tool calls it still takes {glue:text}`ans_tools_s:.1f` s. Moshi, choosing for itself, took a median {glue:text}`moshi_wait:.1f` s on these phone calls, so a full-duplex model isn't automatically quicker than a chain with a quick acknowledgement. The acknowledgement here still waits for Chapter 5's 1.2 s silence rule; a speech model with a better ear for the end of a turn is what would bring the first sound closer to a person's 200 ms. So when anyone quotes a time to first audio, ask: first audio of what? An "mm-hm" and an answer are different measurements.
+
+The split has a cost of its own: what crosses to the thinking model is words. Earlier in this chapter, CSM spoke {glue:text}`csm_db:.0f` dB louder after an angry caller, because it heard the caller. In a split, the speech side can keep that, but the language model deciding what to say only knows the caller is upset if something tells it. Passing it on, as a field next to the transcript, is a design decision, not something the architecture does for you.
+
+### Is it really speech-to-speech?
+
+You can't see inside a voice agent you call, but you can tell the three designs apart from outside, with this book's methods:
+
+1. **Same words, different tone.** Say one line calmly, then angrily. A chain hears the same transcript both times, so its reply and its delivery barely change. A speech model, like CSM after the angry caller, changes how it speaks.
+2. **Sounds without words.** Laugh, sigh, or hesitate with "hmm". A recogniser drops them or turns them into stray words, so a chain ignores them.
+3. **Errors that look like transcription.** Give an unusual name and a reference number. If the agent's mistakes are Chapter 4's kind, "Epha Bion" for Aoife Byrne, text is in the middle.
+4. **A latency floor.** Time twenty turns the way Chapter 8 does. A chain's first sound never comes sooner than its silence rule plus recognition plus the first sentence plus the first audio. A model that decides for itself can answer inside a pause, or late, as Moshi did.
+5. **Overlap.** Talk while it's talking, and say "mm-hm" partway through its reply. Chapter 5's barge-in tests tell you whether it pauses, stops or carries on, and whether it backchannels while you speak.
+
+Most systems that pass the first two and fail the third are splits: the conversation is speech-to-speech, and the answer goes through text.
+
 ## Where this leaves Halfwheel
 
 Halfwheel's receptionist stays a chain of models, because its job is actions, and actions need text in the middle. But the chain can borrow from this chapter:
 
-1. **Turn-taking from the audio, not just silence.** Moshi's respect for mid-sentence pauses is the behaviour Chapter 5 couldn't get from a silence timer. A small turn-taking model that listens the way Moshi does, while the chain does the work, is where open systems are heading.
+1. **Turn-taking from the audio, not just silence.** Moshi's respect for mid-sentence pauses is the behaviour Chapter 5 couldn't get from a silence timer. A small turn-taking model that listens the way Moshi does, while the chain does the work, is the split from the section above, and where open systems are heading.
 2. **Context for the voice.** Feed the speaking step the caller's last turn, as CSM does, so the reply sounds like it heard them.
 3. **Watch the speech-to-speech models.** When open full-duplex models can follow instructions and call tools reliably, the 2.4 seconds of Chapter 8 can shrink towards a person's 200 ms. Measure them on your own bench when they arrive, with the methods of the next chapter.
 
@@ -191,6 +257,7 @@ Halfwheel's receptionist stays a chain of models, because its job is actions, an
 | It goes quiet for seconds, then fills the silence | The model chooses when to speak; phone audio isn't what it learned from | Measure response timing on your own audio before trusting a paper's latency |
 | IDs come out wrong from an audio-in model | No transcript to normalise or snap | Keep text in the middle where exact values matter |
 | The voice sounds the same whatever the caller's mood | The speaking step never hears the caller | Give it the conversation as context (CSM) or cast references by mood (Chapter 7) |
+| The agent answers at once but takes ages to say anything useful | An acknowledgement covers a slow thinking model | Measure the time to the first useful words, not just the first sound |
 
 ```{tip}
 **Takeaways**
@@ -199,6 +266,7 @@ Halfwheel's receptionist stays a chain of models, because its job is actions, an
 - A general conversational model without instructions or tools can't run a business's phone. Its fluency makes its mistakes sound convincing.
 - Conversation context changes delivery: the same words, after an angry caller, came out louder and faster.
 - When the job is actions, keep text in the middle, where it can be checked. That's what Kadence found, too.
+- Strict speech-to-speech is one network, audio in and audio out. Many systems sold as speech-to-speech are splits: the speech model talks, a text model thinks. Time the first sound and the first answer separately.
 ```
 
 ## Try it yourself
@@ -208,6 +276,7 @@ The companion notebook, `chapters/10-speech-to-speech`, has the saved outputs, e
 1. **Wideband callers.** Rerun Moshi on Chapter 8's callers before the phone line (regenerate them with `sim/capture_ch8.py --part voice` without `to_phone`). Does it reply sooner?
 2. **Count the backchannels.** Find Moshi's "mm-hm", "yeah" and "right" while the caller is still talking. How often does it backchannel, and when?
 3. **A calmer reply.** Give CSM a calm receptionist turn *after* the angry caller, then the reply. Does the earlier turn pull the delivery back?
+4. **Test one yourself.** Call a voice agent you can reach and run the five tests above. Record the call, time the first sound and the first answer of each turn, and decide which design it is.
 
 ## Next
 
