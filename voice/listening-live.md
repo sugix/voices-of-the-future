@@ -45,7 +45,7 @@ Every number here comes from saved model outputs, so the chapter runs on a CPU i
 
 - **Voice activity detection** ({doc}`audio-for-ml`): Silero VAD gives the probability that a short chunk of audio is speech. It heard 97% of speech and ignored almost all hold music.
 - **Halfwheel's recogniser** ({doc}`choosing-asr`): Parakeet-TDT with light boosting and snapping to the catalogue. It transcribes a finished call in about a tenth of a second on a GPU.
-- **Transducers** ({doc}`asr-decoders`): Parakeet-TDT reads its own output as it goes, which is what lets it run on audio that is still arriving.
+- **Streaming** ({doc}`asr-decoders`): CTC and transducer decoders can run while audio is still arriving, if the encoder works in chunks. The price is look-ahead: the last word of a chunk waits for the chunk to fill and for some future audio before it's written.
 ```
 
 ## How long to wait before writing a word

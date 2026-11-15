@@ -31,6 +31,16 @@ All three share the same first half: an **encoder** that turns audio into a sequ
 Code for this chapter runs on any laptop. The real-model section at the end needs a GPU; the companion notebook runs it on a free Colab T4: [github.com/sugix/voices-of-the-future](https://github.com/sugix/voices-of-the-future).
 ```
 
+```{admonition} In this chapter
+:class: note
+
+- The problem every recogniser has to solve: long audio, short text, and nothing saying where they line up.
+- CTC, built from scratch: one guess per frame, a rule to clean up, and how it learns without alignments.
+- Checking a misheard ticket against the shop's open tickets, instead of trusting the transcript.
+- Transducers and LLM decoders: what each adds by reading its own output, and what streaming costs.
+- Word timings, free from CTC, and Halfwheel's calls through three real models.
+```
+
 ```{admonition} Refresher from earlier chapters
 :class: dropdown
 

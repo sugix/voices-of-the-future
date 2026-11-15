@@ -9,6 +9,29 @@ Halfwheel Cycles is a small bike repair shop, and its phone rings while everyone
 
 This book builds the voice receptionist that answers that phone, one layer at a time, and measures every layer on calls that sound like Halfwheel's. This first chapter is the map: what the layers are, what I chose at each one, what it measured, and where in the book to find it. Read it first for the shape of the whole, or come back to it when you want to know what something costs before you build it.
 
+```{admonition} In this chapter
+:class: note
+
+- The whole receptionist on one page: every layer, the model I chose for it, and the number I measured.
+- Three ways to build a voice agent, and why Halfwheel's is a chain of models.
+- One call, timed from the caller's last word to the receptionist's first.
+- What it costs, what runs where, and which chapters to read for what you're building.
+```
+
+```{admonition} New to voice agents? Words this book uses
+:class: dropdown
+
+- **Speech recognition** (ASR, or speech-to-text): a model that turns audio into text. {doc}`asr-decoders` shows how it decides what it heard.
+- **Word error rate** (WER): the share of words a recogniser got wrong, counting words swapped, missed or added. 5% means one word in twenty.
+- **Entities**: the words a business acts on, here ticket numbers, customer names, bike models and phone numbers. Getting these right matters more than the WER.
+- **Voice activity detection** (VAD): a small model that says whether a short piece of audio contains speech.
+- **End of turn**: the moment the receptionist decides the caller has finished speaking. Too early cuts them off; too late leaves them waiting.
+- **Barge-in**: the caller talking over the receptionist, which should make it stop and listen.
+- **Text-to-speech** (TTS): a model that turns the reply's text into a voice.
+- **Language model with tools**: the model that decides what to say, and that can ask ordinary code to look up a ticket or save a booking.
+- **μ-law**: the way phone networks squeeze each audio sample into one byte. {doc}`audio-for-ml` builds it from scratch.
+```
+
 ## The stack on one page
 
 A phone call passes through the same layers in every voice agent, whatever the vendor or model:

@@ -48,7 +48,7 @@ The scoring code runs anywhere. The model runs need a GPU, and the companion not
 :class: dropdown
 
 - **Decoders** ({doc}`asr-decoders`): CTC makes one guess per 80 ms frame and then cleans up; a transducer (RNN-T, TDT) also reads the text it has already written; an LLM decoder is a language model that listens, fluent but slower and prone to inventing text over silence.
-- **Snapping** ({doc}`asr-decoders`): Chapter 3 fixed "HW-1042" by matching what was heard against the shop's list of open tickets. This chapter does the same for every kind of entity.
+- **Checking against the shop's records** ({doc}`asr-decoders`): Chapter 3 fixed a misheard "HW-1042" by scoring each of the shop's open tickets against the audio and keeping the best, instead of trusting the transcript. This chapter applies the same idea to names, bikes and phone numbers, by matching the transcript's text against the shop's lists.
 - **The phone line** ({doc}`audio-for-ml`): `to_phone()` turns any clean recording into what the shop's phone delivers: 8 kHz, band-limited, μ-law, with background noise.
 ```
 
