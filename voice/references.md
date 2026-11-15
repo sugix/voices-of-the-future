@@ -1,5 +1,6 @@
 ---
 feed: false
+description: Every paper, model card and dataset cited in Voices of the Future, in one place.
 ---
 
 # References

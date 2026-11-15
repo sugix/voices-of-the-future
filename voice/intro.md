@@ -1,3 +1,7 @@
+---
+description: A hands-on book about building voice agents with open models. One bike-shop receptionist, built and measured layer by layer, from phone audio and speech recognition to voices, tools, robocall screening and evaluation, with every number from code you can run.
+---
+
 # Voices of the Future
 
 *Building with modern voice AI models.*
